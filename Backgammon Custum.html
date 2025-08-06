@@ -3703,7 +3703,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
       }
 
-      // Function to convert image URL to base64
+      // Function to convert image URL to base64 (only if already base64)
       function imageUrlToBase64(url) {
         return new Promise((resolve, reject) => {
           if (url && url.startsWith('data:image')) {
@@ -3711,26 +3711,9 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
           }
           
-          // Try to convert relative path to base64
-          const img = new Image();
-          img.crossOrigin = 'anonymous';
-          img.onload = function() {
-            try {
-              const canvas = document.createElement('canvas');
-              canvas.width = img.width;
-              canvas.height = img.height;
-              const ctx = canvas.getContext('2d');
-              ctx.drawImage(img, 0, 0);
-              const base64 = canvas.toDataURL('image/jpeg', 0.8);
-                        resolve(base64);
-        } catch (error) {
+          // For relative paths, we can't convert to base64 in browser
+          
           resolve(null);
-        }
-      };
-      img.onerror = function() {
-        resolve(null);
-      };
-          img.src = url;
         });
       }
 
