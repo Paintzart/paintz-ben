@@ -1,0 +1,1428 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Policy - Paintz</title>
+  <link href="https://fonts.googleapis.com/css2?family=Amatica+SC:wght@700&family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700;900&display=swap" rel="stylesheet">
+  <!-- <link href="./css/main.css" rel="stylesheet"> -->
+  <style>
+    /* השארת רק scrollbar שעובד */
+    html {
+      overflow: hidden !important;
+      height: 100% !important;
+      width: 100% !important;
+      max-width: 100vw !important;
+    }
+    
+    body {
+      background: #F9F1DC;
+      overflow-x: hidden !important;
+      overflow-y: auto !important;
+      height: 100% !important;
+      width: 100% !important;
+      max-width: 100vw !important;
+      margin: 0;
+      padding: 0;
+    }
+    
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    .body-center {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+    }
+    
+    @media (max-width: 1024px) and (min-width: 768px) {
+      /* iPad specific */
+      .body-center {
+        min-height: 90vh;
+        justify-content: space-between;
+      }
+      
+      .policy-bg-box {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 40px 0;
+      }
+      
+      .policy-box {
+        margin: 40px 20px;
+      }
+    }
+    
+    @media (max-width: 767px) and (min-width: 400px) {
+      /* Mobile desktop view 400-700px */
+      .body-center {
+        min-height: auto;
+        justify-content: flex-start;
+      }
+      
+      main {
+        margin-bottom: 0;
+      }
+      
+      footer {
+        margin-top: 0;
+      }
+      
+      .policy-bg-box {
+        padding: 0;
+        margin-bottom: 0;
+      }
+    }
+    
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      width: 100%;
+      padding: 0;
+    }
+  
+    header {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 8px 10px;
+      position: relative;
+      width: 100%;
+      max-width: 100vw;
+      height: 90px;
+      background: transparent;
+      isolation: isolate;
+      box-sizing: border-box;
+    }
+    .logo {
+      width: 180px;
+      height: 80px;
+      background: url('logo.jpg') no-repeat center/cover;
+      transform: rotate(0.67deg);
+      z-index: 0;
+    }
+    .cart {
+      position: absolute;
+      width: 32px;
+      height: 32px;
+      right: 10px;
+      top: 10px;
+      z-index: 1;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .cart-icon {
+      width: 32px;
+      height: 32px;
+      background: url('shop.svg') no-repeat center center;
+      background-size: contain;
+      background-color: transparent;
+      position: relative;
+    }
+    nav {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      padding: 0 5vw;
+      gap: 30px;
+      width: 100%;
+      max-width: 100vw;
+      height: 44px;
+      background: #BA8663;
+      box-sizing: border-box;
+    }
+    .nav-link {
+      width: auto;
+      min-width: 65px;
+      height: 48px;
+      font-family: 'Amatica SC', cursive;
+      font-weight: 700;
+      font-size: 32px;
+      line-height: 48px;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #fff;
+      margin: 0 2vw;
+      transform: rotate(0.52deg);
+      background: transparent;
+      cursor: pointer;
+      text-decoration: none;
+      justify-content: center;
+    }
+    .mediniut-title {
+      color: #5ea189;
+      text-align: center;
+      font-size: 44px;
+      font-family: 'Oswald', 'Amatic SC', cursive;
+      letter-spacing: 2px;
+      line-height: 60px;
+      margin-bottom: 10px;
+      border: none;
+      font-weight: 900;
+    }
+    .mediniut-text {
+      color: #000;
+      text-align: center;
+      font-size: 26px;
+      font-family: 'Amatic SC', cursive;
+      letter-spacing: 1px;
+      line-height: 36px;
+      margin-top: 10px;
+      width: 100%;
+      direction: rtl;
+      display: inline-block;
+      position: static;
+      padding: 0;
+      border: none;
+      font-weight: 900;
+      text-shadow: none;
+    }
+    .policy-box {
+      background: rgba(255, 249, 240, 0.94);
+      border-radius: 32px;
+      box-shadow: 0 4px 24px #0002;
+      padding: 30px 25px;
+      margin: 30px 20px;
+      max-width: calc(100% - 40px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      z-index: 3;
+    }
+    .policy-bg-box {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: url('IMG_8558.JPG') no-repeat center center;
+      background-size: cover;
+      position: relative;
+      z-index: 1;
+    }
+
+    .policy-bg-box::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(255,255,255,0.55);
+      z-index: 2;
+      border-radius: inherit;
+    }
+    /* Footer Section */
+    footer {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      align-items: flex-start;
+      background: #5C4638;
+      padding: 10px 16px;
+      box-sizing: border-box;
+      height: 120px;
+      direction: rtl;
+      position: relative;
+    }
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
+    .footer-nav {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-right: auto;
+      margin-left: auto;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      right: auto;
+      top: 10px;
+    }
+    .footer-link {
+      font-family: 'Amatica SC', cursive;
+      font-weight: 700;
+      font-size: 22px;
+      color: white;
+      text-decoration: none;
+    }
+    .footer-sep {
+      font-size: 20px;
+      color: white;
+    }
+    .footer-contact {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 6px;
+      position: absolute;
+      bottom: 10px;
+      left: 16px;
+    }
+    .footer-contact-item {
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: center;
+      gap: 10px;
+    }
+    .footer-icon {
+      width: 18px;
+      height: 18px;
+    }
+    .footer-contact-text {
+      font-family: 'Amatica SC', cursive;
+      font-weight: 700;
+      font-size: 18px;
+      color: white;
+    }
+    .footer-logo {
+      width: 90px;
+      height: 90px;
+      background: url('logo.jpg') no-repeat center/contain;
+      border-radius: 12px;
+    }
+    .copyright-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0;
+      gap: 2px;
+      width: 100%;
+      max-width: 100vw;
+      height: 20px;
+      background: transparent;
+      margin-top: 2px;
+      box-sizing: border-box;
+    }
+    .copyright-text {
+      width: 180px;
+      height: 20px;
+      font-family: 'Amatica SC', cursive;
+      font-weight: 700;
+      font-size: 16px;
+      color: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    /* --- Shop Popup refined styles --- */
+    .shop-popup {
+      display: none;
+      position: fixed;
+      top: 100%;
+      right: 0;
+      left: auto;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px #0002;
+      z-index: 1000;
+      min-width: 140px;
+      padding: 4px 0;
+      font-family: 'Amatica SC', cursive;
+      font-size: 18px;
+      color: #5C4638;
+      direction: rtl;
+    }
+    .shop-popup ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .shop-popup > ul > li {
+      padding: 0 10px;
+      margin-bottom: 1px;
+      position: relative;
+    }
+    .shop-popup a, .shop-popup .popup-main-btn {
+      color: #5C4638;
+      text-decoration: none;
+      background: none;
+      border: none;
+      font: inherit;
+      cursor: pointer;
+      padding: 2px 0;
+      width: 100%;
+      text-align: right;
+      display: block;
+      border-radius: 6px;
+      transition: background 0.2s;
+      line-height: 1.2;
+      font-size: 18px;
+    }
+    .shop-popup a:hover, .shop-popup .popup-main-btn:hover {
+      background: #f9f1dc;
+    }
+    .popup-sub {
+      display: none;
+      position: absolute;
+      right: 100%;
+      top: 0;
+      background: #f6eee0;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px #0001;
+      padding: 2px 0;
+      min-width: 110px;
+      z-index: 101;
+    }
+    .popup-sub li {
+      margin-bottom: 0;
+      padding: 0 6px;
+    }
+    .popup-sub a {
+      font-size: 15px;
+      line-height: 1.2;
+      padding: 2px 0;
+    }
+    .shop-popup .active + .popup-sub {
+      display: block;
+    }
+    .shop-popup-btn {
+      border: none !important;
+      outline: none !important;
+      box-shadow: none !important;
+      background: transparent;
+    }
+    /* --- פופאפ חנות בפוטר --- */
+    .footer-link-shop-popup {
+      position: relative;
+    }
+    .footer-shop-popup {
+      display: none;
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px #0002;
+      z-index: 200;
+      min-width: 140px;
+      padding: 4px 0;
+      font-family: 'Amatica SC', cursive;
+      font-size: 18px;
+      color: #5C4638;
+      direction: rtl;
+    }
+    
+    /* Side Cart Styles */
+    .cart-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.25);
+      z-index: 99;
+      transition: opacity 0.3s;
+    }
+    .cart-overlay.active {
+      display: block;
+      opacity: 1;
+    }
+    .side-cart {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 370px;
+      max-width: 90vw;
+      height: 100vh;
+      background: #fff;
+      box-shadow: -2px 0 16px #0002;
+      z-index: 100;
+      transform: translateX(100%);
+      transition: all 0.35s cubic-bezier(.7,.2,.2,1);
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+      visibility: hidden;
+      opacity: 0;
+      pointer-events: none;
+    }
+    .side-cart.active {
+      right: 0;
+      transform: translateX(0);
+      visibility: visible;
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .side-cart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 20px 10px 20px;
+      border-bottom: 1px solid #eee;
+      background: #BA8663;
+    }
+    .side-cart-title {
+      font-family: 'Amatica SC', cursive;
+      font-size: 32px;
+      font-weight: 700;
+      color: #fff;
+    }
+    .side-cart-close {
+      background: none;
+      border: none;
+      font-size: 32px;
+      color: #775A47;
+      cursor: pointer;
+      font-family: inherit;
+      line-height: 1;
+    }
+    .side-cart-list {
+      flex: 1;
+      overflow-y: auto;
+      padding: 10px 0 0 0;
+      background: #fff;
+    }
+    .side-cart-item {
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      background: #F9F1DC;
+      border-radius: 8px;
+      margin: 0 16px 12px 16px;
+      padding: 10px 10px 10px 6px;
+      box-shadow: 0 1px 4px #0001;
+      position: relative;
+      min-height: 60px;
+      user-select: none;
+      overflow: hidden;
+    }
+    .side-cart-item-details {
+      margin: 6px 0 0 0;
+      padding: 0;
+      width: 100%;
+    }
+    .side-cart-item-details-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      text-align: right;
+      max-width: 100%;
+      overflow: hidden;
+    }
+    .side-cart-item-details-list li {
+      font-size: 15px;
+      color: #5C4638;
+      background: none;
+      border-radius: 0;
+      margin-bottom: 0;
+      padding: 0;
+      font-family: 'Amatica SC', cursive;
+      font-weight: 700;
+      direction: rtl;
+      line-height: 1.5;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .side-cart-item-details-label {
+      color: #5EA189;
+      font-weight: bold;
+      flex-shrink: 0;
+      text-align: right;
+    }
+    .side-cart-item-details-value {
+      flex: 1;
+      min-width: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .side-cart-item-color-box {
+      display: inline-block;
+      width: 11px;
+      height: 11px;
+      border-radius: 2px;
+      border: 1px solid #ccc;
+      margin-left: 4px;
+      vertical-align: middle;
+      align-self: center;
+    }
+    .side-cart-item-trash-btn, .side-cart-item-add-btn {
+      background: none;
+      border: none;
+      padding: 0;
+      margin: 0;
+      cursor: pointer;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+    .side-cart-item-trash-btn:hover, .side-cart-item-add-btn:hover {
+      opacity: 1;
+    }
+    .side-cart-item-trash-icon {
+      width: 20px;
+      height: 20px;
+      background: url('trash.svg') no-repeat center/contain;
+      display: inline-block;
+    }
+    .cart-badge {
+      position: absolute;
+      left: 50%;
+      bottom: 3px;
+      top: auto;
+      transform: translateX(-50%);
+      color: #111;
+      font-size: 18px;
+      font-family: 'Rubik', sans-serif;
+      font-weight: bold;
+      background: none;
+      border: none;
+      width: auto;
+      height: auto;
+      line-height: 1;
+      display: block;
+      z-index: 2;
+      pointer-events: none;
+    }
+    /* דיאלוג מחיקה */
+    .cart-delete-dialog {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.18);
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .cart-delete-dialog-content {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 16px #0003;
+      padding: 32px 28px 18px 28px;
+      min-width: 260px;
+      text-align: center;
+    }
+    .cart-delete-dialog-title {
+      font-family: 'Amatica SC', cursive;
+      font-size: 22px;
+      color: #775A47;
+      margin-bottom: 18px;
+    }
+    .cart-delete-dialog-actions {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+    }
+    .cart-delete-btn-yes {
+      background: #e74c3c;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 18px;
+      font-family: 'Amatica SC', cursive;
+      padding: 6px 22px;
+      cursor: pointer;
+    }
+    .cart-delete-btn-no {
+      background: #eee;
+      color: #775A47;
+      border: none;
+      border-radius: 8px;
+      font-size: 18px;
+      font-family: 'Amatica SC', cursive;
+      padding: 6px 22px;
+      cursor: pointer;
+    }
+    @media (max-width: 700px) {
+      /* Side Cart Mobile */
+      .side-cart {
+        width: 98vw;
+        max-width: 98vw;
+      }
+      
+      .side-cart-view-btn {
+        position: sticky;
+        bottom: 0;
+        width: calc(100% - 32px);
+        height: 48px;
+        background: #5EA189;
+        color: #fff;
+        font-family: 'Amatica SC', cursive;
+        font-size: 20px;
+        font-weight: 700;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background 0.2s;
+        display: block;
+        z-index: 10;
+        box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
+      }
+      
+      .side-cart-view-btn:hover {
+        background: #4b8c74;
+      }
+      
+      /* Mobile Header */
+      header {
+        height: 70px;
+        padding: 6px 8px;
+      }
+      
+      .logo {
+        width: 140px;
+        height: 60px;
+      }
+      
+      .cart {
+        width: 28px;
+        height: 28px;
+        right: 8px;
+        top: 8px;
+      }
+      
+      .cart-icon {
+        width: 28px;
+        height: 28px;
+      }
+      
+      .cart-badge {
+        font-size: 14px;
+        bottom: 2px;
+      }
+      
+      /* Mobile Navigation */
+      nav {
+        height: 40px;
+        padding: 0 2vw;
+        gap: 15px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+        margin-bottom: 0;
+      }
+      
+      .nav-link {
+        font-size: 24px !important;
+        line-height: 40px;
+        height: 40px;
+        min-width: 50px;
+        margin: 0 1vw;
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+      
+      /* Mobile Policy Section */
+      .policy-bg-box {
+        padding: 0;
+        min-height: auto;
+        margin-bottom: 0;
+      }
+      
+      .policy-box {
+        padding: 15px 12px;
+        margin: 20px 15px;
+        max-width: calc(100% - 30px);
+        border-radius: 20px;
+      }
+      
+      .mediniut-title {
+        font-size: 32px;
+        line-height: 40px;
+        margin-bottom: 8px;
+      }
+      
+      .mediniut-text {
+        font-size: 20px;
+        line-height: 28px;
+        margin-top: 8px;
+      }
+      
+      /* Mobile Footer */
+      footer {
+        height: auto;
+        min-height: 120px;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 15px 10px;
+      }
+      
+      main {
+        flex: none !important;
+        width: 100%;
+        padding: 0;
+        margin-bottom: 0;
+      }
+      
+      footer {
+        margin-top: 0;
+      }
+      
+      .body-center {
+        min-height: auto !important;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start !important;
+        align-items: center;
+        gap: 0;
+      }
+      
+      .policy-bg-box {
+        padding: 0 !important;
+        margin-bottom: 0 !important;
+        min-height: auto !important;
+      }
+      
+      .footer-nav {
+        position: static;
+        transform: none;
+        left: auto;
+        top: auto;
+        margin: 10px 0;
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+      
+      .footer-link {
+        font-size: 18px;
+      }
+      
+      .footer-contact {
+        position: static;
+        align-items: center;
+        margin: 10px 0;
+      }
+      
+      .footer-contact-text {
+        font-size: 14px;
+      }
+      
+      .footer-logo {
+        width: 70px;
+        height: 70px;
+        margin: 10px 0;
+      }
+    }
+    
+    .side-cart-view-btn {
+      width: 90%;
+      margin: 16px auto 18px auto;
+      height: 48px;
+      background: #5EA189;
+      color: #fff;
+      font-family: 'Amatica SC', cursive;
+      font-size: 24px;
+      font-weight: 700;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s;
+      display: block;
+    }
+    .side-cart-view-btn:hover {
+      background: #4b8c74;
+    }
+  </style>
+</head>
+<body>
+  <div id="cartOverlay" class="cart-overlay"></div>
+  <div id="cartDeleteDialog" class="cart-delete-dialog" style="display:none;">
+    <div class="cart-delete-dialog-content">
+      <div class="cart-delete-dialog-title">האם למחוק את המוצר מהעגלה?</div>
+      <div class="cart-delete-dialog-actions">
+        <button id="cartDeleteYes" class="cart-delete-btn-yes">כן</button>
+        <button id="cartDeleteNo" class="cart-delete-btn-no">לא</button>
+      </div>
+    </div>
+  </div>
+  <aside id="sideCart" class="side-cart">
+    <div class="side-cart-header">
+      <span class="side-cart-title">סל קניות</span>
+      <button class="side-cart-close" id="closeSideCart">×</button>
+    </div>
+    <div class="side-cart-list" id="sideCartList">
+      <!-- כאן יתווספו המוצרים -->
+    </div>
+    <button class="side-cart-view-btn" id="viewCartBtn">לצפייה בסל הקניות</button>
+  </aside>
+    <div class="body-center">
+    <header>
+        <div class="logo"></div>
+      <a class="cart">
+        <div class="cart-icon">
+          <span class="cart-badge" id="cartBadge" style="display:none;">0</span>
+        </div>
+      </a>
+    </header>
+    <nav>
+        <a class="nav-link" href="homepage.html">דף הבית</a>
+        <button class="nav-link shop-popup-btn" id="shopPopupBtn" type="button">חנות</button>
+        <a class="nav-link" href="policy.html">מדיניות</a>
+        <a class="nav-link" href="contact.html">צור קשר</a>
+    </nav>
+    <!-- Popup (ממש אחרי ה-nav) -->
+    <div class="shop-popup" id="shopPopup">
+      <ul>
+        <li><a href="shop.html">כללי</a></li>
+        <li>
+          <button class="popup-main-btn" type="button" data-target="sheshbesh">שש בש</button>
+          <ul class="popup-sub" id="sub-sheshbesh">
+            <li><a href="Backgammon Custum.html">עיצוב אישי</a></li>
+            <li><a href="Backgammon Models.html">דגמים</a></li>
+          </ul>
+        </li>
+        <li>
+          <button class="popup-main-btn" type="button" data-target="matkot">מטקות</button>
+          <ul class="popup-sub" id="sub-matkot">
+            <li><a href="Matka Custum.html">עיצוב אישי</a></li>
+            <li><a href="Matka Models.html">דגמים</a></li>
+          </ul>
+        </li>
+        <li><a href="Canvas.html">קנבסים</a></li>
+        <li><a href="Record.html">תקליטים</a></li>
+      </ul>
+    </div>
+    <main>
+      <div class="policy-bg-box">
+        <div class="policy-box">
+          <div style="font-size: 28px; color: #5C4638; text-align: center; max-width: 800px;">
+            <div class="mediniut-title">מדיניות</div>
+            <div class="mediniut-text">
+              כל מוצר באתר שלנו נעשה בעבודת יד ובהתאמה אישית – במיוחד בשבילך.<br>
+              אין החזרות או החלפות, לאור אופיים הייחודי והמותאם אישית של המוצרים.<br>
+              אם המוצר הגיע פגום – יש לשלוח הודעה מיידית בצירוף תמונה ברורה של הפגם ברגע קבלת המשלוח או האיסוף. אנו נבחן את המקרה ונטפל בו בהתאם.<br>
+              במקרה של טעות בעיצוב אשר הופיעה בהדמיה המאושרת – האחריות על הלקוח בלבד, מאחר וההכנה מתבצעת לפי אישור סופי טרם ההדפסה/הייצור.<br>
+              במקרים חריגים – ניתן לפנות אלינו ואנו נשתדל לעזור ככל שנוכל, בגישה אנושית ואכפתית.<br>
+              <div style="margin: 48px 0;">אין להעתיק, לשכפל, להשתמש או להפיץ את העיצובים, התמונות או האלמנטים הגרפיים – ללא אישור בכתב מראש.</div>
+              תודה שאת/ה חלק מהיצירה, אנחנו כאן לכל שאלה.
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    </div>
+    <footer>
+        <div class="footer-content">
+          <div class="footer-nav">
+            <a href="homepage.html" class="footer-link">דף הבית</a>
+            <span class="footer-sep">|</span>
+            <a href="shop.html" class="footer-link">חנות</a>
+            <span class="footer-sep">|</span>
+            <a href="policy.html" class="footer-link">מדיניות</a>
+            <span class="footer-sep">|</span>
+            <a href="contact.html" class="footer-link">צור קשר</a>
+          </div>
+      
+          <div class="footer-contact">
+            <div class="footer-contact-item">
+              <a href="https://www.instagram.com/paintz.official/" target="_blank" rel="noopener">
+                <img src="instagram.svg" alt="Instagram" class="footer-icon" />
+              </a>
+              <span class="footer-contact-text">paintz.official@</span>
+            </div>
+            <div class="footer-contact-item">
+              <a href="mailto:paintz.yf@gmail.com">
+                <img src="email.svg" alt="Email" class="footer-icon" />
+              </a>
+              <span class="footer-contact-text">paintz.yf@gmail.com</span>
+            </div>
+            <div class="footer-contact-item">
+              <a href="https://maps.google.com/?q=פתח+תקווה" target="_blank">
+                <img src="location.svg" alt="Location" class="footer-icon" />
+              </a>
+              <span class="footer-contact-text">פתח תקווה</span>
+            </div>
+          </div>
+        </div>
+      
+        <div class="footer-logo"></div>
+    </footer>
+    <section class="copyright-section">
+        <div class="copyright-text">Paintz 2025©</div>
+    </section>
+
+</div>
+  <script src="cart-sync.js"></script>
+  <script>
+    // וידוא שה-side-cart מוסתר בטעינת הדף
+    document.addEventListener('DOMContentLoaded', function() {
+      const sideCart = document.getElementById('sideCart');
+      if (sideCart) {
+        sideCart.classList.remove('active');
+      }
+    });
+// --- Shop Popup Logic ---
+const shopBtn = document.getElementById('shopPopupBtn');
+const shopPopup = document.getElementById('shopPopup');
+
+function positionShopPopup() {
+  const rect = shopBtn.getBoundingClientRect();
+  shopPopup.style.top = (rect.bottom + window.scrollY) + 'px';
+  shopPopup.style.right = (window.innerWidth - rect.right) + 'px';
+  shopPopup.style.left = 'auto';
+  shopPopup.style.transform = 'none';
+}
+
+function openShopPopup() {
+  positionShopPopup();
+  shopPopup.style.display = 'block';
+}
+
+function closeShopPopup() {
+  shopPopup.style.display = 'none';
+  closeAllSubs();
+}
+
+function setShopPopupEvents() {
+  if (window.innerWidth > 700) {
+    shopBtn.removeEventListener('click', shopBtn._shopClickHandler || (()=>{}));
+    
+    // Hover functionality with delay
+    let hoverTimeout;
+    let isHovering = false;
+    
+    shopBtn.addEventListener('mouseenter', function() {
+      isHovering = true;
+      clearTimeout(hoverTimeout);
+      openShopPopup();
+    });
+    
+    shopBtn.addEventListener('mouseleave', function() {
+      isHovering = false;
+      hoverTimeout = setTimeout(() => {
+        if (!isHovering) closeShopPopup();
+      }, 200);
+    });
+    
+    shopPopup.addEventListener('mouseenter', function() {
+      isHovering = true;
+      clearTimeout(hoverTimeout);
+    });
+    
+    shopPopup.addEventListener('mouseleave', function() {
+      isHovering = false;
+      hoverTimeout = setTimeout(() => {
+        if (!isHovering) closeShopPopup();
+      }, 200);
+    });
+    
+  } else {
+    shopBtn._shopClickHandler = function(e) {
+      e.stopPropagation();
+      if (shopPopup.style.display === 'block') {
+        closeShopPopup();
+      } else {
+        openShopPopup();
+      }
+    };
+    shopBtn.addEventListener('click', shopBtn._shopClickHandler);
+  }
+}
+setShopPopupEvents();
+window.addEventListener('resize', setShopPopupEvents);
+window.addEventListener('resize', function() {
+  if (shopPopup.style.display === 'block') {
+    positionShopPopup();
+  }
+});
+document.addEventListener('click', function(e) {
+  if (!shopPopup.contains(e.target) && e.target !== shopBtn) {
+    closeShopPopup();
+  }
+});
+function closeAllSubs() {
+  document.querySelectorAll('.popup-sub').forEach(sub => sub.style.display = 'none');
+}
+function setSubmenuEvents() {
+  const isDesktop = window.innerWidth > 700;
+  document.querySelectorAll('.popup-main-btn').forEach(btn => {
+    const target = btn.getAttribute('data-target');
+    const sub = document.getElementById('sub-' + target);
+    btn.replaceWith(btn.cloneNode(true));
+  });
+  document.querySelectorAll('.popup-main-btn').forEach(btn => {
+    const target = btn.getAttribute('data-target');
+    const sub = document.getElementById('sub-' + target);
+    btn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      if (sub.style.display === 'block') {
+        sub.style.display = 'none';
+      } else {
+        closeAllSubs();
+        sub.style.display = 'block';
+      }
+    });
+    btn.removeEventListener('mouseenter', null);
+    btn.removeEventListener('mouseleave', null);
+    if (sub) {
+      sub.removeEventListener('mouseenter', null);
+      sub.removeEventListener('mouseleave', null);
+    }
+  });
+}
+setSubmenuEvents();
+window.addEventListener('resize', setSubmenuEvents);
+
+// --- Side Cart Logic ---
+let cart = [];
+
+function initializeCart() {
+  if (window.cartSync && typeof window.cartSync.loadCart === 'function') {
+    cart = window.cartSync.loadCart();
+  } else {
+    try {
+      cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    } catch (e) {
+      cart = [];
+    }
+  }
+}
+
+initializeCart();
+document.addEventListener('DOMContentLoaded', function() {
+  setTimeout(initializeCart, 100);
+});
+
+const cartBtn = document.querySelector('.cart');
+const sideCart = document.getElementById('sideCart');
+const cartOverlay = document.getElementById('cartOverlay');
+const closeSideCartBtn = document.getElementById('closeSideCart');
+const sideCartList = document.getElementById('sideCartList');
+const viewCartBtn = document.getElementById('viewCartBtn');
+const cartBadge = document.getElementById('cartBadge');
+
+// Color mapping functions
+function getColorFromName(colorName) {
+  const colorMap = {
+    'אדום': '#FF0000', 'כחול': '#0000FF', 'ירוק': '#008000', 'צהוב': '#FFFF00',
+    'כתום': '#FFA500', 'סגול': '#800080', 'ורוד': '#FFC0CB', 'חום': '#A52A2A',
+    'שחור': '#000000', 'לבן': '#FFFFFF', 'אפור': '#808080', 'תכלת': '#00CED1',
+    'בז\'': '#F5F5DC', 'זהב': '#FFD700', 'כסף': '#C0C0C0', 'ברונזה': '#CD7F32'
+  };
+  return colorMap[colorName.trim()] || '#ccc';
+}
+
+function truncateText(text, maxLength = 10) {
+  if (!text) return '';
+  return text.length > maxLength ? text.substring(0, maxLength) + '...' : text;
+}
+
+function updateCartBadge() {
+  try {
+    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    const total = cart.reduce((sum, item) => sum + (item.qty || 1), 0);
+    if (total > 0) {
+      cartBadge.style.display = 'block';
+      cartBadge.textContent = total;
+    } else {
+      cartBadge.style.display = 'none';
+    }
+  } catch (e) {
+    cartBadge.style.display = 'none';
+  }
+}
+
+function renderCartNotes(item) {
+  const details = [];
+  const notesText = item.notes || '';
+  let colorBox = '';
+
+  // עיבוד מיוחד לשש בש עיצוב אישי
+  const allTitles = ((item.title || '') + ' ' + (item.subtitle || '')).toLowerCase();
+  if (allTitles.includes('שש בש') && allTitles.includes('עיצוב אישי')) {
+    const colorLines = [];
+    const regex = /(צבע [^:]+):\s*([^,]+(?:, [^:]+)*)(?=,\s*צבע|$)/g;
+    let match;
+    while ((match = regex.exec(notesText)) !== null) {
+      const label = match[1];
+      const colors = match[2].split(',').map(s => s.trim()).filter(Boolean);
+      const colorBoxes = colors.map(c => {
+        if (label.includes('משולש') && c === 'משתנה') {
+          return 'משתנה';
+        } else if (c === 'משתנה') {
+          return 'משתנה';
+        } else {
+          return `<span class='side-cart-item-color-box' style='background:${getColorFromName(c)}' title='${c}'></span>`;
+        }
+      }).join(' ');
+                colorLines.push(`<li>${l}</li>`);
+    }
+    if (colorLines.length) {
+      details.push(...colorLines.map(l => `<li>${l}</li>`));
+    }
+  } else if (allTitles.includes('מטקה') && allTitles.includes('עיצוב אישי')) {
+    // עיבוד מיוחד למטקה עיצוב אישי
+    const colors = [];
+    const explanations = [];
+    const matkaRegex = /(צבע מטקה [12]|הסבר מטקה [12]):\s*([^,]+)(?=,\s*(?:צבע מטקה|הסבר מטקה)|$)/g;
+    let match;
+    while ((match = matkaRegex.exec(notesText)) !== null) {
+      const label = match[1];
+      const value = match[2].trim();
+      
+      if (label.includes('צבע מטקה')) {
+        const colorHex = getColorFromName(value);
+        const colorBox = `<span class='side-cart-item-color-box' style='background:${colorHex}' title='${value}'></span>`;
+        colors.push(colorBox);
+      } else if (label.includes('הסבר מטקה')) {
+        explanations.push(truncateText(value, 8));
+      }
+    }
+    
+    if (colors.length > 0) {
+      details.push(`<li><span class='side-cart-item-details-label'>צבעי מטקה:</span><span class='side-cart-item-details-value'>${colors.join(' ')}</span></li>`);
+    }
+    
+    if (explanations.length > 0) {
+        explanations.forEach((explanation, index) => {
+          details.push(`<li><span class='side-cart-item-details-label'>הסבר מטקה ${index + 1}:</span><span class='side-cart-item-details-value'>${explanation}</span></li>`);
+        });
+    }
+  } else if (allTitles.includes('שש בש')) {
+    if (notesText.trim()) {
+      details.push(`<li><span class='side-cart-item-details-label'>הערה:</span><span class='side-cart-item-details-value'>${truncateText(notesText.trim())}</span></li>`);
+    }
+  } else {
+    let noteLabel = 'הערה:';
+    if (allTitles.includes('קנבס')) noteLabel = 'גודל:';
+    
+    // הערה: חפש "גוון: ..." והצג ריבוע צבע
+    let colorMatch = notesText.match(/גוון\s*[:：]?\s*([\u0590-\u05FF\w]+)/);
+    if (colorMatch) {
+      const colorName = colorMatch[1];
+      const colorHex = getColorFromName(colorName);
+      colorBox = `<span class='side-cart-item-color-box' style='background:${colorHex}' title='${colorName}'></span>`;
+      notesText = notesText.replace(/,?\s*גוון\s*[:：]?\s*[\u0590-\u05FF\w]+/, '');
+    }
+    
+    if (allTitles.includes('מטקה')) {
+      if (notesText.trim() || colorBox) {
+        details.push(`<li><span class='side-cart-item-details-label'>${noteLabel}</span><span class='side-cart-item-details-value'>${truncateText(notesText.trim())} ${colorBox}</span></li>`);
+      }
+    } else if (notesText.trim() || colorBox) {
+      details.push(`<li><span class='side-cart-item-details-label'>${noteLabel}</span><span class='side-cart-item-details-value'>${truncateText(notesText.trim())} ${colorBox}</span></li>`);
+    }
+  }
+
+      // Remove generic explanation display for matka custom design and backgammon custom design
+    if (item.desc && !allTitles.includes('מטקה') && !(allTitles.includes('שש בש') && allTitles.includes('עיצוב אישי'))) {
+    details.push(`<li><span class='side-cart-item-details-label'>הסבר:</span><span class='side-cart-item-details-value'>${truncateText(item.desc)}</span></li>`);
+  }
+  if (item.file) {
+    // מחלץ את שם הקובץ מהנתיב המלא
+    const fileName = item.file.split(/[\/\\]/).pop();
+    details.push(`<li><span class='side-cart-item-details-label'>קובץ:</span><span class='side-cart-item-details-value'>${truncateText(fileName)}</span></li>`);
+  }
+  return details.join('');
+}
+
+function renderCart() {
+  sideCartList.innerHTML = '';
+  
+  if (!cart.length) {
+    sideCartList.innerHTML = '<div style="text-align: center; padding: 20px; font-family: \'Amatica SC\', cursive; font-size: 20px; color: #775A47;">העגלה ריקה</div>';
+    return;
+  }
+  
+  cart.forEach((item, idx) => {
+    let mainTitle = 'עיצוב אישי';
+    let subTitle = '';
+                  // Check if item has separate subtitle field (new format)
+      if (item.subtitle) {
+        mainTitle = item.title || '';
+        subTitle = item.subtitle;
+      } else if (item.title && item.title.includes('|')) {
+          const parts = item.title.split('|');
+          mainTitle = parts[0].trim();
+          subTitle = parts[1].trim();
+        } else if (item.title) {
+          subTitle = item.title;
+        }
+    
+    // קבלת הפרטים מהפונקציה המרכזית
+    const details = window.cartSync && window.cartSync.renderCartNotes ? 
+                  window.cartSync.renderCartNotes(item) : renderCartNotes(item);
+    
+    const row = document.createElement('div');
+    row.className = 'side-cart-item';
+    row.setAttribute('data-idx', idx);
+    row.style.position = 'relative';
+    row.innerHTML = `
+      <div style="height: 120px; display: flex; flex-direction: row; width: 100%; position: relative;">
+        <div style="flex: 1; height: 100%; display: flex; align-items: center;">
+          <div style="width: 100%; display: flex; flex-direction: column; gap: 8px;">
+            <div style="height: 30px; display: flex; align-items: center; justify-content: center;">
+              <span style="font-family: 'Amatica SC', cursive; font-size: 22px; font-weight: bold; color: #775A47; text-align: center; line-height: 1.1;">${mainTitle}</span>
+            </div>
+            <div style="height: 24px; display: flex; align-items: center; justify-content: center;">
+              <span style="font-family: 'Amatica SC', cursive; font-size: 16px; color: #BA8663; text-align: center; font-weight: normal;">${subTitle}</span>
+            </div>
+            ${window.cartSync && window.cartSync.renderCartPrice ? window.cartSync.renderCartPrice(item) : ''}
+          </div>
+        </div>
+        <div style="width: 48px; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; margin-left: 8px;">
+          <button class="side-cart-item-add-btn" title="הוסף" style="background: none; border: none; font-size: 22px; color: #5EA189; cursor: pointer; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;">+</button>
+          <span class="side-cart-item-qty" style="width: 32px; height: 28px; font-size: 18px; color: #BA8663; display: flex; align-items: center; justify-content: center; background: none; border-radius: 0; border: none; font-family: 'Amatica SC', cursive; font-weight: bold;">${item.qty}</span>
+          <button class="side-cart-item-minus-btn" title="הפחת" style="background: none; border: none; font-size: 22px; color: #5EA189; cursor: pointer; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;">–</button>
+        </div>
+      </div>
+      <div class="side-cart-item-details" style="padding: 0 0 8px 0;">
+        <ul class="side-cart-item-details-list" style="max-width: 100%; overflow: hidden;">
+          ${details}
+        </ul>
+      </div>
+      <button class="side-cart-item-trash-btn" title="מחק" style="position: absolute; left: 8px; bottom: 8px; background: none; border: none; padding: 0; margin: 0; cursor: pointer; width: 22px; height: 22px;"><span class="side-cart-item-trash-icon"></span></button>
+    `;
+    
+    row.querySelector('.side-cart-item-trash-btn').onclick = function(e) {
+      e.stopPropagation();
+      showDeleteDialog(idx);
+    };
+    
+    // כפתור הוספה
+    row.querySelector('.side-cart-item-add-btn').onclick = function(e) {
+      e.stopPropagation();
+      if (window.cartSync) {
+        window.cartSync.updateItem(idx, {qty: cart[idx].qty + 1});
+        cart = window.cartSync.loadCart();
+      } else {
+        cart[idx].qty += 1;
+        localStorage.setItem('cart', JSON.stringify(cart));
+      }
+        updateCartBadge();
+        renderCart();
+    };
+    // כפתור הפחתה
+    row.querySelector('.side-cart-item-minus-btn').onclick = function(e) {
+      e.stopPropagation();
+      if (cart[idx].qty > 1) {
+        if (window.cartSync) {
+          window.cartSync.updateItem(idx, {qty: cart[idx].qty - 1});
+          cart = window.cartSync.loadCart();
+        } else {
+          cart[idx].qty -= 1;
+          localStorage.setItem('cart', JSON.stringify(cart));
+        }
+          updateCartBadge();
+          renderCart();
+      } else {
+        showDeleteDialog(idx);
+      }
+    };
+    
+    sideCartList.appendChild(row);
+  });
+}
+
+function openSideCart() {
+  sideCart.classList.add('active');
+  cartOverlay.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeSideCart() {
+  sideCart.classList.remove('active');
+  cartOverlay.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+cartBtn.addEventListener('click', function(e) {
+  e.preventDefault();
+  openSideCart();
+});
+
+cartOverlay.addEventListener('click', closeSideCart);
+closeSideCartBtn.addEventListener('click', closeSideCart);
+
+viewCartBtn.addEventListener('click', function() {
+  window.location.href = 'Shopping Cart.html';
+});
+
+function removeFromCart(idx) {
+  if (idx >= 0 && idx < cart.length) {
+    if (window.cartSync) {
+      window.cartSync.removeItem(idx);
+      cart = window.cartSync.loadCart();
+    } else {
+        cart.splice(idx, 1);
+        localStorage.setItem('cart', JSON.stringify(cart));
+    }
+        updateCartBadge();
+        renderCart();
+  }
+}
+
+let cartDeleteIdx = null;
+function showDeleteDialog(idx) {
+  cartDeleteIdx = idx;
+  document.getElementById('cartDeleteDialog').style.display = 'flex';
+}
+
+document.getElementById('cartDeleteYes').onclick = function() {
+  if (cartDeleteIdx !== null) {
+    removeFromCart(cartDeleteIdx);
+    cartDeleteIdx = null;
+  }
+  document.getElementById('cartDeleteDialog').style.display = 'none';
+};
+
+document.getElementById('cartDeleteNo').onclick = function() {
+  cartDeleteIdx = null;
+  document.getElementById('cartDeleteDialog').style.display = 'none';
+};
+
+// Initialize
+updateCartBadge();
+renderCart();
+
+// iPad and Safari specific fixes
+function ensureViewCartButtonVisibleOniPad() {
+  const viewCartBtn = document.getElementById('viewCartBtn');
+  if (viewCartBtn) {
+    viewCartBtn.style.display = 'block';
+    viewCartBtn.style.visibility = 'visible';
+    viewCartBtn.style.opacity = '1';
+    viewCartBtn.style.position = 'sticky';
+    viewCartBtn.style.bottom = '0';
+    viewCartBtn.style.zIndex = '9999';
+    viewCartBtn.style.webkitTransform = 'none';
+    viewCartBtn.style.transform = 'none';
+  }
+}
+
+// Call the function multiple times to ensure it works
+setTimeout(ensureViewCartButtonVisibleOniPad, 100);
+setTimeout(ensureViewCartButtonVisibleOniPad, 500);
+setTimeout(ensureViewCartButtonVisibleOniPad, 1000);
+setTimeout(ensureViewCartButtonVisibleOniPad, 2000);
+</script>
+</body>
+</html> 

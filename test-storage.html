@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>בדיקת מגבלות localStorage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .result {
+            background: #e8f5e8;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+            border-left: 4px solid #4caf50;
+        }
+        .error {
+            background: #ffebee;
+            border-left-color: #f44336;
+        }
+        .warning {
+            background: #fff3e0;
+            border-left-color: #ff9800;
+        }
+        button {
+            background: #4caf50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background: #45a049;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>בדיקת מגבלות localStorage</h1>
+        
+        <div class="test-section">
+            <h3>בדיקת גודל מקסימלי</h3>
+            <button onclick="testMaxSize()">בדוק גודל מקסימלי</button>
+            <div id="maxSizeResult"></div>
+        </div>
+        
+        <div class="test-section">
+            <h3>בדיקת גודל כולל</h3>
+            <button onclick="testTotalSize()">בדוק גודל כולל</button>
+            <div id="totalSizeResult"></div>
+        </div>
+        
+        <div class="test-section">
+            <h3>בדיקת גודל מפתח בודד</h3>
+            <button onclick="testSingleKey()">בדוק מפתח בודד</button>
+            <div id="singleKeyResult"></div>
+        </div>
+        
+        <div class="test-section">
+            <h3>מידע על הדפדפן</h3>
+            <div id="browserInfo"></div>
+        </div>
+    </div>
+
+    <script>
+        function showResult(elementId, message, type = 'success') {
+            const element = document.getElementById(elementId);
+            element.innerHTML = `<div class="result ${type}">${message}</div>`;
+        }
+        
+        function testMaxSize() {
+            try {
+                let size = 0;
+                let data = '';
+                
+                // בדיקה הדרגתית
+                for (let i = 1; i <= 50; i++) {
+                    const testData = 'A'.repeat(1024 * 1024); // 1MB
+                    data += testData;
+                    
+                    try {
+                        localStorage.setItem('test-size', data);
+                        size = i;
+                    } catch (e) {
+                        if (e.name === 'QuotaExceededError') {
+                            break;
+                        }
+                    }
+                }
+                
+                // ניקוי
+                localStorage.removeItem('test-size');
+                
+                const sizeMB = (size * 1024 * 1024 / (1024 * 1024)).toFixed(1);
+                showResult('maxSizeResult', 
+                    `✅ גודל מקסימלי שניתן לשמור: ${sizeMB}MB (${size}MB בדיוק)`, 
+                    'success');
+                    
+            } catch (e) {
+                showResult('maxSizeResult', 
+                    `❌ שגיאה בבדיקה: ${e.message}`, 
+                    'error');
+            }
+        }
+        
+        function testTotalSize() {
+            try {
+                let totalSize = 0;
+                let keyCount = 0;
+                
+                // בדיקת גודל כולל
+                for (let i = 1; i <= 100; i++) {
+                    const key = `test-key-${i}`;
+                    const value = 'A'.repeat(1024 * 100); // 100KB
+                    
+                    try {
+                        localStorage.setItem(key, value);
+                        totalSize += value.length;
+                        keyCount = i;
+                    } catch (e) {
+                        if (e.name === 'QuotaExceededError') {
+                            break;
+                        }
+                    }
+                }
+                
+                // ניקוי
+                for (let i = 1; i <= keyCount; i++) {
+                    localStorage.removeItem(`test-key-${i}`);
+                }
+                
+                const totalSizeMB = (totalSize / (1024 * 1024)).toFixed(1);
+                showResult('totalSizeResult', 
+                    `✅ גודל כולל שניתן לשמור: ${totalSizeMB}MB (${keyCount} מפתחות)`, 
+                    'success');
+                    
+            } catch (e) {
+                showResult('totalSizeResult', 
+                    `❌ שגיאה בבדיקה: ${e.message}`, 
+                    'error');
+            }
+        }
+        
+        function testSingleKey() {
+            try {
+                let size = 0;
+                let data = '';
+                
+                // בדיקת מפתח בודד
+                for (let i = 1; i <= 10; i++) {
+                    const testData = 'A'.repeat(1024 * 1024); // 1MB
+                    data += testData;
+                    
+                    try {
+                        localStorage.setItem('single-test', data);
+                        size = i;
+                    } catch (e) {
+                        if (e.name === 'QuotaExceededError') {
+                            break;
+                        }
+                    }
+                }
+                
+                // ניקוי
+                localStorage.removeItem('single-test');
+                
+                const sizeMB = (size * 1024 * 1024 / (1024 * 1024)).toFixed(1);
+                showResult('singleKeyResult', 
+                    `✅ גודל מקסימלי למפתח בודד: ${sizeMB}MB`, 
+                    'success');
+                    
+            } catch (e) {
+                showResult('singleKeyResult', 
+                    `❌ שגיאה בבדיקה: ${e.message}`, 
+                    'error');
+            }
+        }
+        
+        // מידע על הדפדפן
+        function showBrowserInfo() {
+            const userAgent = navigator.userAgent;
+            let browser = 'לא ידוע';
+            let version = '';
+            
+            if (userAgent.includes('Chrome')) {
+                browser = 'Chrome';
+                version = userAgent.match(/Chrome\/(\d+)/)?.[1] || '';
+            } else if (userAgent.includes('Firefox')) {
+                browser = 'Firefox';
+                version = userAgent.match(/Firefox\/(\d+)/)?.[1] || '';
+            } else if (userAgent.includes('Safari')) {
+                browser = 'Safari';
+                version = userAgent.match(/Version\/(\d+)/)?.[1] || '';
+            } else if (userAgent.includes('Edge')) {
+                browser = 'Edge';
+                version = userAgent.match(/Edge\/(\d+)/)?.[1] || '';
+            }
+            
+            const info = `
+                <div class="result">
+                    <strong>דפדפן:</strong> ${browser} ${version}<br>
+                    <strong>User Agent:</strong> ${userAgent}<br>
+                    <strong>פלטפורמה:</strong> ${navigator.platform}<br>
+                    <strong>זיכרון זמין:</strong> ${navigator.deviceMemory || 'לא ידוע'}GB
+                </div>
+            `;
+            
+            document.getElementById('browserInfo').innerHTML = info;
+        }
+        
+        // הרצה אוטומטית
+        showBrowserInfo();
+    </script>
+</body>
+</html> 

@@ -1,0 +1,2345 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Matka Models - Paintz</title>
+  <link href="https://fonts.googleapis.com/css2?family=Amatica+SC:wght@700&family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@700&display=swap" rel="stylesheet">
+  <style>
+    /* השארת רק scrollbar שעובד */
+    html {
+      overflow: hidden !important;
+      height: 100% !important;
+      width: 100% !important;
+      max-width: 100vw !important;
+    }
+    
+    body {
+      background: #F9F1DC;
+      overflow-x: hidden !important;
+      overflow-y: auto !important;
+      height: 100% !important;
+      width: 100% !important;
+      max-width: 100vw !important;
+      margin: 0;
+      padding: 0;
+    }
+    
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    .body-center {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+    }
+    /* Header */
+    header {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 8px 10px;
+      position: relative;
+      width: 100%;
+      max-width: 100vw;
+      height: 90px;
+      background: transparent;
+      isolation: isolate;
+      box-sizing: border-box;
+    }
+    .logo {
+      width: 180px;
+      height: 80px;
+      background: url('logo.jpg') no-repeat center/cover;
+      transform: rotate(0.67deg);
+      z-index: 0;
+    }
+    .cart {
+      position: absolute;
+      width: 32px;
+      height: 32px;
+      right: 10px;
+      top: 10px;
+      z-index: 1;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .cart-icon {
+      width: 32px;
+      height: 32px;
+      background: url('shop.svg') no-repeat center center;
+      background-size: contain;
+      background-color: transparent;
+      position: relative;
+    }
+    .cart-badge {
+      position: absolute;
+      left: 50%;
+      bottom: 3px;
+      top: auto;
+      transform: translateX(-50%);
+      color: #111;
+      font-size: 18px;
+      font-family: 'Rubik', sans-serif;
+      font-weight: bold;
+      background: none;
+      border: none;
+      width: auto;
+      height: auto;
+      line-height: 1;
+      display: block;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    /* Side Cart Styles */
+    .cart-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.25);
+      z-index: 99;
+      transition: opacity 0.3s;
+    }
+    .cart-overlay.active {
+      display: block;
+      opacity: 1;
+    }
+    .side-cart {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 370px;
+      max-width: 90vw;
+      height: 100vh;
+      background: #fff;
+      box-shadow: -2px 0 16px #0002;
+      z-index: 100;
+      transform: translateX(100%);
+      transition: all 0.35s cubic-bezier(.7,.2,.2,1);
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+      visibility: hidden;
+      opacity: 0;
+      pointer-events: none;
+    }
+    .side-cart.active {
+      right: 0;
+      transform: translateX(0);
+      visibility: visible;
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .side-cart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 20px 10px 20px;
+      border-bottom: 1px solid #eee;
+      background: #BA8663;
+    }
+    .side-cart-title {
+      font-family: 'Amatica SC', cursive;
+      font-size: 32px;
+      font-weight: 700;
+      color: #fff;
+    }
+    .side-cart-close {
+      background: none;
+      border: none;
+      font-size: 32px;
+      color: #775A47;
+      cursor: pointer;
+      font-family: inherit;
+      line-height: 1;
+    }
+    .side-cart-list {
+      flex: 1;
+      overflow-y: auto;
+      padding: 10px 0 0 0;
+      background: #fff;
+    }
+    .side-cart-item {
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      background: #F9F1DC;
+      border-radius: 8px;
+      margin: 0 16px 12px 16px;
+      padding: 10px 10px 10px 6px;
+      box-shadow: 0 1px 4px #0001;
+      position: relative;
+      min-height: 60px;
+      user-select: none;
+      overflow: hidden;
+    }
+    .side-cart-item-header {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      width: 100%;
+      height: 70px;
+      min-height: 70px;
+    }
+    .side-cart-item-title-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      flex: 1;
+      margin: 0;
+      padding: 0;
+      min-width: 0;
+    }
+    .side-cart-item-title-main, .side-cart-item-title-sub {
+      font-size: 20px;
+      font-weight: 800;
+      color: #775A47;
+      font-family: 'Amatica SC', cursive;
+      line-height: 1.08;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      max-width: 90px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .side-cart-item-title-sub {
+      font-weight: 800;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+    .side-cart-item-qty {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: 400;
+      color: #BA8663;
+      width: 32px;
+      height: 22px;
+      background: #f6eee0;
+      border-radius: 8px;
+      text-align: center;
+      margin: 0;
+      font-family: 'Amatica SC', cursive;
+    }
+    .side-cart-item-details {
+      margin: 6px 0 0 0;
+      padding: 0;
+      width: 100%;
+    }
+    .side-cart-item-details-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      text-align: right;
+      max-width: 100%;
+      overflow: hidden;
+    }
+    .side-cart-item-details-list li {
+      font-size: 15px;
+      color: #5C4638;
+      background: none;
+      border-radius: 0;
+      margin-bottom: 0;
+      padding: 0;
+      font-family: 'Amatica SC', cursive;
+      font-weight: 700;
+      direction: rtl;
+      line-height: 1.5;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .side-cart-item-details-label {
+      color: #5EA189;
+      font-weight: bold;
+      flex-shrink: 0;
+      text-align: right;
+    }
+    .side-cart-item-details-value {
+      flex: 1;
+      min-width: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .side-cart-item-color-box {
+      display: inline-block;
+      width: 11px;
+      height: 11px;
+      border-radius: 2px;
+      border: 1px solid #ccc;
+      margin-left: 4px;
+      vertical-align: middle;
+      align-self: center;
+    }
+    .side-cart-item-actions {
+      position: absolute;
+      left: 8px;
+      bottom: 6px;
+      display: flex;
+      flex-direction: row;
+      gap: 6px;
+      z-index: 2;
+    }
+    .side-cart-item-trash-btn, .side-cart-item-add-btn {
+      background: none;
+      border: none;
+      padding: 0;
+      margin: 0;
+      cursor: pointer;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+    .side-cart-item-trash-btn:hover, .side-cart-item-add-btn:hover {
+      opacity: 1;
+    }
+    .side-cart-item-trash-icon {
+      width: 20px;
+      height: 20px;
+      background: url('trash.svg') no-repeat center/contain;
+      display: inline-block;
+    }
+    .side-cart-item-plus-icon {
+      font-size: 20px;
+      font-weight: bold;
+      color: #5EA189;
+      display: inline-block;
+      line-height: 1;
+    }
+    /* דיאלוג מחיקה */
+    .cart-delete-dialog {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.18);
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .cart-delete-dialog-content {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 16px #0003;
+      padding: 32px 28px 18px 28px;
+      min-width: 260px;
+      text-align: center;
+    }
+    .cart-delete-dialog-title {
+      font-family: 'Amatica SC', cursive;
+      font-size: 22px;
+      color: #775A47;
+      margin-bottom: 18px;
+    }
+    .cart-delete-dialog-actions {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+    }
+    .cart-delete-btn-yes {
+      background: #e74c3c;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 18px;
+      font-family: 'Amatica SC', cursive;
+      padding: 6px 22px;
+      cursor: pointer;
+    }
+    .cart-delete-btn-no {
+      background: #eee;
+      color: #775A47;
+      border: none;
+      border-radius: 8px;
+      font-size: 18px;
+      font-family: 'Amatica SC', cursive;
+      padding: 6px 22px;
+      cursor: pointer;
+    }
+    @media (max-width: 700px) {
+      .side-cart {
+        width: 98vw;
+        max-width: 98vw;
+      }
+      
+      /* Ensure the view cart button is always visible on mobile */
+      .side-cart-view-btn {
+        position: sticky;
+        bottom: 0;
+        width: calc(100% - 32px);
+        margin: 16px 16px 18px 16px;
+        height: 48px;
+        background: #5EA189;
+        color: #fff;
+        font-family: 'Amatica SC', cursive;
+        font-size: 20px;
+        font-weight: 700;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background 0.2s;
+        display: block;
+        z-index: 10;
+        box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
+      }
+      
+      .side-cart-view-btn:hover {
+        background: #4b8c74;
+      }
+      
+      /* Adjust side-cart-list padding to prevent overlap */
+      .side-cart-list {
+        padding: 10px 0 80px 0;
+      }
+      
+      /* Tablet styles for medium screens */
+      @media (min-width: 701px) and (max-width: 1024px) {
+        .side-cart-view-btn {
+          position: sticky;
+          bottom: 0;
+          width: calc(100% - 32px);
+          margin: 16px 16px 25px 16px;
+          height: 48px;
+          background: #5EA189;
+          color: #fff;
+          font-family: 'Amatica SC', cursive;
+          font-size: 20px;
+          font-weight: 700;
+          border: none;
+          border-radius: 8px;
+          cursor: pointer;
+          transition: background 0.2s;
+          display: block !important;
+          z-index: 10;
+          box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .side-cart-view-btn:hover {
+          background: #4b8c74;
+        }
+        
+        /* Adjust side-cart-list padding to prevent overlap */
+        .side-cart-list {
+          padding: 10px 0 100px 0;
+        }
+      }
+      
+      /* iPad and Safari specific fixes */
+      @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
+        .side-cart-view-btn {
+          position: sticky !important;
+          bottom: 0 !important;
+          z-index: 9999 !important;
+          -webkit-transform: none !important;
+          transform: none !important;
+          display: block !important;
+          visibility: visible !important;
+          opacity: 1 !important;
+        }
+        
+        .side-cart-list {
+          padding: 10px 0 120px 0;
+        }
+      }
+      
+      /* Safari specific fixes */
+      @media screen and (-webkit-min-device-pixel-ratio: 0) {
+        .side-cart-view-btn {
+          position: sticky !important;
+          bottom: 0 !important;
+          z-index: 9999 !important;
+          -webkit-transform: none !important;
+          transform: none !important;
+          display: block !important;
+          visibility: visible !important;
+          opacity: 1 !important;
+        }
+      }
+      
+      /* iOS Safari specific fixes */
+      @supports (-webkit-touch-callout: none) {
+        .side-cart-view-btn {
+          position: sticky !important;
+          bottom: 0 !important;
+          z-index: 9999 !important;
+          -webkit-transform: none !important;
+          transform: none !important;
+          display: block !important;
+          visibility: visible !important;
+          opacity: 1 !important;
+        }
+      }
+      
+      /* Mobile Header */
+      header {
+        height: 70px;
+        padding: 6px 8px;
+      }
+      
+      .logo {
+        width: 140px;
+        height: 60px;
+      }
+      
+      .cart {
+        width: 28px;
+        height: 28px;
+        right: 8px;
+        top: 8px;
+      }
+      
+      .cart-icon {
+        width: 28px;
+        height: 28px;
+      }
+      
+      .cart-badge {
+        font-size: 14px;
+        bottom: 2px;
+      }
+      
+      /* Mobile Navigation */
+      nav {
+        height: 40px;
+        padding: 0 2vw;
+        gap: 15px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+        margin-bottom: 15px;
+      }
+      
+      .nav-link {
+        font-size: 24px;
+        line-height: 40px;
+        height: 40px;
+        min-width: 50px;
+        margin: 0 1vw;
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+      
+      
+      /* Mobile Footer */
+      footer {
+        height: auto;
+        min-height: 120px;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 15px 10px;
+      }
+      
+      .footer-nav {
+        position: static;
+        transform: none;
+        left: auto;
+        top: auto;
+        margin: 10px 0;
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+      
+      .footer-link {
+        font-size: 18px;
+      }
+      
+      .footer-contact {
+        position: static;
+        align-items: center;
+        margin: 10px 0;
+      }
+      
+      .footer-contact-text {
+        font-size: 14px;
+      }
+      
+      .footer-logo {
+        width: 70px;
+        height: 70px;
+        margin: 10px 0;
+      }
+      
+      /* Mobile Shop Popup */
+      .shop-popup {
+        top: 100%;
+        right: 0;
+        left: auto;
+        min-width: 140px;
+        font-size: 18px;
+      }
+      
+      .shop-popup > ul > li {
+        padding: 0 8px;
+        margin-bottom: 0;
+      }
+      
+      .shop-popup a, .shop-popup .popup-main-btn {
+        font-size: 18px;
+        padding: 2px 0;
+        line-height: 1.2;
+      }
+      
+      .popup-sub {
+        right: 100%;
+        min-width: 100px;
+        font-size: 16px;
+      }
+      
+      .popup-sub a {
+        font-size: 16px;
+        padding: 2px 0;
+      }
+    }
+    .side-cart-view-btn {
+      width: 90%;
+      margin: 16px auto 18px auto;
+      height: 48px;
+      background: #5EA189;
+      color: #fff;
+      font-family: 'Amatica SC', cursive;
+      font-size: 24px;
+      font-weight: 700;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s;
+      display: block;
+    }
+    .side-cart-view-btn:hover {
+      background: #4b8c74;
+    }
+    /* Navigation Bar */
+    nav {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      padding: 0 5vw;
+      gap: 30px;
+      width: 100%;
+      max-width: 100vw;
+      height: 44px;
+      background: #BA8663;
+      margin-bottom: 20px;
+      box-sizing: border-box;
+    }
+    .nav-link {
+      width: auto;
+      min-width: 65px;
+      height: 48px;
+      font-family: 'Amatica SC', cursive;
+      font-weight: 700;
+      font-size: 32px;
+      line-height: 48px;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #fff;
+      margin: 0 2vw;
+      transform: rotate(0.52deg);
+      background: transparent;
+      cursor: pointer;
+      text-decoration: none;
+      justify-content: center;
+    }
+    /* --- Shop Popup refined styles --- */
+    .shop-popup {
+      display: none;
+      position: fixed;
+      top: 100%;
+      right: 0;
+      left: auto;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px #0002;
+      z-index: 1000;
+      min-width: 140px;
+      padding: 4px 0;
+      font-family: 'Amatica SC', cursive;
+      font-size: 18px;
+      color: #5C4638;
+      direction: rtl;
+    }
+    .shop-popup ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .shop-popup > ul > li {
+      padding: 0 10px;
+      margin-bottom: 1px;
+      position: relative;
+    }
+    .shop-popup a, .shop-popup .popup-main-btn {
+      color: #5C4638;
+      text-decoration: none;
+      background: none;
+      border: none;
+      font: inherit;
+      cursor: pointer;
+      padding: 2px 0;
+      width: 100%;
+      text-align: right;
+      display: block;
+      border-radius: 6px;
+      transition: background 0.2s;
+      line-height: 1.2;
+      font-size: 18px;
+    }
+    .shop-popup a:hover, .shop-popup .popup-main-btn:hover {
+      background: #f9f1dc;
+    }
+    .popup-sub {
+      display: none;
+      position: absolute;
+      right: 100%;
+      top: 0;
+      background: #f6eee0;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px #0001;
+      padding: 2px 0;
+      min-width: 110px;
+      z-index: 101;
+    }
+    .popup-sub li {
+      margin-bottom: 0;
+      padding: 0 6px;
+    }
+    .popup-sub a {
+      font-size: 15px;
+      line-height: 1.2;
+      padding: 2px 0;
+    }
+    .shop-popup .active + .popup-sub {
+      display: block;
+    }
+    .shop-popup-btn {
+      border: none !important;
+      outline: none !important;
+      box-shadow: none !important;
+      background: transparent;
+    }
+    /* --- פופאפ חנות בפוטר --- */
+    .footer-link-shop-popup {
+      position: relative;
+    }
+    .footer-shop-popup {
+      display: none;
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px #0002;
+      z-index: 200;
+      min-width: 140px;
+      padding: 4px 0;
+      font-family: 'Amatica SC', cursive;
+      font-size: 18px;
+      color: #5C4638;
+      direction: rtl;
+    }
+    /* Footer Section */
+    footer {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      align-items: flex-start;
+      background: #5C4638;
+      padding: 10px 16px;
+      box-sizing: border-box;
+      height: 120px;
+      direction: rtl;
+      position: relative;
+    }
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
+    .footer-nav {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-right: auto;
+      margin-left: auto;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      right: auto;
+      top: 10px;
+    }
+    .footer-link {
+      font-family: 'Amatica SC', cursive;
+      font-weight: 700;
+      font-size: 22px;
+      color: white;
+      text-decoration: none;
+    }
+    .footer-sep {
+      font-size: 20px;
+      color: white;
+    }
+    .footer-contact {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 6px;
+      position: absolute;
+      bottom: 10px;
+      left: 16px;
+    }
+    .footer-contact-item {
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: center;
+      gap: 10px;
+    }
+    .footer-icon {
+      width: 18px;
+      height: 18px;
+    }
+    .footer-contact-text {
+      font-family: 'Amatica SC', cursive;
+      font-weight: 700;
+      font-size: 18px;
+      color: white;
+    }
+    .footer-logo {
+      width: 90px;
+      height: 90px;
+      background: url('logo.jpg') no-repeat center/contain;
+      border-radius: 12px;
+    }
+    .copyright-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0;
+      gap: 2px;
+      width: 100%;
+      max-width: 100vw;
+      height: 20px;
+      background: transparent;
+      margin-top: 2px;
+      box-sizing: border-box;
+    }
+    .copyright-text {
+      width: 180px;
+      height: 20px;
+      font-family: 'Amatica SC', cursive;
+      font-weight: 700;
+      font-size: 16px;
+      color: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    /* Best Seller Section */
+    .best-seller-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0;
+      gap: 10px;
+      width: 100%;
+      max-width: 100vw;
+      height: 450px;
+      box-sizing: border-box;
+    }
+    .best-seller-header {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      max-width: 100vw;
+      height: 96px;
+      gap: 20px;
+      box-sizing: border-box;
+    }
+    .best-seller-line {
+      width: 570px;
+      height: 0;
+      border: 3px solid #775A47;
+    }
+    .best-seller-title {
+      width: 350px;
+      height: 96px;
+      font-family: 'Amatica SC', cursive;
+      font-weight: 700;
+      font-size: 60px;
+      line-height: 96px;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #775A47;
+      justify-content: center;
+    }
+    .best-seller-list {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      width: 100%;
+      max-width: 900px;
+      margin: 18px auto 0 auto;
+      box-sizing: border-box;
+      direction: rtl;
+      justify-items: center;
+      grid-auto-flow: row;
+    }
+    @media (max-width: 599px) {
+      .best-seller-list {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 25px !important;
+        padding: 0 25px !important;
+        justify-content: center !important;
+        margin-bottom: 40px !important;
+      }
+    }
+    @media (min-width: 600px) and (max-width: 799px) {
+      .best-seller-list {
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 8px !important;
+        padding: 0 8px !important;
+        justify-content: center !important;
+        margin-bottom: 5px !important;
+      }
+    }
+    @media (min-width: 800px) and (max-width: 949px) {
+      .best-seller-list {
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: 6px !important;
+        padding: 0 6px !important;
+        justify-content: center !important;
+        margin-bottom: 5px !important;
+      }
+    }
+    @media (min-width: 950px) {
+      .best-seller-list {
+        grid-template-columns: repeat(5, 1fr) !important;
+        gap: 8px !important;
+        padding: 0 !important;
+        justify-content: center !important;
+        margin-bottom: 5px !important;
+      }
+    }
+    .best-seller-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1px 12px;
+      gap: 10px;
+      width: 175px;
+      height: 230px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .best-seller-img {
+      width: 155px;
+      height: 120px;
+      background: #000;
+      border-radius: 8px;
+      margin-top: 14px;
+    }
+    .best-seller-model {
+      width: 135px;
+      height: 28px;
+      font-family: 'Amatic SC', cursive;
+      font-weight: 700;
+      font-size: 25px;
+      line-height: 36px;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #000;
+      justify-content: center;
+    }
+    .best-seller-line2 {
+      width: 14px;
+      height: 0;
+      border: 1px solid #000;
+    }
+    .best-seller-price {
+      width: 48px;
+      height: 18px;
+      font-family: 'Amatic SC', cursive;
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 20px;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #000;
+      justify-content: center;
+    }
+    .best-seller-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255,255,255,0.85);
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+      z-index: 2;
+      padding-bottom: 18px;
+    }
+    .best-seller-card:hover .best-seller-overlay {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .best-seller-overlay-qty-group {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      left: 50%;
+      top: 20%;
+      transform: translate(-50%, 0);
+      margin: 0;
+      gap: 8px;
+      background: none;
+      border: none;
+      padding: 0;
+      z-index: 3;
+    }
+    .best-seller-overlay-qty-btn {
+      background: none;
+      border: none;
+      color: #5EA189;
+      font-size: 28px;
+      font-family: 'Amatica SC', cursive;
+      font-weight: bold;
+      width: 32px;
+      height: 32px;
+      border-radius: 0;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: color 0.2s;
+      margin: 0 2px;
+    }
+    .best-seller-overlay-btn:hover {
+      color: #BA8663;
+      background: none;
+    }
+    .best-seller-overlay-qty-num {
+      font-family: 'Amatica SC', cursive;
+      font-size: 36px;
+      color: #5EA189;
+      font-weight: bold;
+      min-width: 32px;
+      text-align: center;
+      margin: 0 8px;
+      background: none;
+      border: none;
+    }
+    .best-seller-overlay-btns {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      width: 90%;
+      align-items: center;
+      position: absolute;
+      left: 5%;
+      right: 5%;
+      bottom: 18px;
+      z-index: 4;
+    }
+    .best-seller-btn {
+      font-family: 'Amatica SC', cursive;
+      font-size: 20px;
+      font-weight: 700;
+      padding: 6px 0;
+      border-radius: 8px;
+      border: 2px solid #fff;
+      cursor: pointer;
+      transition: color 0.2s;
+      background: #5EA189;
+      color: #fff;
+      box-shadow: 0 1px 4px #0001;
+      width: 90%;
+      margin: 0;
+      text-decoration: none !important;
+    }
+    .best-seller-btn.view,
+    .best-seller-btn.view:hover,
+    .best-seller-btn:visited {
+      text-decoration: none !important;
+      background: #BA8663;
+    }
+    .best-seller-btn.add {
+      background: #5EA189;
+    }
+    .best-seller-btn.add:hover {
+      background: #38806a;
+      color: #fff;
+    }
+    .best-seller-btn.view:hover {
+      background: #8a6247;
+      color: #fff;
+    }
+    
+    /* Mobile responsive styles */
+    @media (max-width: 700px) {
+      /* Mobile Header */
+      header {
+        height: 70px;
+        padding: 6px 8px;
+      }
+      
+      .logo {
+        width: 140px;
+        height: 60px;
+      }
+      
+      .cart {
+        width: 28px;
+        height: 28px;
+        right: 8px;
+        top: 8px;
+      }
+      
+      .cart-icon {
+        width: 28px;
+        height: 28px;
+      }
+      
+      .cart-badge {
+        font-size: 14px;
+        bottom: 2px;
+      }
+      
+      /* Mobile Navigation */
+      nav {
+        height: 40px;
+        padding: 0 2vw;
+        gap: 15px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+        margin-bottom: 15px;
+      }
+      
+      .nav-link {
+        font-size: 24px;
+        line-height: 40px;
+        height: 40px;
+        min-width: 50px;
+        margin: 0 1vw;
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+
+
+      
+      .product-title {
+        font-size: 36px;
+        line-height: 50px;
+      }
+      
+      /* Mobile Products Grid */
+      .best-seller-list {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 25px !important;
+        padding: 0 25px !important;
+        max-width: 400px !important;
+        justify-content: center !important;
+        margin-bottom: 20px !important;
+      }
+      
+      @media (min-width: 600px) and (max-width: 799px) {
+        .best-seller-list {
+          grid-template-columns: repeat(3, 1fr) !important;
+          gap: 8px !important;
+          padding: 0 8px !important;
+          max-width: 600px !important;
+          justify-content: center !important;
+          margin-bottom: 5px !important;
+        }
+      }
+      
+      @media (min-width: 800px) and (max-width: 949px) {
+        .best-seller-list {
+          grid-template-columns: repeat(4, 1fr) !important;
+          gap: 6px !important;
+          padding: 0 6px !important;
+          max-width: 800px !important;
+          justify-content: center !important;
+          margin-bottom: 5px !important;
+        }
+      }
+      
+      @media (min-width: 950px) {
+        .best-seller-list {
+          grid-template-columns: repeat(5, 1fr) !important;
+          gap: 8px !important;
+          padding: 0 !important;
+          max-width: 900px !important;
+          justify-content: center !important;
+          margin-bottom: 5px !important;
+        }
+      }
+      
+      /* Mobile Footer */
+      footer {
+        height: auto;
+        min-height: 120px;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 15px 10px;
+      }
+      
+      .footer-nav {
+        position: static;
+        transform: none;
+        left: auto;
+        top: auto;
+        margin: 10px 0;
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+      
+      .footer-link {
+        font-size: 18px;
+      }
+      
+      .footer-contact {
+        position: static;
+        align-items: center;
+        margin: 10px 0;
+      }
+      
+      .footer-contact-text {
+        font-size: 14px;
+      }
+      
+      .footer-logo {
+        width: 70px;
+        height: 70px;
+        margin: 10px 0;
+      }
+      
+      /* Additional mobile styles for very small screens */
+      @media (max-width: 480px) {
+        .side-cart-view-btn {
+          font-size: 18px;
+          height: 44px;
+          margin: 12px 12px 16px 12px;
+          width: calc(100% - 24px);
+        }
+      }
+      
+      /* Additional mobile styles for very small screens */
+      @media (max-width: 480px) {
+        .side-cart-view-btn {
+          font-size: 18px;
+          height: 44px;
+          margin: 12px 12px 16px 12px;
+          width: calc(100% - 24px);
+        }
+      }
+      
+      /* Mobile Shop Popup */
+      .shop-popup {
+        top: 100%;
+        right: 0;
+        left: auto;
+        min-width: 140px;
+        font-size: 18px;
+      }
+      
+      .shop-popup > ul > li {
+        padding: 0 8px;
+        margin-bottom: 0;
+      }
+      
+      .shop-popup a, .shop-popup .popup-main-btn {
+        font-size: 18px;
+        padding: 2px 0;
+        line-height: 1.2;
+      }
+      
+      .popup-sub {
+        right: 100%;
+        min-width: 100px;
+        font-size: 16px;
+      }
+      
+      .popup-sub a {
+        font-size: 16px;
+        padding: 2px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="cartOverlay" class="cart-overlay"></div>
+  <div id="cartDeleteDialog" class="cart-delete-dialog" style="display:none;">
+    <div class="cart-delete-dialog-content">
+      <div class="cart-delete-dialog-title">האם למחוק את המוצר מהעגלה?</div>
+      <div class="cart-delete-dialog-actions">
+        <button id="cartDeleteYes" class="cart-delete-btn-yes">כן</button>
+        <button id="cartDeleteNo" class="cart-delete-btn-no">לא</button>
+      </div>
+    </div>
+  </div>
+  <aside id="sideCart" class="side-cart">
+    <div class="side-cart-header">
+      <span class="side-cart-title">סל קניות</span>
+      <button class="side-cart-close" id="closeSideCart">×</button>
+    </div>
+    <div class="side-cart-list" id="sideCartList">
+      <!-- כאן יתווספו המוצרים -->
+    </div>
+    <button class="side-cart-view-btn" id="viewCartBtn">לצפייה בסל הקניות</button>
+  </aside>
+  <div class="body-center">
+    <header>
+      <div class="logo"></div>
+      <div class="cart">
+        <div class="cart-icon">
+          <span class="cart-badge" id="cartBadge" style="display:none;">0</span>
+        </div>
+      </div>
+    </header>
+    <nav>
+      <a class="nav-link" href="homepage.html">דף הבית</a>
+      <button class="nav-link shop-popup-btn" id="shopPopupBtn" type="button">חנות</button>
+      <a class="nav-link" href="policy.html">מדיניות</a>
+      <a class="nav-link" href="contact.html">צור קשר</a>
+    </nav>
+    <div class="shop-popup" id="shopPopup">
+      <ul>
+        <li><a href="shop.html">כללי</a></li>
+        <li>
+          <button class="popup-main-btn" type="button" data-target="sheshbesh">שש בש</button>
+          <ul class="popup-sub" id="sub-sheshbesh">
+            <li><a href="Backgammon Custum.html">עיצוב אישי</a></li>
+            <li><a href="Backgammon Models.html">דגמים</a></li>
+          </ul>
+        </li>
+        <li>
+          <button class="popup-main-btn" type="button" data-target="matkot">מטקות</button>
+          <ul class="popup-sub" id="sub-matkot">
+            <li><a href="Matka Custum.html">עיצוב אישי</a></li>
+            <li><a href="Matka Models.html">דגמים</a></li>
+          </ul>
+        </li>
+        <li><a href="Canvas.html">קנבסים</a></li>
+        <li><a href="Record.html">תקליטים</a></li>
+      </ul>
+    </div>
+    <main style="display: flex; flex-direction: column; align-items: center; margin-bottom: 0;">
+      <div style="font-size: 28px; color: #5C4638; text-align: center; max-width: 800px;">
+        <div class="best-seller-list">
+          <div class="best-seller-card">
+            <div class="best-seller-img" style="background: url('Models/Matka1_1.JPG') no-repeat center/cover;"></div>
+            <div class="best-seller-model">בובספוג</div>
+            <div class="best-seller-line2"></div>
+            <div class="best-seller-price">₪ 180</div>
+            <div class="best-seller-overlay">
+              <div class="best-seller-overlay-qty-group">
+                <button class="best-seller-overlay-qty-btn" type="button">–</button>
+                <span class="best-seller-overlay-qty-num">1</span>
+                <button class="best-seller-overlay-qty-btn" type="button">+</button>
+              </div>
+              <div class="best-seller-overlay-btns">
+                <a class="best-seller-btn view" href="Product.html?product=matka&id=1">לצפייה במוצר</a>
+                <button class="best-seller-btn add">הוסף לסל הקניות</button>
+              </div>
+            </div>
+          </div>
+          <div class="best-seller-card">
+            <div class="best-seller-img" style="background: url('Models/Matka2_1.JPG') no-repeat center/cover;"></div>
+            <div class="best-seller-model">חיות ים</div>
+            <div class="best-seller-line2"></div>
+            <div class="best-seller-price">₪ 150</div>
+            <div class="best-seller-overlay">
+              <div class="best-seller-overlay-qty-group">
+                <button class="best-seller-overlay-qty-btn" type="button">–</button>
+                <span class="best-seller-overlay-qty-num">1</span>
+                <button class="best-seller-overlay-qty-btn" type="button">+</button>
+              </div>
+              <div class="best-seller-overlay-btns">
+                <a class="best-seller-btn view" href="Product.html?product=matka&id=2">לצפייה במוצר</a>
+                <button class="best-seller-btn add">הוסף לסל הקניות</button>
+              </div>
+            </div>
+          </div>
+          <div class="best-seller-card">
+            <div class="best-seller-img" style="background: url('Models/Matka3_1.JPG') no-repeat center/cover;"></div>
+            <div class="best-seller-model">צורות</div>
+            <div class="best-seller-line2"></div>
+            <div class="best-seller-price">₪ 150</div>
+            <div class="best-seller-overlay">
+              <div class="best-seller-overlay-qty-group">
+                <button class="best-seller-overlay-qty-btn" type="button">–</button>
+                <span class="best-seller-overlay-qty-num">1</span>
+                <button class="best-seller-overlay-qty-btn" type="button">+</button>
+              </div>
+              <div class="best-seller-overlay-btns">
+                <a class="best-seller-btn view" href="Product.html?product=matka&id=3">לצפייה במוצר</a>
+                <button class="best-seller-btn add">הוסף לסל הקניות</button>
+              </div>
+            </div>
+          </div>
+          <div class="best-seller-card">
+            <div class="best-seller-img" style="background: url('Models/Matka4_1.JPG') no-repeat center/cover;"></div>
+            <div class="best-seller-model">חמניות</div>
+            <div class="best-seller-line2"></div>
+            <div class="best-seller-price">₪ 150</div>
+            <div class="best-seller-overlay">
+              <div class="best-seller-overlay-qty-group">
+                <button class="best-seller-overlay-qty-btn" type="button">–</button>
+                <span class="best-seller-overlay-qty-num">1</span>
+                <button class="best-seller-overlay-qty-btn" type="button">+</button>
+              </div>
+              <div class="best-seller-overlay-btns">
+                <a class="best-seller-btn view" href="Product.html?product=matka&id=4">לצפייה במוצר</a>
+                <button class="best-seller-btn add">הוסף לסל הקניות</button>
+              </div>
+            </div>
+          </div>
+          <div class="best-seller-card">
+            <div class="best-seller-img" style="background: url('Models/Matka5_1.JPG') no-repeat center/cover;"></div>
+            <div class="best-seller-model">פרפרים</div>
+            <div class="best-seller-line2"></div>
+            <div class="best-seller-price">₪ 150</div>
+            <div class="best-seller-overlay">
+              <div class="best-seller-overlay-qty-group">
+                <button class="best-seller-overlay-qty-btn" type="button">–</button>
+                <span class="best-seller-overlay-qty-num">1</span>
+                <button class="best-seller-overlay-qty-btn" type="button">+</button>
+              </div>
+              <div class="best-seller-overlay-btns">
+                <a class="best-seller-btn view" href="Product.html?product=matka&id=5">לצפייה במוצר</a>
+                <button class="best-seller-btn add">הוסף לסל הקניות</button>
+              </div>
+            </div>
+          </div>
+          <div class="best-seller-card">
+            <div class="best-seller-img" style="background: url('Models/Matka6_1.JPG') no-repeat center/cover;"></div>
+            <div class="best-seller-model">כלב</div>
+            <div class="best-seller-line2"></div>
+            <div class="best-seller-price">₪ 150</div>
+            <div class="best-seller-overlay">
+              <div class="best-seller-overlay-qty-group">
+                <button class="best-seller-overlay-qty-btn" type="button">–</button>
+                <span class="best-seller-overlay-qty-num">1</span>
+                <button class="best-seller-overlay-qty-btn" type="button">+</button>
+              </div>
+              <div class="best-seller-overlay-btns">
+                <a class="best-seller-btn view" href="Product.html?product=matka&id=6">לצפייה במוצר</a>
+                <button class="best-seller-btn add">הוסף לסל הקניות</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <footer>
+    <div class="footer-content">
+      <div class="footer-nav">
+        <a href="homepage.html" class="footer-link">דף הבית</a>
+        <span class="footer-sep">│</span>
+        <a href="shop.html" class="footer-link">חנות</a>
+        <span class="footer-sep">│</span>
+        <a href="policy.html" class="footer-link">מדיניות</a>
+        <span class="footer-sep">│</span>
+        <a href="contact.html" class="footer-link">צור קשר</a>
+      </div>
+      <div class="footer-contact">
+        <div class="footer-contact-item">
+          <a href="https://www.instagram.com/paintz.official/" target="_blank" rel="noopener">
+            <img src="instagram.svg" alt="Instagram" class="footer-icon" />
+          </a>
+          <span class="footer-contact-text">paintz.official@</span>
+        </div>
+        <div class="footer-contact-item">
+          <a href="mailto:paintz.yf@gmail.com">
+            <img src="email.svg" alt="Email" class="footer-icon" />
+          </a>
+          <span class="footer-contact-text">paintz.yf@gmail.com</span>
+        </div>
+        <div class="footer-contact-item">
+          <a href="https://maps.google.com/?q=פתח+תקווה" target="_blank">
+            <img src="location.svg" alt="Location" class="footer-icon" />
+          </a>
+          <span class="footer-contact-text">פתח תקווה</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-logo"></div>
+  </footer>
+  <section class="copyright-section">
+    <div class="copyright-text">Paintz 2025©</div>
+  </section>
+  <script src="cart-sync.js"></script>
+<script src="product-manager.js"></script>
+  <script>
+    // וידוא שה-side-cart מוסתר בטעינת הדף
+    document.addEventListener('DOMContentLoaded', function() {
+      const sideCart = document.getElementById('sideCart');
+      if (sideCart) {
+        sideCart.classList.remove('active');
+      }
+      setSubmenuEvents(); // Add this line
+    });
+// --- Shop Popup Logic ---
+const shopBtn = document.getElementById('shopPopupBtn');
+const shopPopup = document.getElementById('shopPopup');
+function positionShopPopup() {
+  const rect = shopBtn.getBoundingClientRect();
+  shopPopup.style.top = rect.bottom + 'px';
+  shopPopup.style.right = (window.innerWidth - rect.right) + 'px';
+  shopPopup.style.left = 'auto';
+  shopPopup.style.transform = 'none';
+}
+function openShopPopup() {
+  positionShopPopup();
+  shopPopup.style.display = 'block';
+}
+function closeShopPopup() {
+  shopPopup.style.display = 'none';
+  closeAllSubs();
+}
+function setShopPopupEvents() {
+  if (window.innerWidth > 700) {
+    shopBtn.removeEventListener('click', shopBtn._shopClickHandler || (()=>{}));
+    
+    // Hover functionality with delay
+    let hoverTimeout;
+    let isHovering = false;
+    
+    shopBtn.addEventListener('mouseenter', function() {
+      isHovering = true;
+      clearTimeout(hoverTimeout);
+      openShopPopup();
+    });
+    
+    shopBtn.addEventListener('mouseleave', function() {
+      isHovering = false;
+      hoverTimeout = setTimeout(() => {
+        if (!isHovering) closeShopPopup();
+      }, 200);
+    });
+    
+    shopPopup.addEventListener('mouseenter', function() {
+      isHovering = true;
+      clearTimeout(hoverTimeout);
+    });
+    
+    shopPopup.addEventListener('mouseleave', function() {
+      isHovering = false;
+      hoverTimeout = setTimeout(() => {
+        if (!isHovering) closeShopPopup();
+      }, 200);
+    });
+    
+  } else {
+    shopBtn._shopClickHandler = function(e) {
+      e.stopPropagation();
+      if (shopPopup.style.display === 'block') {
+        closeShopPopup();
+      } else {
+        openShopPopup();
+      }
+    };
+    shopBtn.addEventListener('click', shopBtn._shopClickHandler);
+  }
+}
+setShopPopupEvents();
+window.addEventListener('resize', setShopPopupEvents);
+window.addEventListener('resize', function() {
+  if (shopPopup.style.display === 'block') {
+    positionShopPopup();
+  }
+});
+document.addEventListener('click', function(e) {
+  if (!shopPopup.contains(e.target) && e.target !== shopBtn) {
+    closeShopPopup();
+  }
+});
+function closeAllSubs() {
+  document.querySelectorAll('.popup-sub').forEach(sub => sub.style.display = 'none');
+}
+function setSubmenuEvents() {
+  const isDesktop = window.innerWidth > 700;
+  document.querySelectorAll('.popup-main-btn').forEach(btn => {
+    const target = btn.getAttribute('data-target');
+    const sub = document.getElementById('sub-' + target);
+    btn.replaceWith(btn.cloneNode(true));
+  });
+  document.querySelectorAll('.popup-main-btn').forEach(btn => {
+    const target = btn.getAttribute('data-target');
+    const sub = document.getElementById('sub-' + target);
+    btn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      if (sub.style.display === 'block') {
+        sub.style.display = 'none';
+      } else {
+        closeAllSubs();
+        sub.style.display = 'block';
+      }
+    });
+    btn.removeEventListener('mouseenter', null);
+    btn.removeEventListener('mouseleave', null);
+    if (sub) {
+      sub.removeEventListener('mouseenter', null);
+      sub.removeEventListener('mouseleave', null);
+    }
+  });
+}
+setSubmenuEvents();
+window.addEventListener('resize', setSubmenuEvents);
+
+// --- Side Cart Logic ---
+let cart = [];
+
+// Load cart safely using the sync API when available
+function initializeCart() {
+  if (window.cartSync && typeof window.cartSync.loadCart === 'function') {
+    cart = window.cartSync.loadCart();
+  } else {
+    // Fallback for when sync script hasn't loaded yet
+    try {
+      cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    } catch (e) {
+      cart = [];
+    }
+  }
+}
+
+// Initialize cart immediately
+initializeCart();
+
+// Re-initialize when cart sync is available
+document.addEventListener('DOMContentLoaded', function() {
+  setTimeout(initializeCart, 100);
+});
+
+const cartBtn = document.querySelector('.cart');
+const sideCart = document.getElementById('sideCart');
+const cartOverlay = document.getElementById('cartOverlay');
+const closeSideCartBtn = document.getElementById('closeSideCart');
+const sideCartList = document.getElementById('sideCartList');
+const viewCartBtn = document.getElementById('viewCartBtn');
+const cartBadge = document.getElementById('cartBadge');
+
+// Color mapping functions
+function getColorFromName(colorName) {
+  const colorMap = {
+    'אדום': '#FF0000', 'כחול': '#0000FF', 'ירוק': '#008000', 'צהוב': '#FFFF00',
+    'כתום': '#FFA500', 'סגול': '#800080', 'ורוד': '#FFC0CB', 'חום': '#A52A2A',
+    'שחור': '#000000', 'לבן': '#FFFFFF', 'אפור': '#808080', 'תכלת': '#00CED1',
+    'בז\'': '#F5F5DC', 'זהב': '#FFD700', 'כסף': '#C0C0C0', 'ברונזה': '#CD7F32'
+  };
+  return colorMap[colorName.trim()] || '#ccc';
+}
+
+function truncateText(text, maxLength = 10) {
+  if (!text) return '';
+  return text.length > maxLength ? text.substring(0, maxLength) + '...' : text;
+}
+
+function updateCartBadge() {
+  try {
+    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    const total = cart.reduce((sum, item) => sum + (item.qty || 1), 0);
+    if (total > 0) {
+      cartBadge.style.display = 'block';
+      cartBadge.textContent = total;
+    } else {
+      cartBadge.style.display = 'none';
+    }
+  } catch (e) {
+    cartBadge.style.display = 'none';
+  }
+}
+
+function renderCartNotes(item) {
+  const details = [];
+  const notesText = item.notes || '';
+  let colorBox = '';
+
+  // עיבוד מיוחד לשש בש עיצוב אישי
+  const allTitles = ((item.title || '') + ' ' + (item.subtitle || '')).toLowerCase();
+  if (allTitles.includes('שש בש') && allTitles.includes('עיצוב אישי')) {
+    const colorLines = [];
+    const regex = /(צבע [^:]+):\s*([^,]+(?:, [^:]+)*)(?=,\s*צבע|$)/g;
+    let match;
+    while ((match = regex.exec(notesText)) !== null) {
+      const label = match[1];
+      const colors = match[2].split(',').map(s => s.trim()).filter(Boolean);
+      const colorBoxes = colors.map(c => {
+        if (label.includes('משולש') && c === 'משתנה') {
+          return 'משתנה';
+        } else if (c === 'משתנה') {
+          return 'משתנה';
+        } else {
+          return `<span class='side-cart-item-color-box' style='background:${getColorFromName(c)}' title='${c}'></span>`;
+        }
+      }).join(' ');
+      colorLines.push(`<li>${l}</li>`);
+    }
+    if (colorLines.length) {
+      details.push(...colorLines.map(l => `<li>${l}</li>`));
+    }
+  } else if (allTitles.includes('מטקה') && allTitles.includes('עיצוב אישי')) {
+    // עיבוד מיוחד למטקה עיצוב אישי
+    const colors = [];
+    const explanations = [];
+    const matkaRegex = /(צבע מטקה [12]|הסבר מטקה [12]):\s*([^,]+)(?=,\s*(?:צבע מטקה|הסבר מטקה)|$)/g;
+    let match;
+    while ((match = matkaRegex.exec(notesText)) !== null) {
+      const label = match[1];
+      const value = match[2].trim();
+      
+      if (label.includes('צבע מטקה')) {
+        const colorHex = getColorFromName(value);
+        const colorBox = `<span class='side-cart-item-color-box' style='background:${colorHex}' title='${value}'></span>`;
+        colors.push(colorBox);
+      } else if (label.includes('הסבר מטקה')) {
+        explanations.push(truncateText(value, 8));
+      }
+    }
+    
+    if (colors.length > 0) {
+      details.push(`<li><span class='side-cart-item-details-label'>צבעי מטקה:</span><span class='side-cart-item-details-value'>${colors.join(' ')}</span></li>`);
+    }
+    
+    if (explanations.length > 0) {
+        explanations.forEach((explanation, index) => {
+          details.push(`<li><span class='side-cart-item-details-label'>הסבר מטקה ${index + 1}:</span><span class='side-cart-item-details-value'>${explanation}</span></li>`);
+        });
+    }
+  } else if (allTitles.includes('תקליט') && allTitles.includes('עיצוב אישי')) {
+    // עיבוד מיוחד לתקליט עיצוב אישי - הוספת הערות
+    const description = item.desc ? truncateText(item.desc).trim() : '';
+    const note = notesText.trim() ? truncateText(notesText.trim()) : '';
+    const fileName = item.file ? item.file.split(/[\/\\]/).pop() : '';
+    const fileDisplay = fileName ? truncateText(fileName) : '';
+    
+    // Check if description and note are the same
+    if (description && note && description === note) {
+      // If they are the same, show only one line
+      details.push(`<li><span class='side-cart-item-details-label'>הסבר:</span><span class='side-cart-item-details-value'>${description}</span></li>`);
+    } else {
+      // If they are different, show them separately
+      if (description) {
+        details.push(`<li><span class='side-cart-item-details-label'>הסבר:</span><span class='side-cart-item-details-value'>${description}</span></li>`);
+      }
+      if (note) {
+        details.push(`<li><span class='side-cart-item-details-label'>הערה:</span><span class='side-cart-item-details-value'>${note}</span></li>`);
+      }
+    }
+    
+    // Handle file display for record items
+    if (fileDisplay) {
+      details.push(`<li><span class='side-cart-item-details-label'>קובץ:</span><span class='side-cart-item-details-value'>${fileDisplay}</span></li>`);
+    }
+  } else if (allTitles.includes('קנבס') && allTitles.includes('עיצוב אישי')) {
+    // Special handling for custom canvas design - combine description, size, and file if they are the same
+    const descriptionFull = item.desc ? item.desc.trim() : '';
+    const sizeFull = notesText.trim() ? notesText.trim() : '';
+    const fileName = item.file ? item.file.split(/[\/\\]/).pop() : '';
+    
+    // Use truncated text for display
+    const description = descriptionFull ? truncateText(descriptionFull) : '';
+    const size = sizeFull ? truncateText(sizeFull) : '';
+    const fileDisplay = fileName ? truncateText(fileName) : '';
+    
+    // Normalize text for comparison (remove extra spaces, case insensitive)
+    const normalizeForComparison = (text) => text.toLowerCase().replace(/\s+/g, ' ').trim();
+    
+    // Check if all three original values are the same (before truncation)
+    const allSame = descriptionFull && sizeFull && fileName && 
+                   normalizeForComparison(descriptionFull) === normalizeForComparison(sizeFull) && 
+                   normalizeForComparison(descriptionFull) === normalizeForComparison(fileName);
+    
+    if (allSame) {
+      // If all are the same, show only one line
+      details.push(`<li><span class='side-cart-item-details-label'>הסבר:</span><span class='side-cart-item-details-value'>${description}</span></li>`);
+    } else {
+      // If they are different, show them separately
+      if (description) {
+        details.push(`<li><span class='side-cart-item-details-label'>הסבר:</span><span class='side-cart-item-details-value'>${description}</span></li>`);
+      }
+      if (size) {
+        details.push(`<li><span class='side-cart-item-details-label'>גודל:</span><span class='side-cart-item-details-value'>${size}</span></li>`);
+      }
+      if (fileDisplay) {
+        details.push(`<li><span class='side-cart-item-details-label'>קובץ:</span><span class='side-cart-item-details-value'>${fileDisplay}</span></li>`);
+      }
+    }
+  } else if (allTitles.includes('שש בש')) {
+    if (notesText.trim()) {
+      details.push(`<li><span class='side-cart-item-details-label'>הערה:</span><span class='side-cart-item-details-value'>${truncateText(notesText.trim())}</span></li>`);
+    }
+  } else {
+    let noteLabel = 'הערה:';
+    if (allTitles.includes('קנבס')) noteLabel = 'גודל:';
+    
+    // הערה: חפש "גוון: ..." והצג ריבוע צבע
+    let colorMatch = notesText.match(/גוון\s*[:：]?\s*([\u0590-\u05FF\w]+)/);
+    if (colorMatch) {
+      const colorName = colorMatch[1];
+      const colorHex = getColorFromName(colorName);
+      colorBox = `<span class='side-cart-item-color-box' style='background:${colorHex}' title='${colorName}'></span>`;
+      notesText = notesText.replace(/,?\s*גוון\s*[:：]?\s*[\u0590-\u05FF\w]+/, '');
+    }
+    
+    if (allTitles.includes('מטקה')) {
+      if (notesText.trim() || colorBox) {
+        details.push(`<li><span class='side-cart-item-details-label'>${noteLabel}</span><span class='side-cart-item-details-value'>${truncateText(notesText.trim())} ${colorBox}</span></li>`);
+      }
+    } else if (notesText.trim() || colorBox) {
+      details.push(`<li><span class='side-cart-item-details-label'>${noteLabel}</span><span class='side-cart-item-details-value'>${truncateText(notesText.trim())} ${colorBox}</span></li>`);
+    }
+  }
+
+  if (item.desc && !allTitles.includes('תקליט') && !(allTitles.includes('קנבס') && allTitles.includes('עיצוב אישי'))) {
+    details.push(`<li><span class='side-cart-item-details-label'>הסבר:</span><span class='side-cart-item-details-value'>${truncateText(item.desc)}</span></li>`);
+  }
+  // Only show file for items that don't have their own file handling
+  if (item.file && !allTitles.includes('תקליט') && !(allTitles.includes('קנבס') && allTitles.includes('עיצוב אישי'))) {
+    const fileName = item.file.split(/[\/\\]/).pop();
+    details.push(`<li><span class='side-cart-item-details-label'>קובץ:</span><span class='side-cart-item-details-value'>${truncateText(fileName)}</span></li>`);
+  }
+  return details.join('');
+}
+
+  function renderCart() {
+    sideCartList.innerHTML = '';
+    
+    if (!cart.length) {
+      sideCartList.innerHTML = '<div style="text-align: center; padding: 20px; font-family: \'Amatica SC\', cursive; font-size: 20px; color: #775A47;">העגלה ריקה</div>';
+      return;
+    }
+    
+    cart.forEach((item, idx) => {
+      let mainTitle = 'עיצוב אישי';
+      let subTitle = '';
+                  // Check if item has separate subtitle field (new format)
+      if (item.subtitle) {
+        mainTitle = item.title || '';
+        subTitle = item.subtitle;
+      } else if (item.title && item.title.includes('|')) {
+          const parts = item.title.split('|');
+          mainTitle = parts[0].trim();
+          subTitle = parts[1].trim();
+        } else if (item.title) {
+          subTitle = item.title;
+        }
+    
+    const details = window.cartSync && window.cartSync.renderCartNotes ? 
+                  window.cartSync.renderCartNotes(item) : renderCartNotes(item);
+    
+    const row = document.createElement('div');
+    row.className = 'side-cart-item';
+    row.setAttribute('data-idx', idx);
+    row.style.position = 'relative';
+    row.innerHTML = `
+      <div style="height: 120px; display: flex; flex-direction: row; width: 100%; position: relative;">
+        <div style="flex: 1; height: 100%; display: flex; align-items: center;">
+          <div style="width: 100%; display: flex; flex-direction: column; gap: 8px;">
+            <div style="height: 30px; display: flex; align-items: center; justify-content: center;">
+              <span style="font-family: 'Amatica SC', cursive; font-size: 22px; font-weight: bold; color: #775A47; text-align: center; line-height: 1.1;">${mainTitle}</span>
+            </div>
+            <div style="height: 24px; display: flex; align-items: center; justify-content: center;">
+              <span style="font-family: 'Amatica SC', cursive; font-size: 16px; color: #BA8663; text-align: center; font-weight: normal;">${subTitle}</span>
+            </div>
+            ${window.cartSync && window.cartSync.renderCartPrice ? window.cartSync.renderCartPrice(item) : ''}
+          </div>
+        </div>
+        <div style="width: 48px; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; margin-left: 8px;">
+          <button class="side-cart-item-add-btn" title="הוסף" style="background: none; border: none; font-size: 22px; color: #5EA189; cursor: pointer; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;">+</button>
+          <span class="side-cart-item-qty" style="width: 32px; height: 28px; font-size: 18px; color: #BA8663; display: flex; align-items: center; justify-content: center; background: none; border-radius: 0; border: none; font-family: 'Amatica SC', cursive; font-weight: bold;">${item.qty}</span>
+          <button class="side-cart-item-minus-btn" title="הפחת" style="background: none; border: none; font-size: 22px; color: #5EA189; cursor: pointer; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;">–</button>
+        </div>
+      </div>
+      <div class="side-cart-item-details" style="padding: 0 0 8px 0;">
+        <ul class="side-cart-item-details-list" style="max-width: 100%; overflow: hidden;">
+          ${details}
+        </ul>
+      </div>
+      <button class="side-cart-item-trash-btn" title="מחק" style="position: absolute; left: 8px; bottom: 8px; background: none; border: none; padding: 0; margin: 0; cursor: pointer; width: 22px; height: 22px;"><span class="side-cart-item-trash-icon"></span></button>
+    `;
+    
+    row.querySelector('.side-cart-item-trash-btn').onclick = function(e) {
+      e.stopPropagation();
+      showDeleteDialog(idx);
+    };
+    
+    // כפתור הוספה
+    row.querySelector('.side-cart-item-add-btn').onclick = function(e) {
+      e.stopPropagation();
+      if (window.cartSync) {
+        window.cartSync.updateItem(idx, {qty: cart[idx].qty + 1});
+        cart = window.cartSync.loadCart();
+      } else {
+        cart[idx].qty += 1;
+        localStorage.setItem('cart', JSON.stringify(cart));
+      }
+        updateCartBadge();
+        renderCart();
+    };
+    // כפתור הפחתה
+    row.querySelector('.side-cart-item-minus-btn').onclick = function(e) {
+      e.stopPropagation();
+      if (cart[idx].qty > 1) {
+        if (window.cartSync) {
+          window.cartSync.updateItem(idx, {qty: cart[idx].qty - 1});
+          cart = window.cartSync.loadCart();
+        } else {
+          cart[idx].qty -= 1;
+          localStorage.setItem('cart', JSON.stringify(cart));
+        }
+          updateCartBadge();
+          renderCart();
+      } else {
+        showDeleteDialog(idx);
+      }
+    };
+    
+    sideCartList.appendChild(row);
+  });
+}
+
+function openSideCart(scrollToItemIndex = false) {
+  sideCart.classList.add('active');
+  cartOverlay.classList.add('active');
+  document.body.style.overflow = 'hidden';
+  
+  // אם צריך לגלול למוצר ספציפי
+  if (scrollToItemIndex !== false && cart.length > 0) {
+    setTimeout(() => {
+      const cartItems = sideCartList.querySelectorAll('.side-cart-item');
+      if (cartItems.length > 0) {
+        let targetItem;
+        
+        if (scrollToItemIndex === true) {
+          // ברירת מחדל - המוצר האחרון
+          targetItem = cartItems[cartItems.length - 1];
+        } else if (typeof scrollToItemIndex === 'number') {
+          // מוצר ספציפי לפי אינדקס
+          targetItem = cartItems[scrollToItemIndex] || cartItems[cartItems.length - 1];
+        }
+        
+        if (targetItem) {
+          // אנימציית קפיצה למוצר 
+          targetItem.style.transform = 'scale(1.1)';
+          targetItem.style.background = 'linear-gradient(135deg, #f0f8f0, #e8f5e8)';
+          targetItem.style.border = '2px solid #5EA189';
+          targetItem.style.borderRadius = '8px';
+          targetItem.style.transition = 'all 0.3s ease';
+          
+          // גלילה למוצר
+          targetItem.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'center' 
+          });
+          
+          // החזרה לגודל הרגיל אחרי אנימציה
+          setTimeout(() => {
+            targetItem.style.transform = 'scale(1)';
+            targetItem.style.background = '';
+            targetItem.style.border = '';
+            targetItem.style.borderRadius = '';
+          }, 1500);
+        }
+      }
+    }, 200);
+  }
+}
+
+function closeSideCart() {
+  sideCart.classList.remove('active');
+  cartOverlay.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+cartBtn.addEventListener('click', function(e) {
+  e.preventDefault();
+  openSideCart();
+});
+
+cartOverlay.addEventListener('click', closeSideCart);
+closeSideCartBtn.addEventListener('click', closeSideCart);
+
+viewCartBtn.addEventListener('click', function() {
+  window.location.href = 'Shopping Cart.html';
+});
+
+function removeFromCart(idx) {
+  if (idx >= 0 && idx < cart.length) {
+    if (window.cartSync) {
+      window.cartSync.removeItem(idx);
+      cart = window.cartSync.loadCart();
+    } else {
+        cart.splice(idx, 1);
+        localStorage.setItem('cart', JSON.stringify(cart));
+    }
+        updateCartBadge();
+        renderCart();
+  }
+}
+
+let cartDeleteIdx = null;
+function showDeleteDialog(idx) {
+  cartDeleteIdx = idx;
+  document.getElementById('cartDeleteDialog').style.display = 'flex';
+}
+
+document.getElementById('cartDeleteYes').onclick = function() {
+  if (cartDeleteIdx !== null) {
+    removeFromCart(cartDeleteIdx);
+    cartDeleteIdx = null;
+  }
+  document.getElementById('cartDeleteDialog').style.display = 'none';
+};
+
+document.getElementById('cartDeleteNo').onclick = function() {
+  cartDeleteIdx = null;
+  document.getElementById('cartDeleteDialog').style.display = 'none';
+};
+
+// Initialize
+updateCartBadge();
+renderCart();
+
+// iPad and Safari specific fixes
+function ensureViewCartButtonVisibleOniPad() {
+  const viewCartBtn = document.getElementById('viewCartBtn');
+  if (viewCartBtn) {
+    viewCartBtn.style.display = 'block';
+    viewCartBtn.style.visibility = 'visible';
+    viewCartBtn.style.opacity = '1';
+    viewCartBtn.style.position = 'sticky';
+    viewCartBtn.style.bottom = '0';
+    viewCartBtn.style.zIndex = '9999';
+    viewCartBtn.style.webkitTransform = 'none';
+    viewCartBtn.style.transform = 'none';
+  }
+}
+
+// Call the function multiple times to ensure it works
+setTimeout(ensureViewCartButtonVisibleOniPad, 100);
+setTimeout(ensureViewCartButtonVisibleOniPad, 500);
+setTimeout(ensureViewCartButtonVisibleOniPad, 1000);
+setTimeout(ensureViewCartButtonVisibleOniPad, 2000);
+
+// --- Best Seller Overlay Quantity Logic ---
+document.querySelectorAll('.best-seller-card').forEach(function(card) {
+  const overlay = card.querySelector('.best-seller-overlay');
+  if (!overlay) return;
+  const minusBtn = overlay.querySelector('.best-seller-overlay-qty-btn:first-child');
+  const plusBtn = overlay.querySelector('.best-seller-overlay-qty-btn:last-child');
+  const qtyNum = overlay.querySelector('.best-seller-overlay-qty-num');
+  const addBtn = overlay.querySelector('.best-seller-btn.add');
+  
+  let qty = 1;
+  
+  plusBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    qty++;
+    qtyNum.textContent = qty;
+  });
+  
+  minusBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    if (qty > 1) {
+      qty--;
+      qtyNum.textContent = qty;
+    }
+  });
+  
+  qtyNum.addEventListener('click', function(e) {
+    e.preventDefault();
+    // לא עושה כלום, לא משנה צבע
+  });
+  
+  // Add cart functionality with enhanced consolidation
+  if (addBtn) {
+    addBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      // Extract product info from the card
+      const modelName = card.querySelector('.best-seller-model').textContent.trim();
+      const priceText = card.querySelector('.best-seller-price').textContent.trim();
+      const imgStyle = card.querySelector('.best-seller-img').style.background;
+      const imgUrl = imgStyle.match(/url\(['"]?([^'"]*?)['"]?\)/)?.[1] || '';
+      
+      // Create cart item with consistent format
+      const cartItem = {
+        title: "מטקה",
+        subtitle: modelName,
+        notes: null,  // Changed from "" to null to allow notes to be added later
+        desc: "",
+        qty: qty,
+        price: priceText,
+        img: imgUrl
+      };
+      
+      // Use universal add function for proper consolidation
+      if (typeof window.addProductToCart === 'function') {
+        window.addProductToCart(cartItem);
+      } else {
+        // Fallback to enhanced cartSync method
+        if (window.cartSync && typeof window.cartSync.loadCart === 'function') {
+          cart = window.cartSync.loadCart();
+        } else {
+          try {
+            cart = JSON.parse(localStorage.getItem('cart') || '[]');
+          } catch (e) {
+            cart = [];
+          }
+        }
+        
+        // בדיקה מלאה של מוצר קיים עם השוואה משופרת
+        let existingIndex = window.cartSync && window.cartSync.findExistingIndex 
+          ? window.cartSync.findExistingIndex(cart, cartItem)
+          : cart.findIndex(item => {
+              // בדיקה מיוחדת למוצרי דגמים
+              const isModelItem = (item.title === 'מטקה' && !item.notes) || 
+                                 (item.title + ' ' + item.subtitle).toLowerCase().includes('דגם');
+              const isNewModelItem = (cartItem.title === 'מטקה' && !cartItem.notes) || 
+                                    (cartItem.title + ' ' + cartItem.subtitle).toLowerCase().includes('דגם');
+              
+              if (isModelItem && isNewModelItem && 
+                  item.title === cartItem.title && 
+                  item.subtitle === cartItem.subtitle) {
+                // בדוק שההערות זהות
+                const existingNotes = (item.notes || '').trim();
+                const newNotes = (cartItem.notes || '').trim();
+                
+                if (existingNotes === newNotes) {
+                  return true;
+                }
+                return false;
+              }
+              
+              // בדיקה אם זה מוצר עם הערות זהות או ללא הערות
+              const existingNotes = (item.notes || '').trim();
+              const newNotes = (cartItem.notes || '').trim();
+              
+              if (existingNotes === newNotes && 
+                  item.title === cartItem.title && 
+                  item.subtitle === cartItem.subtitle) {
+                return true;
+              }
+              
+              return item.title === cartItem.title && 
+                item.subtitle === cartItem.subtitle &&
+                (item.notes || '').trim().replace(/\s+/g, ' ') === (cartItem.notes || '').trim().replace(/\s+/g, ' ') &&
+                (item.desc || '').trim() === (cartItem.desc || '').trim() &&
+                (() => {
+          const files1 = item.files || [];
+          const files2 = cartItem.files || [];
+          if (files1.length !== files2.length) return false;
+          for (let i = 0; i < files1.length; i++) {
+            const f1 = files1[i] || {};
+            const f2 = files2[i] || {};
+            if (f1.name !== f2.name || f1.type !== f2.type || f1.size !== f2.size) return false;
+          }
+          return true;
+        })();
+            });
+        
+        if (existingIndex !== -1) {
+          // בדיקה אם זה מוצר דגם שצריך לעדכן עם הערות
+          const existingItem = cart[existingIndex];
+          const isModelItem = (existingItem.title === 'מטקה' && !existingItem.notes) || 
+                             (existingItem.title + ' ' + existingItem.subtitle).toLowerCase().includes('דגם');
+          const isNewModelItem = (cartItem.title === 'מטקה' && !cartItem.notes) || 
+                                (cartItem.title + ' ' + cartItem.subtitle).toLowerCase().includes('דגם');
+          
+          if (isModelItem && isNewModelItem && 
+              existingItem.title === cartItem.title && 
+              existingItem.subtitle === cartItem.subtitle) {
+            // עדכן מוצר דגם עם הערות חדשות
+            cart[existingIndex] = {
+              ...existingItem,
+              notes: cartItem.notes,
+              qty: existingItem.qty + qty
+            };
+          } else {
+            // בדיקה אם זה מוצר עם הערות זהות
+            const existingNotes = (existingItem.notes || '').trim();
+            const newNotes = (cartItem.notes || '').trim();
+            
+            if (existingNotes === newNotes && 
+                existingItem.title === cartItem.title && 
+                existingItem.subtitle === cartItem.subtitle) {
+              // איחוד מוצרים עם הערות זהות
+              cart[existingIndex].qty += qty;
+            } else {
+              // מוצר קיים - הוסף כמות
+              cart[existingIndex].qty += qty;
+            }
+          }
+        } else {
+          // מוצר חדש - הוסף לסל
+          cart.push(cartItem);
+        }
+        
+        // שמירה בחזרה עם עדכון מיידי של הממשק
+        if (window.cartSync && typeof window.cartSync.saveCart === 'function') {
+          window.cartSync.saveCart(cart, true);
+        } else {
+          localStorage.setItem('cart', JSON.stringify(cart));
+        }
+
+        // עדכון מיידי של הממשק
+        updateCartBadge();
+        renderCart();
+        
+        // פתיחת הסל הקטן אוטומטית
+        const targetIndex = existingIndex !== -1 ? existingIndex : cart.length - 1;
+        openSideCart(targetIndex);
+        
+        // הפעלת סנכרון נוסף
+        if (window.cartSync && typeof window.cartSync.synchronize === 'function') {
+          setTimeout(() => {
+            window.cartSync.synchronize('add-to-cart-complete');
+          }, 100);
+        }
+      }
+      
+      // Reset quantity to 1
+      qty = 1;
+      qtyNum.textContent = qty;
+      
+      // Show success message
+      showCenterToast('המוצר נוסף לסל בהצלחה!');
+    });
+  }
+});
+
+// Toast message function
+function showToast(message) {
+  // Try to find existing toast or create one
+  let toast = document.getElementById('toast');
+  if (!toast) {
+    toast = document.createElement('div');
+    toast.id = 'toast';
+    toast.className = 'toast';
+    toast.style.cssText = `
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #4CAF50;
+      color: white;
+      padding: 16px;
+      border-radius: 4px;
+      z-index: 9999;
+      font-family: Arial, sans-serif;
+      opacity: 0;
+      transform: translateY(100%);
+      transition: all 0.3s ease;
+    `;
+    document.body.appendChild(toast);
+  }
+  
+  toast.textContent = message;
+  toast.style.opacity = '1';
+  toast.style.transform = 'translateY(0)';
+  
+  setTimeout(() => {
+    toast.style.opacity = '0';
+    toast.style.transform = 'translateY(100%)';
+  }, 3000);
+}
+
+function showCenterToast(message) {
+  // Create center toast if it doesn't exist
+  let centerToast = document.getElementById('centerToast');
+  if (!centerToast) {
+    centerToast = document.createElement('div');
+    centerToast.id = 'centerToast';
+    centerToast.style.cssText = `
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #5EA189;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-family: 'Amatica SC', cursive;
+      font-size: 20px;
+      font-weight: bold;
+      z-index: 1000;
+      display: none;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    `;
+    document.body.appendChild(centerToast);
+  }
+  
+  centerToast.textContent = message;
+  centerToast.style.display = 'block';
+  setTimeout(() => {
+    centerToast.style.display = 'none';
+  }, 3000);
+}
+  </script>
+</body>
+</html> 

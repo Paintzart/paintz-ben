@@ -1,0 +1,3674 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* גלילה מיידית - לפני טעינת כל השאר */
+    html, body { 
+      overflow: visible !important; 
+      height: auto !important; 
+      max-height: none !important;
+      -webkit-overflow-scrolling: touch !important; 
+    }
+    * {
+      max-height: none !important;
+    }
+  </style>
+  <title>Homepage - Paintz</title>
+  <link href="https://fonts.googleapis.com/css2?family=Amatica+SC:wght@700&family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@700&display=swap" rel="stylesheet">
+  <!-- <link rel="stylesheet" href="css/main.css"> -->
+  <style>
+    /* גלילה פשוטה וישירה */
+    html {
+      overflow: hidden auto !important;
+      height: auto !important;
+      max-height: none !important;
+    }
+    
+    body {
+      background: #F9F1DC;
+      overflow: hidden auto !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      height: auto !important;
+      max-height: none !important;
+      width: 100% !important;
+    }
+    
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    
+    /* השארת רק scrollbar שעובד */
+    html {
+      overflow: hidden !important;
+      height: 100% !important;
+      width: 100% !important;
+      max-width: 100vw !important;
+    }
+    
+    body {
+      overflow-x: hidden !important;
+      overflow-y: auto !important;
+      height: 100% !important;
+      width: 100% !important;
+      max-width: 100vw !important;
+    }
+    
+    .body-center {
+      direction: rtl !important;
+      width: 100% !important;
+      height: auto !important;
+      max-height: none !important;
+    }
+    
+    @media (max-width: 900px) {
+      html, body {
+        -webkit-overflow-scrolling: touch !important;
+      }
+      
+      * {
+        -webkit-overflow-scrolling: touch !important;
+        box-sizing: border-box !important;
+      }
+    }
+    .body-center {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      height: auto;
+      width: 100%;
+      max-width: 100vw;
+      overflow-x: hidden;
+    }
+    /* Header */
+    header {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 8px 10px;
+      position: relative;
+      width: 100%;
+      max-width: 100vw;
+      height: 90px;
+      background: transparent;
+      isolation: isolate;
+      box-sizing: border-box;
+    }
+    .logo {
+      width: 180px;
+      height: 80px;
+      background: url('logo.jpg') no-repeat center/cover;
+      transform: rotate(0.67deg);
+      z-index: 0;
+    }
+    .cart {
+      position: absolute;
+      width: 32px;
+      height: 32px;
+      right: 10px;
+      top: 10px;
+      z-index: 1;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .cart-icon {
+      width: 32px;
+      height: 32px;
+      background: url('shop.svg') no-repeat center center;
+      background-size: contain;
+      background-color: transparent;
+      position: relative;
+    }
+    .cart-badge {
+      position: absolute;
+      left: 50%;
+      bottom: 3px;
+      top: auto;
+      transform: translateX(-50%);
+      color: #111;
+      font-size: 18px;
+      font-family: 'Rubik', sans-serif;
+      font-weight: bold;
+      background: none;
+      border: none;
+      width: auto;
+      height: auto;
+      line-height: 1;
+      display: block;
+      z-index: 2;
+      pointer-events: none;
+    }
+    /* Navigation Bar */
+    nav {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      padding: 0 5vw;
+      gap: 30px;
+      width: 100%;
+      max-width: 100vw;
+      height: 44px;
+      background: #BA8663;
+      margin-bottom: 20px;
+      box-sizing: border-box;
+    }
+    .nav-link {
+      width: auto;
+      min-width: 65px;
+      height: 48px;
+      font-family: 'Amatica SC', cursive;
+      font-weight: 700;
+      font-size: 32px;
+      line-height: 48px;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #fff;
+      margin: 0 2vw;
+      transform: rotate(0.52deg);
+      background: transparent;
+      cursor: pointer;
+      text-decoration: none;
+      justify-content: center;
+    }
+    /* Slider Section */
+    .slider-section {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0 10vw;
+      width: 100%;
+      max-width: 100vw;
+      height: auto;
+      position: relative;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+    .slider-imgs {
+      width: 100%;
+      max-width: 720px;
+      height: 460px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      margin: 0 auto;
+      overflow: hidden;
+      background: transparent;
+    }
+    .slider-img {
+      width: 100%;
+      max-width: 720px;
+      height: 460px;
+      background-size: cover;
+      background-position: center;
+      position: absolute;
+      left: 0;
+      top: 0;
+      opacity: 0;
+      transition: opacity 0.7s;
+      z-index: 1;
+    }
+    .slider-img.active {
+      opacity: 1;
+      z-index: 2;
+    }
+    .slider-dots {
+      position: absolute;
+      left: 50%;
+      bottom: 12px;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 8px;
+      display: flex;
+      gap: 8px;
+      z-index: 3;
+    }
+    .slider-dot {
+      width: 8px;
+      height: 8px;
+      border: 2px solid #fff;
+      background: #fff;
+      border-radius: 50%;
+      opacity: 0.5;
+      cursor: pointer;
+      transition: opacity 0.3s, background 0.3s;
+    }
+    .slider-dot.active {
+      background: #fff;
+      border: 2px solid #fff;
+      opacity: 1;
+    }
+    @media (max-width: 600px) {
+      .slider-section {
+        height: 220px;
+        padding: 0 10vw;
+      }
+      .slider-imgs {
+        max-width: 80vw;
+        height: 200px;
+      }
+      .slider-img {
+        max-width: 80vw;
+        height: 200px;
+      }
+      .slider-dots {
+        width: 40px;
+        bottom: 12px;
+        gap: 6px;
+      }
+      .slider-dot {
+        width: 6px;
+        height: 6px;
+      }
+    }
+    /* Shop Now Button Section */
+    .shop-now-section {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center; 
+      padding: 0 20vw;
+      margin-top: 0;
+      width: 100%;
+      max-width: 100vw;
+      height: 100px;
+      position: relative;
+      box-sizing: border-box;
+    }
+    .shop-now-group {
+      position: relative;
+      width: 220px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .shop-now-bg {
+      position: absolute;
+      align-items: center;
+      width: 220px;
+      height: 60px;
+      background: #5EA189;
+      z-index: 0;
+      border-radius: 10px;
+    }
+    .shop-now-border {
+      position: absolute;
+      align-items: center;
+      width: 200px;
+      height: 44px;
+      border: 3px solid #fff;
+      z-index: 1;
+      border-radius: 8px;
+    }
+    .shop-now-btn {
+      /* position: absolute; */
+      width: 150px;
+      height: 60px;
+      font-family: 'Amatica SC', cursive;
+      font-weight: 700;
+      font-size: 32px;
+      line-height: 60px;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #fff;
+      border: 1px solid transparent;
+      background: transparent;
+      z-index: 2;
+      justify-content: center;
+      cursor: pointer;
+      border-radius: 8px;
+    }
+    /* Product Grid Section */
+    .product-grid-section {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      margin-left: 10px;
+      margin-right: 10px;
+      padding: 20px;
+      gap: 20px;
+      width: 100%;
+      max-width: 100vw;
+      height: 387px;
+      background: #D3B895;
+      box-sizing: border-box;
+
+    }
+    .product-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 280px;
+      height: 280px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: none !important;
+      text-decoration: none !important;
+    }
+    .product-card:focus, .product-card:active, .product-card:hover, .product-card .product-title {
+      text-decoration: none !important;
+      color: inherit !important;
+      outline: none !important;
+    }
+    .product-title {
+      width: 280px;
+      height: 77px;
+      font-family: 'Amatica SC', cursive;
+      font-weight: 700;
+      font-size: 50px;
+      line-height: 80px;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      padding: 0 20px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #775A47;
+      margin-bottom: 8px;
+      justify-content: center;
+      text-decoration: none !important;
+    }
+    .product-img {
+      width: 250px;
+      height: 250px;
+      margin-bottom: 5px;
+      background: url('image.png') no-repeat center/cover;
+      border-radius: 8px;
+    }
+    /* Best Seller Section */
+    .best-seller-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0;
+      gap: 10px;
+      width: 100%;
+      max-width: 100vw;
+      height: 450px;
+      box-sizing: border-box;
+    }
+    .best-seller-header {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      max-width: 100vw;
+      height: 96px;
+      gap: 20px;
+      box-sizing: border-box;
+    }
+    .best-seller-line {
+      width: 570px;
+      height: 0;
+      border: 3px solid #775A47;
+    }
+    .best-seller-title {
+      width: 350px;
+      height: 96px;
+      font-family: 'Amatica SC', cursive;
+      font-weight: 700;
+      font-size: 60px;
+      line-height: 96px;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #775A47;
+      justify-content: center;
+    }
+    .best-seller-list {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      width: calc(100% - 24px); /* Added padding on sides */
+      max-width: 1200px;
+      margin: 18px auto 0 auto;
+      box-sizing: border-box;
+      direction: rtl;
+      justify-items: center;
+      justify-content: center;
+      padding: 0 12px; /* Added padding on sides */
+    }
+    .best-seller-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1px 23px;
+      gap: 10px;
+      width: 190px; /* Slightly smaller to fit with margins */
+      height: 300px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .best-seller-img {
+      width: 170px; /* Adjusted for new card width */
+      height: 170px;
+      background: #000;
+      border-radius: 8px;
+      margin-top: 16px;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .best-seller-model {
+      width: 170px;
+      height: 30px;
+      font-family: 'Amatic SC', cursive;
+      font-weight: 700;
+      font-size: 28px;
+      line-height: 72px;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #000;
+      justify-content: center;
+    }
+
+    .best-seller-line2 {
+      width: 14px;
+      height: 0;
+      border: 1px solid #000;
+    }
+
+    .best-seller-price {
+      width: 48px;
+      height: 18px;
+      font-family: 'Amatic SC', cursive;
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 20px;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #000;
+      justify-content: center;
+    }
+
+    .best-seller-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255,255,255,0.85);
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+      z-index: 2;
+      padding-bottom: 18px;
+    }
+
+    .best-seller-card:hover .best-seller-overlay {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .best-seller-overlay-qty-group {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      left: 50%;
+      top: 25%;
+      transform: translate(-50%, 0);
+      margin: 0;
+      gap: 8px;
+      background: none;
+      border: none;
+      padding: 0;
+      z-index: 3;
+    }
+
+    .best-seller-overlay-qty-btn {
+      background: none;
+      border: none;
+      color: #5EA189;
+      font-size: 28px;
+      font-family: 'Amatica SC', cursive;
+      font-weight: bold;
+      width: 32px;
+      height: 32px;
+      border-radius: 0;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: color 0.2s;
+      margin: 0 2px;
+      padding: 0;
+      user-select: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+    }
+
+    .best-seller-overlay-qty-btn:hover {
+      color: #BA8663;
+    }
+
+    .best-seller-overlay-qty-num {
+      font-family: 'Amatica SC', cursive;
+      font-size: 36px;
+      color: #5EA189;
+      font-weight: bold;
+      min-width: 32px;
+      text-align: center;
+      margin: 0 8px;
+      background: none;
+      border: none;
+    }
+
+    .best-seller-overlay-btns {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      width: 90%;
+      align-items: center;
+      position: absolute;
+      left: 5%;
+      right: 5%;
+      bottom: 28px;
+      z-index: 4;
+    }
+
+    .best-seller-btn {
+      font-family: 'Amatica SC', cursive;
+      font-size: 20px;
+      font-weight: 700;
+      padding: 6px 0;
+      border-radius: 8px;
+      border: 2px solid #fff;
+      cursor: pointer;
+      transition: color 0.2s;
+      background: #5EA189;
+      color: #fff;
+      box-shadow: 0 1px 4px #0001;
+      width: 90%;
+      margin: 0;
+      text-decoration: none !important;
+    }
+
+    .best-seller-btn.view,
+    .best-seller-btn.view:hover,
+    .best-seller-btn:visited {
+      text-decoration: none !important;
+      background: #BA8663;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .best-seller-btn.add {
+      background: #5EA189;
+    }
+
+    .best-seller-btn.add:hover {
+      background: #38806a;
+      color: #fff;
+    }
+
+    .best-seller-btn.view:hover {
+      background: #8a6247;
+      color: #fff;
+    }
+    
+    /* Mobile responsive styles for overlay buttons */
+    @media (max-width: 1250px) {
+      .best-seller-overlay-qty-group {
+        top: 20% !important;
+      }
+      
+      .best-seller-overlay-btns {
+        bottom: 15px !important;
+      }
+    }
+    /* How It Works Section */
+    .how-it-works-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px 0;
+      width: 100%;
+      max-width: 100vw;
+      min-height: 320px;
+      background: #D3B895;
+      box-sizing: border-box;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .how-it-works-title {
+      width: 492px;
+      height: 84px;
+      font-family: 'Amatica SC', cursive;
+      font-weight: 700;
+      font-size: 60px;
+      line-height: 96px;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #775A47;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+
+    .how-it-works-steps {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 15px;
+      width: 100%;
+      max-width: 1100px;
+      padding: 0 15px;
+      box-sizing: border-box;
+    }
+
+    .how-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 15px;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: transform 0.2s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .how-step:hover {
+      transform: translateY(-3px);
+    }
+
+    .how-step::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 3px;
+      height: 100%;
+      background: #5EA189;
+      opacity: 0.8;
+    }
+
+    .how-step-circle {
+      width: 48px;
+      height: 48px;
+      background: #5EA189;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+      position: relative;
+      box-shadow: 0 2px 6px rgba(94,161,137,0.2);
+    }
+
+    .how-step-number {
+      font-family: 'Rubik', sans-serif;
+      font-weight: 700;
+      font-size: 24px;
+      color: #fff;
+      line-height: 1;
+    }
+
+    .how-step-title {
+      font-family: 'Amatica SC', cursive;
+      font-weight: 900;
+      font-size: 28px;
+      color: #775A47;
+      margin: 0 0 8px 0;
+      text-align: center;
+      line-height: 1.1;
+    }
+
+    .how-step-desc {
+      font-family: 'Amatica SC', cursive;
+      font-weight: 700;
+      font-size: 20px;
+      color: #5C4638;
+      text-align: center;
+      line-height: 1.2;
+      margin: 0;
+      opacity: 0.9;
+    }
+
+    @media (max-width: 900px) {
+      .how-it-works-steps {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 12px;
+      }
+      
+      .how-step {
+        padding: 12px;
+      }
+    }
+
+    @media (max-width: 1250px) {
+      /* Increase gallery height */
+      .instagram-gallery {
+        height: 800px;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        overflow-y: auto;
+        padding: 20px 0;
+        gap: 30px;
+        align-items: center;
+      }
+      
+      .instagram-img {
+        width: 85%;
+        height: 300px;
+        margin: 0;
+        object-fit: cover;
+      }
+
+      /* Reduce white border on shop now button */
+      .shop-now-border {
+        border-width: 1px;
+      }
+
+      /* Make categories 2 per row and narrower */
+      .product-grid-section {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        height: auto;
+        padding: 10px;
+      }
+
+      .product-card {
+        width: 100%;
+        height: auto;
+        min-height: 200px;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .product-img {
+        width: 85%;
+        height: 140px;
+        object-fit: cover;
+        margin: 5px 0;
+      }
+
+      /* Hot products in single row carousel */
+      @media (max-width: 750px) {
+        .best-seller-section {
+          width: 100vw;
+        }
+
+        .best-seller-list {
+          display: flex;
+          gap: 10px;
+          overflow-x: auto;
+          padding-left: 20px;
+          position: relative;
+        }
+
+        .best-seller-list::before {
+          content: '';
+          min-width: 420px;
+        }
+
+        .best-seller-list > .best-seller-card:first-child {
+          margin-left: 0 !important;
+        }
+
+        .best-seller-card {
+          flex: 0 0 auto;
+          min-width: 130px;
+          width: 130px;
+        }
+
+        .best-seller-img {
+          width: 120px;
+          height: 120px;
+        }
+
+        .best-seller-list::-webkit-scrollbar {
+          display: none;
+        }
+        
+        .best-seller-list {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+
+        /* Debug - uncomment to check if cards are hidden
+        .best-seller-card {
+          background: rgba(255,0,0,0.1);
+        }
+        */
+      }
+
+      /* Follow us section - show only images or move up */
+      @media (max-width: 1250px) {
+        /* Common section styles */
+        .best-seller-section,
+        .how-it-works-section {
+          padding: 0 !important;
+          margin: 0 !important;
+          margin-bottom: 10px !important;
+        }
+
+        /* Unified title styles for all sections */
+        .best-seller-title,
+        .how-it-works-title,
+        .instagram-title {
+          width: 100% !important;
+          height: auto !important;
+          font-size: 42px !important;
+          margin: 0 !important;
+          padding: 15px 0 !important;
+          text-align: center !important;
+          display: block !important;
+          line-height: 1.2 !important;
+        }
+
+        .instagram-section {
+          height: auto !important;
+          min-height: 0 !important;
+          padding: 0 !important;
+          margin: 0 !important;
+          display: block !important;
+          margin-bottom: 10px !important;
+        }
+
+        .instagram-title {
+          width: 100% !important;
+          height: auto !important;
+          font-size: 42px !important;
+          margin: 0 !important;
+          padding: 15px 0 !important;
+          text-align: center !important;
+          display: block !important;
+        }
+
+        .instagram-gallery {
+          display: block !important;
+          width: 100% !important;
+          height: auto !important;
+          padding: 0 !important;
+          margin: 0 !important;
+          text-align: center !important;
+          overflow-y: hidden !important;
+        }
+
+        .instagram-img {
+          display: block !important;
+          width: 90% !important;
+          height: 250px !important;
+          margin: 10px auto !important;
+          object-fit: cover !important;
+        }
+
+        .instagram-gallery::-webkit-scrollbar {
+          display: none !important;
+        }
+        
+        .instagram-gallery {
+          -ms-overflow-style: none !important;
+          scrollbar-width: none !important;
+        }
+      }
+
+      /* How it works section */
+      .how-it-works-steps {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        padding: 0 10px;
+        margin-bottom: 30px;
+      }
+      
+      .how-step {
+        padding: 10px;
+      }
+      
+      .how-it-works-title {
+        font-size: 42px;
+        margin-bottom: 20px;
+      }
+      
+      .how-step-title {
+        font-size: 24px;
+      }
+      
+      .how-step-desc {
+        font-size: 18px;
+      }
+
+      .how-it-works-section {
+        padding-bottom: 40px;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .how-it-works-steps {
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(6, 1fr);
+      }
+    }
+    /* Instagram Section */
+    .instagram-section {
+      width: 100%;
+      max-width: 100vw;
+      min-width: 0;
+      height: 430px;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0;
+      gap: 10px;
+      overflow: hidden;
+    }
+    .instagram-title {
+      width: 492px;
+      height: 84px;
+      font-family: 'Amatica SC', cursive;
+      font-weight: 700;
+      font-size: 60px;
+      color: #775A47;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .instagram-gallery {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 0;
+      gap: 10px;
+      width: 100%;
+      max-width: 1400px;
+      height: 330px;
+      margin: 0 auto;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+    .instagram-img {
+      width: 250px;
+      height: 180px;
+      margin-left: 10px;
+      margin-right: 10px;
+      background: #eee;
+      border-radius: 8px;
+      background-size: cover;
+      background-position: center;
+    }
+    /* Instagram Fallback Styling */
+    .instagram-fallback {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 60px;
+      background: transparent;
+      margin: 0;
+    }
+    .instagram-fallback-link {
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.3s ease;
+    }
+    .instagram-fallback-link:hover {
+      transform: scale(1.05);
+    }
+    .instagram-fallback-text {
+      font-family: 'Amatica SC', cursive;
+      font-weight: 700;
+      font-size: 36px;
+      color: #BA8663;
+      letter-spacing: 1px;
+    }
+    /* Footer Section */
+    footer {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      align-items: flex-start;
+      background: #5C4638;
+      padding: 10px 16px;
+      box-sizing: border-box;
+      height: 120px;
+      direction: rtl;
+      position: relative;
+    }
+    .footer-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+    }
+    .footer-nav {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-right: auto;
+      margin-left: auto;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      right: auto;
+      top: 10px;
+    }
+    .footer-link {
+      font-family: 'Amatica SC', cursive;
+      font-weight: 700;
+      font-size: 22px;
+      color: white;
+      text-decoration: none;
+    }
+    .footer-sep {
+      font-size: 20px;
+      color: white;
+    }
+    .footer-contact {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 6px;
+      position: absolute;
+      bottom: 10px;
+      left: 16px;
+    }
+    .footer-contact-item {
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: center;
+      gap: 10px;
+    }
+    .footer-icon {
+      width: 18px;
+      height: 18px;
+    }
+    .footer-contact-text {
+      font-family: 'Amatica SC', cursive;
+      font-weight: 700;
+      font-size: 18px;
+      color: white;
+    }
+    .footer-logo {
+      width: 90px;
+      height: 90px;
+      background: url('logo.jpg') no-repeat center/contain;
+      border-radius: 12px;
+    }
+    
+    .copyright-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0;
+      gap: 2px;
+      width: 100%;
+      max-width: 100vw;
+      height: 20px;
+      background: transparent;
+      margin-top: 2px;
+      box-sizing: border-box;
+    }
+    .copyright-text {
+      width: 180px;
+      height: 20px;
+      font-family: 'Amatica SC', cursive;
+      font-weight: 700;
+      font-size: 16px;
+      color: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    /* --- Shop Popup refined styles --- */
+    .shop-popup {
+      display: none;
+      position: fixed;
+      top: 100%;
+      right: 0;
+      left: auto;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px #0002;
+      z-index: 1000;
+      min-width: 140px;
+      padding: 4px 0;
+      font-family: 'Amatica SC', cursive;
+      font-size: 18px;
+      color: #5C4638;
+      direction: rtl;
+    }
+    .shop-popup ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .shop-popup > ul > li {
+      padding: 0 10px;
+      margin-bottom: 1px;
+      position: relative;
+    }
+    .shop-popup a, .shop-popup .popup-main-btn {
+      color: #5C4638;
+      text-decoration: none;
+      background: none;
+      border: none;
+      font: inherit;
+      cursor: pointer;
+      padding: 2px 0;
+      width: 100%;
+      text-align: right;
+      display: block;
+      border-radius: 6px;
+      transition: background 0.2s;
+      line-height: 1.2;
+      font-size: 18px;
+    }
+    .shop-popup a:hover, .shop-popup .popup-main-btn:hover {
+      background: #f9f1dc;
+    }
+    .popup-sub {
+      display: none;
+      position: absolute;
+      right: 100%;
+      top: 0;
+      background: #f6eee0;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px #0001;
+      padding: 2px 0;
+      min-width: 110px;
+      z-index: 101;
+    }
+    .popup-sub li {
+      margin-bottom: 0;
+      padding: 0 6px;
+    }
+    .popup-sub a {
+      font-size: 15px;
+      line-height: 1.2;
+      padding: 2px 0;
+    }
+    .shop-popup .active + .popup-sub {
+      display: block;
+    }
+    .shop-popup-btn {
+      border: none !important;
+      outline: none !important;
+      box-shadow: none !important;
+      background: transparent;
+    }
+    .product-card,
+    .product-card:link,
+    .product-card:visited,
+    .product-card:active,
+    .product-card:focus,
+    .product-card:hover {
+      color: #775A47 !important;
+      text-decoration: none !important;
+    }
+    /* --- פופאפ חנות בפוטר --- */
+    .footer-link-shop-popup {
+      position: relative;
+    }
+    .footer-shop-popup {
+      display: none;
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px #0002;
+      z-index: 200;
+      min-width: 140px;
+      padding: 4px 0;
+      font-family: 'Amatica SC', cursive;
+      font-size: 18px;
+      color: #5C4638;
+      direction: rtl;
+    }
+    @media (max-width: 700px) {
+      .shop-now-section {
+         height: 70px;
+         padding: 0 2vw;
+         margin-top: 4px;
+      }
+      
+      /* Mobile Header */
+      header {
+        height: 70px;
+        padding: 6px 8px;
+      }
+      
+      .logo {
+        width: 140px;
+        height: 60px;
+      }
+      
+      .cart {
+        width: 28px;
+        height: 28px;
+        right: 8px;
+        top: 8px;
+      }
+      
+      .cart-icon {
+        width: 28px;
+        height: 28px;
+      }
+      
+      .cart-badge {
+        font-size: 14px;
+        bottom: 2px;
+      }
+      
+      /* Mobile Navigation */
+      nav {
+        height: 40px;
+        padding: 0 2vw;
+        gap: 15px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+        margin-bottom: 15px;
+      }
+      
+      .nav-link {
+        font-size: 24px !important;
+        line-height: 40px;
+        height: 40px;
+        min-width: 50px;
+        margin: 0 1vw;
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+      
+      /* Mobile Product Grid */
+      .product-grid-section {
+        flex-direction: column;
+        height: auto;
+        gap: 15px;
+        padding: 15px 10px;
+        margin: 0 5px;
+      }
+      
+      .product-card {
+        width: calc(100% - 20px);
+        max-width: 280px;
+        height: 220px;
+        margin: 0 auto;
+      }
+      
+      .product-title {
+        font-size: 36px;
+        line-height: 50px;
+        height: 50px;
+        width: 100%;
+        padding: 0 10px;
+      }
+      
+      .product-img {
+        width: 180px;
+        height: 150px;
+      }
+      
+      /* Mobile Best Seller Section */
+      .best-seller-section {
+        height: auto;
+        padding: 0 0 20px 0;
+        margin-bottom: 0;
+      }
+      
+      .best-seller-header {
+        height: 70px;
+        gap: 10px;
+        margin-bottom: 5px;
+      }
+      
+      .best-seller-line {
+        width: 60px;
+      }
+      
+      .best-seller-title {
+        width: auto;
+        height: 70px;
+        font-size: 42px;
+        line-height: 70px;
+      }
+      
+      .best-seller-list {
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+        overflow-y: hidden;
+        gap: 10px;
+        padding: 0 15px;
+        margin: 0;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+      }
+      
+      .best-seller-list::-webkit-scrollbar {
+        display: none;
+      }
+      
+      .best-seller-card {
+        flex: 0 0 140px;
+        width: 140px;
+        min-width: 140px;
+        height: 220px;
+        padding: 1px 10px;
+        scroll-snap-align: start;
+      }
+      
+      .best-seller-img {
+        width: 110px;
+        height: 110px;
+        margin: 5px 0;
+        object-fit: cover;
+      }
+      
+      /* Fix for Matka image specifically */
+      .best-seller-card:last-child .best-seller-img {
+        width: 110px !important;
+        height: 80px !important;
+        margin: 15px 0 !important;
+        object-fit: contain;
+      }
+
+      .best-seller-model {
+        font-size: 18px;
+        margin: 5px 0;
+      }
+      
+      .best-seller-price {
+        font-size: 20px;
+        margin: 2px 0;
+      }
+      
+      .best-seller-overlay-btns {
+        gap: 5px;
+      }
+      
+      .best-seller-btn {
+        font-size: 16px;
+        padding: 8px;
+      }
+      
+      /* Mobile Instagram Section */
+      .instagram-section {
+        height: 280px;
+        padding: 0 5px;
+      }
+      
+      .instagram-title {
+        font-size: 42px;
+        height: 60px;
+        width: 300px;
+      }
+      
+      .instagram-gallery {
+        height: 200px;
+        gap: 8px;
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding: 10px 5px;
+      }
+      
+      .instagram-img {
+        width: 180px;
+        height: 130px;
+        margin: 0 2px;
+        flex-shrink: 0;
+      }
+      
+      /* Mobile Instagram Fallback Styling */
+      .instagram-fallback {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 60px;
+        background: transparent;
+        margin: 0;
+      }
+      .instagram-fallback-link {
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.3s ease;
+      }
+      .instagram-fallback-link:hover {
+        transform: scale(1.05);
+      }
+      .instagram-fallback-text {
+        font-family: 'Amatica SC', cursive;
+        font-weight: 700;
+        font-size: 36px;
+        color: #BA8663;
+        letter-spacing: 1px;
+      }
+      
+      /* Mobile Footer */
+      footer {
+        height: auto;
+        min-height: 120px;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 15px 10px;
+      }
+      
+      .footer-nav {
+        position: static;
+        transform: none;
+        left: auto;
+        top: auto;
+        margin: 10px 0;
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+      
+      .footer-link {
+        font-size: 18px;
+      }
+      
+      .footer-contact {
+        position: static;
+        align-items: center;
+        margin: 10px 0;
+      }
+      
+      .footer-contact-text {
+        font-size: 14px;
+      }
+      
+      .footer-logo {
+        width: 70px;
+        height: 70px;
+        margin: 10px 0;
+      }
+      
+      /* Mobile Shop Button */
+      .shop-now-group {
+        width: 180px;
+        height: 50px;
+      }
+      
+      .shop-now-bg {
+        width: 180px;
+        height: 50px;
+      }
+      
+      .shop-now-border {
+        width: 160px;
+        height: 36px;
+      }
+      
+      .shop-now-btn {
+        width: 120px;
+        height: 50px;
+        font-size: 24px;
+        line-height: 50px;
+      }
+    }
+    /* Side Cart Styles */
+    .cart-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.25);
+      z-index: 99;
+      transition: opacity 0.3s;
+    }
+    .cart-overlay.active {
+      display: block;
+      opacity: 1;
+    }
+    .side-cart {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 370px;
+      max-width: 90vw;
+      height: 100vh;
+      background: #fff;
+      box-shadow: -2px 0 16px #0002;
+      z-index: 100;
+      transform: translateX(100%);
+      transition: all 0.35s cubic-bezier(.7,.2,.2,1);
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+      visibility: hidden;
+      opacity: 0;
+      pointer-events: none;
+    }
+    .side-cart.active {
+      right: 0;
+      transform: translateX(0);
+      visibility: visible;
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .side-cart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 20px 10px 20px;
+      border-bottom: 1px solid #eee;
+      background: #BA8663;
+    }
+    .side-cart-title {
+      font-family: 'Amatica SC', cursive;
+      font-size: 32px;
+      font-weight: 700;
+      color: #fff;
+    }
+    .side-cart-close {
+      background: none;
+      border: none;
+      font-size: 32px;
+      color: #775A47;
+      cursor: pointer;
+      font-family: inherit;
+      line-height: 1;
+    }
+    .side-cart-list {
+      flex: 1;
+      overflow-y: auto;
+      padding: 10px 0 0 0;
+      background: #fff;
+    }
+    .side-cart-item {
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      background: #F9F1DC;
+      border-radius: 8px;
+      margin: 0 16px 12px 16px;
+      padding: 10px 10px 10px 6px;
+      box-shadow: 0 1px 4px #0001;
+      position: relative;
+      min-height: 60px;
+      user-select: none;
+      overflow: hidden;
+    }
+    .side-cart-item-header {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      width: 100%;
+      height: 70px;
+      min-height: 70px;
+    }
+    .side-cart-item-title-group {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      flex: 1;
+      margin: 0;
+      padding: 0;
+      min-width: 0;
+    }
+    .side-cart-item-title-main, .side-cart-item-title-sub {
+      font-size: 20px;
+      font-weight: 800;
+      color: #775A47;
+      font-family: 'Amatica SC', cursive;
+      line-height: 1.08;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+      max-width: 90px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .side-cart-item-title-sub {
+      font-weight: 800;
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+    .side-cart-item-qty {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: 400;
+      color: #BA8663;
+      width: 32px;
+      height: 22px;
+      background: #f6eee0;
+      border-radius: 8px;
+      text-align: center;
+      margin: 0;
+      font-family: 'Amatica SC', cursive;
+    }
+    .side-cart-item-details {
+      margin: 6px 0 0 0;
+      padding: 0;
+      width: 100%;
+    }
+    .side-cart-item-details-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      text-align: right;
+      max-width: 100%;
+      overflow: hidden;
+    }
+    .side-cart-item-details-list li {
+      font-size: 15px;
+      color: #5C4638;
+      background: none;
+      border-radius: 0;
+      margin-bottom: 0;
+      padding: 0;
+      font-family: 'Amatica SC', cursive;
+      font-weight: 700;
+      direction: rtl;
+      line-height: 1.5;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .side-cart-item-details-label {
+      color: #5EA189;
+      font-weight: bold;
+      flex-shrink: 0;
+      text-align: right;
+    }
+    .side-cart-item-details-value {
+      flex: 1;
+      min-width: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .side-cart-item-color-box {
+      display: inline-block;
+      width: 11px;
+      height: 11px;
+      border-radius: 2px;
+      border: 1px solid #ccc;
+      margin-left: 4px;
+      vertical-align: middle;
+      align-self: center;
+    }
+    .side-cart-item-actions {
+      position: absolute;
+      left: 8px;
+      bottom: 6px;
+      display: flex;
+      flex-direction: row;
+      gap: 6px;
+      z-index: 2;
+    }
+    .side-cart-item-trash-btn, .side-cart-item-add-btn {
+      background: none;
+      border: none;
+      padding: 0;
+      margin: 0;
+      cursor: pointer;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+    .side-cart-item-trash-btn:hover, .side-cart-item-add-btn:hover {
+      opacity: 1;
+    }
+    .side-cart-item-trash-icon {
+      width: 20px;
+      height: 20px;
+      background: url('trash.svg') no-repeat center/contain;
+      display: inline-block;
+    }
+    .side-cart-item-plus-icon {
+      font-size: 20px;
+      font-weight: bold;
+      color: #5EA189;
+      display: inline-block;
+      line-height: 1;
+    }
+    /* דיאלוג מחיקה */
+    .cart-delete-dialog {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0,0,0,0.18);
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .cart-delete-dialog-content {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 16px #0003;
+      padding: 32px 28px 18px 28px;
+      min-width: 260px;
+      text-align: center;
+    }
+    .cart-delete-dialog-title {
+      font-family: 'Amatica SC', cursive;
+      font-size: 22px;
+      color: #775A47;
+      margin-bottom: 18px;
+    }
+    .cart-delete-dialog-actions {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+    }
+    .cart-delete-btn-yes {
+      background: #e74c3c;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 18px;
+      font-family: 'Amatica SC', cursive;
+      padding: 6px 22px;
+      cursor: pointer;
+    }
+    .cart-delete-btn-no {
+      background: #eee;
+      color: #775A47;
+      border: none;
+      border-radius: 8px;
+      font-size: 18px;
+      font-family: 'Amatica SC', cursive;
+      padding: 6px 22px;
+      cursor: pointer;
+    }
+    @media (max-width: 700px) {
+      .side-cart {
+        width: 98vw;
+        max-width: 98vw;
+      }
+      
+      /* Ensure the view cart button is always visible on mobile and tablet */
+      .side-cart-view-btn {
+        position: sticky;
+        bottom: 0;
+        width: calc(100% - 32px);
+        margin: 16px 16px 25px 16px;
+        height: 48px;
+        background: #5EA189;
+        color: #fff;
+        font-family: 'Amatica SC', cursive;
+        font-size: 20px;
+        font-weight: 700;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background 0.2s;
+        display: block !important;
+        z-index: 10;
+        box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
+      }
+      
+      /* Adjust side-cart-list padding to prevent overlap */
+      .side-cart-list {
+        padding: 10px 0 100px 0;
+      }
+      
+      .side-cart-view-btn:hover {
+        background: #4b8c74;
+      }
+      
+      /* Mobile Header */
+      header {
+        height: 70px;
+        padding: 6px 8px;
+      }
+      
+      .logo {
+        width: 140px;
+        height: 60px;
+      }
+      
+      .cart {
+        width: 28px;
+        height: 28px;
+        right: 8px;
+        top: 8px;
+      }
+      
+      .cart-icon {
+        width: 28px;
+        height: 28px;
+      }
+      
+      .cart-badge {
+        font-size: 14px;
+        bottom: 2px;
+      }
+      
+      /* Mobile Navigation */
+      nav {
+        height: 40px;
+        padding: 0 2vw;
+        gap: 15px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+        margin-bottom: 15px;
+      }
+      
+      .nav-link {
+        font-size: 24px !important;
+        line-height: 40px;
+        height: 40px;
+        min-width: 50px;
+        margin: 0 1vw;
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+      
+      /* Mobile Product Grid */
+      .product-grid-section {
+        flex-direction: column;
+        height: auto;
+        gap: 15px;
+        padding: 15px 10px;
+        margin: 0 5px;
+      }
+      
+      .product-card {
+        width: calc(100% - 20px);
+        max-width: 280px;
+        height: 220px;
+        margin: 0 auto;
+      }
+      
+      .product-title {
+        font-size: 36px;
+        line-height: 50px;
+        height: 50px;
+        width: 100%;
+        padding: 0 10px;
+      }
+      
+      .product-img {
+        width: 180px;
+        height: 150px;
+      }
+      
+      /* Mobile Best Seller Section */
+      .best-seller-section {
+        height: auto;
+        padding: 0 0 20px 0;
+        margin-bottom: 0;
+      }
+      
+      .best-seller-header {
+        height: 70px;
+        gap: 10px;
+        margin-bottom: 5px;
+      }
+      
+      .best-seller-line {
+        width: 60px;
+      }
+      
+      .best-seller-title {
+        width: auto;
+        height: 70px;
+        font-size: 42px;
+        line-height: 70px;
+      }
+      
+      .best-seller-list {
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+        overflow-y: hidden;
+        gap: 10px;
+        padding: 0 15px;
+        margin: 0;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+      }
+      
+      .best-seller-list::-webkit-scrollbar {
+        display: none;
+      }
+      
+      .best-seller-card {
+        flex: 0 0 140px;
+        width: 140px;
+        min-width: 140px;
+        height: 220px;
+        padding: 1px 10px;
+        scroll-snap-align: start;
+      }
+      
+      .best-seller-img {
+        width: 110px;
+        height: 110px;
+        margin: 5px 0;
+        object-fit: cover;
+      }
+      
+      /* Fix for Matka image specifically */
+      .best-seller-card:last-child .best-seller-img {
+        width: 110px !important;
+        height: 80px !important;
+        margin: 15px 0 !important;
+        object-fit: contain;
+      }
+
+      .best-seller-model {
+        font-size: 18px;
+        margin: 5px 0;
+      }
+      
+      .best-seller-price {
+        font-size: 20px;
+        margin: 2px 0;
+      }
+      
+      .best-seller-overlay-btns {
+        gap: 5px;
+      }
+      
+      .best-seller-btn {
+        font-size: 16px;
+        padding: 8px;
+      }
+      
+      /* Mobile Instagram Section */
+      .instagram-section {
+        height: 280px;
+        padding: 0 5px;
+      }
+      
+      .instagram-title {
+        font-size: 42px;
+        height: 60px;
+        width: 300px;
+      }
+      
+      .instagram-gallery {
+        height: 200px;
+        gap: 8px;
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding: 10px 5px;
+      }
+      
+      .instagram-img {
+        width: 180px;
+        height: 130px;
+        margin: 0 2px;
+        flex-shrink: 0;
+      }
+      
+      /* Mobile Instagram Fallback Styling */
+      .instagram-fallback {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 60px;
+        background: transparent;
+        margin: 0;
+      }
+      .instagram-fallback-link {
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.3s ease;
+      }
+      .instagram-fallback-link:hover {
+        transform: scale(1.05);
+      }
+      .instagram-fallback-text {
+        font-family: 'Amatica SC', cursive;
+        font-weight: 700;
+        font-size: 36px;
+        color: #BA8663;
+        letter-spacing: 1px;
+      }
+      
+      /* Mobile Footer */
+      footer {
+        height: auto;
+        min-height: 120px;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 15px 10px;
+      }
+      
+      .footer-nav {
+        position: static;
+        transform: none;
+        left: auto;
+        top: auto;
+        margin: 10px 0;
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+      
+      .footer-link {
+        font-size: 18px;
+      }
+      
+      .footer-contact {
+        position: static;
+        align-items: center;
+        margin: 10px 0;
+      }
+      
+      .footer-contact-text {
+        font-size: 14px;
+      }
+      
+      .footer-logo {
+        width: 70px;
+        height: 70px;
+        margin: 10px 0;
+      }
+      
+      /* Additional mobile styles for very small screens */
+      @media (max-width: 480px) {
+        .side-cart-view-btn {
+          font-size: 18px;
+          height: 44px;
+          margin: 12px 12px 16px 12px;
+          width: calc(100% - 24px);
+        }
+      }
+      
+      /* Tablet styles for medium screens */
+      @media (min-width: 701px) and (max-width: 1024px) {
+        .side-cart-view-btn {
+          position: sticky;
+          bottom: 0;
+          width: calc(100% - 32px);
+          margin: 16px 16px 25px 16px;
+          height: 48px;
+          background: #5EA189;
+          color: #fff;
+          font-family: 'Amatica SC', cursive;
+          font-size: 20px;
+          font-weight: 700;
+          border: none;
+          border-radius: 8px;
+          cursor: pointer;
+          transition: background 0.2s;
+          display: block !important;
+          z-index: 10;
+          box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .side-cart-view-btn:hover {
+          background: #4b8c74;
+        }
+        
+        /* Adjust side-cart-list padding to prevent overlap */
+        .side-cart-list {
+          padding: 10px 0 100px 0;
+        }
+      }
+      
+      /* iPad and Safari specific fixes */
+      @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
+        .side-cart-view-btn {
+          position: sticky !important;
+          bottom: 0 !important;
+          z-index: 9999 !important;
+          -webkit-transform: none !important;
+          transform: none !important;
+          display: block !important;
+          visibility: visible !important;
+          opacity: 1 !important;
+        }
+        
+        .side-cart-list {
+          padding: 10px 0 120px 0;
+        }
+      }
+      
+      /* Safari specific fixes */
+      @media screen and (-webkit-min-device-pixel-ratio: 0) {
+        .side-cart-view-btn {
+          position: sticky !important;
+          bottom: 0 !important;
+          z-index: 9999 !important;
+          -webkit-transform: none !important;
+          transform: none !important;
+          display: block !important;
+          visibility: visible !important;
+          opacity: 1 !important;
+        }
+      }
+      
+      /* iOS Safari specific fixes */
+      @supports (-webkit-touch-callout: none) {
+        .side-cart-view-btn {
+          position: sticky !important;
+          bottom: 0 !important;
+          z-index: 9999 !important;
+          -webkit-transform: none !important;
+          transform: none !important;
+          display: block !important;
+          visibility: visible !important;
+          opacity: 1 !important;
+        }
+      }
+      
+      /* Mobile Shop Button */
+      .shop-now-group {
+        width: 180px;
+        height: 50px;
+      }
+      
+      .shop-now-bg {
+        width: 180px;
+        height: 50px;
+      }
+      
+      .shop-now-border {
+        width: 160px;
+        height: 36px;
+      }
+      
+      .shop-now-btn {
+        width: 120px;
+        height: 50px;
+        font-size: 24px;
+        line-height: 50px;
+      }
+    }
+    @media(max-width: 1250px){
+      
+      /* Mobile Product Grid */
+      .product-grid-section {
+        flex-direction: column;
+        height: auto;
+        gap: 15px;
+        padding: 15px 10px;
+        margin: 0 5px;
+      }
+      
+      .product-card {
+        width: calc(100% - 20px);
+        max-width: 280px;
+        height: 220px;
+        margin: 0 auto;
+      }
+      
+      .product-title {
+        font-size: 36px;
+        line-height: 50px;
+        height: 50px;
+        width: 100%;
+        padding: 0 10px;
+      }
+      
+      .product-img {
+        width: 180px;
+        height: 150px;
+      }
+      
+      /* Mobile Best Seller Section */
+      .best-seller-section {
+        height: auto;
+        padding: 0 0 20px 0;
+        margin-bottom: 0;
+      }
+      
+      .best-seller-header {
+        height: 70px;
+        gap: 10px;
+        margin-bottom: 5px;
+      }
+      
+      .best-seller-line {
+        width: 60px;
+      }
+      
+      .best-seller-title {
+        width: auto;
+        height: 70px;
+        font-size: 42px;
+        line-height: 70px;
+      }
+      
+      .best-seller-list {
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+        overflow-y: hidden;
+        gap: 10px;
+        padding: 0 15px;
+        margin: 0;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+      }
+      
+      .best-seller-list::-webkit-scrollbar {
+        display: none;
+      }
+      
+      .best-seller-card {
+        flex: 0 0 140px;
+        width: 140px;
+        min-width: 140px;
+        height: 220px;
+        padding: 1px 10px;
+        scroll-snap-align: start;
+      }
+      
+      .best-seller-img {
+        width: 110px;
+        height: 110px;
+        margin: 5px 0;
+        object-fit: cover;
+      }
+      
+      /* Fix for Matka image specifically */
+      .best-seller-card:last-child .best-seller-img {
+        width: 110px !important;
+        height: 80px !important;
+        margin: 15px 0 !important;
+        object-fit: contain;
+      }
+
+      .best-seller-model {
+        font-size: 18px;
+        margin: 5px 0;
+      }
+      
+      .best-seller-price {
+        font-size: 20px;
+        margin: 2px 0;
+      }
+      
+      .best-seller-overlay-btns {
+        gap: 5px;
+      }
+      
+      .best-seller-btn {
+        font-size: 16px;
+        padding: 8px;
+      }
+      
+      /* Mobile Instagram Section */
+      .instagram-section {
+        height: 280px;
+        padding: 0 5px;
+      }
+      
+      .instagram-title {
+        font-size: 42px;
+        height: 60px;
+        width: 300px;
+      }
+      
+      .instagram-gallery {
+        height: 200px;
+        gap: 8px;
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding: 10px 5px;
+      }
+      
+      .instagram-img {
+        width: 180px;
+        height: 130px;
+        margin: 0 2px;
+        flex-shrink: 0;
+      }
+      
+       /* Mobile Shop Button */
+       .shop-now-group {
+        width: 180px;
+        height: 50px;
+      }
+      
+      .shop-now-bg {
+        width: 180px;
+        height: 50px;
+      }
+      
+      .shop-now-border {
+        width: 160px;
+        height: 36px;
+      }
+      
+      .shop-now-btn {
+        width: 120px;
+        height: 50px;
+        font-size: 24px;
+        line-height: 50px;
+      }
+    }
+    .side-cart-view-btn {
+      width: 90%;
+      margin: 16px auto 18px auto;
+      height: 48px;
+      background: #5EA189;
+      color: #fff;
+      font-family: 'Amatica SC', cursive;
+      font-size: 24px;
+      font-weight: 700;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s;
+      display: block;
+    }
+    .side-cart-view-btn:hover {
+      background: #4b8c74;
+    }
+    
+
+  </style>
+</head>
+<body>
+  <div id="cartOverlay" class="cart-overlay"></div>
+  <div id="cartDeleteDialog" class="cart-delete-dialog" style="display:none;">
+    <div class="cart-delete-dialog-content">
+      <div class="cart-delete-dialog-title">האם למחוק את המוצר מהעגלה?</div>
+      <div class="cart-delete-dialog-actions">
+        <button id="cartDeleteYes" class="cart-delete-btn-yes">כן</button>
+        <button id="cartDeleteNo" class="cart-delete-btn-no">לא</button>
+      </div>
+    </div>
+  </div>
+  <aside id="sideCart" class="side-cart">
+    <div class="side-cart-header">
+      <span class="side-cart-title">סל קניות</span>
+      <button class="side-cart-close" id="closeSideCart">×</button>
+    </div>
+    <div class="side-cart-list" id="sideCartList">
+      <!-- כאן יתווספו המוצרים -->
+    </div>
+    <button class="side-cart-view-btn" id="viewCartBtn">לצפייה בסל הקניות</button>
+  </aside>
+  <div class="body-center">
+    <header>
+      <div class="logo"></div>
+      <a class="cart"><div class="cart-icon"><span class="cart-badge" id="cartBadge" style="display:none;">0</span></div></a>
+    </header>
+    <nav>
+      <a class="nav-link" href="homepage.html">דף הבית</a>
+      <button class="nav-link shop-popup-btn" id="shopPopupBtn" type="button">חנות</button>
+      <a class="nav-link" href="policy.html">מדיניות</a>
+      <a class="nav-link" href="contact.html">צור קשר</a>
+    </nav>
+    <section class="slider-section">
+      <div class="slider-imgs">
+        <div class="slider-img active" style="background-image: url('slider1.jpg');"></div>
+        <div class="slider-img" style="background-image: url('slider2.jpg');"></div>
+        <div class="slider-img" style="background-image: url('slider3.jpg');"></div>
+        <div class="slider-img" style="background-image: url('slider4.jpg');"></div>
+        <div class="slider-img" style="background-image: url('slider5.jpg');"></div>
+      </div>
+      <div class="slider-dots">
+        <div class="slider-dot active" data-index="0"></div>
+        <div class="slider-dot" data-index="1"></div>
+        <div class="slider-dot" data-index="2"></div>
+        <div class="slider-dot" data-index="3"></div>
+        <div class="slider-dot" data-index="4"></div>
+      </div>
+    </section>
+    <section class="shop-now-section">
+      <div class="shop-now-group">
+        <div class="shop-now-bg"></div>
+        <div class="shop-now-border"></div>
+        <a href="shop.html" class="shop-now-btn" style="text-decoration:none;">לחנות</a>
+      </div>
+    </section>
+    <section class="product-grid-section">
+      <a class="product-card" href="Record.html">
+        <div class="product-title">-תקליטים-</div>
+        <div class="product-img"style="background-image: url('record.models.png');"></div>
+      </a>
+      <a class="product-card" href="Backgammon.html">
+        <div class="product-title">-שש בשים-</div>
+        <div class="product-img" style="background-image: url('backgammon.models.png');"></div>
+      </a>
+      <a class="product-card" href="Matka.html">
+        <div class="product-title">-מטקות-</div>
+        <div class="product-img" style="background-image: url('matka.models.png');"></div>
+      </a>
+      <a class="product-card" href="Canvas.html">
+        <div class="product-title">-קנבסים-</div>
+        <div class="product-img" style="background-image: url('canvas.models.png');"></div>
+      </a>
+    </section>
+    <section class="best-seller-section">
+      <div class="best-seller-header">
+        <div class="best-seller-line"></div>
+        <div class="best-seller-title">המוצרים החמים</div>
+        <div class="best-seller-line"></div>
+      </div>
+      <div class="best-seller-list">
+        <div class="best-seller-card">
+          <div class="best-seller-img" style="background-image: url('Models/Backgammon2_1.JPG');"></div>
+          <div class="best-seller-model">שש בש | בובספוג</div>
+          <div class="best-seller-line2"></div>
+          <div class="best-seller-price">₪ 300</div>
+          <div class="best-seller-overlay">
+            <div class="best-seller-overlay-qty-group">
+              <button class="best-seller-overlay-qty-btn" type="button">–</button>
+              <span class="best-seller-overlay-qty-num">1</span>
+              <button class="best-seller-overlay-qty-btn" type="button">+</button>
+            </div>
+            <div class="best-seller-overlay-btns">
+              <a class="best-seller-btn view" href="Product.html?product=backgammon&id=2">לצפייה במוצר</a>
+              <button class="best-seller-btn add">הוסף לסל הקניות</button>
+            </div>
+          </div>
+        </div>
+        <div class="best-seller-card">
+          <div class="best-seller-img" style="background-image: url('Models/Backgammon17_1.JPG');"></div>
+          <div class="best-seller-model">שש בש | פרח ורוד 1</div>
+          <div class="best-seller-line2"></div>
+          <div class="best-seller-price">₪ 300</div>
+          <div class="best-seller-overlay">
+            <div class="best-seller-overlay-qty-group">
+              <button class="best-seller-overlay-qty-btn" type="button">–</button>
+              <span class="best-seller-overlay-qty-num">1</span>
+              <button class="best-seller-overlay-qty-btn" type="button">+</button>
+            </div>
+            <div class="best-seller-overlay-btns">
+              <a class="best-seller-btn view" href="Product.html?product=backgammon&id=17">לצפייה במוצר</a>
+              <button class="best-seller-btn add">הוסף לסל הקניות</button>
+            </div>
+          </div>
+        </div>
+        <div class="best-seller-card">
+          <div class="best-seller-img" style="background-image: url('Models/Backgammon19_1.JPG');"></div>
+          <div class="best-seller-model">שש בש | קוקוס</div>
+          <div class="best-seller-line2"></div>
+          <div class="best-seller-price">₪ 350</div>
+          <div class="best-seller-overlay">
+            <div class="best-seller-overlay-qty-group">
+              <button class="best-seller-overlay-qty-btn" type="button">–</button>
+              <span class="best-seller-overlay-qty-num">1</span>
+              <button class="best-seller-overlay-qty-btn" type="button">+</button>
+            </div>
+            <div class="best-seller-overlay-btns">
+              <a class="best-seller-btn view" href="Product.html?product=backgammon&id=19">לצפייה במוצר</a>
+              <button class="best-seller-btn add">הוסף לסל הקניות</button>
+            </div>
+          </div>
+        </div>
+        <div class="best-seller-card">
+          <div class="best-seller-img" style="background-image: url('Models/Backgammon16_1.JPG');"></div>
+          <div class="best-seller-model">שש בש | פילים</div>
+          <div class="best-seller-line2"></div>
+          <div class="best-seller-price">₪ 350</div>
+          <div class="best-seller-overlay">
+            <div class="best-seller-overlay-qty-group">
+              <button class="best-seller-overlay-qty-btn" type="button">–</button>
+              <span class="best-seller-overlay-qty-num">1</span>
+              <button class="best-seller-overlay-qty-btn" type="button">+</button>
+            </div>
+            <div class="best-seller-overlay-btns">
+              <a class="best-seller-btn view" href="Product.html?product=backgammon&id=16">לצפייה במוצר</a>
+              <button class="best-seller-btn add">הוסף לסל הקניות</button>
+            </div>
+          </div>
+        </div>
+        <div class="best-seller-card">
+          <div class="best-seller-img" style="background-image: url('Models/Matka3_1.JPG'); width: 170px; height: 120px; margin-top: 35px; margin-bottom: 35px;"></div>
+          <div class="best-seller-model">מטקה | צורות</div>
+          <div class="best-seller-line2"></div>
+          <div class="best-seller-price">₪ 150</div>
+          <div class="best-seller-overlay">
+            <div class="best-seller-overlay-qty-group">
+              <button class="best-seller-overlay-qty-btn" type="button">–</button>
+              <span class="best-seller-overlay-qty-num">1</span>
+              <button class="best-seller-overlay-qty-btn" type="button">+</button>
+            </div>
+            <div class="best-seller-overlay-btns">
+              <a class="best-seller-btn view" href="Product.html?product=matka&id=3">לצפייה במוצר</a>
+              <button class="best-seller-btn add">הוסף לסל הקניות</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="how-it-works-section">
+      <div class="how-it-works-title">איך זה עובד?</div>
+      <div class="how-it-works-steps">
+        <div class="how-step">
+          <div class="how-step-circle"><div class="how-step-number">1</div></div>
+          <div class="how-step-title">-הזמנה-</div>
+          <div class="how-step-desc">בוחרים דגם מהאתר או שולחים עיצוב אישי</div>
+        </div>
+        <div class="how-step">
+          <div class="how-step-circle"><div class="how-step-number">2</div></div>
+          <div class="how-step-title">-אישור-</div>
+          <div class="how-step-desc">אנחנו יוצרים איתך קשר לאישור הפרטים</div>
+        </div>
+        <div class="how-step">
+          <div class="how-step-circle"><div class="how-step-number">3</div></div>
+          <div class="how-step-title">-תשלום-</div>
+          <div class="how-step-desc">אתם מקבלים קישור לתשלום<br>כדי שנוכל להתחיל לעבוד</div>
+        </div>
+        <div class="how-step">
+          <div class="how-step-circle"><div class="how-step-number">4</div></div>
+          <div class="how-step-title">-סקיצה-</div>
+          <div class="how-step-desc">שולחים לך סקיצה לאישור סופי לפני היצירה</div>
+        </div>
+        <div class="how-step">
+          <div class="how-step-circle"><div class="how-step-number">5</div></div>
+          <div class="how-step-title">-יצירה-</div>
+          <div class="how-step-desc">אנחנו מכינים את ההזמנה בעבודת יד, באהבה :)</div>
+        </div>
+        <div class="how-step">
+          <div class="how-step-circle"><div class="how-step-number">6</div></div>
+          <div class="how-step-title">-קבלה-</div>
+          <div class="how-step-desc">ההזמנה מוכנה לאיסוף או נשלחת אלייך עם שליח</div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <section class="instagram-section">
+    <div class="instagram-title">עקבו אחרינו באינסטגרם</div>
+    <div class="instagram-gallery" id="instagramGallery">
+      <script src="https://static.elfsight.com/platform/platform.js" async></script>
+      <div class="elfsight-app-458ff3d3-8da7-460b-8d4f-1fcde129ca8b" data-elfsight-app-lazy></div>
+    </div>
+    <!-- גיבוי לאינסטגרם - מוצג רק אם התוסף לא עובד -->
+    <div class="instagram-fallback" id="instagramFallback" style="display: none;">
+      <a href="https://www.instagram.com/paintz.official/" target="_blank" rel="noopener" class="instagram-fallback-link">
+        <span class="instagram-fallback-text">paintz.official@</span>
+      </a>
+    </div>
+  </section>
+  <footer>
+    <div class="footer-content">
+      <div class="footer-nav">
+        <a href="homepage.html" class="footer-link">דף הבית</a>
+        <span class="footer-sep">|</span>
+        <a href="shop.html" class="footer-link">חנות</a>
+        <span class="footer-sep">|</span>
+        <a href="policy.html" class="footer-link">מדיניות</a>
+        <span class="footer-sep">|</span>
+        <a href="contact.html" class="footer-link">צור קשר</a>
+      </div>
+  
+      <div class="footer-contact">
+        <div class="footer-contact-item">
+          <a href="https://www.instagram.com/paintz.official/" target="_blank" rel="noopener">
+            <img src="instagram.svg" alt="Instagram" class="footer-icon" />
+          </a>
+          <span class="footer-contact-text">paintz.official@</span>
+        </div>
+        <div class="footer-contact-item">
+          <a href="mailto:paintz.yf@gmail.com">
+            <img src="email.svg" alt="Email" class="footer-icon" />
+          </a>
+          <span class="footer-contact-text">paintz.yf@gmail.com</span>
+        </div>
+        <div class="footer-contact-item">
+          <a href="https://maps.google.com/?q=פתח+תקווה" target="_blank">
+            <img src="location.svg" alt="Location" class="footer-icon" />
+          </a>
+          <span class="footer-contact-text">פתח תקווה</span>
+        </div>
+      </div>
+    </div>
+  
+    <div class="footer-logo"></div>
+  </footer>
+  <section class="copyright-section">
+    <div class="copyright-text">Paintz 2025©</div>
+  </section>
+  <!-- Popup (ממש אחרי ה-nav) -->
+  <div class="shop-popup" id="shopPopup">
+    <ul>
+      <li><a href="shop.html">כללי</a></li>
+      <li>
+        <button class="popup-main-btn" type="button" data-target="sheshbesh">שש בש</button>
+        <ul class="popup-sub" id="sub-sheshbesh">
+          <li><a href="Backgammon Custum.html">עיצוב אישי</a></li>
+          <li><a href="Backgammon Models.html">דגמים</a></li>
+        </ul>
+      </li>
+      <li>
+        <button class="popup-main-btn" type="button" data-target="matkot">מטקות</button>
+        <ul class="popup-sub" id="sub-matkot">
+          <li><a href="Matka Custum.html">עיצוב אישי</a></li>
+          <li><a href="Matka Models.html">דגמים</a></li>
+        </ul>
+      </li>
+      <li><a href="Canvas.html">קנבסים</a></li>
+      <li><a href="Record.html">תקליטים</a></li>
+    </ul>
+  </div>
+</body>
+<script src="cart-sync.js"></script>
+<script>
+// בדיקה אם תוסף האינסטגרם נטען - אם לא, מציג גיבוי
+function checkInstagramWidget() {
+  // מחכה קצת לתוסף לטעון
+  setTimeout(function() {
+    const instagramGallery = document.getElementById('instagramGallery');
+    const instagramFallback = document.getElementById('instagramFallback');
+    
+    if (instagramGallery && instagramFallback) {
+      // בודק אם יש תוכן בתוסף האינסטגרם
+      const elfsightWidget = instagramGallery.querySelector('.elfsight-app-458ff3d3-8da7-460b-8d4f-1fcde129ca8b');
+      const hasContent = elfsightWidget && elfsightWidget.children.length > 0;
+      
+      // אם יש תוכן - מציג את הגלריה ומסתיר את הגיבוי
+      if (hasContent && elfsightWidget) {
+        instagramGallery.style.display = 'flex';
+        instagramFallback.style.display = 'none';
+      } else {
+        // אם אין תוכן או שהתוסף לא נטען, מציג את הגיבוי ומסתיר את הגלריה
+        instagramGallery.style.display = 'none';
+        instagramFallback.style.display = 'flex';
+      }
+    }
+  }, 3000); // מחכה 3 שניות לתוסף לטעון
+}
+
+// הרצת הבדיקה כשהדף נטען
+document.addEventListener('DOMContentLoaded', function() {
+  checkInstagramWidget();
+});
+
+// בדיקה נוספת אחרי 5 שניות למקרה שהתוסף נטען מאוחר יותר
+setTimeout(function() {
+  checkInstagramWidget();
+}, 5000);
+</script>
+<script>
+    // וידוא שה-side-cart מוסתר בטעינת הדף
+    document.addEventListener('DOMContentLoaded', function() {
+      const sideCart = document.getElementById('sideCart');
+      if (sideCart) {
+        sideCart.classList.remove('active');
+      }
+    });
+// Simple slider logic
+const sliderImgs = document.querySelectorAll('.slider-img');
+const sliderDots = document.querySelectorAll('.slider-dot');
+let currentSlide = 0;
+let sliderInterval = null;
+
+function showSlide(idx) {
+  sliderImgs.forEach((img, i) => {
+    img.classList.toggle('active', i === idx);
+  });
+  sliderDots.forEach((dot, i) => {
+    dot.classList.toggle('active', i === idx);
+  });
+  currentSlide = idx;
+}
+
+function nextSlide() {
+  let next = (currentSlide + 1) % sliderImgs.length;
+  showSlide(next);
+}
+
+sliderDots.forEach((dot, i) => {
+  dot.addEventListener('click', () => {
+    showSlide(i);
+    clearInterval(sliderInterval);
+    sliderInterval = setInterval(nextSlide, 5000);
+  });
+});
+
+sliderInterval = setInterval(nextSlide, 5000);
+
+// --- Shop Popup Logic ---
+const shopBtn = document.getElementById('shopPopupBtn');
+const shopPopup = document.getElementById('shopPopup');
+
+function positionShopPopup() {
+  const rect = shopBtn.getBoundingClientRect();
+  shopPopup.style.top = rect.bottom + 'px';
+  shopPopup.style.right = (window.innerWidth - rect.right) + 'px';
+  shopPopup.style.left = 'auto';
+  shopPopup.style.transform = 'none';
+}
+
+function openShopPopup() {
+  positionShopPopup();
+  shopPopup.style.display = 'block';
+}
+function closeShopPopup() {
+  shopPopup.style.display = 'none';
+  closeAllSubs();
+}
+
+// Desktop: open on hover, Mobile: open on click
+function setShopPopupEvents() {
+  if (window.innerWidth > 700) {
+    // Desktop: hover
+    shopBtn.removeEventListener('click', shopBtn._shopClickHandler || (()=>{}));
+    shopBtn.addEventListener('mouseenter', openShopPopup);
+    shopBtn.addEventListener('mouseleave', function(e) {
+      if (!shopPopup.contains(e.relatedTarget)) closeShopPopup();
+    });
+    shopPopup.addEventListener('mouseleave', function(e) {
+      if (!shopBtn.contains(e.relatedTarget)) closeShopPopup();
+    });
+    shopPopup.addEventListener('mouseenter', function() { openShopPopup(); });
+  } else {
+    // Mobile: click
+    shopBtn._shopClickHandler = function(e) {
+      e.stopPropagation();
+      if (shopPopup.style.display === 'block') {
+        closeShopPopup();
+      } else {
+        openShopPopup();
+      }
+    };
+    shopBtn.addEventListener('click', shopBtn._shopClickHandler);
+    shopBtn.removeEventListener('mouseenter', openShopPopup);
+    shopBtn.removeEventListener('mouseleave', closeShopPopup);
+    shopPopup.removeEventListener('mouseleave', closeShopPopup);
+    shopPopup.removeEventListener('mouseenter', openShopPopup);
+  }
+}
+setShopPopupEvents();
+window.addEventListener('resize', setShopPopupEvents);
+
+window.addEventListener('resize', function() {
+  if (shopPopup.style.display === 'block') {
+    positionShopPopup();
+  }
+});
+
+document.addEventListener('click', function(e) {
+  if (!shopPopup.contains(e.target) && e.target !== shopBtn) {
+    closeShopPopup();
+  }
+});
+
+// Submenu logic
+function closeAllSubs() {
+  document.querySelectorAll('.popup-sub').forEach(sub => sub.style.display = 'none');
+}
+
+function setSubmenuEvents() {
+  const isDesktop = window.innerWidth > 700;
+  document.querySelectorAll('.popup-main-btn').forEach(btn => {
+    const target = btn.getAttribute('data-target');
+    const sub = document.getElementById('sub-' + target);
+    // ניקוי מאזינים ישנים
+    btn.replaceWith(btn.cloneNode(true));
+  });
+  // צריך לבחור מחדש אחרי cloneNode
+  document.querySelectorAll('.popup-main-btn').forEach(btn => {
+    const target = btn.getAttribute('data-target');
+    const sub = document.getElementById('sub-' + target);
+    // Desktop: open submenus only on click
+    btn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      if (sub.style.display === 'block') {
+        sub.style.display = 'none';
+      } else {
+        closeAllSubs();
+        sub.style.display = 'block';
+      }
+    });
+    // Remove hover events if exist
+    btn.removeEventListener('mouseenter', null);
+    btn.removeEventListener('mouseleave', null);
+    if (sub) {
+      sub.removeEventListener('mouseenter', null);
+      sub.removeEventListener('mouseleave', null);
+    }
+  });
+}
+setSubmenuEvents();
+window.addEventListener('resize', setSubmenuEvents);
+
+const token = 'ACCESS_TOKEN';
+fetch(`https://graph.instagram.com/me/media?fields=id,media_type,media_url,permalink,thumbnail_url&access_token=${token}`)
+  .then(res => res.json())
+  .then(data => {
+    const gallery = document.getElementById('insta-gallery');
+    if (gallery && data.data) {
+      gallery.innerHTML = '';
+      data.data.slice(0,6).forEach(item => {
+        if(item.media_type === 'IMAGE' || item.media_type === 'CAROUSEL_ALBUM') {
+          const a = document.createElement('a');
+          a.href = item.permalink;
+          a.target = '_blank';
+          a.rel = 'noopener';
+          a.className = 'instagram-img';
+          a.style.backgroundImage = `url('${item.media_url}')`;
+          gallery.appendChild(a);
+        }
+      });
+    }
+  })
+  .catch(err => {
+    // Instagram API error - silent
+  });
+
+// --- פופאפ חנות בפוטר ---
+const footerShopLink = document.getElementById('footerShopLink');
+const footerShopPopup = document.getElementById('footerShopPopup');
+
+if (footerShopLink && footerShopPopup) {
+  footerShopLink.addEventListener('mouseenter', function() {
+    footerShopPopup.style.display = 'block';
+  });
+  footerShopLink.addEventListener('mouseleave', function(e) {
+    // סגור רק אם לא עברנו לפופאפ עצמו
+    if (!footerShopPopup.contains(e.relatedTarget)) {
+      footerShopPopup.style.display = 'none';
+    }
+  });
+  footerShopPopup.addEventListener('mouseleave', function(e) {
+    // סגור רק אם לא עברנו חזרה ללינק
+    if (!footerShopLink.contains(e.relatedTarget)) {
+      footerShopPopup.style.display = 'none';
+    }
+  });
+  // סאב תפריטים בפוטר
+  footerShopPopup.querySelectorAll('.popup-main-btn').forEach(btn => {
+    btn.addEventListener('mouseenter', function(e) {
+      const target = btn.getAttribute('data-target');
+      const sub = document.getElementById('footer-sub-' + target.replace('footer-',''));
+      if (sub) sub.style.display = 'block';
+    });
+    btn.addEventListener('mouseleave', function(e) {
+      const target = btn.getAttribute('data-target');
+      const sub = document.getElementById('footer-sub-' + target.replace('footer-',''));
+      if (sub && !sub.contains(e.relatedTarget)) sub.style.display = 'none';
+    });
+  });
+  footerShopPopup.querySelectorAll('.popup-sub').forEach(sub => {
+    sub.addEventListener('mouseleave', function(e) {
+      if (!sub.parentElement.contains(e.relatedTarget)) sub.style.display = 'none';
+    });
+  });
+}
+
+// Best Seller Overlay Quantity Logic
+document.addEventListener('DOMContentLoaded', function() {
+  const cards = document.querySelectorAll('.best-seller-card');
+  
+  cards.forEach(function(card, cardIndex) {
+    const overlay = card.querySelector('.best-seller-overlay');
+    if (!overlay) return;
+    
+    const qtyGroup = overlay.querySelector('.best-seller-overlay-qty-group');
+    if (!qtyGroup) return;
+    
+    const buttons = qtyGroup.querySelectorAll('.best-seller-overlay-qty-btn');
+    const minusBtn = buttons[0];
+    const plusBtn = buttons[1];
+    const qtyNum = qtyGroup.querySelector('.best-seller-overlay-qty-num');
+    const addBtn = overlay.querySelector('.best-seller-btn.add');
+    
+    // וודא שכל האלמנטים קיימים
+    if (!minusBtn || !plusBtn || !qtyNum || !addBtn) return;
+    
+    // הגדר את הטקסט של הכפתורים
+    minusBtn.textContent = '−'; // סימן מינוס יוניקוד
+    plusBtn.textContent = '+'; // סימן פלוס
+    
+    let qty = 1;
+    
+    function updateQuantity(newQty) {
+      qty = Math.max(1, newQty);
+      qtyNum.textContent = qty.toString();
+    }
+    
+    minusBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      updateQuantity(qty - 1);
+    });
+    
+    plusBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      updateQuantity(qty + 1);
+    });
+    
+    addBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      const fullTitle = card.querySelector('.best-seller-model')?.textContent || 'מוצר';
+      const priceText = card.querySelector('.best-seller-price')?.textContent || '';
+      const userNote = '';
+      
+      // מצא תמונה
+      const imgStyle = card.querySelector('.best-seller-img')?.style?.backgroundImage || '';
+      const imgUrl = imgStyle.match(/url\(['"]?([^'"]*?)['"]?\)/)?.[1] || '';
+      
+      // פיצול הכותרת למוצרי שש בש בפורמט אחיד
+      let title, subtitle;
+      if (fullTitle.includes(' | ')) {
+        const parts = fullTitle.split(' | ');
+        title = parts[0].trim(); // "שש בש"
+        subtitle = parts[1].trim(); // "בובספוג"
+      } else {
+        // אם אין פיצול, נניח שזה שש בש
+        if (fullTitle.toLowerCase().includes('שש בש')) {
+          title = "שש בש";
+          subtitle = fullTitle.replace(/שש בש[\s|]*/, '').trim() || '';
+        } else if (fullTitle.toLowerCase().includes('מטקה')) {
+          title = "מטקה";
+          subtitle = fullTitle.replace(/מטקה[\s|]*/, '').trim() || '';
+        } else {
+          title = fullTitle.trim();
+          subtitle = '';
+        }
+      }
+      
+      // יצירת פריט עם כל הפרטים
+      const cartItem = {
+        title: title,
+        subtitle: subtitle,
+        notes: userNote,
+        desc: '',
+        qty: qty,
+        price: priceText,
+        img: imgUrl
+      };
+      
+      // שימוש בפונקציה המשופרת להוספה
+      addToCart(cartItem);
+
+
+      
+      // אפס את הכמות בממשק בחזרה ל-1
+      updateQuantity(1);
+      
+      // הודעת הצלחה
+      showCenterToast('המוצר נוסף לסל בהצלחה!');
+    });
+  });
+});
+
+// Toast message function
+function showToast(message) {
+  let toast = document.getElementById('toast');
+  if (!toast) {
+    toast = document.createElement('div');
+    toast.id = 'toast';
+    toast.className = 'toast';
+    toast.style.cssText = `
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #4CAF50;
+      color: white;
+      padding: 16px;
+      border-radius: 4px;
+      z-index: 9999;
+      font-family: Arial, sans-serif;
+      opacity: 0;
+      transform: translateY(100%);
+      transition: all 0.3s ease;
+    `;
+    document.body.appendChild(toast);
+  }
+  
+  toast.textContent = message;
+  toast.style.opacity = '1';
+  toast.style.transform = 'translateY(0)';
+  
+  setTimeout(() => {
+    toast.style.opacity = '0';
+    toast.style.transform = 'translateY(100%)';
+  }, 3000);
+}
+
+function showCenterToast(message) {
+  // Create center toast if it doesn't exist
+  let centerToast = document.getElementById('centerToast');
+  if (!centerToast) {
+    centerToast = document.createElement('div');
+    centerToast.id = 'centerToast';
+    centerToast.style.cssText = `
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #5EA189;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-family: 'Amatica SC', cursive;
+      font-size: 20px;
+      font-weight: bold;
+      z-index: 1000;
+      display: none;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    `;
+    document.body.appendChild(centerToast);
+  }
+  
+  centerToast.textContent = message;
+  centerToast.style.display = 'block';
+  setTimeout(() => {
+    centerToast.style.display = 'none';
+  }, 3000);
+}
+
+// ... existing code ...
+</script>
+<script>
+// --- Side Cart Logic ---
+const cartBtn = document.querySelector('.cart');
+const sideCart = document.getElementById('sideCart');
+const cartOverlay = document.getElementById('cartOverlay');
+const closeSideCartBtn = document.getElementById('closeSideCart');
+const cartBadge = document.getElementById('cartBadge');
+const sideCartList = document.getElementById('sideCartList');
+const viewCartBtn = document.getElementById('viewCartBtn');
+
+// עגלת קניות בזיכרון - עם סינכרון מתקדם
+let cart = [];
+
+// Load cart safely using the sync API when available
+function initializeCart() {
+  if (window.cartSync && typeof window.cartSync.loadCart === 'function') {
+    cart = window.cartSync.loadCart();
+  } else {
+    // Fallback for when sync script hasn't loaded yet
+    try {
+      cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    } catch (e) {
+      cart = [];
+    }
+  }
+}
+
+// Initialize cart immediately
+initializeCart();
+
+function updateCartBadge() {
+  const total = cart.reduce((sum, item) => sum + item.qty, 0);
+  if (total > 0) {
+    cartBadge.style.display = 'flex';
+    cartBadge.textContent = total;
+  } else {
+    cartBadge.style.display = 'none';
+  }
+}
+
+function getColorFromName(name) {
+  // מפה בסיסית של שמות צבעים נפוצים לגוון
+  const colors = {
+    'תכלת': '#7ed6f7',
+    'טורקיז': '#40e0d0',
+    'אדום': '#e74c3c',
+    'כחול': '#2980b9',
+    'ירוק': '#27ae60',
+    'צהוב': '#f9e79f',
+    'שחור': '#222',
+    'לבן': '#fff',
+    'כתום': '#f39c12',
+    'סגול': '#8e44ad',
+    'ורוד': '#fd79a8',
+    'חום': '#a0522d',
+    'אפור': '#7f8c8d',
+    'זהב': '#ffd700',
+    'כסף': '#bdc3c7',
+  };
+  return colors[name.trim()] || '#b2bec3'; // ברירת מחדל
+}
+
+function truncateText(text, maxLength = 10) {
+  if (!text) return '';
+  return text.length > maxLength ? text.substring(0, maxLength) + '...' : text;
+}
+
+// תיקון עיבוד הצבעים
+function renderCartNotes(item) {
+  const details = [];
+  const notesText = item.notes || '';
+  let colorBox = '';
+
+  // עיבוד מיוחד לשש בש עיצוב אישי
+  const allTitles = ((item.title || '') + ' ' + (item.subtitle || '')).toLowerCase();
+  if (allTitles.includes('שש בש') && allTitles.includes('עיצוב אישי')) {
+    const colorLines = [];
+    
+    // Handle colors - check if colorData exists with correct field names
+    if (item.colorData) {
+      const colorData = item.colorData;
+      
+      if (colorData.bgOuter) {
+        colorLines.push(`<span class='side-cart-item-details-label'>צבע רקע (מהבחוץ):</span><span class='side-cart-item-details-value'><span class='side-cart-item-color-box' style='background:${colorData.bgOuter.color}' title='${colorData.bgOuter.text}'></span></span>`);
+      }
+      if (colorData.bgInnerRight) {
+        colorLines.push(`<span class='side-cart-item-details-label'>צבע רקע (מבפנים-צד ימין):</span><span class='side-cart-item-details-value'><span class='side-cart-item-color-box' style='background:${colorData.bgInnerRight.color}' title='${colorData.bgInnerRight.text}'></span></span>`);
+      }
+      if (colorData.bgInnerLeft) {
+        colorLines.push(`<span class='side-cart-item-details-label'>צבע רקע (מבפנים-צד שמאל):</span><span class='side-cart-item-details-value'><span class='side-cart-item-color-box' style='background:${colorData.bgInnerLeft.color}' title='${colorData.bgInnerLeft.text}'></span></span>`);
+      }
+      if (colorData.triangle1) {
+        colorLines.push(`<span class='side-cart-item-details-label'>צבע משולש 1:</span><span class='side-cart-item-details-value'><span class='side-cart-item-color-box' style='background:${colorData.triangle1.color}' title='${colorData.triangle1.text}'></span></span>`);
+      }
+      if (colorData.triangle2) {
+        colorLines.push(`<span class='side-cart-item-details-label'>צבע משולש 2:</span><span class='side-cart-item-details-value'><span class='side-cart-item-color-box' style='background:${colorData.triangle2.color}' title='${colorData.triangle2.text}'></span></span>`);
+      }
+    } else {
+      // Fallback to text parsing for old items
+      const regex = /(צבע [^:]+):\s*([^,]+(?:, [^:]+)*)(?=,\s*צבע|$)/g;
+      let match;
+      while ((match = regex.exec(notesText)) !== null) {
+        const label = match[1];
+        const colors = match[2].split(',').map(s => s.trim()).filter(Boolean);
+        const colorBoxes = colors.map(c => {
+          if (label.includes('משולש') && c === 'משתנה') {
+            return 'משתנה';
+          } else if (c === 'משתנה') {
+            return 'משתנה';
+          } else {
+            return `<span class='side-cart-item-color-box' style='background:${getColorFromName(c)}' title='${c}'></span>`;
+          }
+        }).join(' ');
+        colorLines.push(`<span class='side-cart-item-details-label'>${label}:</span><span class='side-cart-item-details-value'>${colorBoxes}</span>`);
+      }
+    }
+    
+    if (colorLines.length) {
+      details.push(...colorLines.map(l => `<li>${l}</li>`));
+    }
+    
+    // Handle explanations - check if desc exists
+    if (item.desc) {
+      const desc = item.desc;
+      if (desc.right) {
+        details.push(`<li><span class='side-cart-item-details-label'>הסבר ציור ימין:</span><span class='side-cart-item-details-value'>${truncateText(desc.right, 15)}</span></li>`);
+      }
+      if (desc.left) {
+        details.push(`<li><span class='side-cart-item-details-label'>הסבר ציור שמאל:</span><span class='side-cart-item-details-value'>${truncateText(desc.left, 15)}</span></li>`);
+      }
+    }
+    
+    // Add files display
+    if (item.files && item.files.length > 0) {
+      const fileName = item.files[0].name;
+      details.push(`<li><span class='side-cart-item-details-label'>קובץ:</span><span class='side-cart-item-details-value'>${truncateText(fileName, 10)}</span></li>`);
+    }
+  } else if (allTitles.includes('מטקה') && allTitles.includes('עיצוב אישי')) {
+    // עיבוד מיוחד למטקה עיצוב אישי
+    const colors = [];
+    const explanations = [];
+    const matkaRegex = /(צבע מטקה [12]|הסבר מטקה [12]):\s*([^,]+)(?=,\s*(?:צבע מטקה|הסבר מטקה)|$)/g;
+    let match;
+    while ((match = matkaRegex.exec(notesText)) !== null) {
+      const label = match[1];
+      const value = match[2].trim();
+      
+      if (label.includes('צבע מטקה')) {
+        const colorHex = getColorFromName(value);
+        const colorBox = `<span class='side-cart-item-color-box' style='background:${colorHex}' title='${value}'></span>`;
+        colors.push(colorBox);
+      } else if (label.includes('הסבר מטקה')) {
+        explanations.push(truncateText(value, 8));
+      }
+    }
+    
+    if (colors.length > 0) {
+      details.push(`<li><span class='side-cart-item-details-label'>צבעי מטקה:</span><span class='side-cart-item-details-value'>${colors.join(' ')}</span></li>`);
+    }
+    
+    if (explanations.length > 0) {
+        explanations.forEach((explanation, index) => {
+          details.push(`<li><span class='side-cart-item-details-label'>הסבר מטקה ${index + 1}:</span><span class='side-cart-item-details-value'>${explanation}</span></li>`);
+        });
+    }
+  } else if (allTitles.includes('שש בש')) {
+    if (notesText.trim()) {
+      details.push(`<li><span class='side-cart-item-details-label'>הערה:</span><span class='side-cart-item-details-value'>${truncateText(notesText.trim())}</span></li>`);
+    }
+  } else {
+    let noteLabel = 'הערה:';
+    if (allTitles.includes('קנבס')) noteLabel = 'גודל:';
+    
+    // הערה: חפש "גוון: ..." והצג ריבוע צבע
+    let colorMatch = notesText.match(/גוון\s*[:：]?\s*([\u0590-\u05FF\w]+)/);
+    if (colorMatch) {
+      const colorName = colorMatch[1];
+      const colorHex = getColorFromName(colorName);
+      colorBox = `<span class='side-cart-item-color-box' style='background:${colorHex}' title='${colorName}'></span>`;
+      notesText = notesText.replace(/,?\s*גוון\s*[:：]?\s*[\u0590-\u05FF\w]+/, '');
+    }
+    
+    if (allTitles.includes('מטקה')) {
+      if (notesText.trim() || colorBox) {
+        details.push(`<li><span class='side-cart-item-details-label'>${noteLabel}</span><span class='side-cart-item-details-value'>${truncateText(notesText.trim())} ${colorBox}</span></li>`);
+      }
+    } else if (notesText.trim() || colorBox) {
+      details.push(`<li><span class='side-cart-item-details-label'>${noteLabel}</span><span class='side-cart-item-details-value'>${truncateText(notesText.trim())} ${colorBox}</span></li>`);
+    }
+  }
+
+      // Remove generic explanation display for matka custom design and backgammon custom design
+    if (item.desc && !allTitles.includes('מטקה') && !(allTitles.includes('שש בש') && allTitles.includes('עיצוב אישי'))) {
+    details.push(`<li><span class='side-cart-item-details-label'>הסבר:</span><span class='side-cart-item-details-value'>${truncateText(item.desc)}</span></li>`);
+  }
+  if (item.file) {
+    // מחלץ את שם הקובץ מהנתיב המלא
+    const fileName = item.file.split(/[\/\\]/).pop();
+    details.push(`<li><span class='side-cart-item-details-label'>קובץ:</span><span class='side-cart-item-details-value'>${truncateText(fileName)}</span></li>`);
+  }
+  return details.join('');
+}
+
+  function renderCart() {
+    sideCartList.innerHTML = '';
+    
+    if (!cart.length) {
+      sideCartList.innerHTML = '<div style="text-align: center; padding: 20px; font-family: \'Amatica SC\', cursive; font-size: 20px; color: #775A47;">העגלה ריקה</div>';
+      return;
+    }
+    
+    cart.forEach((item, idx) => {
+      // const cartIdx = cart.indexOf(item); // duplicate removal
+    
+    // פיצול שם המוצר
+    let mainTitle = 'עיצוב אישי';
+    let subTitle = '';
+                  // Check if item has separate subtitle field (new format)
+      if (item.subtitle) {
+        mainTitle = item.title || '';
+        subTitle = item.subtitle;
+      } else if (item.title && item.title.includes('|')) {
+          const parts = item.title.split('|');
+          mainTitle = parts[0].trim();
+          subTitle = parts[1].trim();
+        } else if (item.title) {
+          subTitle = item.title;
+        }
+    
+    // קבלת הפרטים מהפונקציה המרכזית
+    const details = window.cartSync && window.cartSync.renderCartNotes ? 
+                  window.cartSync.renderCartNotes(item) : renderCartNotes(item);
+    
+    const row = document.createElement('div');
+    row.className = 'side-cart-item';
+    row.setAttribute('data-idx', idx);
+    row.style.position = 'relative';
+    row.innerHTML = `
+      <div style=\"height: 120px; display: flex; flex-direction: row; width: 100%; position: relative;\">
+        <div style=\"flex: 1; height: 100%; display: flex; align-items: center;\">
+          <div style=\"width: 100%; display: flex; flex-direction: column; gap: 8px;\">
+            <div style=\"height: 30px; display: flex; align-items: center; justify-content: center;\">
+              <span style=\"font-family: 'Amatica SC', cursive; font-size: 22px; font-weight: bold; color: #775A47; text-align: center; line-height: 1.1;\">${mainTitle}</span>
+            </div>
+            <div style=\"height: 24px; display: flex; align-items: center; justify-content: center;\">
+              <span style=\"font-family: 'Amatica SC', cursive; font-size: 16px; color: #BA8663; text-align: center; font-weight: normal;\">${subTitle}</span>
+            </div>
+            ${window.cartSync && window.cartSync.renderCartPrice ? window.cartSync.renderCartPrice(item) : ''}
+          </div>
+        </div>
+        <div style=\"width: 48px; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; margin-left: 8px;\">
+          <button class=\"side-cart-item-add-btn\" title=\"הוסף\" style=\"background: none; border: none; font-size: 22px; color: #5EA189; cursor: pointer; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;\">+</button>
+          <span class=\"side-cart-item-qty\" style=\"width: 32px; height: 28px; font-size: 18px; color: #BA8663; display: flex; align-items: center; justify-content: center; background: none; border-radius: 0; border: none; font-family: 'Amatica SC', cursive; font-weight: bold;\">${item.qty}</span>
+          <button class=\"side-cart-item-minus-btn\" title=\"הפחת\" style=\"background: none; border: none; font-size: 22px; color: #5EA189; cursor: pointer; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;\">–</button>
+        </div>
+      </div>
+      <div class=\"side-cart-item-details\" style=\"padding: 0 0 8px 0;\">
+        <ul class=\"side-cart-item-details-list\" style=\"max-width: 100%; overflow: hidden;\">
+          ${details}
+        </ul>
+      </div>
+      <button class=\"side-cart-item-trash-btn\" title=\"מחק\" style=\"position: absolute; left: 8px; bottom: 8px; background: none; border: none; padding: 0; margin: 0; cursor: pointer; width: 22px; height: 22px;\"><span class=\"side-cart-item-trash-icon\"></span></button>
+    `;
+    // כפתור פח אשפה
+    row.querySelector('.side-cart-item-trash-btn').onclick = function(e) {
+      e.stopPropagation();
+      showDeleteDialog(idx);
+    };
+    // כפתור הוספה
+    row.querySelector('.side-cart-item-add-btn').onclick = function(e) {
+      e.stopPropagation();
+      if (window.cartSync) {
+        window.cartSync.updateItem(idx, {qty: cart[idx].qty + 1});
+        cart = window.cartSync.loadCart();
+      } else {
+        cart[idx].qty += 1;
+        localStorage.setItem('cart', JSON.stringify(cart));
+      }
+
+      setTimeout(() => {
+        if (window.cartSync && typeof window.cartSync.loadCart === 'function') {
+          cart = window.cartSync.loadCart();
+        } else {
+          cart = JSON.parse(localStorage.getItem('cart') || '[]');
+        }
+        updateCartBadge();
+        renderCart();
+      }, 50);
+    };
+    // כפתור הפחתה
+    row.querySelector('.side-cart-item-minus-btn').onclick = function(e) {
+      e.stopPropagation();
+      if (cart[idx].qty > 1) {
+        if (window.cartSync) {
+          window.cartSync.updateItem(idx, {qty: cart[idx].qty - 1});
+          cart = window.cartSync.loadCart();
+        } else {
+          cart[idx].qty -= 1;
+          localStorage.setItem('cart', JSON.stringify(cart));
+        }
+
+        setTimeout(() => {
+          if (window.cartSync && typeof window.cartSync.loadCart === 'function') {
+            cart = window.cartSync.loadCart();
+          } else {
+            cart = JSON.parse(localStorage.getItem('cart') || '[]');
+          }
+          updateCartBadge();
+          renderCart();
+        }, 50);
+      } else {
+        showDeleteDialog(idx);
+      }
+    };
+    sideCartList.appendChild(row);
+  });
+}
+
+function openSideCart(scrollToItemIndex = false) {
+  sideCart.classList.add('active');
+  cartOverlay.classList.add('active');
+  // שמירה על גלילה במובייל
+  if (window.innerWidth > 768) {
+  document.body.style.overflow = 'hidden';
+  }
+  
+  // אם צריך לגלול למוצר ספציפי
+  if (scrollToItemIndex !== false && cart.length > 0) {
+    setTimeout(() => {
+      const cartItems = sideCartList.querySelectorAll('.side-cart-item');
+      if (cartItems.length > 0) {
+        let targetItem;
+        
+        if (scrollToItemIndex === true) {
+          // ברירת מחדל - המוצר האחרון
+          targetItem = cartItems[cartItems.length - 1];
+        } else if (typeof scrollToItemIndex === 'number') {
+          // מוצר ספציפי לפי אינדקס
+          targetItem = cartItems[scrollToItemIndex] || cartItems[cartItems.length - 1];
+        }
+        
+        if (targetItem) {
+          // אנימציית קפיצה למוצר 
+          targetItem.style.transform = 'scale(1.1)';
+          targetItem.style.background = 'linear-gradient(135deg, #f0f8f0, #e8f5e8)';
+          targetItem.style.border = '2px solid #5EA189';
+          targetItem.style.borderRadius = '8px';
+          targetItem.style.transition = 'all 0.3s ease';
+          
+          // גלילה למוצר
+          targetItem.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'center' 
+          });
+          
+          // החזרה לגודל הרגיל אחרי אנימציה
+          setTimeout(() => {
+            targetItem.style.transform = 'scale(1)';
+            targetItem.style.background = '';
+            targetItem.style.border = '';
+            targetItem.style.borderRadius = '';
+          }, 1500);
+        }
+      }
+    }, 200);
+  }
+}
+function closeSideCart() {
+  sideCart.classList.remove('active');
+  cartOverlay.classList.remove('active');
+  // שמירה על גלילה במובייל
+  if (window.innerWidth > 768) {
+  document.body.style.overflow = '';
+  }
+}
+cartBtn.addEventListener('click', function(e) {
+  e.preventDefault();
+  openSideCart();
+});
+cartOverlay.addEventListener('click', closeSideCart);
+closeSideCartBtn.addEventListener('click', closeSideCart);
+
+// דוגמה להוספת מוצר לעגלה (להחליף בלחיצה אמיתית בהמשך)
+function addToCart(item, onlyQty) {
+  let targetItemIndex = null;
+  
+  // טעינת הסל הנוכחי
+  if (window.cartSync && typeof window.cartSync.loadCart === 'function') {
+    cart = window.cartSync.loadCart();
+  } else {
+    try {
+      cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    } catch (e) {
+      cart = [];
+    }
+  }
+  
+  // בדיקה מלאה של מוצר קיים (כל השדות צריכים להיות זהים!)
+  let existingIndex = window.cartSync && window.cartSync.areItemsIdentical 
+    ? cart.findIndex(existing => window.cartSync.areItemsIdentical(existing, item))
+    : cart.findIndex(existing => 
+        existing.title === item.title && 
+        existing.subtitle === item.subtitle &&
+        existing.notes === item.notes &&
+        existing.desc === item.desc &&
+        existing.price === item.price &&
+        JSON.stringify(existing.files || []) === JSON.stringify(item.files || [])
+      );
+  
+  if (existingIndex !== -1) {
+    // מוצר קיים - הוסף כמות
+    cart[existingIndex].qty += (item.qty || 1);
+    targetItemIndex = existingIndex;
+  } else if (!onlyQty) {
+    // מוצר חדש - הוסף לסל
+    cart.push(item);
+    targetItemIndex = cart.length - 1;
+  }
+  
+  // שמירה בחזרה עם עדכון מיידי של הממשק
+  if (window.cartSync && typeof window.cartSync.saveCart === 'function') {
+    window.cartSync.saveCart(cart, true); // Save immediately
+  } else {
+    localStorage.setItem('cart', JSON.stringify(cart));
+  }
+  
+  // עדכון מיידי של הממשק
+  updateCartBadge();
+  renderCart();
+  
+  // פתיחת הסל הקטן אוטומטית עם אנימציה למוצר הנכון
+  if (targetItemIndex !== null) {
+    // מציאת האינדקס הנכון של המוצר
+    const finalTargetIndex = window.cartSync && window.cartSync.areItemsIdentical 
+      ? cart.findIndex(existing => window.cartSync.areItemsIdentical(existing, item))
+      : cart.findIndex(existing => 
+          existing.title === item.title && 
+          existing.subtitle === item.subtitle &&
+          existing.notes === item.notes &&
+          existing.desc === item.desc &&
+          existing.price === item.price &&
+          JSON.stringify(existing.files || []) === JSON.stringify(item.files || [])
+        );
+    const indexToShow = finalTargetIndex !== -1 ? finalTargetIndex : cart.length - 1;
+    openSideCart(indexToShow);
+  }
+  
+  // הפעלת סנכרון נוסף לוודא שכל הטאבים מתעדכנים
+  if (window.cartSync && typeof window.cartSync.synchronize === 'function') {
+    setTimeout(() => {
+      window.cartSync.synchronize('add-to-cart-complete');
+    }, 100);
+  }
+}
+
+function removeFromCart(idx) {
+  if (idx >= 0 && idx < cart.length) {
+    if (window.cartSync) {
+      window.cartSync.removeItem(idx);
+      cart = window.cartSync.loadCart();
+    } else {
+      cart.splice(idx, 1);
+      localStorage.setItem('cart', JSON.stringify(cart));
+    }
+
+    setTimeout(() => {
+      if (window.cartSync && typeof window.cartSync.loadCart === 'function') {
+        cart = window.cartSync.loadCart();
+      } else {
+        cart = JSON.parse(localStorage.getItem('cart') || '[]');
+      }
+      updateCartBadge();
+      renderCart();
+    }, 50);
+  }
+}
+
+// דוגמה: הוספת מוצרים לדוגמה (מומלץ להסיר בפרודקשן)
+// הוספת פרמטר URL לדמו: ?demo=true
+window.addEventListener('DOMContentLoaded', function() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const isDemoMode = urlParams.get('demo') === 'true';
+  
+  // במצב דמו - הסל יישאר ריק
+});
+
+// כפתור "לצפייה בסל הקניות"
+viewCartBtn.addEventListener('click', function() {
+  window.location.href = 'Shopping Cart.html';
+});
+
+// עדכון באדג' בהתחלה
+updateCartBadge();
+renderCart();
+
+// iPad and Safari specific fixes
+function ensureViewCartButtonVisibleOniPad() {
+  const viewCartBtn = document.getElementById('viewCartBtn');
+  if (viewCartBtn) {
+    viewCartBtn.style.display = 'block';
+    viewCartBtn.style.visibility = 'visible';
+    viewCartBtn.style.opacity = '1';
+    viewCartBtn.style.position = 'sticky';
+    viewCartBtn.style.bottom = '0';
+    viewCartBtn.style.zIndex = '9999';
+    viewCartBtn.style.webkitTransform = 'none';
+    viewCartBtn.style.transform = 'none';
+  }
+}
+
+// Call the function multiple times to ensure it works
+setTimeout(ensureViewCartButtonVisibleOniPad, 100);
+setTimeout(ensureViewCartButtonVisibleOniPad, 500);
+setTimeout(ensureViewCartButtonVisibleOniPad, 1000);
+setTimeout(ensureViewCartButtonVisibleOniPad, 2000);
+
+let cartDeleteIdx = null;
+function showDeleteDialog(idx) {
+  cartDeleteIdx = idx;
+  document.getElementById('cartDeleteDialog').style.display = 'flex';
+}
+document.getElementById('cartDeleteYes').onclick = function() {
+  if (cartDeleteIdx !== null) {
+    removeFromCart(cartDeleteIdx);
+    cartDeleteIdx = null;
+  }
+  document.getElementById('cartDeleteDialog').style.display = 'none';
+};
+document.getElementById('cartDeleteNo').onclick = function() {
+  cartDeleteIdx = null;
+  document.getElementById('cartDeleteDialog').style.display = 'none';
+};
+</script>
+</html>
