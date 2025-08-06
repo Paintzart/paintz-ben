@@ -2829,3 +2829,40 @@ function testShopPageImages() {
   
   console.log('\n=== Shop Page Images Test Complete ===');
 }
+
+// פונקציה לבדיקת תמונות החנות
+function testShopImages() {
+  console.log('=== Testing Shop Images ===');
+  
+  const shopImages = [
+    'sheshbesh.jpg',    // שש בשים
+    'matkot.jpg',       // מטקות
+    'vinyl.jpg',        // תקליטים
+    'canvas.jpg'        // קנבסים
+  ];
+  
+  const baseUrl = 'https://yardenfad.github.io/paintz-ben';
+  
+  shopImages.forEach((imageName, index) => {
+    console.log(`\n--- Shop Image ${index + 1} ---`);
+    console.log(`Image name: ${imageName}`);
+    
+    // בדיקה עם הנתיב המלא
+    const fullUrl = `${baseUrl}/${imageName}`;
+    console.log(`Full URL: ${fullUrl}`);
+    
+    // בדיקה אם ה-URL תקין
+    const isValid = isValidEmailImage(fullUrl);
+    console.log(`Valid for email: ${isValid}`);
+    
+    // בדיקה אם התמונה נגישה
+    const isAvailable = checkImageAvailability(fullUrl);
+    console.log(`Available: ${isAvailable}`);
+    
+    // בדיקה עם הפונקציה החדשה
+    const validatedUrl = validateModelImageUrl(imageName);
+    console.log(`Validated URL: ${validatedUrl}`);
+  });
+  
+  console.log('\n=== Shop Images Test Complete ===');
+}

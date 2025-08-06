@@ -392,6 +392,7 @@
       border-radius: 8px;
       background-size: cover;
       background-position: center;
+      background-repeat: no-repeat;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -399,6 +400,8 @@
       position: relative;
       box-shadow: 0 2px 12px #0002;
       transition: box-shadow 0.2s, transform 0.2s;
+      /* Fallback background color if image fails to load */
+      background-color: #f0f0f0;
     }
     .shop-product-title {
       font-family: 'Rubik', sans-serif;
@@ -1039,16 +1042,16 @@
     </div>
     <main>
       <div class="shop-products">
-        <a class="shop-product" href="Backgammon.html" style="background-image: url('./sheshbesh.jpg');">
+        <a class="shop-product" href="Backgammon.html" style="background-image: url('sheshbesh.jpg');">
           <span class="shop-product-title">שש בשים</span>
         </a>
-        <a class="shop-product" href="Matka.html" style="background-image: url('./matkot.jpg');">
+        <a class="shop-product" href="Matka.html" style="background-image: url('matkot.jpg');">
           <span class="shop-product-title">מטקות</span>
         </a>
-        <a class="shop-product" href="Record.html" style="background-image: url('./vinyl.jpg');">
+        <a class="shop-product" href="Record.html" style="background-image: url('vinyl.jpg');">
           <span class="shop-product-title">תקליטים</span>
         </a>
-        <a class="shop-product" href="Canvas.html" style="background-image: url('./canvas.jpg');">
+        <a class="shop-product" href="Canvas.html" style="background-image: url('canvas.jpg');">
           <span class="shop-product-title">קנבסים</span>
         </a>
       </div>
@@ -1099,6 +1102,25 @@
       if (sideCart) {
         sideCart.classList.remove('active');
       }
+      
+      // בדיקת טעינת תמונות החנות
+      const shopImages = [
+        'sheshbesh.jpg',
+        'matkot.jpg', 
+        'vinyl.jpg',
+        'canvas.jpg'
+      ];
+      
+      shopImages.forEach(imageName => {
+        const img = new Image();
+        img.onload = function() {
+          console.log(`✅ Image loaded successfully: ${imageName}`);
+        };
+        img.onerror = function() {
+          console.error(`❌ Failed to load image: ${imageName}`);
+        };
+        img.src = imageName;
+      });
     });
 // --- Shop Popup Logic ---
 const shopBtn = document.getElementById('shopPopupBtn');
