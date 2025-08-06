@@ -61,7 +61,7 @@ function processImageUrl(imageUrl) {
   
   // אם זה נתיב יחסי, נסה להמיר ל-URL מלא
   // כאן תוכל להוסיף את הדומיין שלך
-  const baseUrl = 'https://paintz-website.com'; // החלף בדומיין האמיתי של האתר שלך
+  const baseUrl = 'https://yardenfad.github.io/paintz-ben'; // החלף בדומיין האמיתי של האתר שלך
   
   // הסר / מההתחלה אם יש
   if (imageUrl.startsWith('/')) {
@@ -118,12 +118,20 @@ function checkImageAvailability(imageUrl) {
       return false;
     }
     
+    // בדיקה מיוחדת לדומיין GitHub Pages
+    if (imageUrl.includes('github.io')) {
+      console.log(`GitHub Pages image URL detected: ${imageUrl}`);
+      // GitHub Pages בדרך כלל נגיש למיילים
+      return true;
+    }
+    
     return true;
   } catch (error) {
     console.error('Error checking image availability:', error);
     return false;
   }
 }
+
 // העתק את הקוד הזה לGoogle Apps Script
 
 function doGet(e) {
@@ -1183,32 +1191,19 @@ function sendBusinessEmail(data) {
       
       console.log(`Business email - Original image URL for item ${index}: ${imageUrl}`);
       
+      // שימוש בפונקציה החדשה לבדיקת תמונות דגמים
+      imageUrl = validateModelImageUrl(imageUrl);
+      
       // בדיקה אם התמונה תקינה למייל
       let isValidImageUrl = imageUrl && (imageUrl.startsWith('data:image') || imageUrl.startsWith('http'));
       console.log(`Business email - Is valid image URL for item ${index}: ${isValidImageUrl}`);
       
-      // אם התמונה לא תקינה למייל, ננסה להמיר אותה ל-URL מלא
-      if (!isValidImageUrl && imageUrl) {
-        console.log(`Business email - Image URL not valid for email, trying to convert: ${imageUrl}`);
-        
-        // אם זה נתיב יחסי, נמיר ל-URL מלא
-        if (imageUrl.startsWith('img/') || imageUrl.startsWith('Models/') || imageUrl.includes('.jpg') || imageUrl.includes('.jpeg') || imageUrl.includes('.png')) {
-          // המרה ל-URL מלא - החלף בדומיין האמיתי של האתר שלך
-          const baseUrl = 'https://paintz-website.com'; // החלף בדומיין האמיתי כשתעלה לאינטרנט
-          imageUrl = `${baseUrl}/${imageUrl}`;
-          console.log(`Business email - Converted relative path to full URL: ${imageUrl}`);
-          isValidImageUrl = true;
-        } else {
-          console.log(`Business email - Image URL not valid for email, hiding image: ${imageUrl}`);
-          imageUrl = null;
-          isValidImageUrl = false;
-        }
-      } else if (isValidImageUrl) {
-        console.log(`Business email - Image URL is valid for email: ${imageUrl}`);
-      } else {
+      if (!isValidImageUrl) {
         console.log(`Business email - No valid image URL found, hiding image`);
         imageUrl = null;
         isValidImageUrl = false;
+      } else {
+        console.log(`Business email - Image URL is valid for email: ${imageUrl}`);
       }
       
       productsHtml += `
@@ -1751,32 +1746,19 @@ function sendCustomerEmail(data) {
       
       console.log(`Customer email - Original image URL for item ${index}: ${customerImageUrl}`);
       
+      // שימוש בפונקציה החדשה לבדיקת תמונות דגמים
+      customerImageUrl = validateModelImageUrl(customerImageUrl);
+      
       // בדיקה אם התמונה תקינה למייל
       let isValidCustomerImageUrl = customerImageUrl && (customerImageUrl.startsWith('data:image') || customerImageUrl.startsWith('http'));
       console.log(`Customer email - Is valid image URL for item ${index}: ${isValidCustomerImageUrl}`);
       
-      // אם התמונה לא תקינה למייל, ננסה להמיר אותה ל-URL מלא
-      if (!isValidCustomerImageUrl && customerImageUrl) {
-        console.log(`Customer email - Image URL not valid for email, trying to convert: ${customerImageUrl}`);
-        
-        // אם זה נתיב יחסי, נמיר ל-URL מלא
-        if (customerImageUrl.startsWith('img/') || customerImageUrl.startsWith('Models/') || customerImageUrl.includes('.jpg') || customerImageUrl.includes('.jpeg') || customerImageUrl.includes('.png')) {
-          // המרה ל-URL מלא - החלף בדומיין האמיתי של האתר שלך
-          const baseUrl = 'https://paintz-website.com'; // החלף בדומיין האמיתי כשתעלה לאינטרנט
-          customerImageUrl = `${baseUrl}/${customerImageUrl}`;
-          console.log(`Customer email - Converted relative path to full URL: ${customerImageUrl}`);
-          isValidCustomerImageUrl = true;
-        } else {
-          console.log(`Customer email - Image URL not valid for email, hiding image: ${customerImageUrl}`);
-          customerImageUrl = null;
-          isValidCustomerImageUrl = false;
-        }
-      } else if (isValidCustomerImageUrl) {
-        console.log(`Customer email - Image URL is valid for email: ${customerImageUrl}`);
-      } else {
+      if (!isValidCustomerImageUrl) {
         console.log(`Customer email - No valid image URL found, hiding image`);
         customerImageUrl = null;
         isValidCustomerImageUrl = false;
+      } else {
+        console.log(`Customer email - Image URL is valid for email: ${customerImageUrl}`);
       }
       
       productsHtml += `
@@ -2653,4 +2635,197 @@ function sendLargeFilesEmail(data) {
     });
     throw sendError;
   }
+}
+
+// פונקציה לבדיקה מיוחדת של תמונות דגמים
+function validateModelImageUrl(imageUrl) {
+  if (!imageUrl) return null;
+  
+  console.log(`Validating image URL: ${imageUrl}`);
+  
+  // אם זה כבר URL מלא, נחזיר אותו
+  if (imageUrl.startsWith('http')) {
+    console.log(`Image is already full URL: ${imageUrl}`);
+    return imageUrl;
+  }
+  
+  // אם זה נתיב יחסי של דגם, נמיר ל-URL מלא
+  if (imageUrl.startsWith('Models/')) {
+    const baseUrl = 'https://yardenfad.github.io/paintz-ben';
+    const fullUrl = `${baseUrl}/${imageUrl}`;
+    console.log(`Converted Models image to full URL: ${fullUrl}`);
+    return fullUrl;
+  }
+  
+  // אם זה נתיב יחסי של img, נמיר גם אותו
+  if (imageUrl.startsWith('img/')) {
+    const baseUrl = 'https://yardenfad.github.io/paintz-ben';
+    const fullUrl = `${baseUrl}/${imageUrl}`;
+    console.log(`Converted img image to full URL: ${fullUrl}`);
+    return fullUrl;
+  }
+  
+  // אם זה נתיב יחסי אחר (ללא /), נמיר גם אותו
+  if (imageUrl.includes('.jpg') || imageUrl.includes('.jpeg') || imageUrl.includes('.png') || imageUrl.includes('.JPG')) {
+    const baseUrl = 'https://yardenfad.github.io/paintz-ben';
+    const fullUrl = `${baseUrl}/${imageUrl}`;
+    console.log(`Converted other image to full URL: ${fullUrl}`);
+    return fullUrl;
+  }
+  
+  console.log(`Image URL not recognized: ${imageUrl}`);
+  return null;
+}
+
+// פונקציה לבדיקת תמונות דגמים
+function testModelImages() {
+  console.log('=== Testing All Images ===');
+  
+  const testImages = [
+    'Models/Backgammon1_1.JPG',
+    'Models/Matka1_1.JPG',
+    'img/Backgammon1.jpg',
+    'img/Backgammon1.jpg',
+    'img/matka1.jpg',
+    'img/canvas1.jpg',
+    'img/img-record1.jpg',
+    'img/Matka1.JPG',
+    'img/Matka2.JPG',
+    'img/Matka3.JPG'
+  ];
+  
+  const baseUrl = 'https://yardenfad.github.io/paintz-ben';
+  
+  testImages.forEach((imagePath, index) => {
+    const fullUrl = `${baseUrl}/${imagePath}`;
+    console.log(`Test ${index + 1}: ${imagePath} -> ${fullUrl}`);
+    
+    // בדיקה אם ה-URL תקין
+    const isValid = isValidEmailImage(fullUrl);
+    console.log(`  Valid for email: ${isValid}`);
+    
+    // בדיקה אם התמונה נגישה
+    const isAvailable = checkImageAvailability(fullUrl);
+    console.log(`  Available: ${isAvailable}`);
+    
+    // בדיקה עם הפונקציה החדשה
+    const validatedUrl = validateModelImageUrl(imagePath);
+    console.log(`  Validated URL: ${validatedUrl}`);
+  });
+  
+  console.log('=== All Images Test Complete ===');
+}
+
+// פונקציה לבדיקה מיוחדת של תמונות עיצובים אישיים
+function testCustomDesignImages() {
+  console.log('=== Testing Custom Design Images ===');
+  
+  const customImages = [
+    'img/Backgammon1.jpg', // שש בש עיצוב אישי
+    'img/Backgammon1.jpg',  // שש בש עיצוב אישי (גרסה אחרת)
+    'img/matka1.jpg',       // מטקה עיצוב אישי
+    'img/canvas1.jpg',      // קנבס עיצוב אישי
+    'img/img-record1.jpg'   // תקליט עיצוב אישי
+  ];
+  
+  const baseUrl = 'https://yardenfad.github.io/paintz-ben';
+  
+  customImages.forEach((imagePath, index) => {
+    console.log(`\n--- Custom Design Image ${index + 1} ---`);
+    console.log(`Original path: ${imagePath}`);
+    
+    // בדיקה עם הפונקציה החדשה
+    const validatedUrl = validateModelImageUrl(imagePath);
+    console.log(`Validated URL: ${validatedUrl}`);
+    
+    // בדיקה אם ה-URL תקין
+    const isValid = isValidEmailImage(validatedUrl);
+    console.log(`Valid for email: ${isValid}`);
+    
+    // בדיקה אם התמונה נגישה
+    const isAvailable = checkImageAvailability(validatedUrl);
+    console.log(`Available: ${isAvailable}`);
+  });
+  
+  console.log('\n=== Custom Design Images Test Complete ===');
+}
+
+// פונקציה לבדיקה מיוחדת של תמונות בסל הקניות הגדול
+function testShoppingCartImages() {
+  console.log('=== Testing Shopping Cart Images ===');
+  
+  const cartImages = [
+    'img/Backgammon1.jpg',    // שש בש עיצוב אישי
+    'img/Backgammon2.jpg',    // שש בש עיצוב אישי
+    'img/matka1.jpg',         // מטקה עיצוב אישי
+    'img/matka2.jpg',         // מטקה עיצוב אישי
+    'img/canvas1.jpg',        // קנבס עיצוב אישי
+    'img/canvas2.jpg',        // קנבס עיצוב אישי
+    'img/img-record1.jpg',    // תקליט עיצוב אישי
+    'img/img-record2.jpg',    // תקליט עיצוב אישי
+    'Models/Backgammon1_1.JPG', // שש בש דגם
+    'Models/Matka1_1.JPG'     // מטקה דגם
+  ];
+  
+  const baseUrl = 'https://yardenfad.github.io/paintz-ben';
+  
+  cartImages.forEach((imagePath, index) => {
+    console.log(`\n--- Shopping Cart Image ${index + 1} ---`);
+    console.log(`Original path: ${imagePath}`);
+    
+    // בדיקה עם הפונקציה החדשה
+    const validatedUrl = validateModelImageUrl(imagePath);
+    console.log(`Validated URL: ${validatedUrl}`);
+    
+    // בדיקה אם ה-URL תקין
+    const isValid = isValidEmailImage(validatedUrl);
+    console.log(`Valid for email: ${isValid}`);
+    
+    // בדיקה אם התמונה נגישה
+    const isAvailable = checkImageAvailability(validatedUrl);
+    console.log(`Available: ${isAvailable}`);
+    
+    // בדיקה אם התמונה תקינה למייל
+    const isEmailValid = isValidEmailImage(validatedUrl);
+    console.log(`Email valid: ${isEmailValid}`);
+  });
+  
+  console.log('\n=== Shopping Cart Images Test Complete ===');
+}
+
+// פונקציה לבדיקה מיוחדת של תמונות עמוד החנות
+function testShopPageImages() {
+  console.log('=== Testing Shop Page Images ===');
+  
+  const shopImages = [
+    'sheshbesh.jpg',    // שש בשים
+    'matkot.jpg',       // מטקות
+    'vinyl.jpg',        // תקליטים
+    'canvas.jpg'        // קנבסים
+  ];
+  
+  const baseUrl = 'https://yardenfad.github.io/paintz-ben';
+  
+  shopImages.forEach((imagePath, index) => {
+    console.log(`\n--- Shop Page Image ${index + 1} ---`);
+    console.log(`Original path: ${imagePath}`);
+    
+    // בדיקה עם הפונקציה החדשה
+    const validatedUrl = validateModelImageUrl(imagePath);
+    console.log(`Validated URL: ${validatedUrl}`);
+    
+    // בדיקה אם ה-URL תקין
+    const isValid = isValidEmailImage(validatedUrl);
+    console.log(`Valid for email: ${isValid}`);
+    
+    // בדיקה אם התמונה נגישה
+    const isAvailable = checkImageAvailability(validatedUrl);
+    console.log(`Available: ${isAvailable}`);
+    
+    // בדיקה אם התמונה תקינה למייל
+    const isEmailValid = isValidEmailImage(validatedUrl);
+    console.log(`Email valid: ${isEmailValid}`);
+  });
+  
+  console.log('\n=== Shop Page Images Test Complete ===');
 }
