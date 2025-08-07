@@ -1800,6 +1800,7 @@ async function validateForm(event) {
     desc: desc.value.trim(),
     qty: parseInt(document.getElementById('record-qty').value) || 1,
     price: 0, // Price to be determined
+    mainImage: 'img/canvas1.jpg', // שמירת התמונה הראשית
     img: 'img/canvas1.jpg',
     file: storedFiles.length > 0 ? storedFiles.map(f => f.name).join(', ') : '',
     files: await window.fileUploadSystem.convertFilesToBase64()

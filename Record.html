@@ -2003,6 +2003,7 @@ async function validateForm(event) {
     files: filesData, // שמירת הקבצים המלאים בbase64
     qty: parseInt(qty.value) || 1,
     price: '', // מחיר תקליט
+    mainImage: currentImageSrc, // שמירת התמונה הראשית
     img: currentImageSrc // שמירת הנתיב במקום base64
   };
 
