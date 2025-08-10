@@ -1989,9 +1989,9 @@ async function validateForm(event) {
   // שמירת מידע הקבצים עם תוכן מלא באמצעות המערכת החדשה
   const filesData = await window.fileUploadSystem.convertFilesToBase64();
 
-  // Always use the first thumbnail image instead of current main image
-  const firstThumbnail = document.querySelector('.thumbnail img');
-  const currentImageSrc = firstThumbnail ? firstThumbnail.src : 'img/img-record1.jpg';
+  // Always use the first record thumb (correct selector)
+  const firstThumbnail = document.querySelector('.record-thumb');
+  const currentImageSrc = firstThumbnail ? (firstThumbnail.getAttribute('data-img') || firstThumbnail.src) : 'img/img-record1.jpg';
 
   // Convert product image to base64 for email display
   const productImageBase64 = await imageUrlToBase64(currentImageSrc);

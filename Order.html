@@ -1371,7 +1371,7 @@ document.getElementById('orderForm').addEventListener('submit', async (e) => {
         }
         if (Array.isArray(orderData.cart)) {
           orderData.cart = orderData.cart.map(item => {
-            const raw = item && (item.img || item.image || item.mainImage || item.imgSrc || item.imageSrc || item.imageUrl);
+            const raw = item && (item.img || item.image || item.mainImage || item.imgSrc || item.imageSrc || item.imageUrl || item.mainImageSrc);
             const finalUrl = toEmailImageUrl(raw);
             return {
               ...item,
