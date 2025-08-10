@@ -1371,8 +1371,17 @@ document.getElementById('orderForm').addEventListener('submit', async (e) => {
         }
         if (Array.isArray(orderData.cart)) {
           orderData.cart = orderData.cart.map(item => {
-            // Get image from any possible field, prioritize emailImage if exists
-            const raw = item.emailImage || item.img || item.image || item.mainImage || item.imgSrc || item.imageSrc || item.imageUrl || item.mainImageSrc;
+            // Get image from the correct fields based on product type
+            let raw = '';
+            
+            if (item.title === 'עיצוב אישי') {
+              // For custom products, use the mainImage field that was saved
+              raw = item.mainImage || item.img || item.image || '';
+            } else {
+              // For model products, use the img field that was saved
+              raw = item.img || item.mainImage || item.image || '';
+            }
+            
             const finalUrl = toEmailImageUrl(raw);
             
             console.log('Image normalization for item:', {
