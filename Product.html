@@ -1776,7 +1776,7 @@ async function addToCart() {
       
       // For relative paths, we can't convert to base64 in browser
       // But we can return the full URL for email display
-      if (url && !url.startsWith('http')) {
+      if (url && !url.startsWith('http') && !url.startsWith('data:')) {
         const fullUrl = `https://yardenfad.github.io/paintz-website/${url}`;
         resolve(fullUrl);
         return;
@@ -1805,7 +1805,7 @@ async function addToCart() {
   }
 
   // Convert image to base64 for email display
-  const productImageBase64 = await imageUrlToBase64(firstImageSrc);
+  const productImageBase64 = await imageUrlToBase64(fullImageUrl);
   
   const cartItem = {
     title: mainTitle,
@@ -1815,7 +1815,8 @@ async function addToCart() {
     qty: quantity,
     price: `₪ ${product.price}`,
     mainImage: fullImageUrl, // שמירת התמונה עם URL מלא
-    img: fullImageUrl // URL מלא - יוצג במייל
+    img: fullImageUrl, // URL מלא - יוצג במייל
+    image: fullImageUrl // גיבוי נוסף לתמונה
   };
   
 

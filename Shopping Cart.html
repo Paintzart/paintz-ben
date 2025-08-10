@@ -1345,7 +1345,7 @@ function renderBigCart() {
       row.className = 'big-cart-item';
       row.innerHTML = `
         <button class="big-cart-item-remove" title="הסר"><span class="big-cart-item-trash-icon"></span></button>
-        ${item.img ? `<div class="big-cart-item-img" style="background-image:url('${item.img}')"></div>` : '<div class="big-cart-item-img"></div>'}
+        ${item.img ? `<div class="big-cart-item-img" style="background-image:url('${item.img.startsWith('http') ? item.img : `https://yardenfad.github.io/paintz-website/${item.img}`}')"></div>` : '<div class="big-cart-item-img"></div>'}
         <div class="big-cart-item-info">
           <div class="big-cart-item-title">${item.subtitle ? `${item.title} | ${item.subtitle}` : item.title}</div>
           <div class="big-cart-item-notes">${notes}</div>
