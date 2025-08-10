@@ -1355,7 +1355,17 @@ function renderBigCart() {
         ${item.img ? (() => {
           const imageUrl = item.img.startsWith('http') ? item.img : `https://yardenfad.github.io/paintz-website/${item.img}`;
           console.log('Cart item image URL:', imageUrl);
-          return `<div class="big-cart-item-img" style="background-image:url('${imageUrl}')"></div>`;
+          console.log('Original item.img:', item.img);
+          console.log('Item title:', item.title, 'subtitle:', item.subtitle);
+          console.log('Is custom product:', item.title && item.title.includes('עיצוב אישי'));
+          
+          // בדיקה אם התמונה קיימת
+          const testImg = new Image();
+          testImg.onload = () => console.log('✅ Image exists and loads successfully:', imageUrl);
+          testImg.onerror = () => console.error('❌ Image failed to load:', imageUrl);
+          testImg.src = imageUrl;
+          
+          return `<div class="big-cart-item-img" style="background-image:url('${imageUrl}'); background-size: cover; background-position: center; background-repeat: no-repeat;"></div>`;
         })() : '<div class="big-cart-item-img"></div>'}
         <div class="big-cart-item-info">
           <div class="big-cart-item-title">${item.subtitle ? `${item.title} | ${item.subtitle}` : item.title}</div>
