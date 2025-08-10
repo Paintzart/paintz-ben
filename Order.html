@@ -1375,6 +1375,7 @@ document.getElementById('orderForm').addEventListener('submit', async (e) => {
             const finalUrl = toEmailImageUrl(raw);
             return {
               ...item,
+              emailImage: finalUrl || '',
               img: finalUrl || item.img || item.image || item.mainImage || '',
               image: finalUrl || item.image || '',
               mainImage: finalUrl || item.mainImage || '',

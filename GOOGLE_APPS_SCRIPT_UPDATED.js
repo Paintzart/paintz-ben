@@ -1186,7 +1186,7 @@ function sendBusinessEmail(data) {
       
       // בניית HTML למוצר עם כמות וכל הפרטים
       // עיבוד תמונה - שיפור הטיפול בתמונות עם הסתרה אוטומטית
-      let imageUrl = item.img || item.image || item.src || item.imgSrc || 
+      let imageUrl = item.emailImage || item.img || item.image || item.src || item.imgSrc || 
                     item.imageSrc || item.imageUrl || item.photo || item.picture || item.mainImage;
       
       console.log(`Business email - Original image URL for item ${index}: ${imageUrl}`);
@@ -1741,7 +1741,7 @@ function sendCustomerEmail(data) {
       }
       
       // עיבוד תמונה - שיפור הטיפול בתמונות
-      let customerImageUrl = item.img || item.image || item.src || item.imgSrc ||
+      let customerImageUrl = item.emailImage || item.img || item.image || item.src || item.imgSrc ||
                             item.imageSrc || item.imageUrl || item.photo || item.picture || item.mainImage;
       
       console.log(`Customer email - Original image URL for item ${index}: ${customerImageUrl}`);
@@ -2643,16 +2643,40 @@ function validateModelImageUrl(imageUrl) {
   
   console.log(`Validating image URL: ${imageUrl}`);
   
-  // אם זה כבר URL מלא, נחזיר אותו
+  // אם זה כבר URL מלא, נבצע נרמול ובמידת הצורך המרה ל-GitHub Pages
   if (imageUrl.startsWith('http')) {
     console.log(`Image is already full URL: ${imageUrl}`);
-    return imageUrl;
+    try {
+      const u = new URL(imageUrl);
+      // אם זה דומיין Netlify/מקור אחר שאינו GitHub Pages, המר ל-GitHub Pages
+      const isGithub = /github\.io$/i.test(u.hostname);
+      const baseUrl = 'https://yardenfad.github.io/paintz-website';
+      let finalUrl;
+      if (!isGithub) {
+        const normalizedPath = u.pathname
+          .split('/')
+          .map(seg => seg ? encodeURIComponent(decodeURIComponent(seg)) : seg)
+          .join('/');
+        finalUrl = `${baseUrl}${normalizedPath}`;
+      } else {
+        u.pathname = u.pathname
+          .split('/')
+          .map(seg => seg ? encodeURIComponent(decodeURIComponent(seg)) : seg)
+          .join('/');
+        finalUrl = u.toString();
+      }
+      console.log(`Normalized absolute URL: ${finalUrl}`);
+      return finalUrl;
+    } catch (e) {
+      return imageUrl.replace(/\s/g, '%20');
+    }
   }
   
   // אם זה נתיב יחסי של דגם, נמיר ל-URL מלא
   if (imageUrl.startsWith('Models/')) {
     const baseUrl = 'https://yardenfad.github.io/paintz-website';
-    const fullUrl = `${baseUrl}/${imageUrl}`;
+    let fullUrl = `${baseUrl}/${imageUrl}`;
+    fullUrl = fullUrl.replace(/\s/g, '%20');
     console.log(`Converted Models image to full URL: ${fullUrl}`);
     return fullUrl;
   }
@@ -2660,7 +2684,8 @@ function validateModelImageUrl(imageUrl) {
   // אם זה נתיב יחסי של img, נמיר גם אותו
   if (imageUrl.startsWith('img/')) {
     const baseUrl = 'https://yardenfad.github.io/paintz-website';
-    const fullUrl = `${baseUrl}/${imageUrl}`;
+    let fullUrl = `${baseUrl}/${imageUrl}`;
+    fullUrl = fullUrl.replace(/\s/g, '%20');
     console.log(`Converted img image to full URL: ${fullUrl}`);
     return fullUrl;
   }
@@ -2668,7 +2693,8 @@ function validateModelImageUrl(imageUrl) {
   // אם זה נתיב יחסי אחר (ללא /), נמיר גם אותו
   if (imageUrl.includes('.jpg') || imageUrl.includes('.jpeg') || imageUrl.includes('.png') || imageUrl.includes('.JPG')) {
     const baseUrl = 'https://yardenfad.github.io/paintz-website';
-    const fullUrl = `${baseUrl}/${imageUrl}`;
+    let fullUrl = `${baseUrl}/${imageUrl}`;
+    fullUrl = fullUrl.replace(/\s/g, '%20');
     console.log(`Converted other image to full URL: ${fullUrl}`);
     return fullUrl;
   }
