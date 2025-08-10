@@ -1211,6 +1211,21 @@
 let bigCart = [];
 let deleteDialogIdx = null;
 
+// Parse price robustly: supports strings like "₪ 350", with commas, NBSP and RTL chars
+function parsePriceToNumber(priceValue) {
+  if (typeof priceValue === 'number') return priceValue;
+  if (!priceValue) return 0;
+  try {
+    const str = priceValue.toString();
+    // Remove everything except digits and decimal point
+    const cleaned = str.replace(/[^0-9.]/g, '');
+    const num = parseFloat(cleaned);
+    return isNaN(num) ? 0 : num;
+  } catch (e) {
+    return 0;
+  }
+}
+
 function updateQuantity(idx, change) {
   if (bigCart[idx]) {
     const newQty = bigCart[idx].qty + change;
@@ -1261,7 +1276,7 @@ function updateTotalPrice() {
     if (item.title?.includes('עיצוב אישי')) {
       hasCustomProduct = true;
     } else if (item.price) {
-      const priceNumber = parseFloat(item.price.toString().replace('₪', '').replace(',', ''));
+      const priceNumber = parsePriceToNumber(item.price);
       if (!isNaN(priceNumber)) {
         total += priceNumber * item.qty;
       }
@@ -1328,7 +1343,7 @@ function renderBigCart() {
       if (isCustom) {
         priceCell = `<div class='custom-price'>המחיר יקבע בהצעת מחיר</div>`;
       } else if (item.price) {
-        const priceNumber = parseFloat(item.price.toString().replace('₪', '').replace(',', ''));
+        const priceNumber = parsePriceToNumber(item.price);
         if (!isNaN(priceNumber)) {
           priceCell = `<div class='big-cart-item-price'>₪${priceNumber * item.qty}</div>`;
         } else {
@@ -1355,12 +1370,27 @@ function renderBigCart() {
         ${(() => {
           const rawImage = item.img || item.image || item.mainImage;
           if (!rawImage) return '<div class="big-cart-item-img"></div>';
-          const needsPrefix = !(rawImage.startsWith('http') || rawImage.startsWith('data:'));
-          const normalizedPath = needsPrefix ? rawImage.replace(/^\//, '') : rawImage;
-          // Prefer current origin to avoid cross-domain and 404 HTML responses that trigger ORB
-          const sameOriginUrl = needsPrefix ? `${window.location.origin}/${normalizedPath}` : normalizedPath;
-          const ghUrl = needsPrefix ? `https://yardenfad.github.io/paintz-website/${normalizedPath}` : normalizedPath;
-          let imageUrl = sameOriginUrl;
+          let primaryUrl = '';
+          let fallbackUrl = '';
+          if (rawImage.startsWith('data:')) {
+            primaryUrl = rawImage;
+            fallbackUrl = rawImage;
+          } else if (rawImage.startsWith('http')) {
+            const ghMarker = 'yardenfad.github.io/paintz-website/';
+            if (rawImage.includes(ghMarker)) {
+              const after = rawImage.split(ghMarker)[1] || '';
+              primaryUrl = `${window.location.origin}/${after}`;
+              fallbackUrl = rawImage;
+            } else {
+              primaryUrl = rawImage;
+              fallbackUrl = rawImage;
+            }
+          } else {
+            const normalizedPath = rawImage.replace(/^\//, '');
+            primaryUrl = `${window.location.origin}/${normalizedPath}`;
+            fallbackUrl = `https://yardenfad.github.io/paintz-website/${normalizedPath}`;
+          }
+          let imageUrl = primaryUrl;
           console.log('Cart item image URL (primary):', imageUrl);
           console.log('Original image fields:', { img: item.img, image: item.image, mainImage: item.mainImage });
           console.log('Item title:', item.title, 'subtitle:', item.subtitle);
@@ -1370,17 +1400,17 @@ function renderBigCart() {
           const testImg = new Image();
           testImg.onload = () => console.log('✅ Image exists and loads successfully:', imageUrl);
           testImg.onerror = () => {
-            console.warn('⚠️ Image failed to load (primary). Trying fallback:', ghUrl);
+            console.warn('⚠️ Image failed to load (primary). Trying fallback:', fallbackUrl);
             const fallbackImg = new Image();
             fallbackImg.onload = () => {
-              console.log('✅ Fallback image loads successfully:', ghUrl);
+              console.log('✅ Fallback image loads successfully:', fallbackUrl);
               const container = document.querySelector(`[data-img-id="img-${idx}"]`);
               if (container) {
-                container.style.backgroundImage = `url('${ghUrl}')`;
+                container.style.backgroundImage = `url('${fallbackUrl}')`;
               }
             };
-            fallbackImg.onerror = () => console.error('❌ Image failed to load (fallback):', ghUrl);
-            fallbackImg.src = ghUrl;
+            fallbackImg.onerror = () => console.error('❌ Image failed to load (fallback):', fallbackUrl);
+            fallbackImg.src = fallbackUrl;
           };
           testImg.src = imageUrl;
           
@@ -1416,6 +1446,12 @@ function renderBigCart() {
       });
       
       list.appendChild(row);
+      
+      // עדכן את הסכום בכל שינוי בכמות דרך כפתורי הפלוס/מינוס
+      // הקריאות ל-updateQuantity כבר עושות renderBigCart + updateTotalPrice,
+      // אך נוסיף עדכון בטוח כדי לטפל במקרי קצה של דפדפנים איטיים
+      minusBtn.addEventListener('click', () => setTimeout(updateTotalPrice, 0));
+      plusBtn.addEventListener('click', () => setTimeout(updateTotalPrice, 0));
     } catch (error) {
       console.error('Error rendering cart notes:', error);
     }
@@ -1428,6 +1464,7 @@ function removeItem(idx) {
   bigCart.splice(idx, 1);
   saveBigCartToStorage(bigCart);
   renderBigCart();
+  updateTotalPrice();
   if (window.cartSync && typeof window.cartSync.synchronize === 'function') {
     window.cartSync.synchronize('big-cart-item-removed');
   }
