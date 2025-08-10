@@ -2666,27 +2666,29 @@ function validateModelImageUrl(imageUrl) {
   
   console.log(`Validating image URL: ${imageUrl}`);
   
-  // אם זה כבר URL מלא, נבצע נרמול ובמידת הצורך המרה ל-GitHub Pages
+  // אם זה כבר URL מלא, נבצע נרמול ובמידת הצורך המרה ל-Netlify
   if (imageUrl.startsWith('http')) {
     console.log(`Image is already full URL: ${imageUrl}`);
     try {
       const u = new URL(imageUrl);
-      // אם זה דומיין Netlify/מקור אחר שאינו GitHub Pages, המר ל-GitHub Pages
+      // אם זה דומיין Netlify או GitHub Pages, נשאיר אותו
+      const isNetlify = /netlify\.app$/i.test(u.hostname);
       const isGithub = /github\.io$/i.test(u.hostname);
-      const baseUrl = 'https://yardenfad.github.io/paintz-website';
+      const netlifyUrl = 'https://sweet-youtiao-888fc5.netlify.app';
       let finalUrl;
-      if (!isGithub) {
-        const normalizedPath = u.pathname
-          .split('/')
-          .map(seg => seg ? encodeURIComponent(decodeURIComponent(seg)) : seg)
-          .join('/');
-        finalUrl = `${baseUrl}${normalizedPath}`;
-      } else {
+      if (isNetlify || isGithub) {
         u.pathname = u.pathname
           .split('/')
           .map(seg => seg ? encodeURIComponent(decodeURIComponent(seg)) : seg)
           .join('/');
         finalUrl = u.toString();
+      } else {
+        // אם זה דומיין אחר, המר ל-Netlify
+        const normalizedPath = u.pathname
+          .split('/')
+          .map(seg => seg ? encodeURIComponent(decodeURIComponent(seg)) : seg)
+          .join('/');
+        finalUrl = `${netlifyUrl}${normalizedPath}`;
       }
       console.log(`Normalized absolute URL: ${finalUrl}`);
       return finalUrl;
@@ -2695,28 +2697,28 @@ function validateModelImageUrl(imageUrl) {
     }
   }
   
-  // אם זה נתיב יחסי של דגם, נמיר ל-URL מלא
+  // אם זה נתיב יחסי של דגם, נמיר ל-URL מלא ב-Netlify
   if (imageUrl.startsWith('Models/')) {
-    const baseUrl = 'https://yardenfad.github.io/paintz-website';
-    let fullUrl = `${baseUrl}/${imageUrl}`;
+    const netlifyUrl = 'https://sweet-youtiao-888fc5.netlify.app';
+    let fullUrl = `${netlifyUrl}/${imageUrl}`;
     fullUrl = fullUrl.replace(/\s/g, '%20');
     console.log(`Converted Models image to full URL: ${fullUrl}`);
     return fullUrl;
   }
   
-  // אם זה נתיב יחסי של img, נמיר גם אותו
+  // אם זה נתיב יחסי של img, נמיר גם אותו ל-Netlify
   if (imageUrl.startsWith('img/')) {
-    const baseUrl = 'https://yardenfad.github.io/paintz-website';
-    let fullUrl = `${baseUrl}/${imageUrl}`;
+    const netlifyUrl = 'https://sweet-youtiao-888fc5.netlify.app';
+    let fullUrl = `${netlifyUrl}/${imageUrl}`;
     fullUrl = fullUrl.replace(/\s/g, '%20');
     console.log(`Converted img image to full URL: ${fullUrl}`);
     return fullUrl;
   }
   
-  // אם זה נתיב יחסי אחר (ללא /), נמיר גם אותו
+  // אם זה נתיב יחסי אחר (ללא /), נמיר גם אותו ל-Netlify
   if (imageUrl.includes('.jpg') || imageUrl.includes('.jpeg') || imageUrl.includes('.png') || imageUrl.includes('.JPG')) {
-    const baseUrl = 'https://yardenfad.github.io/paintz-website';
-    let fullUrl = `${baseUrl}/${imageUrl}`;
+    const netlifyUrl = 'https://sweet-youtiao-888fc5.netlify.app';
+    let fullUrl = `${netlifyUrl}/${imageUrl}`;
     fullUrl = fullUrl.replace(/\s/g, '%20');
     console.log(`Converted other image to full URL: ${fullUrl}`);
     return fullUrl;

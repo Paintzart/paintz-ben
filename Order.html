@@ -1332,10 +1332,10 @@ document.getElementById('orderForm').addEventListener('submit', async (e) => {
       deliveryMethod: localStorage.getItem('deliveryMethod') || 'delivery'
     };
 
-    // Normalize product image URLs for emails (absolute https URLs, GitHub Pages base, encoded)
+    // Normalize product image URLs for emails (absolute https URLs, Netlify base, encoded)
     (function normalizeCartImagesForEmail() {
       try {
-        const baseUrl = 'https://yardenfad.github.io/paintz-website';
+        const netlifyUrl = 'https://sweet-youtiao-888fc5.netlify.app';
         const currentOrigin = window.location.origin;
         function toEmailImageUrl(rawUrl) {
           if (!rawUrl) return '';
@@ -1344,26 +1344,25 @@ document.getElementById('orderForm').addEventListener('submit', async (e) => {
           let url = rawUrl;
           try {
             if (url.startsWith('http')) {
-              // If it's our site origin, convert to GitHub Pages to ensure public fetch by mail clients
-              if (url.startsWith(currentOrigin)) {
-                const path = url.replace(currentOrigin + '/', '');
-                url = `${baseUrl}/${path}`;
+              // If it's already a full URL, keep it as is
+              if (url.startsWith(netlifyUrl) || url.startsWith('https://yardenfad.github.io')) {
+                // Already a valid URL, just normalize encoding
+                try {
+                  const u = new URL(url);
+                  const normalizedPath = u.pathname
+                    .split('/')
+                    .map(seg => seg ? encodeURIComponent(decodeURIComponent(seg)) : seg)
+                    .join('/');
+                  u.pathname = normalizedPath;
+                  url = u.toString();
+                } catch (err) {
+                  url = url.replace(/\s/g, '%20');
+                }
               }
             } else {
-              // Relative path → GitHub Pages absolute
-              url = `${baseUrl}/${url.replace(/^\//, '')}`;
-            }
-            // Safely normalize path encoding without double-encoding
-            try {
-              const u = new URL(url);
-              const normalizedPath = u.pathname
-                .split('/')
-                .map(seg => seg ? encodeURIComponent(decodeURIComponent(seg)) : seg)
-                .join('/');
-              u.pathname = normalizedPath;
-              url = u.toString();
-            } catch (err) {
-              // Fallback: only replace literal spaces to %20 (avoid double-encoding %)
+              // Relative path → Netlify absolute (since images are hosted there)
+              url = `${netlifyUrl}/${url.replace(/^\//, '')}`;
+              // Encode spaces and special characters
               url = url.replace(/\s/g, '%20');
             }
           } catch (e) {}
