@@ -1357,19 +1357,34 @@ function renderBigCart() {
           if (!rawImage) return '<div class="big-cart-item-img"></div>';
           const needsPrefix = !(rawImage.startsWith('http') || rawImage.startsWith('data:'));
           const normalizedPath = needsPrefix ? rawImage.replace(/^\//, '') : rawImage;
-          const imageUrl = needsPrefix ? `https://yardenfad.github.io/paintz-website/${normalizedPath}` : normalizedPath;
-          console.log('Cart item image URL:', imageUrl);
+          // Prefer current origin to avoid cross-domain and 404 HTML responses that trigger ORB
+          const sameOriginUrl = needsPrefix ? `${window.location.origin}/${normalizedPath}` : normalizedPath;
+          const ghUrl = needsPrefix ? `https://yardenfad.github.io/paintz-website/${normalizedPath}` : normalizedPath;
+          let imageUrl = sameOriginUrl;
+          console.log('Cart item image URL (primary):', imageUrl);
           console.log('Original image fields:', { img: item.img, image: item.image, mainImage: item.mainImage });
           console.log('Item title:', item.title, 'subtitle:', item.subtitle);
           console.log('Is custom product:', item.title && item.title.includes('עיצוב אישי'));
           
-          // בדיקה אם התמונה קיימת
+          // בדיקה אם התמונה קיימת, ואם לא – נסה גיבוי מ-GitHub Pages
           const testImg = new Image();
           testImg.onload = () => console.log('✅ Image exists and loads successfully:', imageUrl);
-          testImg.onerror = () => console.error('❌ Image failed to load:', imageUrl);
+          testImg.onerror = () => {
+            console.warn('⚠️ Image failed to load (primary). Trying fallback:', ghUrl);
+            const fallbackImg = new Image();
+            fallbackImg.onload = () => {
+              console.log('✅ Fallback image loads successfully:', ghUrl);
+              const container = document.querySelector(`[data-img-id="img-${idx}"]`);
+              if (container) {
+                container.style.backgroundImage = `url('${ghUrl}')`;
+              }
+            };
+            fallbackImg.onerror = () => console.error('❌ Image failed to load (fallback):', ghUrl);
+            fallbackImg.src = ghUrl;
+          };
           testImg.src = imageUrl;
           
-          return `<div class="big-cart-item-img" style="background-image:url('${imageUrl}'); background-size: cover; background-position: center; background-repeat: no-repeat;"></div>`;
+          return `<div class=\"big-cart-item-img\" data-img-id=\"img-${idx}\" style=\"background-image:url('${imageUrl}'); background-size: cover; background-position: center; background-repeat: no-repeat;\"></div>`;
         })()}
         <div class="big-cart-item-info">
           <div class="big-cart-item-title">${item.subtitle ? `${item.title} | ${item.subtitle}` : item.title}</div>
