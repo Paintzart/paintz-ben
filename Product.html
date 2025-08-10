@@ -1558,9 +1558,19 @@ function updateProductImages(productType, productId, imageCount) {
   // Clear existing thumbnails
   thumbnailContainer.innerHTML = '';
   
-  // Create thumbnails based on image count
-  for (let i = 1; i <= imageCount; i++) {
-    const imagePath = `Models/${productType === 'backgammon' ? 'Backgammon' : 'Matka'}${productId}_${i}.JPG`;
+  // Create thumbnails based on available images
+  const maxImages = productType === 'backgammon' ? 9 : 5; // Max available images
+  const actualImageCount = Math.min(imageCount, maxImages);
+  
+  for (let i = 1; i <= actualImageCount; i++) {
+    let imagePath;
+    if (productType === 'backgammon') {
+      imagePath = `img/Backgammon${productId}_${i}.JPG`;
+    } else if (productType === 'matka') {
+      imagePath = `img/Matka${productId}_${i}.JPG`;
+    } else {
+      imagePath = `product${i}.jpg`;
+    }
     
     const thumbnail = document.createElement('div');
     thumbnail.className = `thumbnail ${i === 1 ? 'selected' : ''}`;
@@ -1575,7 +1585,14 @@ function updateProductImages(productType, productId, imageCount) {
   }
   
   // Set main image to first image
-  const firstImagePath = `Models/${productType === 'backgammon' ? 'Backgammon' : 'Matka'}${productId}_1.JPG`;
+  let firstImagePath;
+  if (productType === 'backgammon') {
+    firstImagePath = `img/Backgammon${productId}_1.JPG`;
+  } else if (productType === 'matka') {
+    firstImagePath = `img/Matka${productId}_1.JPG`;
+  } else {
+    firstImagePath = `product1.jpg`;
+  }
   mainImage.src = firstImagePath;
   
   // Store the full URL for cart usage
@@ -1790,8 +1807,16 @@ async function addToCart() {
   let firstImageSrc = '';
   
   if (productType && productId && productData[productType] && productData[productType][productId]) {
-    // For dynamic products, use first image from the series
-    firstImageSrc = `Models/${productType === 'backgammon' ? 'Backgammon' : 'Matka'}${productId}_1.JPG`;
+    // For dynamic products, use existing images from img folder
+    if (productType === 'backgammon') {
+      // Use Backgammon model images (Backgammon1_1.JPG, Backgammon2_1.JPG, etc.)
+      firstImageSrc = `img/Backgammon${productId}_1.JPG`;
+    } else if (productType === 'matka') {
+      // Use Matka model images (Matka1_1.JPG, Matka2_1.JPG, etc.)
+      firstImageSrc = `img/Matka${productId}_1.JPG`;
+    } else {
+      firstImageSrc = 'product1.jpg';
+    }
   } else {
     // For default products, use first thumbnail
     const firstThumbnail = document.querySelector('.thumbnail img');
