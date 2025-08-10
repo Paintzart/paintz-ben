@@ -1795,6 +1795,16 @@ async function validateForm(event) {
     });
   }
 
+  // Get main gallery image
+  const mainImg = document.getElementById('mainRecordImg');
+  const mainImageSrc = mainImg ? mainImg.src : 'img/canvas1.jpg';
+  
+  // Convert relative path to full URL for email display
+  let fullImageUrl = mainImageSrc;
+  if (!mainImageSrc.startsWith('http') && !mainImageSrc.startsWith('data:')) {
+    fullImageUrl = `https://yardenfad.github.io/paintz-website/${mainImageSrc}`;
+  }
+
   // Create cart item
   const canvasItem = {
     title: 'עיצוב אישי | קנבס',
@@ -1802,8 +1812,8 @@ async function validateForm(event) {
     desc: desc.value.trim(),
     qty: parseInt(document.getElementById('record-qty').value) || 1,
     price: 0, // Price to be determined
-    mainImage: 'img/canvas1.jpg', // שמירת התמונה הראשית
-    img: 'img/canvas1.jpg',
+    mainImage: fullImageUrl, // שמירת התמונה עם URL מלא
+    img: fullImageUrl, // URL מלא - יוצג במייל
     file: storedFiles.length > 0 ? storedFiles.map(f => f.name).join(', ') : '',
     files: await window.fileUploadSystem.convertFilesToBase64()
   };

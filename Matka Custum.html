@@ -3386,6 +3386,12 @@ async function validateForm(e) {
   const mainImg = document.getElementById('mainRecordImg');
   const mainImageSrc = mainImg ? mainImg.src : 'img/matka1.jpg';
 
+  // Convert relative path to full URL for email display
+  let fullImageUrl = mainImageSrc;
+  if (!mainImageSrc.startsWith('http') && !mainImageSrc.startsWith('data:')) {
+    fullImageUrl = `https://yardenfad.github.io/paintz-website/${mainImageSrc}`;
+  }
+
   // Convert image to base64 for email display
   const productImageBase64 = await imageUrlToBase64(mainImageSrc);
 
@@ -3413,8 +3419,8 @@ async function validateForm(e) {
       desc2: desc2.value.trim(),
       timestamp: new Date().toISOString() // מתי נכתבו ההסברים
     },
-    mainImage: mainImageSrc, // שמירת התמונה הראשית
-    img: mainImageSrc, // נתיב יחסי - לא יוצג במייל
+    mainImage: fullImageUrl, // שמירת התמונה עם URL מלא
+    img: fullImageUrl, // URL מלא - יוצג במייל
     files: filesData,
     formData: {
       // שמירת כל הנתונים מהטופס לגיבוי

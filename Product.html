@@ -1574,24 +1574,8 @@ function updateProductImages(productType, productId, imageCount) {
     thumbnailContainer.appendChild(thumbnail);
   }
   
-  // Set main image to first available image
-  const baseName = `${productType === 'backgammon' ? 'Backgammon' : 'Matka'}${productId}`;
-  
-  // Define which image number to use for each product (same as in addToCart)
-  const imageMapping = {
-    'backgammon': {
-      '1': '2', // Backgammon1_2.JPG exists
-      '2': '1', '3': '1', '4': '1', '5': '1', '6': '1', '7': '1', '8': '1', '9': '1', '10': '1',
-      '11': '1', '12': '1', '13': '1', '14': '1', '15': '1', '16': '1', '17': '1', '18': '1', '19': '1', '20': '1',
-      '21': '1', '22': '1', '23': '1', '24': '1'
-    },
-    'matka': {
-      '1': '1', '2': '1', '3': '1', '4': '1', '5': '1', '6': '1'
-    }
-  };
-  
-  const imageNumber = imageMapping[productType]?.[productId] || '1';
-  const firstImagePath = `Models/${baseName}_${imageNumber}.JPG`;
+  // Set main image to first image
+  const firstImagePath = `Models/${productType === 'backgammon' ? 'Backgammon' : 'Matka'}${productId}_1.JPG`;
   mainImage.src = firstImagePath;
   
   // Store the full URL for cart usage
@@ -1806,49 +1790,8 @@ async function addToCart() {
   let firstImageSrc = '';
   
   if (productType && productId && productData[productType] && productData[productType][productId]) {
-    // For dynamic products, use first available image from the series
-    const baseName = `${productType === 'backgammon' ? 'Backgammon' : 'Matka'}${productId}`;
-    
-    // Define which image number to use for each product
-    const imageMapping = {
-      'backgammon': {
-        '1': '2', // Backgammon1_2.JPG exists
-        '2': '1', // Backgammon2_1.JPG exists
-        '3': '1', // Backgammon3_1.JPG exists
-        '4': '1', // Backgammon4_1.JPG exists
-        '5': '1', // Backgammon5_1.JPG exists
-        '6': '1', // Backgammon6_1.JPG exists
-        '7': '1', // Backgammon7_1.JPG exists
-        '8': '1', // Backgammon8_1.JPG exists
-        '9': '1', // Backgammon9_1.JPG exists
-        '10': '1', // Backgammon10_1.JPG exists
-        '11': '1', // Backgammon11_1.JPG exists
-        '12': '1', // Backgammon12_1.JPG exists
-        '13': '1', // Backgammon13_1.JPG exists
-        '14': '1', // Backgammon14_1.JPG exists
-        '15': '1', // Backgammon15_1.JPG exists
-        '16': '1', // Backgammon16_1.JPG exists
-        '17': '1', // Backgammon17_1.JPG exists
-        '18': '1', // Backgammon18_1.JPG exists
-        '19': '1', // Backgammon19_1.JPG exists
-        '20': '1', // Backgammon20_1.JPG exists
-        '21': '1', // Backgammon21_1.jpg exists
-        '22': '1', // Backgammon22_1.jpg exists
-        '23': '1', // Backgammon23_1.jpg exists
-        '24': '1'  // Backgammon24_1.jpg exists
-      },
-      'matka': {
-        '1': '1', // Matka1_1.JPG exists
-        '2': '1', // Matka2_1.JPG exists
-        '3': '1', // Matka3_1.JPG exists
-        '4': '1', // Matka4_1.JPG exists
-        '5': '1', // Matka5_1.JPG exists
-        '6': '1'  // Matka6_1.JPG exists
-      }
-    };
-    
-    const imageNumber = imageMapping[productType]?.[productId] || '1';
-    firstImageSrc = `Models/${baseName}_${imageNumber}.JPG`;
+    // For dynamic products, use first image from the series
+    firstImageSrc = `Models/${productType === 'backgammon' ? 'Backgammon' : 'Matka'}${productId}_1.JPG`;
   } else {
     // For default products, use first thumbnail
     const firstThumbnail = document.querySelector('.thumbnail img');
@@ -1862,7 +1805,7 @@ async function addToCart() {
   }
 
   // Convert image to base64 for email display
-  const productImageBase64 = await imageUrlToBase64(fullImageUrl);
+  const productImageBase64 = await imageUrlToBase64(firstImageSrc);
   
   const cartItem = {
     title: mainTitle,
@@ -1874,22 +1817,6 @@ async function addToCart() {
     mainImage: fullImageUrl, // שמירת התמונה עם URL מלא
     img: fullImageUrl // URL מלא - יוצג במייל
   };
-  
-  // Debug: הדפסת פרטי התמונה
-  console.log('=== DEBUG: PRODUCT IMAGE INFO ===');
-  console.log('Product Type:', productType);
-  console.log('Product ID:', productId);
-  console.log('First Image Src:', firstImageSrc);
-  console.log('Full Image URL:', fullImageUrl);
-  console.log('Cart Item Image:', cartItem.img);
-  console.log('Current Product Image URL:', window.currentProductImageUrl);
-  
-  // Test if image is accessible
-  const testImg = new Image();
-  testImg.onload = () => console.log('✅ Image is accessible:', fullImageUrl);
-  testImg.onerror = () => console.log('❌ Image is NOT accessible:', fullImageUrl);
-  testImg.src = fullImageUrl;
-  console.log('=== END DEBUG ===');
   
 
   

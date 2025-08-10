@@ -2994,6 +2994,12 @@ async function validateForm(e) {
   // Get main gallery image
   const mainImg = document.getElementById('mainRecordImg');
   const mainImageSrc = mainImg ? mainImg.src : 'img/sheshbesh.jpg';
+  
+  // Convert relative path to full URL for email display
+  let fullImageUrl = mainImageSrc;
+  if (!mainImageSrc.startsWith('http') && !mainImageSrc.startsWith('data:')) {
+    fullImageUrl = `https://yardenfad.github.io/paintz-website/${mainImageSrc}`;
+  }
 
   // If validation passed, prepare cart item with full file data
   const cartItem = {
@@ -3034,8 +3040,8 @@ async function validateForm(e) {
       left: document.getElementById('desc-left').value.trim(),
       timestamp: new Date().toISOString()
     },
-    mainImage: mainImageSrc,
-    img: mainImageSrc,
+    mainImage: fullImageUrl,
+    img: fullImageUrl,
     files: filesData,
     formData: {
       bgOuterText: document.getElementById('bg-color-outer-text').value.trim(),
