@@ -16,7 +16,10 @@
     }
   </style>
   <title>Shop - Paintz</title>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#F9F1DC">
   <link href="https://fonts.googleapis.com/css2?family=Amatica+SC:wght@700&family=Amatic+SC:wght@700&family=Rubik:wght@700&display=swap" rel="stylesheet">
+  <script src="lazy-loading.js" defer></script>
   <style>
     /* גלילה פשוטה וישירה */
     html {
@@ -1059,19 +1062,19 @@
     <main>
       <div class="shop-products">
         <a class="shop-product" href="Backgammon.html">
-          <img src="sheshbesh.jpg" alt="שש בשים">
+          <img src="sheshbesh.jpg" alt="שש בשים" loading="lazy">
           <span class="shop-product-title">שש בשים</span>
         </a>
         <a class="shop-product" href="Matka.html">
-          <img src="matkot.jpg" alt="מטקות">
+          <img src="matkot.jpg" alt="מטקות" loading="lazy">
           <span class="shop-product-title">מטקות</span>
         </a>
         <a class="shop-product" href="Record.html">
-          <img src="vinyl.jpg" alt="תקליטים">
+          <img src="vinyl.jpg" alt="תקליטים" loading="lazy">
           <span class="shop-product-title">תקליטים</span>
         </a>
         <a class="shop-product" href="Canvas.html">
-          <img src="canvas.jpg" alt="קנבסים">
+          <img src="canvas.jpg" alt="קנבסים" loading="lazy">
           <span class="shop-product-title">קנבסים</span>
         </a>
       </div>
@@ -1680,6 +1683,20 @@ setTimeout(ensureViewCartButtonVisibleOniPad, 500);
 setTimeout(ensureViewCartButtonVisibleOniPad, 1000);
 setTimeout(ensureViewCartButtonVisibleOniPad, 2000);
 
-  </script>
+  });
+
+// Service Worker Registration
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('/sw.js')
+      .then(function(registration) {
+        console.log('Service Worker registered successfully:', registration.scope);
+      })
+      .catch(function(error) {
+        console.log('Service Worker registration failed:', error);
+      });
+  });
+}
+</script>
 </body>
 </html> 

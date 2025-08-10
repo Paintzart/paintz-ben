@@ -4,7 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Product - Paintz</title>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#F9F1DC">
   <link href="https://fonts.googleapis.com/css2?family=Amatica+SC:wght@700&family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
+  <script src="lazy-loading.js" defer></script>
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@700&display=swap" rel="stylesheet">
   <!-- <link href="./css/main.css" rel="stylesheet"> -->
   <style>
@@ -1411,23 +1414,23 @@
         <div class="product-gallery">
           <div class="thumbnail-container">
             <div class="thumbnail selected" onclick="updateMainImage('product1.jpg', this)">
-              <img src="product1.jpg" alt="Thumbnail 1">
+              <img src="product1.jpg" alt="Thumbnail 1" loading="lazy">
             </div>
             <div class="thumbnail" onclick="updateMainImage('product2.jpg', this)">
-              <img src="product2.jpg" alt="Thumbnail 2">
+              <img src="product2.jpg" alt="Thumbnail 2" loading="lazy">
             </div>
             <div class="thumbnail" onclick="updateMainImage('product3.jpg', this)">
-              <img src="product3.jpg" alt="Thumbnail 3">
+              <img src="product3.jpg" alt="Thumbnail 3" loading="lazy">
             </div>
             <div class="thumbnail" onclick="updateMainImage('product4.jpg', this)">
-              <img src="product4.jpg" alt="Thumbnail 4">
+              <img src="product4.jpg" alt="Thumbnail 4" loading="lazy">
             </div>
             <div class="thumbnail" onclick="updateMainImage('product5.jpg', this)">
-              <img src="product5.jpg" alt="Thumbnail 5">
+              <img src="product5.jpg" alt="Thumbnail 5" loading="lazy">
             </div>
           </div>
           <div class="main-image">
-            <img id="mainImage" src="product1.jpg" alt="Product">
+            <img id="mainImage" src="product1.jpg" alt="Product" loading="lazy">
           </div>
         </div>
       </div>
@@ -2390,6 +2393,20 @@ setTimeout(ensureViewCartButtonVisibleOniPad, 100);
 setTimeout(ensureViewCartButtonVisibleOniPad, 500);
 setTimeout(ensureViewCartButtonVisibleOniPad, 1000);
 setTimeout(ensureViewCartButtonVisibleOniPad, 2000);
-  </script>
+  });
+
+// Service Worker Registration
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('/sw.js')
+      .then(function(registration) {
+        console.log('Service Worker registered successfully:', registration.scope);
+      })
+      .catch(function(error) {
+        console.log('Service Worker registration failed:', error);
+      });
+  });
+}
+</script>
 </body>
 </html> 

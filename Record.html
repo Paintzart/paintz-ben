@@ -4,7 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Record - Paintz</title>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#F9F1DC">
   <link href="https://fonts.googleapis.com/css2?family=Amatica+SC:wght@700&family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
+  <script src="lazy-loading.js" defer></script>
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="file-upload-styles.css">
   <style>
@@ -1680,12 +1683,12 @@
         <div class="record-gallery">
           <div class="record-gallery-row">
             <div class="record-thumbs-col">
-              <img class="record-thumb selected" src="img/img-record1.jpg" alt="תקליט 1" data-img="img/img-record1.jpg" />
-              <img class="record-thumb" src="img/img-record2.jpg" alt="תקליט 2" data-img="img/img-record2.jpg" />
-              <img class="record-thumb" src="img/img-record3.jpg" alt="תקליט 3" data-img="img/img-record3.jpg" />
-              <img class="record-thumb" src="img/img-record4.jpg" alt="תקליט 4" data-img="img/img-record4.jpg" />
+              <img class="record-thumb selected" src="img/img-record1.jpg" alt="תקליט 1" data-img="img/img-record1.jpg" loading="lazy" />
+              <img class="record-thumb" src="img/img-record2.jpg" alt="תקליט 2" data-img="img/img-record2.jpg" loading="lazy" />
+              <img class="record-thumb" src="img/img-record3.jpg" alt="תקליט 3" data-img="img/img-record3.jpg" loading="lazy" />
+              <img class="record-thumb" src="img/img-record4.jpg" alt="תקליט 4" data-img="img/img-record4.jpg" loading="lazy" />
             </div>
-            <img id="mainRecordImg" class="record-main-img" src="img/img-record1.jpg" alt="תקליט מעוצב" />
+            <img id="mainRecordImg" class="record-main-img" src="img/img-record1.jpg" alt="תקליט מעוצב" loading="lazy" />
           </div>
         </div>
       </div>
@@ -2654,6 +2657,20 @@ function addToCart(item) {
   
   return true; // הצלחה
 }
-  </script>
+  });
+
+// Service Worker Registration
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('/sw.js')
+      .then(function(registration) {
+        console.log('Service Worker registered successfully:', registration.scope);
+      })
+      .catch(function(error) {
+        console.log('Service Worker registration failed:', error);
+      });
+  });
+}
+</script>
 </body>
 </html> 

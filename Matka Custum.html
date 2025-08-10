@@ -4,7 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Matka Custum - Paintz</title>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#F9F1DC">
   <link href="https://fonts.googleapis.com/css2?family=Amatica+SC:wght@700&family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
+  <script src="lazy-loading.js" defer></script>
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="file-upload-styles.css">
   <style>
@@ -2452,13 +2455,13 @@
         <div class="record-gallery">
           <div class="record-gallery-row">
             <div class="record-thumbs-col">
-              <img class="record-thumb selected" src="img/matka1.jpg" alt="מטקה 1" data-img="img/matka1.jpg" />
-              <img class="record-thumb" src="img/matka2.jpg" alt="מטקה 2" data-img="img/matka2.jpg" />
-              <img class="record-thumb" src="img/matka3.jpg" alt="מטקה 3" data-img="img/matka3.jpg" />
-              <img class="record-thumb" src="img/matka4.jpg" alt="מטקה 4" data-img="img/matka4.jpg" />
-              <img class="record-thumb" src="img/matka5.jpg" alt="מטקה 5" data-img="img/matka5.jpg" />
+              <img class="record-thumb selected" src="img/matka1.jpg" alt="מטקה 1" data-img="img/matka1.jpg" loading="lazy" />
+              <img class="record-thumb" src="img/matka2.jpg" alt="מטקה 2" data-img="img/matka2.jpg" loading="lazy" />
+              <img class="record-thumb" src="img/matka3.jpg" alt="מטקה 3" data-img="img/matka3.jpg" loading="lazy" />
+              <img class="record-thumb" src="img/matka4.jpg" alt="מטקה 4" data-img="img/matka4.jpg" loading="lazy" />
+              <img class="record-thumb" src="img/matka5.jpg" alt="מטקה 5" data-img="img/matka5.jpg" loading="lazy" />
             </div>
-            <img id="mainRecordImg" class="record-main-img" src="img/matka1.jpg" alt="מטקה מעוצבת" />
+            <img id="mainRecordImg" class="record-main-img" src="img/matka1.jpg" alt="מטקה מעוצבת" loading="lazy" />
           </div>
         </div>
       </div>
