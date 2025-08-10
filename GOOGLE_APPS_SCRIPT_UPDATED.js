@@ -2641,39 +2641,68 @@ function sendLargeFilesEmail(data) {
 function validateModelImageUrl(imageUrl) {
   if (!imageUrl) return null;
   
+  try {
+    imageUrl = String(imageUrl).trim();
+  } catch (e) {}
+  
   console.log(`Validating image URL: ${imageUrl}`);
-  
-  // אם זה כבר URL מלא, נחזיר אותו
+  const baseUrl = 'https://yardenfad.github.io/paintz-website';
+
+  // Helper to safely encode path segments once
+  function safelyEncodeUrl(urlStr) {
+    try {
+      var u = new URL(urlStr);
+      var normalizedPath = u.pathname
+        .split('/')
+        .map(function(seg) { return seg ? encodeURIComponent(decodeURIComponent(seg)) : seg; })
+        .join('/');
+      u.pathname = normalizedPath;
+      return u.toString();
+    } catch (err) {
+      // Fallback: only encode spaces
+      return urlStr.replace(/\s/g, '%20');
+    }
+  }
+
+  // Already full URL → normalize encoding and return
   if (imageUrl.startsWith('http')) {
-    console.log(`Image is already full URL: ${imageUrl}`);
-    return imageUrl;
+    // Strip surrounding quotes if present
+    if ((imageUrl.startsWith('"') && imageUrl.endsWith('"')) || (imageUrl.startsWith("'") && imageUrl.endsWith("'"))) {
+      imageUrl = imageUrl.substring(1, imageUrl.length - 1);
+    }
+    // Collapse accidental double base
+    imageUrl = imageUrl.replace(/(https:\/\/yardenfad\.github\.io\/paintz-website\/)+/i, 'https://yardenfad.github.io/paintz-website/');
+    var normalized = safelyEncodeUrl(imageUrl);
+    console.log('Image is full URL. Normalized to:', normalized);
+    return normalized;
   }
   
-  // אם זה נתיב יחסי של דגם, נמיר ל-URL מלא
-  if (imageUrl.startsWith('Models/')) {
-    const baseUrl = 'https://yardenfad.github.io/paintz-website';
-    const fullUrl = `${baseUrl}/${imageUrl}`;
-    console.log(`Converted Models image to full URL: ${fullUrl}`);
-    return fullUrl;
+  // Extract from css url("...") if needed
+  var cssMatch = imageUrl.match(/url\(['\"]?([^'\"]+?)['\"]?\)/i);
+  if (cssMatch && cssMatch[1]) {
+    imageUrl = cssMatch[1];
   }
   
-  // אם זה נתיב יחסי של img, נמיר גם אותו
-  if (imageUrl.startsWith('img/')) {
-    const baseUrl = 'https://yardenfad.github.io/paintz-website';
-    const fullUrl = `${baseUrl}/${imageUrl}`;
-    console.log(`Converted img image to full URL: ${fullUrl}`);
-    return fullUrl;
+  // Relative paths → absolute on GitHub Pages
+  if (imageUrl.startsWith('Models/') || imageUrl.startsWith('img/')) {
+    // Strip surrounding quotes if present
+    if ((imageUrl.startsWith('"') && imageUrl.endsWith('"')) || (imageUrl.startsWith("'") && imageUrl.endsWith("'"))) {
+      imageUrl = imageUrl.substring(1, imageUrl.length - 1);
+    }
+    return safelyEncodeUrl(baseUrl + '/' + imageUrl.replace(/^\//, ''));
+  }
+
+  // Bare filename with known extensions
+  var lower = imageUrl.toLowerCase();
+  if (/(\.jpg|\.jpeg|\.png|\.gif)$/i.test(lower)) {
+    // Strip surrounding quotes if present
+    if ((imageUrl.startsWith('"') && imageUrl.endsWith('"')) || (imageUrl.startsWith("'") && imageUrl.endsWith("'"))) {
+      imageUrl = imageUrl.substring(1, imageUrl.length - 1);
+    }
+    return safelyEncodeUrl(baseUrl + '/' + imageUrl.replace(/^\//, ''));
   }
   
-  // אם זה נתיב יחסי אחר (ללא /), נמיר גם אותו
-  if (imageUrl.includes('.jpg') || imageUrl.includes('.jpeg') || imageUrl.includes('.png') || imageUrl.includes('.JPG')) {
-    const baseUrl = 'https://yardenfad.github.io/paintz-website';
-    const fullUrl = `${baseUrl}/${imageUrl}`;
-    console.log(`Converted other image to full URL: ${fullUrl}`);
-    return fullUrl;
-  }
-  
-  console.log(`Image URL not recognized: ${imageUrl}`);
+  console.log('Image URL not recognized for normalization:', imageUrl);
   return null;
 }
 

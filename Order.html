@@ -1343,21 +1343,15 @@ document.getElementById('orderForm').addEventListener('submit', async (e) => {
           if (rawUrl.startsWith('data:image')) return rawUrl;
           let url = rawUrl;
           try {
-            const isLocalhost = currentOrigin.includes('localhost') || currentOrigin.includes('127.0.0.1');
-            const publicBase = isLocalhost ? baseUrl : currentOrigin;
             if (url.startsWith('http')) {
-              // If it's our site origin and it's public (not localhost), keep it; otherwise convert to GitHub Pages
+              // If it's our site origin, convert to GitHub Pages to ensure public fetch by mail clients
               if (url.startsWith(currentOrigin)) {
-                if (isLocalhost) {
-                  const path = url.replace(currentOrigin + '/', '');
-                  url = `${baseUrl}/${path}`;
-                } else {
-                  // already public absolute URL on our domain
-                }
+                const path = url.replace(currentOrigin + '/', '');
+                url = `${baseUrl}/${path}`;
               }
             } else {
-              // Relative path → absolute on public base (Netlify domain if available, else GitHub Pages)
-              url = `${publicBase}/${url.replace(/^\//, '')}`;
+              // Relative path → GitHub Pages absolute
+              url = `${baseUrl}/${url.replace(/^\//, '')}`;
             }
             // Safely normalize path encoding without double-encoding
             try {
