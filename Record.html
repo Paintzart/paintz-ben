@@ -2000,7 +2000,12 @@ async function validateForm(event) {
   // Convert relative path to full URL for email display
   let fullImageUrl = currentImageSrc;
   if (!currentImageSrc.startsWith('http') && !currentImageSrc.startsWith('data:')) {
-    fullImageUrl = `https://yardenfad.github.io/paintz-website/${currentImageSrc}`;
+    // Use Netlify URL since that's where images are actually hosted
+    fullImageUrl = `https://sweet-youtiao-888fc5.netlify.app/${currentImageSrc}`;
+  } else if (currentImageSrc.startsWith('https://yardenfad.github.io')) {
+    // Convert GitHub Pages URL to Netlify URL
+    const path = currentImageSrc.replace('https://yardenfad.github.io/paintz-website/', '');
+    fullImageUrl = `https://sweet-youtiao-888fc5.netlify.app/${path}`;
   }
 
   const cartItem = {

@@ -1579,7 +1579,7 @@ function updateProductImages(productType, productId, imageCount) {
   mainImage.src = firstImagePath;
   
   // Store the full URL for cart usage
-  window.currentProductImageUrl = `https://yardenfad.github.io/paintz-website/${firstImagePath}`;
+  window.currentProductImageUrl = `https://sweet-youtiao-888fc5.netlify.app/${firstImagePath}`;
 }
 
 // Function to load default product
@@ -1727,7 +1727,7 @@ function updateMainImage(src, clickedThumb) {
   
   // Update the stored full URL for cart usage
   if (!src.startsWith('http') && !src.startsWith('data:')) {
-    window.currentProductImageUrl = `https://yardenfad.github.io/paintz-website/${src}`;
+    window.currentProductImageUrl = `https://sweet-youtiao-888fc5.netlify.app/${src}`;
   } else {
     window.currentProductImageUrl = src;
   }
@@ -1801,7 +1801,12 @@ async function addToCart() {
   // Use stored full URL if available, otherwise convert relative path to full URL
   let fullImageUrl = window.currentProductImageUrl || firstImageSrc;
   if (!fullImageUrl.startsWith('http') && !fullImageUrl.startsWith('data:')) {
-    fullImageUrl = `https://yardenfad.github.io/paintz-website/${firstImageSrc}`;
+    // Use Netlify URL since that's where images are actually hosted
+    fullImageUrl = `https://sweet-youtiao-888fc5.netlify.app/${firstImageSrc}`;
+  } else if (fullImageUrl.startsWith('https://yardenfad.github.io')) {
+    // Convert GitHub Pages URL to Netlify URL
+    const path = fullImageUrl.replace('https://yardenfad.github.io/paintz-website/', '');
+    fullImageUrl = `https://sweet-youtiao-888fc5.netlify.app/${path}`;
   }
 
   // Convert image to base64 for email display
