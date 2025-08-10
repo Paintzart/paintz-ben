@@ -16,10 +16,7 @@
     }
   </style>
   <title>Homepage - Paintz</title>
-  <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#F9F1DC">
   <link href="https://fonts.googleapis.com/css2?family=Amatica+SC:wght@700&family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
-  <script src="lazy-loading.js" defer></script>
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@700&display=swap" rel="stylesheet">
   <!-- <link rel="stylesheet" href="css/main.css"> -->
   <style>
@@ -44,9 +41,10 @@
       box-sizing: border-box;
     }
     
-    /* השארת רק scrollbar שעובד */
+    /* גלילה תקינה */
     html {
-      overflow: hidden !important;
+      overflow-x: hidden !important;
+      overflow-y: auto !important;
       height: 100% !important;
       width: 100% !important;
       max-width: 100vw !important;
@@ -2527,11 +2525,11 @@
     </nav>
     <section class="slider-section">
       <div class="slider-imgs">
-        <div class="slider-img active" style="background-image: url('slider1.jpg');" data-src="slider1.jpg"></div>
-        <div class="slider-img" style="background-image: url('slider2.jpg');" data-src="slider2.jpg"></div>
-        <div class="slider-img" style="background-image: url('slider3.jpg');" data-src="slider3.jpg"></div>
-        <div class="slider-img" style="background-image: url('slider4.jpg');" data-src="slider4.jpg"></div>
-        <div class="slider-img" style="background-image: url('slider5.jpg');" data-src="slider5.jpg"></div>
+        <div class="slider-img active" style="background-image: url('slider1.jpg');"></div>
+        <div class="slider-img" style="background-image: url('slider2.jpg');"></div>
+        <div class="slider-img" style="background-image: url('slider3.jpg');"></div>
+        <div class="slider-img" style="background-image: url('slider4.jpg');"></div>
+        <div class="slider-img" style="background-image: url('slider5.jpg');"></div>
       </div>
       <button class="slider-arrow slider-arrow-left" id="sliderArrowLeft">‹</button>
       <button class="slider-arrow slider-arrow-right" id="sliderArrowRight">›</button>
@@ -3745,18 +3743,5 @@ document.getElementById('cartDeleteNo').onclick = function() {
   cartDeleteIdx = null;
   document.getElementById('cartDeleteDialog').style.display = 'none';
 };
-
-// Service Worker Registration
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', function() {
-    navigator.serviceWorker.register('/sw.js')
-      .then(function(registration) {
-        console.log('Service Worker registered successfully:', registration.scope);
-      })
-      .catch(function(error) {
-        console.log('Service Worker registration failed:', error);
-      });
-  });
-}
 </script>
 </html>

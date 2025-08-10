@@ -16,10 +16,7 @@
     }
   </style>
   <title>Shop - Paintz</title>
-  <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#F9F1DC">
   <link href="https://fonts.googleapis.com/css2?family=Amatica+SC:wght@700&family=Amatic+SC:wght@700&family=Rubik:wght@700&display=swap" rel="stylesheet">
-  <script src="lazy-loading.js" defer></script>
   <style>
     /* גלילה פשוטה וישירה */
     html {
@@ -42,9 +39,10 @@
       box-sizing: border-box;
     }
     
-    /* השארת רק scrollbar שעובד */
+    /* גלילה תקינה */
     html {
-      overflow: hidden !important;
+      overflow-x: hidden !important;
+      overflow-y: auto !important;
       height: 100% !important;
       width: 100% !important;
       max-width: 100vw !important;
@@ -1062,19 +1060,19 @@
     <main>
       <div class="shop-products">
         <a class="shop-product" href="Backgammon.html">
-          <img src="sheshbesh.jpg" alt="שש בשים" loading="lazy">
+          <img src="sheshbesh.jpg" alt="שש בשים">
           <span class="shop-product-title">שש בשים</span>
         </a>
         <a class="shop-product" href="Matka.html">
-          <img src="matkot.jpg" alt="מטקות" loading="lazy">
+          <img src="matkot.jpg" alt="מטקות">
           <span class="shop-product-title">מטקות</span>
         </a>
         <a class="shop-product" href="Record.html">
-          <img src="vinyl.jpg" alt="תקליטים" loading="lazy">
+          <img src="vinyl.jpg" alt="תקליטים">
           <span class="shop-product-title">תקליטים</span>
         </a>
         <a class="shop-product" href="Canvas.html">
-          <img src="canvas.jpg" alt="קנבסים" loading="lazy">
+          <img src="canvas.jpg" alt="קנבסים">
           <span class="shop-product-title">קנבסים</span>
         </a>
       </div>
@@ -1683,20 +1681,6 @@ setTimeout(ensureViewCartButtonVisibleOniPad, 500);
 setTimeout(ensureViewCartButtonVisibleOniPad, 1000);
 setTimeout(ensureViewCartButtonVisibleOniPad, 2000);
 
-  });
-
-// Service Worker Registration
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', function() {
-    navigator.serviceWorker.register('/sw.js')
-      .then(function(registration) {
-        console.log('Service Worker registered successfully:', registration.scope);
-      })
-      .catch(function(error) {
-        console.log('Service Worker registration failed:', error);
-      });
-  });
-}
-</script>
+  </script>
 </body>
 </html> 
