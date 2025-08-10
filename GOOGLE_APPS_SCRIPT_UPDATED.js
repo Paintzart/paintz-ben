@@ -1184,15 +1184,26 @@ function sendBusinessEmail(data) {
         priceHtml = `מחיר: <strong>הצעת מחיר תשלח בהמשך</strong>`;
       }
       
-      // בניית HTML למוצר עם כמות וכל הפרטים
       // עיבוד תמונה - שיפור הטיפול בתמונות עם הסתרה אוטומטית
       let imageUrl = item.emailImage || item.img || item.image || item.src || item.imgSrc || 
                     item.imageSrc || item.imageUrl || item.photo || item.picture || item.mainImage;
+      
+      console.log(`Business email - Item ${index} debug:`, {
+        title: item.title,
+        subtitle: item.subtitle,
+        emailImage: item.emailImage,
+        img: item.img,
+        image: item.image,
+        mainImage: item.mainImage,
+        originalImageUrl: imageUrl
+      });
       
       console.log(`Business email - Original image URL for item ${index}: ${imageUrl}`);
       
       // שימוש בפונקציה החדשה לבדיקת תמונות דגמים
       imageUrl = validateModelImageUrl(imageUrl);
+      
+      console.log(`Business email - After validation for item ${index}: ${imageUrl}`);
       
       // בדיקה אם התמונה תקינה למייל
       let isValidImageUrl = imageUrl && (imageUrl.startsWith('data:image') || imageUrl.startsWith('http'));
@@ -1744,10 +1755,22 @@ function sendCustomerEmail(data) {
       let customerImageUrl = item.emailImage || item.img || item.image || item.src || item.imgSrc ||
                             item.imageSrc || item.imageUrl || item.photo || item.picture || item.mainImage;
       
+      console.log(`Customer email - Item ${index} debug:`, {
+        title: item.title,
+        subtitle: item.subtitle,
+        emailImage: item.emailImage,
+        img: item.img,
+        image: item.image,
+        mainImage: item.mainImage,
+        originalImageUrl: customerImageUrl
+      });
+      
       console.log(`Customer email - Original image URL for item ${index}: ${customerImageUrl}`);
       
       // שימוש בפונקציה החדשה לבדיקת תמונות דגמים
       customerImageUrl = validateModelImageUrl(customerImageUrl);
+      
+      console.log(`Customer email - After validation for item ${index}: ${customerImageUrl}`);
       
       // בדיקה אם התמונה תקינה למייל
       let isValidCustomerImageUrl = customerImageUrl && (customerImageUrl.startsWith('data:image') || customerImageUrl.startsWith('http'));

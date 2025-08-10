@@ -1371,15 +1371,24 @@ document.getElementById('orderForm').addEventListener('submit', async (e) => {
         }
         if (Array.isArray(orderData.cart)) {
           orderData.cart = orderData.cart.map(item => {
-            const raw = item && (item.img || item.image || item.mainImage || item.imgSrc || item.imageSrc || item.imageUrl || item.mainImageSrc);
+            // Get image from any possible field, prioritize emailImage if exists
+            const raw = item.emailImage || item.img || item.image || item.mainImage || item.imgSrc || item.imageSrc || item.imageUrl || item.mainImageSrc;
             const finalUrl = toEmailImageUrl(raw);
+            
+            console.log('Image normalization for item:', {
+              title: item.title,
+              subtitle: item.subtitle,
+              raw: raw,
+              finalUrl: finalUrl
+            });
+            
             return {
               ...item,
               emailImage: finalUrl || '',
-              img: finalUrl || item.img || item.image || item.mainImage || '',
-              image: finalUrl || item.image || '',
-              mainImage: finalUrl || item.mainImage || '',
-              imgSrc: finalUrl || item.imgSrc || ''
+              img: finalUrl || '',
+              image: finalUrl || '',
+              mainImage: finalUrl || '',
+              imgSrc: finalUrl || ''
             };
           });
         }
