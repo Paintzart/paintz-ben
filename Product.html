@@ -1577,6 +1577,9 @@ function updateProductImages(productType, productId, imageCount) {
   // Set main image to first image
   const firstImagePath = `Models/${productType === 'backgammon' ? 'Backgammon' : 'Matka'}${productId}_1.JPG`;
   mainImage.src = firstImagePath;
+  
+  // Store the full URL for cart usage
+  window.currentProductImageUrl = `https://yardenfad.github.io/paintz-website/${firstImagePath}`;
 }
 
 // Function to load default product
@@ -1721,6 +1724,13 @@ function updateMainImage(src, clickedThumb) {
     thumb.classList.remove('selected');
   });
   clickedThumb.classList.add('selected');
+  
+  // Update the stored full URL for cart usage
+  if (!src.startsWith('http') && !src.startsWith('data:')) {
+    window.currentProductImageUrl = `https://yardenfad.github.io/paintz-website/${src}`;
+  } else {
+    window.currentProductImageUrl = src;
+  }
 }
 
 // Quantity Functions
@@ -1765,8 +1775,14 @@ async function addToCart() {
       }
       
       // For relative paths, we can't convert to base64 in browser
+      // But we can return the full URL for email display
+      if (url && !url.startsWith('http')) {
+        const fullUrl = `https://yardenfad.github.io/paintz-website/${url}`;
+        resolve(fullUrl);
+        return;
+      }
       
-      resolve(null);
+      resolve(url);
     });
   }
 
@@ -1782,6 +1798,12 @@ async function addToCart() {
     firstImageSrc = firstThumbnail ? firstThumbnail.src : 'product1.jpg';
   }
 
+  // Use stored full URL if available, otherwise convert relative path to full URL
+  let fullImageUrl = window.currentProductImageUrl || firstImageSrc;
+  if (!fullImageUrl.startsWith('http') && !fullImageUrl.startsWith('data:')) {
+    fullImageUrl = `https://yardenfad.github.io/paintz-website/${firstImageSrc}`;
+  }
+
   // Convert image to base64 for email display
   const productImageBase64 = await imageUrlToBase64(firstImageSrc);
   
@@ -1792,8 +1814,8 @@ async function addToCart() {
     desc: '',
     qty: quantity,
     price: `₪ ${product.price}`,
-    mainImage: firstImageSrc, // שמירת התמונה הראשית
-    img: firstImageSrc // נתיב יחסי - לא יוצג במייל
+    mainImage: fullImageUrl, // שמירת התמונה עם URL מלא
+    img: fullImageUrl // URL מלא - יוצג במייל
   };
   
 
