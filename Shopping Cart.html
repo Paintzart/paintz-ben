@@ -1352,10 +1352,14 @@ function renderBigCart() {
       row.className = 'big-cart-item';
       row.innerHTML = `
         <button class="big-cart-item-remove" title="הסר"><span class="big-cart-item-trash-icon"></span></button>
-        ${item.img ? (() => {
-          const imageUrl = item.img.startsWith('http') ? item.img : `https://yardenfad.github.io/paintz-website/${item.img}`;
+        ${(() => {
+          const rawImage = item.img || item.image || item.mainImage;
+          if (!rawImage) return '<div class="big-cart-item-img"></div>';
+          const needsPrefix = !(rawImage.startsWith('http') || rawImage.startsWith('data:'));
+          const normalizedPath = needsPrefix ? rawImage.replace(/^\//, '') : rawImage;
+          const imageUrl = needsPrefix ? `https://yardenfad.github.io/paintz-website/${normalizedPath}` : normalizedPath;
           console.log('Cart item image URL:', imageUrl);
-          console.log('Original item.img:', item.img);
+          console.log('Original image fields:', { img: item.img, image: item.image, mainImage: item.mainImage });
           console.log('Item title:', item.title, 'subtitle:', item.subtitle);
           console.log('Is custom product:', item.title && item.title.includes('עיצוב אישי'));
           
@@ -1366,7 +1370,7 @@ function renderBigCart() {
           testImg.src = imageUrl;
           
           return `<div class="big-cart-item-img" style="background-image:url('${imageUrl}'); background-size: cover; background-position: center; background-repeat: no-repeat;"></div>`;
-        })() : '<div class="big-cart-item-img"></div>'}
+        })()}
         <div class="big-cart-item-info">
           <div class="big-cart-item-title">${item.subtitle ? `${item.title} | ${item.subtitle}` : item.title}</div>
           <div class="big-cart-item-notes">${notes}</div>
