@@ -1331,6 +1331,51 @@ document.getElementById('orderForm').addEventListener('submit', async (e) => {
       cart: cart,
       deliveryMethod: localStorage.getItem('deliveryMethod') || 'delivery'
     };
+
+    // Normalize product image URLs for emails (absolute https URLs, GitHub Pages base, encoded)
+    (function normalizeCartImagesForEmail() {
+      try {
+        const baseUrl = 'https://yardenfad.github.io/paintz-website';
+        const currentOrigin = window.location.origin;
+        function toEmailImageUrl(rawUrl) {
+          if (!rawUrl) return '';
+          // data URL passes through
+          if (rawUrl.startsWith('data:image')) return rawUrl;
+          let url = rawUrl;
+          try {
+            if (url.startsWith('http')) {
+              // If it's our site origin, convert to GitHub Pages to ensure public fetch by mail clients
+              if (url.startsWith(currentOrigin)) {
+                const path = url.replace(currentOrigin + '/', '');
+                url = `${baseUrl}/${path}`;
+              }
+            } else {
+              // Relative path → GitHub Pages absolute
+              url = `${baseUrl}/${url.replace(/^\//, '')}`;
+            }
+            // Encode spaces and unsafe chars but keep slashes
+            const parts = url.split('/');
+            url = parts.map((p, i) => i < 3 ? p : encodeURIComponent(p)).join('/');
+          } catch (e) {}
+          return url;
+        }
+        if (Array.isArray(orderData.cart)) {
+          orderData.cart = orderData.cart.map(item => {
+            const raw = item && (item.img || item.image || item.mainImage || item.imgSrc || item.imageSrc || item.imageUrl);
+            const finalUrl = toEmailImageUrl(raw);
+            return {
+              ...item,
+              img: finalUrl || item.img || item.image || item.mainImage || '',
+              image: finalUrl || item.image || '',
+              mainImage: finalUrl || item.mainImage || '',
+              imgSrc: finalUrl || item.imgSrc || ''
+            };
+          });
+        }
+      } catch (e) {
+        console.error('normalizeCartImagesForEmail error:', e);
+      }
+    })();
     
 
     
