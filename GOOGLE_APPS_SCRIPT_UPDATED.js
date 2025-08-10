@@ -136,7 +136,7 @@ function checkImageAvailability(imageUrl) {
 
 function doGet(e) {
   try {
-    console.log('=== doGet called ===');
+  console.log('=== doGet called ===');
     console.log('doGet event object:', e);
     console.log('doGet parameters:', e ? e.parameter : 'e is undefined');
     
@@ -174,13 +174,13 @@ function doGet(e) {
       const response = {message: 'Paintz Orders API is running'};
       if (callback) {
         const jsonpResponse = callback + '(' + JSON.stringify(response) + ');';
-        return ContentService
+      return ContentService
           .createTextOutput(jsonpResponse)
           .setMimeType(ContentService.MimeType.JAVASCRIPT);
       } else {
         return ContentService
           .createTextOutput(JSON.stringify(response))
-          .setMimeType(ContentService.MimeType.JSON);
+        .setMimeType(ContentService.MimeType.JSON);
       }
     }
   } catch (error) {
@@ -189,13 +189,13 @@ function doGet(e) {
     
     if (e && e.parameter && e.parameter.callback) {
       const jsonpResponse = e.parameter.callback + '(' + JSON.stringify(response) + ');';
-      return ContentService
+    return ContentService
         .createTextOutput(jsonpResponse)
         .setMimeType(ContentService.MimeType.JAVASCRIPT);
     } else {
       return ContentService
         .createTextOutput(JSON.stringify(response))
-        .setMimeType(ContentService.MimeType.JSON);
+      .setMimeType(ContentService.MimeType.JSON);
     }
   }
 }
@@ -203,7 +203,7 @@ function doGet(e) {
 function doPost(e) {
   try {
     // הוספת logging מורחב
-    console.log('=== doPost called ===');
+  console.log('=== doPost called ===');
     console.log('Event object e:', e);
     console.log('Event object type:', typeof e);
     console.log('Event object keys:', e ? Object.keys(e) : 'e is undefined');
@@ -235,11 +235,11 @@ function doPost(e) {
       }
     }
     
-    console.log('e.parameter:', e.parameter);
-    console.log('e.postData:', e.postData);
+  console.log('e.parameter:', e.parameter);
+  console.log('e.postData:', e.postData);
     console.log('e.postData.contents:', e.postData ? e.postData.contents : 'undefined');
     console.log('e.postData.type:', e.postData ? e.postData.type : 'undefined');
-    
+  
     let data;
     
     // נסיון מספר 1: מparam.data (הפורמט שהטופס שולח)
@@ -249,13 +249,13 @@ function doPost(e) {
       console.log('Raw data preview:', e.parameter.data.substring(0, 200) + '...');
       console.log('Raw data type:', typeof e.parameter.data);
       try {
-        data = JSON.parse(e.parameter.data);
+      data = JSON.parse(e.parameter.data);
         console.log('Parsed data successfully');
       } catch (parseError) {
         console.error('Error parsing data:', parseError);
         console.error('Raw data that failed to parse:', e.parameter.data);
         throw new Error('שגיאה בפענוח הנתונים: ' + parseError.toString());
-      }
+    } 
     } 
     // נסיון מספר 2: מpostData.contents
     else if (e.postData && e.postData.contents) {
@@ -263,12 +263,12 @@ function doPost(e) {
       console.log('Raw data:', e.postData.contents);
       console.log('Raw data type:', typeof e.postData.contents);
       try {
-        data = JSON.parse(e.postData.contents);
+      data = JSON.parse(e.postData.contents);
         console.log('Parsed data successfully');
       } catch (parseError) {
         console.error('Error parsing data:', parseError);
         throw new Error('שגיאה בפענוח הנתונים: ' + parseError.toString());
-      }
+    }
     }
     // נסיון מספר 3: מכל הparameters
     else if (e.parameter) {
@@ -327,7 +327,7 @@ function doPost(e) {
     }
     
     // בדיקה שהנתונים תקינים
-    if (!data.firstName || !data.lastName || !data.email) {
+  if (!data.firstName || !data.lastName || !data.email) {
       console.error('Missing required fields');
       throw new Error('חסרים שדות נדרשים: שם, שם משפחה, אימייל');
     }
@@ -387,7 +387,7 @@ function doPost(e) {
         throw new Error('Data is null or undefined when calling sendBusinessEmail');
       }
       
-      sendBusinessEmail(data);
+    sendBusinessEmail(data);
       console.log('Business email sent successfully');
       businessEmailSent = true;
     } catch (emailError) {
@@ -408,10 +408,10 @@ function doPost(e) {
         throw new Error('Data is null or undefined when calling sendCustomerEmail');
       }
       
-      sendCustomerEmail(data);
+    sendCustomerEmail(data);
       console.log('Customer email sent successfully');
       customerEmailSent = true;
-    } catch (emailError) {
+  } catch (emailError) {
       console.error('Error sending customer email:', emailError);
       customerEmailError = emailError;
       throw new Error('שגיאה בשליחת מייל ללקוח: ' + emailError.toString());
@@ -427,48 +427,48 @@ function doPost(e) {
     // אם יש בעיה עם מייל אחד, נחזיר הודעה מתאימה
     if (!businessEmailSent && !customerEmailSent) {
       console.error('❌ Both emails failed to send');
-      return HtmlService.createHtmlOutput(`
-        <html>
-          <head>
-            <meta charset="UTF-8">
+    return HtmlService.createHtmlOutput(`
+      <html>
+        <head>
+          <meta charset="UTF-8">
             <title>בעיה בשליחת המיילים</title>
-            <style>
-              body {
-                font-family: Arial, sans-serif;
-                direction: rtl;
-                text-align: center;
-                padding: 50px;
-                background: #f9f1dc;
-              }
-              .error-container {
+          <style>
+            body {
+              font-family: Arial, sans-serif;
+              direction: rtl;
+              text-align: center;
+              padding: 50px;
+              background: #f9f1dc;
+            }
+            .error-container {
                 background: #ffebee;
-                padding: 30px;
-                border-radius: 10px;
-                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-                max-width: 500px;
-                margin: 0 auto;
+              padding: 30px;
+              border-radius: 10px;
+              box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+              max-width: 500px;
+              margin: 0 auto;
                 border: 2px solid #e57373;
-              }
-              h1 {
+            }
+            h1 {
                 color: #c62828;
-                margin-bottom: 20px;
-              }
-              p {
-                color: #5A3E36;
-                font-size: 18px;
-                line-height: 1.6;
-              }
-              .order-number {
-                font-size: 24px;
-                font-weight: bold;
-                color: #5B9B86;
-                margin: 20px 0;
-              }
-              .insta-link {
-                color: #5B9B86;
-                font-weight: bold;
-                text-decoration: none;
-              }
+              margin-bottom: 20px;
+            }
+            p {
+              color: #5A3E36;
+              font-size: 18px;
+              line-height: 1.6;
+            }
+            .order-number {
+              font-size: 24px;
+              font-weight: bold;
+              color: #5B9B86;
+              margin: 20px 0;
+            }
+            .insta-link {
+              color: #5B9B86;
+              font-weight: bold;
+              text-decoration: none;
+            }
               .warning-box {
                 background: #fff3cd;
                 border: 1px solid #ffeaa7;
@@ -491,13 +491,13 @@ function doPost(e) {
               .button:hover {
                 background: #4a8a75;
               }
-            </style>
-          </head>
-          <body>
-            <div class="error-container">
+          </style>
+        </head>
+        <body>
+          <div class="error-container">
               <h1>ההזמנה התקבלה אך יש בעיה בשליחת המיילים</h1>
               <div class="order-number">מספר הזמנה: #${orderNumber}</div>
-              <p>ההזמנה שלך התקבלה בהצלחה במערכת!</p>
+            <p>ההזמנה שלך התקבלה בהצלחה במערכת!</p>
               <p>אך יש בעיה בשליחת המיילים.</p>
               
               <div class="warning-box">
@@ -508,16 +508,16 @@ function doPost(e) {
               <p><strong>אפשרויות:</strong></p>
               <p>1. נסה שוב מאוחר יותר</p>
               <p>2. פנה אלינו באינסטגרם:
-                <a class="insta-link" href="https://instagram.com/paintz.official" target="_blank">@paintz.official</a>
-              </p>
+              <a class="insta-link" href="https://instagram.com/paintz.official" target="_blank">@paintz.official</a>
+            </p>
               <p>3. או במייל: paintz.yf@gmail.com</p>
               
               <a href="Order.html" class="button">נסה שוב</a>
               <a href="homepage.html" class="button">חזור לדף הבית</a>
-            </div>
-          </body>
-        </html>
-      `);
+          </div>
+        </body>
+      </html>
+    `);
     } else if (!businessEmailSent) {
       console.warn('⚠️ Business email failed, but customer email sent');
       return HtmlService.createHtmlOutput(`
@@ -955,8 +955,8 @@ function sendBusinessEmail(data) {
               descEntries.push(`<strong>הסבר:</strong> ${item.desc.desc1}`);
             } else if (item.desc.desc2) {
               descEntries.push(`<strong>הסבר:</strong> ${item.desc.desc2}`);
-            }
-          } else {
+    }
+  } else {
             // מוצרים אחרים - הצגה רגילה
             if (item.desc.right) descEntries.push(`<strong>הסבר ציור ימין:</strong> ${item.desc.right}`);
             if (item.desc.left) descEntries.push(`<strong>הסבר ציור שמאל:</strong> ${item.desc.left}`);
@@ -1076,7 +1076,7 @@ function sendBusinessEmail(data) {
               console.error(`❌ Error creating blob for business file ${fileName}:`, blobError);
               console.error('File content preview:', fileContent ? fileContent.substring(0, 100) : 'No content');
             }
-          } else {
+  } else {
             console.log(`⚠️ Business file ${fileName} has no valid content, skipping attachment`);
             console.log(`File content type: ${typeof fileContent}, length: ${fileContent ? fileContent.length : 0}`);
           }
@@ -1091,7 +1091,7 @@ function sendBusinessEmail(data) {
         
         console.log(`Business item ${index} - Final files HTML: ${filesHtml}`);
         console.log(`Business item ${index} - Small files: ${fileNames.length}, Large files: ${largeFileNames.length}`);
-      } else {
+  } else {
         console.log(`Business item ${index} - No files found`);
       }
       
@@ -1110,7 +1110,7 @@ function sendBusinessEmail(data) {
         } else if (item.title && (item.title.includes('תקליט') || item.title.includes('Record'))) {
           // תקליט עיצוב אישי - לא מציגים הערות
           notesHtml = '';
-        } else {
+  } else {
           notesHtml = item.notes;
         }
       }
@@ -1205,7 +1205,7 @@ function sendBusinessEmail(data) {
       } else {
         console.log(`Business email - Image URL is valid for email: ${imageUrl}`);
       }
-      
+    
       productsHtml += `
         <div style="background: #fff; border: 1px solid #ddd; border-radius: 8px; padding: 20px; margin: 15px 0; display: flex; align-items: flex-start; direction: rtl;">
           ${isValidImageUrl && imageUrl ? `
@@ -1252,7 +1252,7 @@ function sendBusinessEmail(data) {
       </div>
     `;
   }
-  
+
   const htmlBody = `
     <div style="font-family: Arial, sans-serif; direction: rtl; text-align: right; max-width: 800px; margin: 0 auto;">
       <div style="background: #5B9B86; color: white; padding: 20px; border-radius: 10px 10px 0 0; text-align: center;">
@@ -1271,15 +1271,15 @@ function sendBusinessEmail(data) {
         </div>
         
         ${data.deliveryMethod !== 'pickup' && (data.city || data.street) ? `
-          <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0;">
-            <h3 style="color: #5B9B86; margin: 0 0 15px 0; font-size: 18px;">פרטי משלוח:</h3>
+         <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0;">
+           <h3 style="color: #5B9B86; margin: 0 0 15px 0; font-size: 18px;">פרטי משלוח:</h3>
             <p style="margin: 4px 0; font-size: 18px;"><strong>מדינה:</strong> ${data.country === 'israel' || data.country === 'Israel' || data.country === 'ISRAEL' ? 'ישראל' : (data.country || 'ישראל')}</p>
             <p style="margin: 4px 0; font-size: 18px;"><strong>יישוב:</strong> ${data.city || 'לא צוין'}</p>
             <p style="margin: 4px 0; font-size: 18px;"><strong>רחוב:</strong> ${data.street || 'לא צוין'}</p>
             <p style="margin: 4px 0; font-size: 18px;"><strong>מספר בית:</strong> ${data.houseNumber || 'לא צוין'}</p>
             <p style="margin: 4px 0; font-size: 18px;"><strong>מיקוד:</strong> ${data.zipCode || 'לא צוין'}</p>
-          </div>
-        ` : ''}
+         </div>
+         ` : ''}
         
         ${data.notes && data.notes.trim() !== 'הערה לבדיקה' ? `
           <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0;">
@@ -1297,9 +1297,9 @@ function sendBusinessEmail(data) {
             <strong>צוות Paintz</strong>
           </p>
           <p style="margin: 0; font-size: 14px; color: #666;">
-            <strong>מייל:</strong> paintz.yf@gmail.com<br>
-            <strong>אינסטגרם:</strong> @paintz.official<br>
-            <strong>מיקום:</strong> פתח תקווה
+          <strong>מייל:</strong> paintz.yf@gmail.com<br>
+          <strong>אינסטגרם:</strong> @paintz.official<br>
+          <strong>מיקום:</strong> פתח תקווה
           </p>
         </div>
       </div>
@@ -1501,7 +1501,7 @@ function sendCustomerEmail(data) {
           // טיפול מיוחד בתקליט - לא מציגים הסבר אם זה string
           if (item.title && (item.title.includes('תקליט') || item.title.includes('Record'))) {
             explanationsHtml = '';
-          } else {
+      } else {
             explanationsHtml = `<strong>הסבר:</strong> ${item.desc}`;
           }
         } else {
@@ -1831,14 +1831,14 @@ function sendCustomerEmail(data) {
         </div>
         
         ${data.deliveryMethod !== 'pickup' && (data.city || data.street) ? `
-          <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0;">
             <h3 style="color: #5B9B86; margin: 0 0 15px 0; font-size: 18px;">כתובת למשלוח:</h3>
             <p style="margin: 4px 0; font-size: 16px;"><strong>מדינה:</strong> ${data.country === 'israel' || data.country === 'Israel' || data.country === 'ISRAEL' ? 'ישראל' : (data.country || 'ישראל')}</p>
             <p style="margin: 4px 0; font-size: 16px;"><strong>יישוב:</strong> ${data.city || 'לא צוין'}</p>
             <p style="margin: 4px 0; font-size: 16px;"><strong>רחוב:</strong> ${data.street || 'לא צוין'}</p>
             <p style="margin: 4px 0; font-size: 16px;"><strong>מספר בית:</strong> ${data.houseNumber || 'לא צוין'}</p>
             <p style="margin: 4px 0; font-size: 16px;"><strong>מיקוד:</strong> ${data.zipCode || 'לא צוין'}</p>
-          </div>
+        </div>
         ` : ''}
         
         ${data.notes && data.notes.trim() !== 'הערה לבדיקה' ? `
@@ -1866,7 +1866,7 @@ function sendCustomerEmail(data) {
       </div>
     </div>
   `;
-
+  
   const emailOptions = {
     htmlBody: htmlBody,
     name: 'Paintz - אישור הזמנה'
@@ -2162,8 +2162,8 @@ function testEmailSending() {
     console.log('Customer email sent to:', testData.email);
     console.log('Order number:', testData.orderNumber);
     
-    return { 
-      success: true, 
+    return {
+      success: true,
       orderNumber: testData.orderNumber,
       message: 'שני המיילים נשלחו בהצלחה!',
       businessEmail: 'paintz.yf@gmail.com',
@@ -2175,8 +2175,8 @@ function testEmailSending() {
     console.error('Error:', error);
     console.error('Error stack:', error.stack);
     
-    return { 
-      success: false, 
+    return {
+      success: false,
       error: error.toString(),
       message: 'שגיאה בשליחת המיילים: ' + error.toString()
     };
@@ -2865,4 +2865,4 @@ function testShopImages() {
   });
   
   console.log('\n=== Shop Images Test Complete ===');
-}
+} 

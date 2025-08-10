@@ -582,6 +582,9 @@
         width: 100px;
         height: 100px;
         border-radius: 10px;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
       }
 
       .big-cart-item-info {
@@ -1236,8 +1239,10 @@ function saveBigCartToStorage(bigCart) {
 function loadBigCartFromStorage() {
   try {
     const cartData = localStorage.getItem('cart');
+    console.log('Raw cart data from localStorage:', cartData);
     if (cartData) {
       const parsedCart = JSON.parse(cartData);
+      console.log('Parsed cart data:', parsedCart);
       if (Array.isArray(parsedCart)) {
         return parsedCart;
       }
@@ -1315,6 +1320,8 @@ function renderBigCart() {
   }
   
   bigCart.forEach((item, idx) => {
+    console.log('Cart item:', item);
+    console.log('Cart item img property:', item.img);
     try {
       let isCustom = item.title && item.title.includes('עיצוב אישי');
       let priceCell;
@@ -1345,7 +1352,11 @@ function renderBigCart() {
       row.className = 'big-cart-item';
       row.innerHTML = `
         <button class="big-cart-item-remove" title="הסר"><span class="big-cart-item-trash-icon"></span></button>
-        ${item.img ? `<div class="big-cart-item-img" style="background-image:url('${item.img.startsWith('http') ? item.img : `https://yardenfad.github.io/paintz-website/${item.img}`}')"></div>` : '<div class="big-cart-item-img"></div>'}
+        ${item.img ? (() => {
+          const imageUrl = item.img.startsWith('http') ? item.img : `https://yardenfad.github.io/paintz-website/${item.img}`;
+          console.log('Cart item image URL:', imageUrl);
+          return `<div class="big-cart-item-img" style="background-image:url('${imageUrl}')"></div>`;
+        })() : '<div class="big-cart-item-img"></div>'}
         <div class="big-cart-item-info">
           <div class="big-cart-item-title">${item.subtitle ? `${item.title} | ${item.subtitle}` : item.title}</div>
           <div class="big-cart-item-notes">${notes}</div>
