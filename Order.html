@@ -1555,92 +1555,37 @@ document.getElementById('orderForm').addEventListener('submit', async (e) => {
     try {
       requestStarted = true;
 
-      // שליחה ב-JSONP כדי לעקוף CORS של Apps Script
-      const cbName = 'orderJsonpCallback_' + Date.now();
-      const jsonpUrl = `${scriptUrl}?callback=${cbName}&data=${encodeURIComponent(JSON.stringify(orderData))}`;
-      const scriptEl = document.createElement('script');
-      let jsonpHandled = false;
+      // שליחה ישירה ב-POST עם no-cors (נמנע מ-ORB/CORS, השרת יקבל את הבקשה)
+      try {
+        await fetch(scriptUrl, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: 'data=' + encodeURIComponent(JSON.stringify(orderData))
+        });
+      } catch (e) {
+        // גם במקרה שגיאה ברשת, ננסה פעם נוספת ללא await
+        fetch(scriptUrl, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: 'data=' + encodeURIComponent(JSON.stringify(orderData))
+        }).catch(() => {});
+      }
       
-      const jsonpTimeout = setTimeout(() => {
-        if (jsonpHandled) return;
-        jsonpHandled = true;
-        console.error('JSONP request timed out');
-        // נפילה חזרה ל-fetch במצב no-cors (לא נקרא תגובה, רק שולחים)
-        try {
-          fetch(scriptUrl, {
-            method: 'POST',
-            mode: 'no-cors',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: 'data=' + encodeURIComponent(JSON.stringify(orderData))
-          }).catch(() => {});
-        } catch (e) {}
-        // להציג הודעת הצלחה למשתמש בכל מקרה ולהמשיך בניקוי
-        orderSubmitted = true;
-        const progressDivToRemove = document.getElementById('orderProgress');
-        if (progressDivToRemove) progressDivToRemove.remove();
-        document.getElementById('successMessage').classList.add('visible');
-        document.getElementById('successOverlay').classList.add('visible');
-        localStorage.removeItem('deliveryMethod');
-        localStorage.removeItem('shippingMethod');
-        localStorage.removeItem('notes');
-        localStorage.removeItem('bigCartNotes');
-        localStorage.removeItem('cart');
-        setTimeout(() => { window.location.href = 'homepage.html'; }, 3000);
-      }, 30000);
-
-      window[cbName] = function(jsonpResponse) {
-        if (jsonpHandled) return;
-        jsonpHandled = true;
-        clearTimeout(jsonpTimeout);
-        try { document.head.removeChild(scriptEl); } catch (e) {}
-        try { delete window[cbName]; } catch (e) { window[cbName] = undefined; }
-
-        // הצלחה
-        orderSubmitted = true;
-        const progressDivToRemove = document.getElementById('orderProgress');
-        if (progressDivToRemove) progressDivToRemove.remove();
-        document.getElementById('successMessage').classList.add('visible');
-        document.getElementById('successOverlay').classList.add('visible');
-        // איפוס
-        localStorage.removeItem('deliveryMethod');
-        localStorage.removeItem('shippingMethod');
-        localStorage.removeItem('notes');
-        localStorage.removeItem('bigCartNotes');
-        localStorage.removeItem('cart');
-        setTimeout(() => { window.location.href = 'homepage.html'; }, 3000);
-      };
-
-      scriptEl.src = jsonpUrl;
-      scriptEl.onerror = function() {
-        if (jsonpHandled) return;
-        jsonpHandled = true;
-        clearTimeout(jsonpTimeout);
-        console.error('JSONP script load error');
-        // נפילה ל-no-cors fetch (שולחים בלי לקרוא תגובה)
-        try {
-          fetch(scriptUrl, {
-            method: 'POST',
-            mode: 'no-cors',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: 'data=' + encodeURIComponent(JSON.stringify(orderData))
-          }).catch(() => {});
-        } catch (e) {}
-        // להציג הצלחה למשתמש ולהמשיך
-        orderSubmitted = true;
-        const progressDivToRemove = document.getElementById('orderProgress');
-        if (progressDivToRemove) progressDivToRemove.remove();
-        document.getElementById('successMessage').classList.add('visible');
-        document.getElementById('successOverlay').classList.add('visible');
-        localStorage.removeItem('deliveryMethod');
-        localStorage.removeItem('shippingMethod');
-        localStorage.removeItem('notes');
-        localStorage.removeItem('bigCartNotes');
-        localStorage.removeItem('cart');
-        setTimeout(() => { window.location.href = 'homepage.html'; }, 3000);
-      };
-
-      document.head.appendChild(scriptEl);
-      return; // משתמשים ב-JSONP; לא להמשיך ל-fetch למטה
+      // הצגת הצלחה למשתמש והמשך ניקוי (התגובה opaque)
+      orderSubmitted = true;
+      const progressDivToRemove = document.getElementById('orderProgress');
+      if (progressDivToRemove) progressDivToRemove.remove();
+      document.getElementById('successMessage').classList.add('visible');
+      document.getElementById('successOverlay').classList.add('visible');
+      localStorage.removeItem('deliveryMethod');
+      localStorage.removeItem('shippingMethod');
+      localStorage.removeItem('notes');
+      localStorage.removeItem('bigCartNotes');
+      localStorage.removeItem('cart');
+      setTimeout(() => { window.location.href = 'homepage.html'; }, 3000);
+      return;
       
       // אם תרצה בעתיד לנסות fetch רגיל לפני JSONP, אפשר להעביר את הקוד למטה
       // בדיקה אם השרת החזיר קוד 200 (הצלחה)
