@@ -248,6 +248,20 @@ function buildProductHtml(item) {
     'item.image': item.image, 
     'final image': image 
   });
+  console.log('FULL IMAGE URL DEBUG:', {
+    'item.img starts with http': item.img ? item.img.startsWith('http') : 'no img',
+    'item.image starts with http': item.image ? item.image.startsWith('http') : 'no image',
+    'final image starts with http': image ? image.startsWith('http') : 'no final image'
+  });
+  
+  // Test if the image URL is valid
+  if (image && image.startsWith('http')) {
+    console.log('✅ Valid image URL for email:', image);
+  } else if (image) {
+    console.log('⚠️ Image URL might not work in email:', image);
+  } else {
+    console.log('❌ No image URL found');
+  }
   console.log('FILES DEBUG:', { 
     'item.files': item.files, 
     'item.file': item.file,
@@ -280,6 +294,7 @@ function buildProductHtml(item) {
       </div>
     `;
     console.log('IMAGE ADDED:', imageUrl);
+    console.log('ORIGINAL IMAGE PATH:', image);
   } else {
     console.log('❌ NO IMAGE FOUND for item');
   }
