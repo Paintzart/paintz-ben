@@ -399,7 +399,7 @@
       box-shadow: 0 2px 12px #0002;
       transition: box-shadow 0.2s, transform 0.2s;
       overflow: hidden;
-      background-color: #f0f0f0;
+      background-color: transparent;
     }
     .shop-product-title {
       font-family: 'Rubik', sans-serif;
@@ -429,6 +429,10 @@
       top: 0;
       left: 0;
       z-index: 1;
+      display: block;
+      opacity: 1;
+      transition: opacity 0.3s ease;
+      background-color: transparent;
     }
     
     .shop-product:hover {
@@ -444,6 +448,7 @@
         width: 95vw;
         max-width: 480px;
         height: 180px;
+        background-color: transparent;
       }
       
       .shop-product img {
@@ -451,6 +456,10 @@
         height: 100%;
         object-fit: cover;
         border-radius: 8px;
+        display: block;
+        opacity: 1;
+        transition: opacity 0.3s ease;
+        background-color: transparent;
       }
     }
     /* Side Cart Styles */
@@ -1124,70 +1133,14 @@
         sideCart.classList.remove('active');
       }
       
-      // בדיקת טעינת תמונות החנות
-      const shopImages = [
-        'sheshbesh.jpg',
-        'matkot.jpg', 
-        'vinyl.jpg',
-        'canvas.jpg'
-      ];
-      
-      shopImages.forEach(imageName => {
-        const img = new Image();
-        img.onload = function() {
-          console.log(`✅ Image loaded successfully: ${imageName}`);
-        };
-        img.onerror = function() {
-          console.error(`❌ Failed to load image: ${imageName}`);
-        };
-        img.src = imageName;
-      });
-      
-      // בדיקת תמונות בחנות
+      // טעינת תמונות החנות - שיטה פשוטה
       const shopProductImages = document.querySelectorAll('.shop-product img');
-      shopProductImages.forEach((img, index) => {
-        img.onload = function() {
-          console.log(`✅ Shop product image loaded: ${img.src}`);
-          // וודא שהתמונה נראית
-          img.style.opacity = '1';
-        };
+      shopProductImages.forEach((img) => {
         img.onerror = function() {
-          console.error(`❌ Failed to load shop product image: ${img.src}`);
-          
-          // נסה עם נתיב מלא אם זה לא עובד
-          if (!img.src.startsWith('http')) {
-            const fullPath = window.location.origin + window.location.pathname.replace(/\/[^\/]*$/, '/') + img.src.split('/').pop();
-            console.log(`Trying full path for shop image: ${fullPath}`);
-            img.src = fullPath;
-            return;
-          }
-          
-          // נסה עם נתיב יחסי פשוט
-          const simplePath = img.src.split('/').pop();
-          console.log(`Trying simple path: ${simplePath}`);
-          img.src = simplePath;
-          return;
+          console.error(`❌ Failed to load: ${this.src}`);
+          this.style.display = 'none';
+          this.parentElement.style.backgroundColor = '#F9F1DC';
         };
-        
-        // הוסף onerror נוסף לטיפול בשגיאות
-        img.addEventListener('error', function() {
-          console.error(`❌ Final error for shop product image: ${img.src}`);
-          // הצג תמונת ברירת מחדל
-          img.style.display = 'none';
-          img.parentElement.style.backgroundColor = '#f0f0f0';
-        });
-        
-        // הוסף בדיקה נוספת לטעינת התמונות
-        setTimeout(() => {
-          if (img.complete && img.naturalHeight === 0) {
-            console.error(`❌ Image failed to load: ${img.src}`);
-            img.style.display = 'none';
-            img.parentElement.style.backgroundColor = '#f0f0f0';
-          }
-        }, 2000);
-        // הגדר סגנון התחלתי
-        img.style.opacity = '0';
-        img.style.transition = 'opacity 0.3s ease';
       });
       
 
