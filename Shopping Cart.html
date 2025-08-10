@@ -1263,16 +1263,23 @@ function updateTotalPrice() {
     }
   });
 
+  // הוספת מחיר משלוח אם נבחר משלוח
+  const selectedShipping = document.querySelector('input[name="shipping"]:checked')?.value;
+  const shippingCost = selectedShipping === 'delivery' ? 50 : 0;
+  
+  // חישוב המחיר הכולל כולל משלוח
+  const totalWithShipping = total + shippingCost;
+  
   const totalElem = document.getElementById('bigCartTotal');
   if (totalElem) {
     if (hasCustomProduct) {
-      if (total > 0) {
-        totalElem.textContent = `₪${total} + הצעת מחיר תשלח בהמשך`;
+      if (totalWithShipping > 0) {
+        totalElem.textContent = `₪${totalWithShipping} + הצעת מחיר תשלח בהמשך`;
       } else {
         totalElem.textContent = 'הצעת מחיר תשלח בהמשך';
       }
     } else {
-      totalElem.textContent = '₪' + total;
+      totalElem.textContent = '₪' + totalWithShipping;
     }
   }
 }
@@ -1565,12 +1572,14 @@ document.addEventListener('DOMContentLoaded', function() {
   renderBigCart();
   loadBigCartNotes();
   loadShippingMethod();
+  updateTotalPrice(); // עדכון המחיר הכולל בטעינת העמוד
 
   window.addEventListener('storage', function(e) {
     if (e.key === 'cart') {
       try {
         bigCart = JSON.parse(e.newValue || '[]');
         renderBigCart();
+        updateTotalPrice(); // עדכון המחיר כשהסל מתעדכן מה-storage
       } catch (error) {
         console.error('Error syncing big cart from storage:', error);
       }
@@ -1581,6 +1590,7 @@ document.addEventListener('DOMContentLoaded', function() {
     try {
       bigCart = loadBigCartFromStorage();
       renderBigCart();
+      updateTotalPrice(); // עדכון המחיר כשהסל מתעדכן מה-storage
     } catch (error) {
       console.error('Error syncing big cart on focus:', error);
     }
@@ -1588,7 +1598,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // הוספת event listeners לכפתורי הרדיו של שיטת המשלוח
   document.querySelectorAll('input[name="shipping"]').forEach(radio => {
-    radio.addEventListener('change', saveShippingMethod);
+    radio.addEventListener('change', function() {
+      saveShippingMethod();
+      updateTotalPrice(); // עדכון המחיר הכולל כשמשנים שיטת משלוח
+    });
   });
 
   const orderBtn = document.getElementById('bigCartOrderBtn');

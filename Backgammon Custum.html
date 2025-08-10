@@ -1283,7 +1283,9 @@
       transition: border 0.2s;
     }
     .record-thumb.selected {
-      border: 2px solid #BA8663;
+      border: 1px solid #f3b586;
+      box-shadow: 0 0 8px rgba(255, 107, 107, 0.6);
+      transform: scale(1.05);
     }
     .record-form {
       display: flex;
@@ -2918,6 +2920,8 @@ thumbs.forEach(thumb => {
   });
 });
 
+
+
 // --- סיום גלריה ---
 
 // Add validateForm function for Backgammon Custom
@@ -4061,6 +4065,19 @@ document.addEventListener('DOMContentLoaded', function() {
   setTimeout(initializeColors, 100);
   setTimeout(initializeColors, 500);
 });
+
+// סמן את התמונה הראשונה כברירת מחדל
+setTimeout(function() {
+  const firstThumb = document.querySelector('.record-thumb');
+  if (firstThumb) {
+    firstThumb.classList.add('selected');
+    const mainImg = document.getElementById('mainRecordImg');
+    if (mainImg) {
+      mainImg.src = firstThumb.getAttribute('data-img');
+      mainImg.alt = firstThumb.alt;
+    }
+  }
+}, 100);
 
 </script>
 </html>

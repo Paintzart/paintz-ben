@@ -250,6 +250,36 @@
       border: 2px solid #fff;
       opacity: 1;
     }
+    .slider-arrow {
+      position: absolute;
+      top: 50%;
+      background: none;
+      border: none;
+      width: 40px;
+      height: 40px;
+      font-size: 32px;
+      color: white;
+      cursor: pointer;
+      z-index: 4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    }
+    .slider-section:hover .slider-arrow {
+      opacity: 1;
+      visibility: visible;
+    }
+    .slider-arrow-left {
+      left: calc(50% - 360px);
+      transform: translateY(-50%);
+    }
+    .slider-arrow-right {
+      right: calc(50% - 360px);
+      transform: translateY(-50%);
+    }
     @media (max-width: 600px) {
       .slider-section {
         height: 220px;
@@ -271,6 +301,19 @@
       .slider-dot {
         width: 6px;
         height: 6px;
+      }
+      .slider-arrow {
+        width: 30px;
+        height: 30px;
+        font-size: 18px;
+      }
+      .slider-arrow-left {
+        left: calc(50% - 40vw);
+        transform: translateY(-50%);
+      }
+      .slider-arrow-right {
+        right: calc(50% - 40vw);
+        transform: translateY(-50%);
       }
     }
     /* Shop Now Button Section */
@@ -2487,6 +2530,8 @@
         <div class="slider-img" style="background-image: url('slider4.jpg');"></div>
         <div class="slider-img" style="background-image: url('slider5.jpg');"></div>
       </div>
+      <button class="slider-arrow slider-arrow-left" id="sliderArrowLeft">‹</button>
+      <button class="slider-arrow slider-arrow-right" id="sliderArrowRight">›</button>
       <div class="slider-dots">
         <div class="slider-dot active" data-index="0"></div>
         <div class="slider-dot" data-index="1"></div>
@@ -2579,10 +2624,10 @@
           </div>
         </div>
         <div class="best-seller-card">
-          <div class="best-seller-img" style="background-image: url('Models/Backgammon16_1.JPG');"></div>
-          <div class="best-seller-model">שש בש | פילים</div>
+          <div class="best-seller-img" style="background-image: url('Models/Backgammon21_1.JPG');"></div>
+          <div class="best-seller-model">שש בש | יוון</div>
           <div class="best-seller-line2"></div>
-          <div class="best-seller-price">₪ 350</div>
+          <div class="best-seller-price">₪ 300</div>
           <div class="best-seller-overlay">
             <div class="best-seller-overlay-qty-group">
               <button class="best-seller-overlay-qty-btn" type="button">–</button>
@@ -2590,7 +2635,7 @@
               <button class="best-seller-overlay-qty-btn" type="button">+</button>
             </div>
             <div class="best-seller-overlay-btns">
-              <a class="best-seller-btn view" href="Product.html?product=backgammon&id=16">לצפייה במוצר</a>
+              <a class="best-seller-btn view" href="Product.html?product=backgammon&id=21">לצפייה במוצר</a>
               <button class="best-seller-btn add">הוסף לסל הקניות</button>
             </div>
           </div>
@@ -2791,6 +2836,12 @@ function nextSlide() {
   showSlide(next);
 }
 
+function prevSlide() {
+  let prev = (currentSlide - 1 + sliderImgs.length) % sliderImgs.length;
+  showSlide(prev);
+}
+
+// Event listeners for dots
 sliderDots.forEach((dot, i) => {
   dot.addEventListener('click', () => {
     showSlide(i);
@@ -2798,6 +2849,26 @@ sliderDots.forEach((dot, i) => {
     sliderInterval = setInterval(nextSlide, 5000);
   });
 });
+
+// Event listeners for arrows
+const leftArrow = document.getElementById('sliderArrowLeft');
+const rightArrow = document.getElementById('sliderArrowRight');
+
+if (leftArrow) {
+  leftArrow.addEventListener('click', () => {
+    prevSlide();
+    clearInterval(sliderInterval);
+    sliderInterval = setInterval(nextSlide, 5000);
+  });
+}
+
+if (rightArrow) {
+  rightArrow.addEventListener('click', () => {
+    nextSlide();
+    clearInterval(sliderInterval);
+    sliderInterval = setInterval(nextSlide, 5000);
+  });
+}
 
 sliderInterval = setInterval(nextSlide, 5000);
 
