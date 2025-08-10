@@ -1353,9 +1353,19 @@ document.getElementById('orderForm').addEventListener('submit', async (e) => {
               // Relative path → GitHub Pages absolute
               url = `${baseUrl}/${url.replace(/^\//, '')}`;
             }
-            // Encode spaces and unsafe chars but keep slashes
-            const parts = url.split('/');
-            url = parts.map((p, i) => i < 3 ? p : encodeURIComponent(p)).join('/');
+            // Safely normalize path encoding without double-encoding
+            try {
+              const u = new URL(url);
+              const normalizedPath = u.pathname
+                .split('/')
+                .map(seg => seg ? encodeURIComponent(decodeURIComponent(seg)) : seg)
+                .join('/');
+              u.pathname = normalizedPath;
+              url = u.toString();
+            } catch (err) {
+              // Fallback: only replace literal spaces to %20 (avoid double-encoding %)
+              url = url.replace(/\s/g, '%20');
+            }
           } catch (e) {}
           return url;
         }
