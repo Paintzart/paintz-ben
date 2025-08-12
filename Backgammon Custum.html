@@ -3927,16 +3927,15 @@ function addToCart(item) {
   try {
     if (window.cartSync && typeof window.cartSync.addItem === 'function') {
       if (existingIndex !== -1) {
+        // מוצר קיים - עדכן כמות ללא בדיקת גודל
         window.cartSync.updateItem(existingIndex, {qty: cart[existingIndex].qty});
       } else {
-        // Check if adding this item would exceed cart size limit
+        // מוצר חדש - בדוק גודל לפני הוספה
         const testCart = [...cart, item];
         const testCartString = JSON.stringify(testCart);
         const testCartSize = new Blob([testCartString]).size;
         const testCartSizeMB = (testCartSize / (1024 * 1024)).toFixed(2);
         const maxCartSize = 5 * 1024 * 1024; // 5MB max (based on typical localStorage limits)
-        
-
         
         if (testCartSize > maxCartSize) {
           throw new Error(`הסל יהיה גדול מדי (${testCartSizeMB}MB). אנא הסר פריטים מהסל או הקטן את הקבצים.`);
@@ -3958,29 +3957,31 @@ function addToCart(item) {
     }
   }
   
-  // בדיקה שהמוצר באמת נוסף
-  let verificationCart = [];
-  try {
-    if (window.cartSync && typeof window.cartSync.loadCart === 'function') {
-      verificationCart = window.cartSync.loadCart();
-    } else {
-      verificationCart = JSON.parse(localStorage.getItem('cart') || '[]');
+  // בדיקה שהמוצר באמת נוסף (רק אם זה מוצר חדש)
+  if (existingIndex === -1) {
+    let verificationCart = [];
+    try {
+      if (window.cartSync && typeof window.cartSync.loadCart === 'function') {
+        verificationCart = window.cartSync.loadCart();
+      } else {
+        verificationCart = JSON.parse(localStorage.getItem('cart') || '[]');
+      }
+    } catch (e) {
+      throw new Error('שגיאה בטעינת הסל לאימות');
     }
-  } catch (e) {
-    throw new Error('שגיאה בטעינת הסל לאימות');
-  }
-  
-  const itemExists = verificationCart.some(cartItem => 
-    cartItem.title === item.title && 
-    cartItem.subtitle === item.subtitle &&
-    JSON.stringify(cartItem.colorData || {}) === JSON.stringify(item.colorData || {}) &&
-    JSON.stringify(cartItem.desc || {}) === JSON.stringify(item.desc || {}) &&
-    JSON.stringify(cartItem.files || []) === JSON.stringify(item.files || [])
-  );
-  
-  if (!itemExists) {
-    console.error('המוצר לא נוסף לסל למרות שלא הייתה שגיאה');
-    throw new Error('המוצר לא נוסף לסל - ייתכן שהקבצים גדולים מדי');
+    
+    const itemExists = verificationCart.some(cartItem => 
+      cartItem.title === item.title && 
+      cartItem.subtitle === item.subtitle &&
+      JSON.stringify(cartItem.colorData || {}) === JSON.stringify(item.colorData || {}) &&
+      JSON.stringify(cartItem.desc || {}) === JSON.stringify(item.desc || {}) &&
+      JSON.stringify(cartItem.files || []) === JSON.stringify(item.files || [])
+    );
+    
+    if (!itemExists) {
+      console.error('המוצר לא נוסף לסל למרות שלא הייתה שגיאה');
+      throw new Error('המוצר לא נוסף לסל - ייתכן שהקבצים גדולים מדי');
+    }
   }
   
   // עדכון מיידי של הממשק
