@@ -3871,19 +3871,35 @@ function addToCart(item) {
               return false;
             }
            
-           // Compare files by name only (not file objects)
+           // Compare files using the improved comparison function
            const files1 = existing.files || [];
            const files2 = item.files || [];
            
-                       if (files1.length !== files2.length) {
-              return false;
-            }
+           if (files1.length !== files2.length) {
+             return false;
+           }
            
            for (let i = 0; i < files1.length; i++) {
              const file1 = files1[i];
              const file2 = files2[i];
              
-             if (file1.name !== file2.name || file1.type !== file2.type) {
+             if (!file1 || !file2) {
+               if (file1 !== file2) {
+                 return false;
+               }
+               continue;
+             }
+             
+             // בדיקה מקיפה יותר של הקבצים
+             if (file1.name !== file2.name || 
+                 file1.type !== file2.type ||
+                 file1.size !== file2.size) {
+               return false;
+             }
+             
+             // אם יש lastModified, בדוק גם אותו
+             if (file1.lastModified && file2.lastModified && 
+                 file1.lastModified !== file2.lastModified) {
                return false;
              }
            }
@@ -4030,6 +4046,22 @@ setTimeout(ensureViewCartButtonVisibleOniPad, 500);
 setTimeout(ensureViewCartButtonVisibleOniPad, 1000);
 setTimeout(ensureViewCartButtonVisibleOniPad, 2000);
 
+// הפונקציה צריכה להיות זמינה גלובלית
+window.updateColorDisplay = function(colorInput) {
+  const color = colorInput.value;
+  
+  // Update the input's background color directly
+  colorInput.style.backgroundColor = color;
+  
+  // Remove any unwanted elements that might have been created
+  const unwantedElements = colorInput.querySelectorAll('*');
+  unwantedElements.forEach(element => {
+    if (element.style && element.style.backgroundColor) {
+      element.remove();
+    }
+  });
+};
+
 // Color picker functionality for mobile
 document.addEventListener('DOMContentLoaded', function() {
   // Get all color inputs
@@ -4042,7 +4074,11 @@ document.addEventListener('DOMContentLoaded', function() {
       if (!input.value || input.value === '#000000') {
         input.value = '#5C4638';
       }
-      updateColorDisplay(input);
+      if (window.updateColorDisplay) {
+        window.updateColorDisplay(input);
+      } else {
+        input.style.backgroundColor = input.value;
+      }
     });
   }
   
@@ -4061,22 +4097,6 @@ document.addEventListener('DOMContentLoaded', function() {
       window.updateColorDisplay(this);
     });
   });
-  
-  // הפונקציה צריכה להיות זמינה גלובלית
-  window.updateColorDisplay = function(colorInput) {
-    const color = colorInput.value;
-    
-    // Update the input's background color directly
-    colorInput.style.backgroundColor = color;
-    
-    // Remove any unwanted elements that might have been created
-    const unwantedElements = colorInput.querySelectorAll('*');
-    unwantedElements.forEach(element => {
-      if (element.style && element.style.backgroundColor) {
-        element.remove();
-      }
-    });
-  };
   
   // Initialize colors immediately and after a short delay
   initializeColors();

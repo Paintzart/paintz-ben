@@ -758,6 +758,40 @@ window.cartSync = {
   removeItem: removeCartItem
 };
 
+// Function to compare files more accurately
+function compareFiles(files1, files2) {
+  if (files1.length !== files2.length) {
+    return false;
+  }
+  
+  for (let i = 0; i < files1.length; i++) {
+    const file1 = files1[i];
+    const file2 = files2[i];
+    
+    if (!file1 || !file2) {
+      if (file1 !== file2) {
+        return false;
+      }
+      continue;
+    }
+    
+    // בדיקה מקיפה של הקבצים
+    if (file1.name !== file2.name || 
+        file1.type !== file2.type ||
+        file1.size !== file2.size) {
+      return false;
+    }
+    
+    // אם יש lastModified, בדוק גם אותו
+    if (file1.lastModified && file2.lastModified && 
+        file1.lastModified !== file2.lastModified) {
+      return false;
+    }
+  }
+  
+  return true;
+}
+
 // Function to check if two items are identical
 function areItemsIdentical(item1, item2) {
   if (!item1 || !item2) {
@@ -785,30 +819,12 @@ function areItemsIdentical(item1, item2) {
   const isCustom2 = (item2.title + ' ' + item2.subtitle).toLowerCase().includes('עיצוב אישי');
   
   if (isCustom1 && isCustom2) {
-    // בדיקת קבצים
+    // בדיקת קבצים באמצעות הפונקציה החדשה
     const files1 = item1.files || [];
     const files2 = item2.files || [];
     
-    if (files1.length !== files2.length) {
+    if (!compareFiles(files1, files2)) {
       return false;
-    }
-    
-    // בדיקת שמות הקבצים
-    for (let i = 0; i < files1.length; i++) {
-      const file1 = files1[i];
-      const file2 = files2[i];
-      
-      if (!file1 || !file2) {
-        if (file1 !== file2) {
-          return false;
-        }
-        continue;
-      }
-      
-      if (file1.name !== file2.name || 
-          file1.type !== file2.type) {
-        return false;
-      }
     }
     
     // בדיקת הסברים
@@ -817,6 +833,27 @@ function areItemsIdentical(item1, item2) {
     
     if (desc1 !== desc2) {
       return false;
+    }
+    
+    // בדיקת נתוני צבע למוצרי שש בש עיצוב אישי
+    if (item1.title === 'עיצוב אישי' && item1.subtitle === 'שש בש') {
+      const colorData1 = item1.colorData || {};
+      const colorData2 = item2.colorData || {};
+      
+      const colorFields = ['bgOuter', 'bgInnerRight', 'bgInnerLeft', 'triangle1', 'triangle2'];
+      for (const field of colorFields) {
+        const color1 = colorData1[field] || {};
+        const color2 = colorData2[field] || {};
+        
+        const text1 = (color1.text || '').trim().toLowerCase();
+        const text2 = (color2.text || '').trim().toLowerCase();
+        const hex1 = (color1.color || '').toLowerCase();
+        const hex2 = (color2.color || '').toLowerCase();
+        
+        if (text1 !== text2 || hex1 !== hex2) {
+          return false;
+        }
+      }
     }
     
     return true;
