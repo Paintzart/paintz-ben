@@ -3802,6 +3802,32 @@ document.addEventListener('DOMContentLoaded', function() {
           toast.classList.add('show');
           setTimeout(() => toast.classList.remove('show'), 3000);
         }
+
+        // Open side cart and reflect the new item immediately, then sync
+        const syncAndOpen = () => {
+          try {
+            if (window.cartSync && typeof window.cartSync.loadCart === 'function') {
+              cart = window.cartSync.loadCart();
+            } else {
+              cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            }
+          } catch (_) {
+            cart = [];
+          }
+          if (typeof updateCartBadge === 'function') updateCartBadge();
+          if (typeof renderCart === 'function') renderCart();
+          if (typeof openSideCart === 'function') openSideCart(addedIndex);
+        };
+
+        // Open now for immediate feedback
+        syncAndOpen();
+        // And also trigger sync shortly after
+        setTimeout(() => {
+          if (window.cartSync && typeof window.cartSync.synchronize === 'function') {
+            window.cartSync.synchronize('add-item-complete');
+          }
+          syncAndOpen();
+        }, 150);
       } catch (error) {
         console.error('Error adding item to cart:', error);
         // Show error message
