@@ -4,7 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="color-scheme" content="light only">
-  <title>Backgammon Custum - Paintz</title>
+  <link rel="icon" type="image/jpeg" href="logo.jpg">
+  <link rel="shortcut icon" type="image/jpeg" href="logo.jpg">
+  <link rel="apple-touch-icon" href="logo.jpg">
+  <title>Backgammon Custum - Paintz | שש בש מותאם אישית - פיינטז</title>
   <link href="https://fonts.googleapis.com/css2?family=Amatica+SC:wght@700&family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="file-upload-styles.css">
@@ -3975,7 +3978,13 @@ function addToCart(item) {
       if (!input.value || input.value === '#000000') {
         input.value = '#5C4638';
       }
-      updateColorDisplay(input);
+      // בדיקה שהפונקציה קיימת לפני הקריאה
+      if (typeof window.updateColorDisplay === 'function') {
+        window.updateColorDisplay(input);
+      } else {
+        // עדכון ישיר של הצבע אם הפונקציה לא זמינה
+        input.style.backgroundColor = input.value;
+      }
     });
   }, 100);
   
@@ -4040,20 +4049,21 @@ document.addEventListener('DOMContentLoaded', function() {
   // Add event listeners to each color input
   colorInputs.forEach(function(input) {
     // Set initial color display
-    updateColorDisplay(input);
+    window.updateColorDisplay(input);
     
     // Add change event listener
     input.addEventListener('change', function() {
-      updateColorDisplay(this);
+      window.updateColorDisplay(this);
     });
     
     // Add input event listener for real-time updates
     input.addEventListener('input', function() {
-      updateColorDisplay(this);
+      window.updateColorDisplay(this);
     });
   });
   
-  function updateColorDisplay(colorInput) {
+  // הפונקציה צריכה להיות זמינה גלובלית
+  window.updateColorDisplay = function(colorInput) {
     const color = colorInput.value;
     
     // Update the input's background color directly
@@ -4066,7 +4076,7 @@ document.addEventListener('DOMContentLoaded', function() {
         element.remove();
       }
     });
-  }
+  };
   
   // Initialize colors immediately and after a short delay
   initializeColors();

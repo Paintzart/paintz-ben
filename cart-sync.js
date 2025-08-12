@@ -812,8 +812,8 @@ function areItemsIdentical(item1, item2) {
     }
     
     // בדיקת הסברים
-    const desc1 = (item1.desc || '').trim();
-    const desc2 = (item2.desc || '').trim();
+    const desc1 = (typeof item1.desc === 'string' ? item1.desc : '').trim();
+    const desc2 = (typeof item2.desc === 'string' ? item2.desc : '').trim();
     
     if (desc1 !== desc2) {
       return false;
@@ -823,8 +823,8 @@ function areItemsIdentical(item1, item2) {
   }
 
   // עבור מוצרים רגילים, בדוק הערות
-  const notes1 = (item1.notes || '').trim();
-  const notes2 = (item2.notes || '').trim();
+  const notes1 = (typeof item1.notes === 'string' ? item1.notes : '').trim();
+  const notes2 = (typeof item2.notes === 'string' ? item2.notes : '').trim();
   
   if (notes1 !== notes2) {
     return false;
