@@ -3104,27 +3104,9 @@ async function validateForm(e) {
       }
     }
     
-    // Verify item was actually added
-    let verificationCart = [];
-    try {
-      if (window.cartSync && typeof window.cartSync.loadCart === 'function') {
-        verificationCart = window.cartSync.loadCart();
-      } else {
-        verificationCart = JSON.parse(localStorage.getItem('cart') || '[]');
-      }
-    } catch (e) {
-      throw new Error('שגיאה בטעינת הסל לאימות');
-    }
-    
-    const itemExists = verificationCart.some(item => 
-      item.title === cartItem.title && 
-      item.subtitle === cartItem.subtitle &&
-      item.id === cartItem.id
-    );
-    
-    if (!itemExists) {
-      console.error('המוצר לא נוסף לסל למרות שלא הייתה שגיאה');
-      throw new Error('המוצר לא נוסף לסל - ייתכן שהקבצים גדולים מדי');
+    // Verify by returned index only (avoid false negatives when items merge)
+    if (typeof targetIndex !== 'number' || targetIndex < 0) {
+      throw new Error('שגיאה בהוספת המוצר לסל');
     }
     
     // Wait for cart-sync to finish, then update UI

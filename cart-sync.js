@@ -635,15 +635,18 @@ function addItem(item) {
   // Load current cart
   const cart = loadCartFromStorage();
   
+  // Sanitize heavy fields to reduce storage size
+  const sanitizedItem = sanitizeItemForStorage(item);
+  
   // Find existing item with exact match
-  const existingIndex = findExistingItemIndex(cart, item);
+  const existingIndex = findExistingItemIndex(cart, sanitizedItem);
   if (existingIndex !== -1) {
     // Update quantity of existing item
-    cart[existingIndex].qty = (cart[existingIndex].qty || 1) + (item.qty || 1);
+    cart[existingIndex].qty = (cart[existingIndex].qty || 1) + (sanitizedItem.qty || 1);
   } else {
     // Add new item
-    if (!item.qty) item.qty = 1;
-    cart.push(item);
+    if (!sanitizedItem.qty) sanitizedItem.qty = 1;
+    cart.push(sanitizedItem);
   }
   
   // Save cart immediately
@@ -651,6 +654,27 @@ function addItem(item) {
   
   // Return index of item in cart
   return existingIndex !== -1 ? existingIndex : cart.length - 1;
+}
+
+// Remove base64 data from files; keep only meta to avoid quota issues
+function sanitizeItemForStorage(item) {
+  try {
+    const clone = JSON.parse(JSON.stringify(item));
+    if (Array.isArray(clone.files)) {
+      clone.files = clone.files.map(f => {
+        if (!f) return f;
+        const { name, type, size, lastModified } = f;
+        return { name, type, size, lastModified };
+      });
+    }
+    if (clone.file && typeof clone.file === 'object') {
+      const { name, type, size, lastModified } = clone.file;
+      clone.file = { name, type, size, lastModified };
+    }
+    return clone;
+  } catch (_) {
+    return item;
+  }
 }
 
 // Function to find existing item in cart
@@ -688,41 +712,70 @@ function findExistingItemIndex(cart, item) {
                           (item.title + ' ' + item.subtitle).toLowerCase().includes('עיצוב אישי');
     
     if (isCustomDesign) {
-      // בדיקת קבצים
+      // בדיקת קבצים (שם/סוג/גודל אם קיים)
       const existingFiles = existing.files || [];
       const itemFiles = item.files || [];
-      
-      // אם יש קבצים שונים, זה לא אותו מוצר
-      if (existingFiles.length !== itemFiles.length) {
-        return false;
-      }
-      
-      // בדיקת שמות הקבצים
-      for (let i = 0; i < existingFiles.length; i++) {
-        const existingFile = existingFiles[i];
-        const itemFile = itemFiles[i];
-        
-        if (!existingFile || !itemFile) {
-          if (existingFile !== itemFile) {
-            return false;
-          }
-          continue;
-        }
-        
-        if (existingFile.name !== itemFile.name || 
-            existingFile.type !== itemFile.type) {
+
+      if (typeof compareFiles === 'function') {
+        if (!compareFiles(existingFiles, itemFiles)) {
           return false;
         }
+      } else {
+        if (existingFiles.length !== itemFiles.length) {
+          return false;
+        }
+        for (let i = 0; i < existingFiles.length; i++) {
+          const ef = existingFiles[i];
+          const nf = itemFiles[i];
+          if (!ef || !nf) {
+            if (ef !== nf) return false;
+            continue;
+          }
+          if (ef.name !== nf.name || ef.type !== nf.type || (ef.size && nf.size && ef.size !== nf.size)) {
+            return false;
+          }
+        }
       }
-      
-      // בדיקת הסברים
-      const existingDesc = (existing.desc || '').trim();
-      const itemDesc = (item.desc || '').trim();
-      
-      if (existingDesc !== itemDesc) {
+
+      // בדיקת הסברים (תמיכה במחרוזת או אובייקט {right,left})
+      const normalizeDesc = (d) => {
+        if (!d) return { right: '', left: '' };
+        if (typeof d === 'string') {
+          const t = d.trim();
+          return { right: t, left: t };
+        }
+        return {
+          right: (d.right || '').toString().trim(),
+          left: (d.left || '').toString().trim()
+        };
+      };
+      const ed = normalizeDesc(existing.desc);
+      const idesc = normalizeDesc(item.desc);
+      if (ed.right !== idesc.right || ed.left !== idesc.left) {
         return false;
       }
-      
+
+      // בדיקת צבעים (colorData) עבור שש בש עיצוב אישי
+      const isBackgammonCustom = ((existing.title + ' ' + existing.subtitle).includes('שש בש') ||
+                                  (item.title + ' ' + item.subtitle).includes('שש בש'));
+      if (isBackgammonCustom) {
+        const colorFields = ['bgOuter', 'bgInnerRight', 'bgInnerLeft', 'triangle1', 'triangle2'];
+        const c1 = existing.colorData || {};
+        const c2 = item.colorData || {};
+        for (const f of colorFields) {
+          const a = c1[f] || {};
+          const b = c2[f] || {};
+          const aText = (a.text || '').toString().trim().toLowerCase();
+          const bText = (b.text || '').toString().trim().toLowerCase();
+          const aHex = (a.color || '').toString().trim().toLowerCase();
+          const bHex = (b.color || '').toString().trim().toLowerCase();
+          if (aText !== bText || aHex !== bHex) {
+            return false;
+          }
+        }
+      }
+
+      // אם כל הבדיקות עברו, זה אותו מוצר
       return true;
     }
     
