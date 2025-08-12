@@ -3130,17 +3130,46 @@ async function validateForm(e) {
       setTimeout(() => toast.classList.remove('show'), 3000);
     }
   } catch (error) {
-    console.error('Error adding item to cart:', error);
-    // Show error message
-    const errorToast = document.getElementById('cartError');
-    if (errorToast) {
-      errorToast.textContent = error.message || 'שגיאה בהוספת המוצר לסל';
-      errorToast.classList.add('show');
-      setTimeout(() => {
-        errorToast.classList.remove('show');
-      }, 3000);
+    // אם המוצר בכל זאת נכנס לסל, אל תציג שגיאה (מצב מרוץ חד-פעמי)
+    try {
+      if (window.cartSync && typeof window.cartSync.loadCart === 'function' && typeof window.cartSync.findExistingIndex === 'function') {
+        const vc = window.cartSync.loadCart();
+        const idx = window.cartSync.findExistingIndex(vc, cartItem);
+        if (idx !== -1) {
+          const toast = document.getElementById('toast');
+          if (toast) {
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 3000);
+          }
+          // המשך כרגיל ללא הצגת שגיאה
+          setTimeout(() => {
+            if (window.cartSync && typeof window.cartSync.synchronize === 'function') {
+              window.cartSync.synchronize('add-item-complete');
+            }
+            if (typeof openSideCart === 'function') {
+              openSideCart(idx);
+            }
+          }, 200);
+          // נצא מה-catch מבלי להציג שגיאה
+          // ונאפשר לזרימה להמשיך ל-reset והחזרה
+        } else {
+          throw error;
+        }
+      } else {
+        throw error;
+      }
+    } catch (err) {
+      console.error('Error adding item to cart:', err);
+      const errorToast = document.getElementById('cartError');
+      if (errorToast) {
+        errorToast.textContent = (err && err.message) || 'שגיאה בהוספת המוצר לסל';
+        errorToast.classList.add('show');
+        setTimeout(() => {
+          errorToast.classList.remove('show');
+        }, 3000);
+      }
+      return false;
     }
-    return false;
   }
   
   // Final synchronization
