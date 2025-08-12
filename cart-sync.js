@@ -58,9 +58,9 @@ function saveCartToStorage(cartData, immediate = false) {
     clearTimeout(saveTimeout);
   }
 
-  const doSave = () => {
+      const doSave = () => {
     try {
-      const cartString = JSON.stringify(cartData);
+      let cartString = JSON.stringify(cartData);
       const cartSizeBytes = new Blob([cartString]).size;
       const cartSizeMB = (cartSizeBytes / (1024 * 1024)).toFixed(2);
       const maxCartSize = 5 * 1024 * 1024; // 5MB max for entire cart (based on typical localStorage limits)
@@ -93,6 +93,7 @@ function saveCartToStorage(cartData, immediate = false) {
         if (compressedSize <= maxCartSize) {
           // Use compressed version
           cartData = compressedCart;
+          cartString = JSON.stringify(cartData);
         } else {
           throw new Error(`הסל גדול מדי (${cartSizeMB}MB). אנא הסר פריטים מהסל או הקטן את הקבצים.`);
         }

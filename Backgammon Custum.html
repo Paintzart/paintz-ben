@@ -3752,12 +3752,21 @@ document.addEventListener('DOMContentLoaded', function() {
       
 
 
-            // Add to cart
+            // Add to cart using centralized API to avoid double-add and size issues
       try {
-        if (typeof addToCart === 'function') {
+        let addedIndex = -1;
+        if (window.cartSync && typeof window.cartSync.addItem === 'function') {
+          addedIndex = window.cartSync.addItem(cartItem);
+        } else if (typeof addToCart === 'function') {
+          // Fallback only if cartSync is unavailable
           addToCart(cartItem);
+          addedIndex = 0;
         }
-        
+
+        if (typeof addedIndex !== 'number' || addedIndex < 0) {
+          throw new Error('שגיאה בהוספת המוצר לסל');
+        }
+
         // Show success message
         const toast = document.getElementById('toast');
         if (toast) {
