@@ -659,23 +659,8 @@ function addItem(item) {
 
 // Remove base64 data from files; keep only meta to avoid quota issues
 function sanitizeItemForStorage(item) {
-  try {
-    const clone = JSON.parse(JSON.stringify(item));
-    if (Array.isArray(clone.files)) {
-      clone.files = clone.files.map(f => {
-        if (!f) return f;
-        const { name, type, size, lastModified } = f;
-        return { name, type, size, lastModified };
-      });
-    }
-    if (clone.file && typeof clone.file === 'object') {
-      const { name, type, size, lastModified } = clone.file;
-      clone.file = { name, type, size, lastModified };
-    }
-    return clone;
-  } catch (_) {
-    return item;
-  }
+  // Restore original behavior: do not strip file data, keep full objects for email attachments
+  return item;
 }
 
 // Function to find existing item in cart
