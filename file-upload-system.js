@@ -323,14 +323,21 @@ class FileUploadSystem {
   
   // פונקציה להמרת קבצים ל-base64 עם דחיסה
   async convertFilesToBase64() {
-    const filesData = await Promise.all(this.storedFiles.map(async file => ({
-      name: file.name,
-      type: file.type,
-      size: file.size,
-      data: await this.fileToBase64(file),
-      lastModified: file.lastModified || Date.now(),
-      uploadTimestamp: new Date().toISOString()
-    })));
+    const filesData = await Promise.all(this.storedFiles.map(async file => {
+      const dataUrl = await this.fileToBase64(file);
+      return {
+        name: file.name,
+        type: file.type,
+        size: file.size,
+        // Primary field used across codebase
+        data: dataUrl,
+        // Duplicate aliases for downstream compatibility (Apps Script, older code)
+        content: dataUrl,
+        base64: dataUrl,
+        lastModified: file.lastModified || Date.now(),
+        uploadTimestamp: new Date().toISOString()
+      };
+    }));
     
     return filesData;
   }
