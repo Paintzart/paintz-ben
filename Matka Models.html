@@ -2424,9 +2424,12 @@ document.getElementById('cartDeleteYes').onclick = function() {
     cartDeleteIdx = null;
   }
   document.getElementById('cartDeleteDialog').style.display = 'none';
-  // החזרת פוקוס לסל הקניות
+  // החזרת פוקוס לכפתור הסגירה של הסל
   setTimeout(() => {
-    document.querySelector('.cart').focus();
+    const closeSideCartBtn = document.getElementById('closeSideCart');
+    if (closeSideCartBtn) {
+      closeSideCartBtn.focus();
+    }
   }, 100);
   
   // Return focus to side cart
@@ -2449,9 +2452,12 @@ document.getElementById('cartDeleteYes').addEventListener('keydown', function(e)
 document.getElementById('cartDeleteNo').onclick = function() {
   cartDeleteIdx = null;
   document.getElementById('cartDeleteDialog').style.display = 'none';
-  // החזרת פוקוס לסל הקניות
+  // החזרת פוקוס לכפתור הסגירה של הסל
   setTimeout(() => {
-    document.querySelector('.cart').focus();
+    const closeSideCartBtn = document.getElementById('closeSideCart');
+    if (closeSideCartBtn) {
+      closeSideCartBtn.focus();
+    }
   }, 100);
   
   // Return focus to side cart

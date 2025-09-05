@@ -2240,18 +2240,13 @@
       dialog.style.display = 'none';
       document.body.style.overflow = '';
       
-      // החזרת פוקוס לסל הקניות
-      setTimeout(() => {
-        document.querySelector('.cart').focus();
-      }, 100);
-      
-      // Return focus to side cart
+      // החזרת פוקוס לכפתור הסגירה של הסל
       setTimeout(() => {
         const closeSideCartBtn = document.getElementById('closeSideCart');
         if (closeSideCartBtn) {
           closeSideCartBtn.focus();
         }
-      }, 200);
+      }, 100);
     });
 
     addClickAndTouchHandler(document.getElementById('cartDeleteNo'), function(e) {
@@ -2262,18 +2257,13 @@
       dialog.style.display = 'none';
       document.body.style.overflow = '';
       
-      // החזרת פוקוס לסל הקניות
-      setTimeout(() => {
-        document.querySelector('.cart').focus();
-      }, 100);
-      
-      // Return focus to side cart
+      // החזרת פוקוס לכפתור הסגירה של הסל
       setTimeout(() => {
         const closeSideCartBtn = document.getElementById('closeSideCart');
         if (closeSideCartBtn) {
           closeSideCartBtn.focus();
         }
-      }, 200);
+      }, 100);
     });
 
     // Add keyboard support for delete dialog buttons
@@ -2287,6 +2277,14 @@
         const dialog = document.getElementById('cartDeleteDialog');
         dialog.style.display = 'none';
         document.body.style.overflow = '';
+        
+        // החזרת פוקוס לכפתור הסגירה של הסל
+        setTimeout(() => {
+          const closeSideCartBtn = document.getElementById('closeSideCart');
+          if (closeSideCartBtn) {
+            closeSideCartBtn.focus();
+          }
+        }, 100);
       }
     });
 
@@ -2297,6 +2295,14 @@
         const dialog = document.getElementById('cartDeleteDialog');
         dialog.style.display = 'none';
         document.body.style.overflow = '';
+        
+        // החזרת פוקוס לכפתור הסגירה של הסל
+        setTimeout(() => {
+          const closeSideCartBtn = document.getElementById('closeSideCart');
+          if (closeSideCartBtn) {
+            closeSideCartBtn.focus();
+          }
+        }, 100);
       }
     });
 

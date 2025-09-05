@@ -3638,9 +3638,12 @@ document.getElementById('cartDeleteDialog').addEventListener('keydown', function
     cartDeleteIdx = null;
     this.style.display = 'none';
     document.body.style.overflow = '';
-    // החזרת פוקוס לסל הקניות
+    // החזרת פוקוס לכפתור הסגירה של הסל
     setTimeout(() => {
-      document.querySelector('.cart').focus();
+      const closeSideCartBtn = document.getElementById('closeSideCart');
+      if (closeSideCartBtn) {
+        closeSideCartBtn.focus();
+      }
     }, 100);
   } else if (e.key === 'Tab') {
     const focusableElements = this.querySelectorAll('button, [tabindex]:not([tabindex="-1"])');
@@ -3711,9 +3714,12 @@ document.getElementById('cartDeleteYes').onclick = function() {
   dialog.style.display = 'none';
   document.body.style.overflow = '';
   
-  // החזרת פוקוס לסל הקניות
+  // החזרת פוקוס לכפתור הסגירה של הסל
   setTimeout(() => {
-    document.querySelector('.cart').focus();
+    const closeSideCartBtn = document.getElementById('closeSideCart');
+    if (closeSideCartBtn) {
+      closeSideCartBtn.focus();
+    }
   }, 100);
   
   // Return focus to side cart
@@ -3730,9 +3736,12 @@ document.getElementById('cartDeleteNo').onclick = function() {
   const dialog = document.getElementById('cartDeleteDialog');
   dialog.style.display = 'none';
   document.body.style.overflow = '';
-  // החזרת פוקוס לסל הקניות
+  // החזרת פוקוס לכפתור הסגירה של הסל
   setTimeout(() => {
-    document.querySelector('.cart').focus();
+    const closeSideCartBtn = document.getElementById('closeSideCart');
+    if (closeSideCartBtn) {
+      closeSideCartBtn.focus();
+    }
   }, 100);
   
   // Return focus to side cart

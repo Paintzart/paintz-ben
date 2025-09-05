@@ -826,6 +826,9 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      text-align: center;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
     }
     
     /* Force font for all elements in copyright section */
@@ -866,9 +869,6 @@
         text-align: center;
         line-height: 1.0;
       }
-      text-align: center;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
     }
 
     /* --- Shop Popup refined styles --- */
@@ -1995,18 +1995,13 @@ function removeFromCart(idx) {
       dialog.style.display = 'none';
       document.body.style.overflow = '';
       
-      // החזרת פוקוס לסל הקניות
-      setTimeout(() => {
-        document.querySelector('.cart').focus();
-      }, 100);
-      
-      // Return focus to side cart
+      // החזרת פוקוס לכפתור הסגירה של הסל
       setTimeout(() => {
         const closeSideCartBtn = document.getElementById('closeSideCart');
         if (closeSideCartBtn) {
           closeSideCartBtn.focus();
         }
-      }, 200);
+      }, 100);
     });
 
     addClickAndTouchHandler(document.getElementById('cartDeleteNo'), function(e) {
@@ -2017,18 +2012,13 @@ function removeFromCart(idx) {
       dialog.style.display = 'none';
       document.body.style.overflow = '';
       
-      // החזרת פוקוס לסל הקניות
-      setTimeout(() => {
-        document.querySelector('.cart').focus();
-      }, 100);
-      
-      // Return focus to side cart
+      // החזרת פוקוס לכפתור הסגירה של הסל
       setTimeout(() => {
         const closeSideCartBtn = document.getElementById('closeSideCart');
         if (closeSideCartBtn) {
           closeSideCartBtn.focus();
         }
-      }, 200);
+      }, 100);
     });
 
     // Add keyboard support for delete dialog buttons
@@ -2042,9 +2032,12 @@ function removeFromCart(idx) {
         const dialog = document.getElementById('cartDeleteDialog');
         dialog.style.display = 'none';
         document.body.style.overflow = '';
-        // החזרת פוקוס לסל הקניות
+        // החזרת פוקוס לכפתור הסגירה של הסל
         setTimeout(() => {
-          document.querySelector('.cart').focus();
+          const closeSideCartBtn = document.getElementById('closeSideCart');
+          if (closeSideCartBtn) {
+            closeSideCartBtn.focus();
+          }
         }, 100);
         
         // Return focus to side cart
@@ -2064,9 +2057,12 @@ function removeFromCart(idx) {
         const dialog = document.getElementById('cartDeleteDialog');
         dialog.style.display = 'none';
         document.body.style.overflow = '';
-        // החזרת פוקוס לסל הקניות
+        // החזרת פוקוס לכפתור הסגירה של הסל
         setTimeout(() => {
-          document.querySelector('.cart').focus();
+          const closeSideCartBtn = document.getElementById('closeSideCart');
+          if (closeSideCartBtn) {
+            closeSideCartBtn.focus();
+          }
         }, 100);
         
         // Return focus to side cart
