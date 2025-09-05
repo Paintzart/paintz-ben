@@ -5,7 +5,7 @@
 .file-upload-container {
   width: calc(100% - 30px);
   max-width: 400px;
-  border: 2px solid #BA8663;
+  border: 2px solid #8B6B47;
   border-radius: 12px;
   padding: 6px 12px;
   text-align: center;
@@ -75,7 +75,7 @@
 /* תצוגת כמות קבצים */
 .file-count-display {
   font-size: 14px;
-  color: #5EA189;
+  color: #4C8467;
   margin-top: 5px;
   font-family: 'Amatica SC', cursive;
   display: none;
@@ -248,7 +248,7 @@
   width: 20px;
   height: 20px;
   margin: -10px 0 0 -10px;
-  border: 2px solid #BA8663;
+  border: 2px solid #8B6B47;
   border-top: 2px solid transparent;
   border-radius: 50%;
   animation: spin 1s linear infinite;
@@ -261,7 +261,7 @@
 
 /* מצבי הצלחה */
 .file-upload-container.success {
-  border-color: #5EA189;
+  border-color: #4C8467;
   background: #f0f8f0;
 }
 
@@ -276,7 +276,7 @@
   position: fixed;
   top: 20px;
   right: 20px;
-  background: #5EA189;
+  background: #4C8467;
   color: white;
   padding: 12px 20px;
   border-radius: 8px;

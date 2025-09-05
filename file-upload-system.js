@@ -213,7 +213,7 @@ class FileUploadSystem {
         } else if (this.storedFiles.length >= 4 || parseFloat(remainingMB) < 2) {
           this.countDisplay.style.color = '#ff8800'; // כתום כשקרוב למגבלה
         } else {
-          this.countDisplay.style.color = '#5EA189'; // ירוק רגיל
+          this.countDisplay.style.color = '#4C8467'; // ירוק רגיל
         }
       } else {
         this.countDisplay.style.display = 'none';
@@ -285,7 +285,7 @@ class FileUploadSystem {
       
       // שינוי צבע לפי סוג ההודעה
       if (isSuccess) {
-        this.errorContainer.style.color = '#5EA189'; // ירוק להודעות הצלחה
+        this.errorContainer.style.color = '#4C8467'; // ירוק להודעות הצלחה
         this.errorContainer.style.background = 'rgba(94, 161, 137, 0.1)';
       } else {
         this.errorContainer.style.color = '#ff4444'; // אדום להודעות שגיאה

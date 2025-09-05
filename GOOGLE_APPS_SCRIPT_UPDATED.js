@@ -61,7 +61,7 @@ function processImageUrl(imageUrl) {
   
   // אם זה נתיב יחסי, נסה להמיר ל-URL מלא
   // כאן תוכל להוסיף את הדומיין שלך
-  const baseUrl = 'https://yardenfad.github.io/paintz-website'; // החלף בדומיין האמיתי של האתר שלך
+  const baseUrl = 'https://paintz.store'; // הדומיין החדש של האתר
   
   // הסר / מההתחלה אם יש
   if (imageUrl.startsWith('/')) {
@@ -2674,7 +2674,7 @@ function validateModelImageUrl(imageUrl) {
       // אם זה דומיין Netlify או GitHub Pages, נשאיר אותו
       const isNetlify = /netlify\.app$/i.test(u.hostname);
       const isGithub = /github\.io$/i.test(u.hostname);
-      const netlifyUrl = 'https://sweet-youtiao-888fc5.netlify.app';
+      const netlifyUrl = 'https://paintz.store';
       let finalUrl;
       if (isNetlify || isGithub) {
         u.pathname = u.pathname
@@ -2699,7 +2699,7 @@ function validateModelImageUrl(imageUrl) {
   
   // אם זה נתיב יחסי של דגם, נמיר ל-URL מלא ב-Netlify
   if (imageUrl.startsWith('Models/')) {
-    const netlifyUrl = 'https://sweet-youtiao-888fc5.netlify.app';
+    const netlifyUrl = 'https://paintz.store';
     let fullUrl = `${netlifyUrl}/${imageUrl}`;
     fullUrl = fullUrl.replace(/\s/g, '%20');
     console.log(`Converted Models image to full URL: ${fullUrl}`);
@@ -2708,7 +2708,7 @@ function validateModelImageUrl(imageUrl) {
   
   // אם זה נתיב יחסי של img, נמיר גם אותו ל-Netlify
   if (imageUrl.startsWith('img/')) {
-    const netlifyUrl = 'https://sweet-youtiao-888fc5.netlify.app';
+    const netlifyUrl = 'https://paintz.store';
     let fullUrl = `${netlifyUrl}/${imageUrl}`;
     fullUrl = fullUrl.replace(/\s/g, '%20');
     console.log(`Converted img image to full URL: ${fullUrl}`);
@@ -2717,7 +2717,7 @@ function validateModelImageUrl(imageUrl) {
   
   // אם זה נתיב יחסי אחר (ללא /), נמיר גם אותו ל-Netlify
   if (imageUrl.includes('.jpg') || imageUrl.includes('.jpeg') || imageUrl.includes('.png') || imageUrl.includes('.JPG')) {
-    const netlifyUrl = 'https://sweet-youtiao-888fc5.netlify.app';
+    const netlifyUrl = 'https://paintz.store';
     let fullUrl = `${netlifyUrl}/${imageUrl}`;
     fullUrl = fullUrl.replace(/\s/g, '%20');
     console.log(`Converted other image to full URL: ${fullUrl}`);
@@ -2745,7 +2745,7 @@ function testModelImages() {
     'img/Matka3.JPG'
   ];
   
-  const baseUrl = 'https://yardenfad.github.io/paintz-website';
+  const baseUrl = 'https://paintz.store';
   
   testImages.forEach((imagePath, index) => {
     const fullUrl = `${baseUrl}/${imagePath}`;
@@ -2779,7 +2779,7 @@ function testCustomDesignImages() {
     'img/img-record1.jpg'   // תקליט עיצוב אישי
   ];
   
-  const baseUrl = 'https://yardenfad.github.io/paintz-website';
+  const baseUrl = 'https://paintz.store';
   
   customImages.forEach((imagePath, index) => {
     console.log(`\n--- Custom Design Image ${index + 1} ---`);
@@ -2818,7 +2818,7 @@ function testShoppingCartImages() {
     'Models/Matka1_1.JPG'     // מטקה דגם
   ];
   
-  const baseUrl = 'https://yardenfad.github.io/paintz-website';
+  const baseUrl = 'https://paintz.store';
   
   cartImages.forEach((imagePath, index) => {
     console.log(`\n--- Shopping Cart Image ${index + 1} ---`);
@@ -2855,7 +2855,7 @@ function testShopPageImages() {
     'canvas.jpg'        // קנבסים
   ];
   
-  const baseUrl = 'https://yardenfad.github.io/paintz-website';
+  const baseUrl = 'https://paintz.store';
   
   shopImages.forEach((imagePath, index) => {
     console.log(`\n--- Shop Page Image ${index + 1} ---`);
@@ -2892,7 +2892,7 @@ function testShopImages() {
     'canvas.jpg'        // קנבסים
   ];
   
-  const baseUrl = 'https://yardenfad.github.io/paintz-website';
+  const baseUrl = 'https://paintz.store';
   
   shopImages.forEach((imageName, index) => {
     console.log(`\n--- Shop Image ${index + 1} ---`);

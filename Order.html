@@ -52,7 +52,7 @@
       display: flex;
       flex-direction: row;
       justify-content: center;
-      align-items: flex-start;
+      align-items: center;
       padding: 8px 10px;
       position: relative;
       width: 100%;
@@ -99,7 +99,7 @@
       width: 100%;
       max-width: 100vw;
       height: 44px;
-      background: #BA8663;
+      background: #8B6B47;
       margin-bottom: 20px;
       box-sizing: border-box;
     }
@@ -123,6 +123,7 @@
       cursor: pointer;
       text-decoration: none;
       justify-content: center;
+      margin: 0;
     }
     /* Footer Section */
     footer {
@@ -161,6 +162,7 @@
       font-size: 22px;
       color: white;
       text-decoration: none;
+      margin: 0;
     }
     .footer-sep {
       font-size: 20px;
@@ -211,11 +213,12 @@
       box-sizing: border-box;
     }
     .copyright-text {
-      width: 180px;
-      height: 20px;
+      width: auto;
+      height: auto;
       font-family: 'Amatica SC', cursive;
       font-weight: 700;
-      font-size: 16px;
+      font-size: 18px;
+      white-space: nowrap;
       color: #000;
       display: flex;
       align-items: center;
@@ -267,6 +270,7 @@
       transition: background 0.2s;
       line-height: 1.2;
       font-size: 18px;
+      margin: 0;
     }
     .shop-popup a:hover, .shop-popup .popup-main-btn:hover {
       background: #f9f1dc;
@@ -300,6 +304,52 @@
       outline: none !important;
       box-shadow: none !important;
       background: transparent;
+      cursor: pointer;
+      font-family: 'Amatica SC', cursive !important;
+      font-weight: 700 !important;
+      font-size: 32px !important;
+      line-height: 48px !important;
+      color: #fff !important;
+      cursor: pointer !important;
+      padding: 0 !important;
+      margin: 0 2vw !important;
+      transform: rotate(0.52deg) !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.04em !important;
+    }
+    
+    /* Focus states for accessibility */
+    *:focus:not(:focus-visible) {
+      outline: none;
+    }
+    
+    *:focus-visible {
+      outline: 2px solid #5B9B86;
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+    
+    .shop-popup-btn:focus-visible {
+      outline: 2px solid #4C8467 !important;
+      outline-offset: 2px !important;
+      background: transparent !important;
+      box-shadow: none !important;
+    }
+    
+    .shop-popup {
+      position: fixed;
+      z-index: 1000;
+    }
+    
+    .shop-popup a:focus-visible,
+    .shop-popup .popup-main-btn:focus-visible {
+      outline: 2px solid #5B9B86;
+      outline-offset: 1px;
+      border-radius: 4px;
+    }
+    
+    .popup-sub.show {
+      display: block !important;
     }
     /* Order Form Styles */
     .order-container {
@@ -422,6 +472,48 @@
       display: none;
     }
 
+    /* Disclaimer Checkbox Styles */
+    .disclaimer-checkbox {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .disclaimer-input {
+      width: 18px;
+      height: 18px;
+      margin: 0;
+      cursor: pointer;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .disclaimer-input.error {
+      outline: 2px solid #e74c3c;
+      outline-offset: 2px;
+    }
+
+    .disclaimer-label {
+      font-family: 'Amatica SC', cursive;
+      font-size: 18px;
+      color: #5A3E36;
+      line-height: 1.4;
+      cursor: pointer;
+      margin: 0;
+      flex: 1;
+    }
+
+    .disclaimer-link {
+      color: #5B9B86;
+      text-decoration: underline;
+      transition: color 0.3s;
+    }
+
+    .disclaimer-link:hover {
+      color: #478C85;
+    }
+
     input[type="tel"] {
       direction: ltr;
       text-align: left;
@@ -499,6 +591,13 @@
         margin: 0 1vw;
         white-space: nowrap;
         flex-shrink: 0;
+        margin: 0;
+      }
+      
+      .shop-popup-btn {
+        font-size: 24px !important;
+        line-height: 40px !important;
+        height: 40px !important;
       }
       
       /* Mobile Footer */
@@ -523,6 +622,7 @@
       
       .footer-link {
         font-size: 18px;
+        margin: 0;
       }
       
       .footer-contact {
@@ -647,14 +747,31 @@
 
     .error-message {
       color: #e74c3c;
+    }
+    
+    .error-toast {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background-color: #ff4444;
+      color: white;
+      padding: 15px 25px;
+      border-radius: 8px;
       font-family: 'Amatica SC', cursive;
-      font-size: 18px;
+      font-size: 20px;
+      font-weight: 700;
+      z-index: 9999;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      opacity: 0;
+      transition: all 0.3s ease;
       text-align: center;
-      margin-top: 15px;
-      padding: 10px;
-      background-color: #fdf2f2;
-      border: 1px solid #f5c6cb;
-      border-radius: 5px;
+      min-width: 250px;
+    }
+    
+    .error-toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
     }
 
     .form-select {
@@ -700,40 +817,43 @@
 <body>
     <div class="body-center">
     <header>
-        <div class="logo"></div>
+        <h1 class="logo" role="img" aria-label="לוגו Paintz - חזרה לעמוד הבית"></h1>
     </header>
     <nav>
-        <a class="nav-link" href="homepage.html">דף הבית</a>
-        <button class="nav-link shop-popup-btn" id="shopPopupBtn" type="button">חנות</button>
-        <a class="nav-link" href="policy.html">מדיניות</a>
-        <a class="nav-link" href="contact.html">צור קשר</a>
+        <h4 class="nav-link" style="margin: 0;"><a href="homepage.html" style="color: inherit; text-decoration: none;">דף הבית</a></h4>
+        <button class="nav-link shop-popup-btn" id="shopPopupBtn" type="button" aria-label="פתח תפריט חנות" aria-expanded="false" aria-haspopup="true" tabindex="0" style="margin: 0;">חנות</button>
+        <h4 class="nav-link" style="margin: 0;"><a href="policy.html" style="color: inherit; text-decoration: none;">מדיניות</a></h4>
+        <h4 class="nav-link" style="margin: 0;"><a href="contact.html" style="color: inherit; text-decoration: none;">צור קשר</a></h4>
     </nav>
     <!-- Popup (ממש אחרי ה-nav) -->
     <div class="shop-popup" id="shopPopup">
       <ul>
-        <li><a href="shop.html">כללי</a></li>
+        <li><h6 style="margin: 0;"><a href="shop.html" style="color: inherit; text-decoration: none;">כללי</a></h6></li>
         <li>
-          <button class="popup-main-btn" type="button" data-target="sheshbesh">שש בש</button>
+          <h6 class="popup-main-btn" data-target="sheshbesh" tabindex="0" style="margin: 0;">שש בש</h6>
           <ul class="popup-sub" id="sub-sheshbesh">
-            <li><a href="Backgammon Custum.html">עיצוב אישי</a></li>
-            <li><a href="Backgammon Models.html">דגמים</a></li>
+            <li><h6 style="margin: 0;"><a href="Backgammon Custum.html" style="color: inherit; text-decoration: none;">עיצוב אישי</a></h6></li>
+            <li><h6 style="margin: 0;"><a href="Backgammon Models.html" style="color: inherit; text-decoration: none;">דגמים</a></h6></li>
           </ul>
         </li>
         <li>
-          <button class="popup-main-btn" type="button" data-target="matkot">מטקות</button>
+          <h6 class="popup-main-btn" data-target="matkot" tabindex="0" style="margin: 0;">מטקות</h6>
           <ul class="popup-sub" id="sub-matkot">
-            <li><a href="Matka Custum.html">עיצוב אישי</a></li>
-            <li><a href="Matka Models.html">דגמים</a></li>
+            <li><h6 style="margin: 0;"><a href="Matka Custum.html" style="color: inherit; text-decoration: none;">עיצוב אישי</a></h6></li>
+            <li><h6 style="margin: 0;"><a href="Matka Models.html" style="color: inherit; text-decoration: none;">דגמים</a></h6></li>
           </ul>
         </li>
-        <li><a href="Canvas.html">קנבסים</a></li>
-        <li><a href="Record.html">תקליטים</a></li>
+        <li><h6 style="margin: 0;"><a href="Canvas.html" style="color: inherit; text-decoration: none;">קנבסים</a></h6></li>
+        <li><h6 style="margin: 0;"><a href="Record.html" style="color: inherit; text-decoration: none;">תקליטים</a></h6></li>
       </ul>
     </div>
     <main style="display: flex; flex-direction: column; align-items: center;">
       <div class="order-container">
         <h1 class="order-title">פרטי הזמנה</h1>
         
+        <div id="errorToast" class="error-toast" role="alert" aria-live="polite">
+          מלא את כל השדות החובה
+        </div>
         <form id="orderForm" novalidate>
           <div class="form-sections-container">
             <div class="form-section">
@@ -803,6 +923,16 @@
             </div>
           </div>
 
+          <div class="form-group">
+            <div class="disclaimer-checkbox">
+              <input type="checkbox" id="disclaimer" name="disclaimer" class="disclaimer-input" required>
+              <label for="disclaimer" class="disclaimer-label">
+                אני מסכים/מסכימה ל<a href="terms-of-service.html" target="_blank" class="disclaimer-link">תנאים ולהגבלות</a> ול<a href="privacy-policy.html" target="_blank" class="disclaimer-link">מדיניות פרטיות</a>, ומאשר/ת יצירת קשר מצד Paintz.
+              </label>
+            </div>
+            <div class="field-error" id="disclaimerError"></div>
+          </div>
+
           <button type="submit" class="submit-btn">שלח/י הזמנה</button>
         </form>
       </div>
@@ -810,40 +940,45 @@
   </div> <!-- סגירת .body-center -->
   <footer>
     <div class="footer-content">
-      <div class="footer-nav">
-        <a href="homepage.html" class="footer-link">דף הבית</a>
-        <span class="footer-sep">│</span>
-        <a href="shop.html" class="footer-link">חנות</a>
-        <span class="footer-sep">│</span>
-        <a href="policy.html" class="footer-link">מדיניות</a>
-        <span class="footer-sep">│</span>
-        <a href="contact.html" class="footer-link">צור קשר</a>
-      </div>
+              <div class="footer-nav">
+          <h5 class="footer-link" style="margin: 0;"><a href="homepage.html" style="color: inherit; text-decoration: none;">דף הבית</a></h5>
+          <span class="footer-sep">│</span>
+          <h5 class="footer-link" style="margin: 0;"><a href="shop.html" style="color: inherit; text-decoration: none;">חנות</a></h5>
+          <span class="footer-sep">│</span>
+          <h5 class="footer-link" style="margin: 0;"><a href="policy.html" style="color: inherit; text-decoration: none;">מדיניות</a></h5>
+          <span class="footer-sep">│</span>
+          <h5 class="footer-link" style="margin: 0;"><a href="contact.html" style="color: inherit; text-decoration: none;">צור קשר</a></h5>
+        </div>
       <div class="footer-contact">
         <div class="footer-contact-item">
           <a href="https://www.instagram.com/paintz.official/" target="_blank" rel="noopener">
-            <img src="instagram.svg" alt="Instagram" class="footer-icon" />
+            <img src="instagram.svg" alt="עקבו אחרינו באינסטגרם" class="footer-icon" />
           </a>
           <span class="footer-contact-text">paintz.official@</span>
         </div>
         <div class="footer-contact-item">
           <a href="mailto:paintz.yf@gmail.com">
-            <img src="email.svg" alt="Email" class="footer-icon" />
+            <img src="email.svg" alt="שליחת אימייל" class="footer-icon" />
           </a>
           <span class="footer-contact-text">paintz.yf@gmail.com</span>
         </div>
         <div class="footer-contact-item">
           <a href="https://maps.google.com/?q=פתח+תקווה" target="_blank">
-            <img src="location.svg" alt="Location" class="footer-icon" />
+            <img src="location.svg" alt="המיקום שלנו בפתח תקווה" class="footer-icon" />
           </a>
           <span class="footer-contact-text">פתח תקווה</span>
         </div>
       </div>
     </div>
-    <div class="footer-logo"></div>
+    <div class="footer-logo" role="img" aria-label="לוגו Paintz"></div>
   </footer>
   <section class="copyright-section">
-    <div class="copyright-text">Paintz 2025©</div>
+    <div class="copyright-text">
+      <a href="privacy-policy.html" style="color: inherit; text-decoration: none; font-size: 18px; font-family: 'Amatica SC', cursive; font-weight: 700;">מדיניות פרטיות</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; 
+      <a href="terms-of-service.html" style="color: inherit; text-decoration: none; font-size: 18px; font-family: 'Amatica SC', cursive; font-weight: 700;">תנאי שימוש</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; 
+      <a href="accessibility-statement.html" style="color: inherit; text-decoration: none; font-size: 18px; font-family: 'Amatica SC', cursive; font-weight: 700;">הצהרת נגישות</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; 
+      Paintz 2025©
+    </div>
   </section>
 
   <div id="successMessage" class="success-message">
@@ -858,6 +993,21 @@
 const shopBtn = document.getElementById('shopPopupBtn');
 const shopPopup = document.getElementById('shopPopup');
 
+// הוספת מאזין ישיר לכפתור החנות
+if (shopBtn) {
+  shopBtn.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      e.stopPropagation();
+      if (shopPopup.style.display === 'block') {
+        closeShopPopup();
+      } else {
+        openShopPopup();
+      }
+    }
+  });
+}
+
 function positionShopPopup() {
   const rect = shopBtn.getBoundingClientRect();
   shopPopup.style.top = rect.bottom + 'px';
@@ -869,9 +1019,20 @@ function positionShopPopup() {
 function openShopPopup() {
   positionShopPopup();
   shopPopup.style.display = 'block';
+  shopBtn.setAttribute('aria-expanded', 'true');
+  
+  // העברת פוקוס לפריט הראשון בתפריט
+  setTimeout(() => {
+    const firstLink = shopPopup.querySelector('a, .popup-main-btn');
+    if (firstLink) {
+      firstLink.focus();
+    }
+  }, 100);
 }
+
 function closeShopPopup() {
   shopPopup.style.display = 'none';
+  shopBtn.setAttribute('aria-expanded', 'false');
   closeAllSubs();
 }
 
@@ -933,6 +1094,41 @@ document.addEventListener('click', function(e) {
     closeShopPopup();
   }
 });
+
+// Keyboard navigation handler
+function handleKeyboardNavigation(event) {
+  const shopPopup = document.getElementById('shopPopup');
+  
+  // Escape לסגירת תפריטים
+  if (event.key === 'Escape') {
+    if (shopPopup.style.display === 'block') {
+      closeShopPopup();
+    }
+  }
+  
+  // Tab לתפריט החנות - לכידת פוקוס
+  if (event.key === 'Tab' && shopPopup.style.display === 'block') {
+    const focusableElements = shopPopup.querySelectorAll('a, .popup-main-btn');
+    const firstElement = focusableElements[0];
+    const lastElement = focusableElements[focusableElements.length - 1];
+    
+    if (event.shiftKey) {
+      // Shift + Tab
+      if (document.activeElement === firstElement) {
+        event.preventDefault();
+        lastElement.focus();
+      }
+    } else {
+      // Tab
+      if (document.activeElement === lastElement) {
+        event.preventDefault();
+        firstElement.focus();
+      }
+    }
+  }
+}
+
+document.addEventListener('keydown', handleKeyboardNavigation);
 function closeAllSubs() {
   document.querySelectorAll('.popup-sub').forEach(sub => sub.style.display = 'none');
 }
@@ -946,6 +1142,22 @@ document.querySelectorAll('.popup-main-btn').forEach(btn => {
     } else {
       closeAllSubs();
       sub.style.display = 'block';
+    }
+  });
+  
+  // הוספת תמיכה במקלדת לכפתורי התפריט המשני
+  btn.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      e.stopPropagation();
+      const target = btn.getAttribute('data-target');
+      const sub = document.getElementById('sub-' + target);
+      if (sub.style.display === 'block') {
+        sub.style.display = 'none';
+      } else {
+        closeAllSubs();
+        sub.style.display = 'block';
+      }
     }
   });
 });
@@ -1117,15 +1329,25 @@ document.getElementById('orderForm').addEventListener('submit', async (e) => {
   // Hide all error messages
   document.getElementById('emailError').style.display = 'none';
   document.getElementById('phoneError').style.display = 'none';
+  document.getElementById('disclaimerError').style.display = 'none';
   
   // Check required fields and mark invalid ones with red border
   let hasErrors = false;
   const requiredFields = form.querySelectorAll('[required]');
   
   requiredFields.forEach(field => {
-    if (!field.value.trim()) {
-      field.style.borderColor = '#e74c3c';
-      hasErrors = true;
+    if (field.type === 'checkbox') {
+      if (!field.checked) {
+        field.classList.add('error');
+        hasErrors = true;
+      } else {
+        field.classList.remove('error');
+      }
+    } else {
+      if (!field.value.trim()) {
+        field.style.borderColor = '#e74c3c';
+        hasErrors = true;
+      }
     }
   });
   
@@ -1169,8 +1391,27 @@ document.getElementById('orderForm').addEventListener('submit', async (e) => {
     phoneError.style.display = 'none';
   }
   
+  // Check disclaimer checkbox specifically
+  const disclaimerField = form.querySelector('#disclaimer');
+  const disclaimerError = document.getElementById('disclaimerError');
+  if (disclaimerField && !disclaimerField.checked) {
+    disclaimerField.classList.add('error');
+    hasErrors = true;
+  } else if (disclaimerField) {
+    disclaimerField.classList.remove('error');
+    disclaimerError.style.display = 'none';
+  }
+  
   // If there are validation errors, don't submit
   if (hasErrors) {
+    // הצגת הודעת שגיאה קופצת
+    const errorToast = document.getElementById('errorToast');
+    if (errorToast) {
+      errorToast.classList.add('show');
+      setTimeout(() => {
+        errorToast.classList.remove('show');
+      }, 3000);
+    }
     return;
   }
   
@@ -1894,5 +2135,18 @@ inputs.forEach(input => {
     this.style.borderColor = '#5B9B86';
   });
 });
+
+// Disclaimer checkbox validation feedback
+const disclaimerCheckbox = document.getElementById('disclaimer');
+if (disclaimerCheckbox) {
+  disclaimerCheckbox.addEventListener('change', function() {
+    if (this.checked) {
+      this.classList.remove('error');
+      document.getElementById('disclaimerError').style.display = 'none';
+    }
+  });
+}
 </script>
+<!-- מערכת ניהול הסכמה לעוגיות -->
+<script src="cookie-consent.js"></script>
 </html> 

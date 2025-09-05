@@ -11,13 +11,33 @@
   <link href="https://fonts.googleapis.com/css2?family=Amatica+SC:wght@700&family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@700&display=swap" rel="stylesheet">
   <style>
-    /* גלילה תקינה */
+    /* נגישות - תמיכה בהגדלת טקסט */
     html {
+      font-size: 16px;
       overflow-x: hidden !important;
       overflow-y: auto !important;
       height: 100% !important;
       width: 100% !important;
       max-width: 100vw !important;
+    }
+    
+    /* נגישות - תמיכה ב-zoom עד 200% */
+    @media screen and (max-width: 1200px) {
+      html {
+        font-size: 18px;
+      }
+    }
+    
+    @media screen and (max-width: 900px) {
+      html {
+        font-size: 20px;
+      }
+    }
+    
+    @media screen and (max-width: 600px) {
+      html {
+        font-size: 22px;
+      }
     }
     
     body {
@@ -46,7 +66,7 @@
       display: flex;
       flex-direction: row;
       justify-content: center;
-      align-items: flex-start;
+      align-items: center;
       padding: 8px 10px;
       position: relative;
       width: 100%;
@@ -114,7 +134,7 @@
       width: 100%;
       max-width: 100vw;
       height: 44px;
-      background: #BA8663;
+      background: #8B6B47; /* שינוי לחום כהה שעומד בתנאי הנגישות */
       margin-bottom: 20px;
       box-sizing: border-box;
     }
@@ -132,7 +152,7 @@
       letter-spacing: 0.04em;
       text-transform: uppercase;
       color: #fff;
-      margin: 0 2vw;
+      margin: 0;
       transform: rotate(0.52deg);
       background: transparent;
       cursor: pointer;
@@ -156,10 +176,9 @@
       font-family: 'Amatica SC', cursive;
       font-weight: 700;
       font-size: 50px;
-      color: #775A47;
+      color: #8B6B47; /* שינוי לחום כהה שעומד בתנאי הנגישות */
       text-align: center;
-      margin-bottom: 30px;
-      margin-top: 0;
+      margin: 0;
       text-transform: uppercase;
       letter-spacing: 0.04em;
     }
@@ -186,8 +205,7 @@
       font-size: 36px;
       color: #3e8f76;
       text-align: center;
-      margin-bottom: 30px;
-      margin-top: 0;
+      margin: 0;
       text-transform: uppercase;
     }
 
@@ -200,7 +218,7 @@
       font-family: 'Rubik', sans-serif;
       font-weight: 700;
       font-size: 16px;
-      color: #775A47;
+      color: #8B6B47; /* שינוי לחום כהה שעומד בתנאי הנגישות */
       margin-bottom: 8px;
     }
 
@@ -216,14 +234,14 @@
       font-family: 'Rubik', sans-serif;
       font-size: 16px;
       background: #fff;
-      color: #775A47;
+      color: #8B6B47;
       box-sizing: border-box;
       transition: border-color 0.3s;
     }
 
     .form-input:focus, .form-textarea:focus {
       outline: none;
-      border-color: #BA8663;
+      border-color: #8B6B47; /* שינוי לחום כהה שעומד בתנאי הנגישות */
     }
 
     .form-textarea {
@@ -234,7 +252,7 @@
     .form-submit {
       width: 100%;
       padding: 15px;
-      background: #5EA189;
+      background: #4C8467; /* שינוי לירוק-כחול כהה שעומד בתנאי הנגישות */
       color: #fff;
       border: none;
       border-radius: 10px;
@@ -248,7 +266,7 @@
     }
 
     .form-submit:hover {
-      background: #4a8a6f;
+      background: #3D6B4A; /* שינוי לירוק כהה יותר שעומד בתנאי הנגישות */
     }
 
     /* Contact Info */
@@ -275,7 +293,7 @@
       font-weight: 700;
       font-size: 26px;
       color: #3e8f76;
-      margin: 0 0 15px 0;
+      margin: 0;
       text-transform: uppercase;
       text-align: center;
       direction: rtl;
@@ -289,7 +307,7 @@
       margin-bottom: 10px;
       font-family: 'Rubik', sans-serif;
       font-size: 16px;
-      color: #775A47;
+      color: #8B6B47; /* שינוי לחום כהה שעומד בתנאי הנגישות */
       text-align: left;
       width: 100%;
       flex-direction: row;
@@ -304,13 +322,13 @@
     }
 
     .contact-link {
-      color: #775A47;
+      color: #8B6B47; /* שינוי לחום כהה שעומד בתנאי הנגישות */
       text-decoration: none;
       transition: color 0.3s;
     }
 
     .contact-link:hover {
-      color: #BA8663;
+      color: #8B6B47; /* שינוי לחום כהה שעומד בתנאי הנגישות */
     }
 
     .how-it-works {
@@ -324,8 +342,8 @@
       font-family: 'Amatica SC', cursive;
       font-weight: 700;
       font-size: 24px;
-      color: #775A47;
-      margin: 0 0 12px 0;
+      color: #8B6B47;
+      margin: 0;
       text-transform: uppercase;
       text-align: center;
       direction: rtl;
@@ -334,7 +352,7 @@
     .how-text {
       font-family: 'Rubik', sans-serif;
       font-size: 15px;
-      color: #775A47;
+      color: #8B6B47;
       line-height: 1.2;
       text-align: center;
       margin: 0;
@@ -381,6 +399,7 @@
       font-size: 22px;
       color: white;
       text-decoration: none;
+      margin: 0;
     }
 
     .footer-sep {
@@ -440,11 +459,12 @@
     }
 
     .copyright-text {
-      width: 180px;
-      height: 20px;
+      width: auto;
+      height: auto;
       font-family: 'Amatica SC', cursive;
       font-weight: 700;
-      font-size: 16px;
+      font-size: 18px;
+      white-space: nowrap;
       color: #000;
       display: flex;
       align-items: center;
@@ -500,6 +520,7 @@
       transition: background 0.2s;
       line-height: 1.2;
       font-size: 18px;
+      margin: 0;
     }
 
     .shop-popup a:hover, .shop-popup .popup-main-btn:hover {
@@ -530,8 +551,8 @@
       padding: 2px 0;
     }
 
-    .shop-popup .active + .popup-sub {
-      display: block;
+    .popup-sub.show {
+      display: block !important;
     }
 
     .shop-popup-btn {
@@ -539,6 +560,103 @@
       outline: none !important;
       box-shadow: none !important;
       background: transparent;
+      font-family: 'Amatica SC', cursive !important;
+      font-weight: 700 !important;
+      font-size: 32px !important;
+      line-height: 48px !important;
+      color: #fff !important;
+      cursor: pointer !important;
+      padding: 0 !important;
+      margin: 0 2vw !important;
+      transform: rotate(0.52deg) !important;
+      text-transform: uppercase !important;
+      letter-spacing: 0.04em !important;
+    }
+    
+    .popup-main-btn {
+      cursor: pointer;
+      outline: none;
+      border: none;
+      background: transparent;
+      font-family: inherit;
+      font-size: inherit;
+      color: inherit;
+      padding: 4px 8px;
+      margin: 2px 0;
+      border-radius: 4px;
+      transition: background-color 0.2s;
+    }
+    
+    .popup-main-btn:hover,
+    .popup-main-btn:focus {
+      background-color: #f0f0f0;
+    }
+    
+    .popup-main-btn:focus-visible {
+      outline: 2px solid #4C8467 !important;
+      outline-offset: 2px !important;
+    }
+    
+    /* נגישות - Focus States */
+    *:focus:not(:focus-visible) {
+      outline: none !important;
+      box-shadow: none !important;
+    }
+    
+    *:focus-visible {
+      outline: 2px solid #4C8467 !important;
+      outline-offset: 2px !important;
+    }
+    
+    .shop-popup-btn:focus-visible {
+      outline: 2px solid #4C8467 !important;
+      outline-offset: 2px !important;
+      background: transparent !important;
+      box-shadow: none !important;
+    }
+    
+    .cart:focus-visible {
+      outline: 2px solid #4C8467 !important;
+      outline-offset: 2px !important;
+      background: transparent !important;
+      box-shadow: none !important;
+    }
+    
+    /* נגישות - Hover States */
+    button:hover, a:hover {
+      opacity: 0.8;
+    }
+    
+    /* נגישות - Skip Link */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 6px;
+      background: #4C8467;
+      color: white;
+      padding: 8px;
+      text-decoration: none;
+      border-radius: 4px;
+      z-index: 10000;
+      font-family: 'Amatica SC', cursive;
+      font-size: 16px;
+    }
+    
+    .skip-link:focus {
+      top: 6px;
+    }
+    
+    /* נגישות - Screen Reader Only */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
     }
 
     /* Responsive */
@@ -729,6 +847,73 @@
       display: none;
     }
 
+    /* Disclaimer Checkbox Styles */
+    .disclaimer-checkbox {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .disclaimer-input {
+      width: 18px;
+      height: 18px;
+      margin: 0;
+      cursor: pointer;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .disclaimer-input.error {
+      outline: 2px solid #e74c3c;
+      outline-offset: 2px;
+    }
+
+    .disclaimer-label {
+      font-family: 'Rubik', sans-serif;
+      font-size: 14px;
+      color: #8B6B47;
+      line-height: 1.4;
+      cursor: pointer;
+      margin: 0;
+      flex: 1;
+    }
+
+    .disclaimer-link {
+      color: #4C8467; /* שינוי לירוק-כחול כהה שעומד בתנאי הנגישות */
+      text-decoration: underline;
+      transition: color 0.3s;
+    }
+
+    .disclaimer-link:hover {
+      color: #3D6B4A; /* שינוי לירוק כהה יותר שעומד בתנאי הנגישות */
+    }
+    
+    .error-toast {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background-color: #ff4444;
+      color: white;
+      padding: 15px 25px;
+      border-radius: 8px;
+      font-family: 'Amatica SC', cursive;
+      font-size: 20px;
+      font-weight: 700;
+      z-index: 9999;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      opacity: 0;
+      transition: all 0.3s ease;
+      text-align: center;
+      min-width: 250px;
+    }
+    
+    .error-toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
     /* Side Cart Styles */
     .cart-overlay {
       display: none;
@@ -777,7 +962,7 @@
       align-items: center;
       padding: 18px 20px 10px 20px;
       border-bottom: 1px solid #eee;
-      background: #BA8663;
+      background: #8B6B47; /* שינוי לחום כהה שעומד בתנאי הנגישות */
     }
     .side-cart-title {
       font-family: 'Amatica SC', cursive;
@@ -789,7 +974,7 @@
       background: none;
       border: none;
       font-size: 32px;
-      color: #775A47;
+      color: #fff;
       cursor: pointer;
       font-family: inherit;
       line-height: 1;
@@ -838,7 +1023,7 @@
     .side-cart-item-title-main, .side-cart-item-title-sub {
       font-size: 20px;
       font-weight: 800;
-      color: #775A47;
+      color: #8B6B47;
       font-family: 'Amatica SC', cursive;
       line-height: 1.08;
       text-align: center;
@@ -860,7 +1045,7 @@
       justify-content: center;
       font-size: 16px;
       font-weight: 400;
-      color: #BA8663;
+      color: #8B6B47; /* שינוי לחום כהה שעומד בתנאי הנגישות */
       width: 32px;
       height: 22px;
       background: #f6eee0;
@@ -902,7 +1087,7 @@
       text-overflow: ellipsis;
     }
     .side-cart-item-details-label {
-      color: #5EA189;
+      color: #4C8467; /* שינוי לירוק-כחול כהה שעומד בתנאי הנגישות */
       font-weight: bold;
       flex-shrink: 0;
       text-align: right;
@@ -959,7 +1144,7 @@
     .side-cart-item-plus-icon {
       font-size: 20px;
       font-weight: bold;
-      color: #5EA189;
+      color: #4C8467; /* שינוי לירוק-כחול כהה שעומד בתנאי הנגישות */
       display: inline-block;
       line-height: 1;
     }
@@ -987,7 +1172,7 @@
     .cart-delete-dialog-title {
       font-family: 'Amatica SC', cursive;
       font-size: 22px;
-      color: #775A47;
+      color: #8B6B47; /* שינוי לחום כהה שעומד בתנאי הנגישות */
       margin-bottom: 18px;
     }
     .cart-delete-dialog-actions {
@@ -1007,7 +1192,7 @@
     }
     .cart-delete-btn-no {
       background: #eee;
-      color: #775A47;
+      color: #8B6B47; /* שינוי לחום כהה שעומד בתנאי הנגישות */
       border: none;
       border-radius: 8px;
       font-size: 18px;
@@ -1028,7 +1213,7 @@
         width: calc(100% - 32px);
         margin: 16px 16px 18px 16px;
         height: 48px;
-        background: #5EA189;
+        background: #4C8467; /* שינוי לירוק-כחול כהה שעומד בתנאי הנגישות */
         color: #fff;
         font-family: 'Amatica SC', cursive;
         font-size: 20px;
@@ -1043,7 +1228,7 @@
       }
       
       .side-cart-view-btn:hover {
-        background: #4b8c74;
+        background: #3D6B4A; /* שינוי לירוק כהה יותר שעומד בתנאי הנגישות */
       }
       
       /* Adjust side-cart-list padding to prevent overlap */
@@ -1059,7 +1244,7 @@
           width: calc(100% - 32px);
           margin: 16px 16px 25px 16px;
           height: 48px;
-          background: #5EA189;
+          background: #4C8467; /* שינוי לירוק-כחול כהה שעומד בתנאי הנגישות */
           color: #fff;
           font-family: 'Amatica SC', cursive;
           font-size: 20px;
@@ -1074,7 +1259,7 @@
         }
         
         .side-cart-view-btn:hover {
-          background: #4b8c74;
+          background: #3D6B4A; /* שינוי לירוק כהה יותר שעומד בתנאי הנגישות */
         }
         
         /* Adjust side-cart-list padding to prevent overlap */
@@ -1176,6 +1361,12 @@
         margin: 0 1vw;
         white-space: nowrap;
         flex-shrink: 0;
+      }
+      
+      .shop-popup-btn {
+        font-size: 24px !important;
+        line-height: 40px !important;
+        height: 40px !important;
       }
       
       /* Mobile Contact Section */
@@ -1328,7 +1519,7 @@
       width: 90%;
       margin: 16px auto 18px auto;
       height: 48px;
-      background: #5EA189;
+      background: #4C8467; /* שינוי לירוק-כחול כהה שעומד בתנאי הנגישות */
       color: #fff;
       font-family: 'Amatica SC', cursive;
       font-size: 24px;
@@ -1340,7 +1531,7 @@
       display: block;
     }
     .side-cart-view-btn:hover {
-      background: #4b8c74;
+      background: #3D6B4A; /* שינוי לירוק כהה יותר שעומד בתנאי הנגישות */
     }
     @media (max-width: 700px) {
       .shop-popup {
@@ -1375,6 +1566,12 @@
   </style>
 </head>
 <body>
+  <!-- נגישות - אזור הודעות לקוראי מסך -->
+  <div id="accessibilityAnnouncements" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+  
+  <!-- נגישות - קישור לקפיצה לתוכן הראשי -->
+  
+  
   <div id="cartOverlay" class="cart-overlay"></div>
   <div id="cartDeleteDialog" class="cart-delete-dialog" style="display:none;">
     <div class="cart-delete-dialog-content">
@@ -1385,45 +1582,38 @@
       </div>
     </div>
   </div>
-  <aside id="sideCart" class="side-cart">
-    <div class="side-cart-header">
-      <span class="side-cart-title">סל קניות</span>
-      <button class="side-cart-close" id="closeSideCart">×</button>
-    </div>
-    <div class="side-cart-list" id="sideCartList">
-      <!-- כאן יתווספו המוצרים -->
-    </div>
-    <button class="side-cart-view-btn" id="viewCartBtn">לצפייה בסל הקניות</button>
-  </aside>
   <div class="body-center">
     <header>
-      <div class="logo"></div>
-      <a class="cart">
-        <div class="cart-icon">
+      <h1 class="logo" alt="לוגו Paintz - חזרה לעמוד הבית"></h1>
+      <a class="cart" aria-label="סל קניות" tabindex="0">
+        <div class="cart-icon" alt="אייקון סל קניות">
           <span class="cart-badge" id="cartBadge" style="display:none;">0</span>
         </div>
       </a>
     </header>
 
     <nav>
-      <a class="nav-link" href="homepage.html">דף הבית</a>
-      <button class="nav-link shop-popup-btn" id="shopPopupBtn" type="button">חנות</button>
-      <a class="nav-link" href="policy.html">מדיניות</a>
-      <a class="nav-link" href="contact.html">צור קשר</a>
+              <h4 class="nav-link" style="margin: 0;"><a href="homepage.html" style="color: inherit; text-decoration: none;">דף הבית</a></h4>
+        <button class="nav-link shop-popup-btn" id="shopPopupBtn" type="button" aria-label="תפריט חנות - לחץ לפתיחה" aria-expanded="false" aria-haspopup="true" style="margin: 0; color: inherit; text-decoration: none; background: none; border: none; font: inherit; cursor: pointer;">חנות</button>
+        <h4 class="nav-link" style="margin: 0;"><a href="policy.html" style="color: inherit; text-decoration: none;">מדיניות</a></h4>
+        <h4 class="nav-link" style="margin: 0;"><a href="contact.html" style="color: inherit; text-decoration: none;">צור קשר</a></h4>
     </nav>
-
-    <section class="contact-section">
-      <h1 class="contact-title">צור קשר</h1>
+    
+    <section class="contact-section" id="main-content">
+      <h2 class="contact-title">צור קשר</h2>
       
       <div class="contact-content">
         <!-- Contact Form -->
         <div class="contact-form">
-          <h2 class="form-title">שלח לנו הודעה</h2>
+          <h3 class="form-title">שלח לנו הודעה</h3>
           
           <div class="success-message" id="successMessage">
             תודה על פנייתך! ההודעה נשלחה בהצלחה. נחזור אליך בהקדם האפשרי.
           </div>
           
+          <div id="errorToast" class="error-toast" role="alert" aria-live="polite">
+            מלא את כל השדות החובה
+          </div>
           <form id="contactForm" novalidate>
             <div class="form-group">
               <label class="form-label" for="name">שם מלא <span class="required-asterisk">*</span></label>
@@ -1452,36 +1642,46 @@
               <textarea id="message" name="message" class="form-textarea" required placeholder="ספר לנו על הרעיון שלך..."></textarea>
             </div>
             
-            <button type="submit" class="form-submit">שלח הודעה</button>
+            <div class="form-group">
+              <div class="disclaimer-checkbox">
+                <input type="checkbox" id="disclaimer" name="disclaimer" class="disclaimer-input" required>
+                <label for="disclaimer" class="disclaimer-label">
+                  אני מסכים/מסכימה ל<a href="terms-of-service.html" target="_blank" class="disclaimer-link">תנאים ולהגבלות</a> ול<a href="privacy-policy.html" target="_blank" class="disclaimer-link">מדיניות פרטיות</a>, ומאשר/ת יצירת קשר מצד Paintz.
+                </label>
+              </div>
+              <div class="field-error" id="disclaimerError"></div>
+            </div>
+            
+            <button type="submit" class="form-submit" aria-label="שלח טופס יצירת קשר">שלח הודעה</button>
           </form>
         </div>
 
         <!-- Contact Info -->
         <div class="contact-info">
           <div class="info-card">
-            <h3 class="info-title">פרטי יצירת קשר</h3>
+            <h4 class="info-title">פרטי יצירת קשר</h3>
             
             <div class="contact-item">
-              <div class="contact-icon" style="background-image: url('email.svg');"></div>
+              <div class="contact-icon" style="background-image: url('email.svg');" role="img" aria-label="אייקון אימייל"></div>
               <a href="mailto:paintz.yf@gmail.com" class="contact-link">paintz.yf@gmail.com</a>
             </div>
             
             <div class="contact-item">
-              <div class="contact-icon" style="background-image: url('instagram.svg');"></div>
+              <div class="contact-icon" style="background-image: url('instagram.svg');" role="img" aria-label="אייקון אינסטגרם"></div>
               <a href="https://www.instagram.com/paintz.official/" target="_blank" class="contact-link">paintz.official@</a>
             </div>
             
             <div class="contact-item">
               <a href="https://maps.google.com/?q=פתח+תקווה" target="_blank">
-                <div class="contact-icon" style="background-image: url('location.svg');"></div>
+                <div class="contact-icon" style="background-image: url('location.svg');" role="img" aria-label="אייקון מיקום"></div>
               </a>
               <a href="https://maps.google.com/?q=פתח+תקווה" target="_blank" class="contact-link"><span>פתח תקווה</span></a>
             </div>
           </div>
           
           <div class="info-card">
-            <h3 class="info-title">זמני תגובה</h3>
-            <p style="text-align: center; color: #775A47; font-family: 'Rubik', sans-serif; line-height: 1.2; margin: 0; font-size: 15px;">
+            <h4 class="info-title">זמני תגובה</h3>
+            <p style="text-align: center; color: #8B6B47; font-family: 'Rubik', sans-serif; line-height: 1.2; margin: 0; font-size: 15px;">
               אנחנו חוזרים לכל הפניות בתוך 24 שעות בימי עבודה.
               <br>
               עבור הזמנות דחופות, צרו קשר דרך האינסטגרם.
@@ -1504,62 +1704,78 @@
   <footer>
     <div class="footer-content">
       <div class="footer-nav">
-        <a href="homepage.html" class="footer-link">דף הבית</a>
+        <h5 class="footer-link" style="margin: 0;"><a href="homepage.html" style="color: inherit; text-decoration: none;">דף הבית</a></h5>
         <span class="footer-sep">│</span>
-        <a href="shop.html" class="footer-link">חנות</a>
+        <h5 class="footer-link" style="margin: 0;"><a href="shop.html" style="color: inherit; text-decoration: none;">חנות</a></h5>
         <span class="footer-sep">│</span>
-        <a href="policy.html" class="footer-link">מדיניות</a>
+        <h5 class="footer-link" style="margin: 0;"><a href="policy.html" style="color: inherit; text-decoration: none;">מדיניות</a></h5>
         <span class="footer-sep">│</span>
-        <a href="contact.html" class="footer-link">צור קשר</a>
+        <h5 class="footer-link" style="margin: 0;"><a href="contact.html" style="color: inherit; text-decoration: none;">צור קשר</a></h5>
       </div>
       <div class="footer-contact">
         <div class="footer-contact-item">
           <a href="https://www.instagram.com/paintz.official/" target="_blank" rel="noopener">
-            <img src="instagram.svg" alt="Instagram" class="footer-icon" />
+            <img src="instagram.svg" alt="עקבו אחרינו באינסטגרם" class="footer-icon" />
           </a>
           <span class="footer-contact-text">  paintz.official@</span>
         </div>
         <div class="footer-contact-item">
           <a href="mailto:paintz.yf@gmail.com">
-            <img src="email.svg" alt="Email" class="footer-icon" />
+            <img src="email.svg" alt="שליחת אימייל" class="footer-icon" />
           </a>
           <span class="footer-contact-text">  paintz.yf@gmail.com</span>
         </div>
         <div class="footer-contact-item">
           <a href="https://maps.google.com/?q=פתח+תקווה" target="_blank">
-            <img src="location.svg" alt="Location" class="footer-icon" />
+            <img src="location.svg" alt="המיקום שלנו בפתח תקווה" class="footer-icon" />
           </a>
           <span class="footer-contact-text">פתח תקווה  </span>
         </div>
       </div>
     </div>
-    <div class="footer-logo"></div>
+    <div class="footer-logo" role="img" aria-label="לוגו Paintz"></div>
   </footer>
   
   <section class="copyright-section">
-    <div class="copyright-text">Paintz 2025©</div>
+    <div class="copyright-text">
+      <a href="privacy-policy.html" style="color: inherit; text-decoration: none; font-size: 18px; font-family: 'Amatica SC', cursive; font-weight: 700;">מדיניות פרטיות</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; 
+      <a href="terms-of-service.html" style="color: inherit; text-decoration: none; font-size: 18px; font-family: 'Amatica SC', cursive; font-weight: 700;">תנאי שימוש</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; 
+      <a href="accessibility-statement.html" style="color: inherit; text-decoration: none; font-size: 18px; font-family: 'Amatica SC', cursive; font-weight: 700;">הצהרת נגישות</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; 
+      Paintz 2025©
+    </div>
   </section>
+  
+  <aside id="sideCart" class="side-cart">
+    <div class="side-cart-header">
+      <span class="side-cart-title">סל קניות</span>
+      <button class="side-cart-close" id="closeSideCart">×</button>
+    </div>
+    <div class="side-cart-list" id="sideCartList">
+      <!-- כאן יתווספו המוצרים -->
+    </div>
+    <button class="side-cart-view-btn" id="viewCartBtn" aria-label="לצפייה בסל הקניות">לצפייה בסל הקניות</button>
+  </aside>
 
   <!-- Popup Menu -->
   <div class="shop-popup" id="shopPopup">
     <ul>
-      <li><a href="shop.html">כללי</a></li>
+              <li><h6 style="margin: 0;"><a href="shop.html" style="color: inherit; text-decoration: none;">כללי</a></h6></li>
       <li>
-        <button class="popup-main-btn" type="button" data-target="sheshbesh">שש בש</button>
+        <h6 class="popup-main-btn" type="button" data-target="sheshbesh" tabindex="0" style="margin: 0;">שש בש</h6>
         <ul class="popup-sub" id="sub-sheshbesh">
-          <li><a href="Backgammon Custum.html">עיצוב אישי</a></li>
-          <li><a href="Backgammon Models.html">דגמים</a></li>
+                      <li><h6 style="margin: 0;"><a href="Backgammon Custum.html" style="color: inherit; text-decoration: none;">עיצוב אישי</a></h6></li>
+            <li><h6 style="margin: 0;"><a href="Backgammon Models.html" style="color: inherit; text-decoration: none;">דגמים</a></h6></li>
         </ul>
       </li>
       <li>
-        <button class="popup-main-btn" type="button" data-target="matkot">מטקות</button>
+        <h6 class="popup-main-btn" type="button" data-target="matkot" tabindex="0" style="margin: 0;">מטקות</h6>
         <ul class="popup-sub" id="sub-matkot">
-          <li><a href="Matka Custum.html">עיצוב אישי</a></li>
-          <li><a href="Matka Models.html">דגמים</a></li>
+                      <li><h6 style="margin: 0;"><a href="Matka Custum.html" style="color: inherit; text-decoration: none;">עיצוב אישי</a></h6></li>
+            <li><h6 style="margin: 0;"><a href="Matka Models.html" style="color: inherit; text-decoration: none;">דגמים</a></h6></li>
         </ul>
       </li>
-      <li><a href="Canvas.html">קנבסים</a></li>
-      <li><a href="Record.html">תקליטים</a></li>
+              <li><h6 style="margin: 0;"><a href="Canvas.html" style="color: inherit; text-decoration: none;">קנבסים</a></h6></li>
+        <li><h6 style="margin: 0;"><a href="Record.html" style="color: inherit; text-decoration: none;">תקליטים</a></h6></li>
     </ul>
   </div>
 
@@ -1572,6 +1788,7 @@
       if (sideCart) {
         sideCart.classList.remove('active');
       }
+      setSubmenuEvents();
     });
     // Initialize EmailJS
     (function(){
@@ -1579,9 +1796,65 @@
   
     })();
 
-    // --- Shop Popup Logic - Simplified to match other pages ---
-    const shopBtn = document.getElementById('shopPopupBtn');
-    const shopPopup = document.getElementById('shopPopup');
+    // --- נגישות - הודעות לקוראי מסך ---
+function announceToScreenReader(message) {
+  const announcements = document.getElementById('accessibilityAnnouncements');
+  if (announcements) {
+    announcements.textContent = message;
+  }
+}
+
+// --- נגישות - ניווט במקלדת ---
+function handleKeyboardNavigation(event) {
+  const shopBtn = document.getElementById('shopPopupBtn');
+  const shopPopup = document.getElementById('shopPopup');
+  
+  // Enter או Space לפתיחת תפריט החנות
+  if ((event.key === 'Enter' || event.key === ' ') && event.target === shopBtn) {
+    event.preventDefault();
+    if (shopPopup.style.display === 'block') {
+      closeShopPopup();
+    } else {
+      openShopPopup();
+    }
+  }
+  
+  // Escape לסגירת תפריטים
+  if (event.key === 'Escape') {
+    if (shopPopup.style.display === 'block') {
+      closeShopPopup();
+    }
+    if (document.getElementById('cartDeleteDialog').style.display === 'flex') {
+      document.getElementById('cartDeleteDialog').style.display = 'none';
+      // החזרת פוקוס לסל הקניות
+      setTimeout(() => {
+        document.querySelector('.cart').focus();
+      }, 100);
+    }
+  }
+  
+  // Tab לתפריט החנות - לכידת פוקוס
+  if (event.key === 'Tab' && shopPopup.style.display === 'block') {
+    const focusableElements = shopPopup.querySelectorAll('a, button, [tabindex]:not([tabindex="-1"])');
+    const firstElement = focusableElements[0];
+    const lastElement = focusableElements[focusableElements.length - 1];
+    
+    if (event.shiftKey && document.activeElement === firstElement) {
+      event.preventDefault();
+      lastElement.focus();
+    } else if (!event.shiftKey && document.activeElement === lastElement) {
+      event.preventDefault();
+      firstElement.focus();
+    }
+  }
+}
+
+// הוספת מאזין לניווט במקלדת
+document.addEventListener('keydown', handleKeyboardNavigation);
+
+// --- Shop Popup Logic - Simplified to match other pages ---
+const shopBtn = document.getElementById('shopPopupBtn');
+const shopPopup = document.getElementById('shopPopup');
 
     function positionShopPopup() {
       const rect = shopBtn.getBoundingClientRect();
@@ -1592,44 +1865,25 @@
     }
 
     function openShopPopup() {
-      positionShopPopup();
-      shopPopup.style.display = 'block';
+  positionShopPopup();
+  shopPopup.style.display = 'block';
+  shopBtn.setAttribute('aria-expanded', 'true');
+  
+  // העברת פוקוס לפריט הראשון בתפריט
+  setTimeout(() => {
+    const firstItem = shopPopup.querySelector('a, .popup-main-btn');
+    if (firstItem) {
+      firstItem.focus();
     }
+  }, 100);
+}
     function closeShopPopup() {
-      shopPopup.style.display = 'none';
-      closeAllSubs();
-    }
+  shopPopup.style.display = 'none';
+  closeAllSubs();
+  shopBtn.setAttribute('aria-expanded', 'false');
+}
 
-    // Add sub-menu handling
-    const mainButtons = document.querySelectorAll('.popup-main-btn');
-    mainButtons.forEach(btn => {
-      btn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        const target = this.dataset.target;
-        const subMenu = document.getElementById('sub-' + target);
-        
-        // Close all other sub-menus first
-        document.querySelectorAll('.popup-sub').forEach(sub => {
-          if (sub !== subMenu) {
-            sub.style.display = 'none';
-          }
-        });
-        
-        // Toggle current sub-menu
-        if (subMenu) {
-          const isVisible = subMenu.style.display === 'block';
-          subMenu.style.display = isVisible ? 'none' : 'block';
-          
-          // Remove active class from all buttons
-          mainButtons.forEach(b => b.classList.remove('active'));
-          
-          // Add active class to current button if sub-menu is visible
-          if (!isVisible) {
-            this.classList.add('active');
-          }
-        }
-      });
-    });
+    // Sub-menu handling is now managed by setSubmenuEvents()
 
     function setShopPopupEvents() {
       if (window.innerWidth > 700) {
@@ -1689,7 +1943,89 @@
       }
     });
     function closeAllSubs() {
-      document.querySelectorAll('.popup-sub').forEach(sub => sub.style.display = 'none');
+      document.querySelectorAll('.popup-sub').forEach(sub => sub.classList.remove('show'));
+    }
+    
+    function setSubmenuEvents() {
+      const isDesktop = window.innerWidth > 700;
+      
+      // ניקוי מאזינים ישנים
+      document.querySelectorAll('.popup-main-btn').forEach(btn => {
+        const newBtn = btn.cloneNode(true);
+        btn.parentNode.replaceChild(newBtn, btn);
+      });
+      
+      // הוספת מאזינים חדשים
+      document.querySelectorAll('.popup-main-btn').forEach(btn => {
+        const target = btn.getAttribute('data-target');
+        const sub = document.getElementById('sub-' + target);
+        
+        if (sub) {
+          // Desktop: open submenus only on click
+          btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            if (sub.classList.contains('show')) {
+              sub.classList.remove('show');
+            } else {
+              closeAllSubs();
+              sub.classList.add('show');
+              
+              // העברת פוקוס לפריט הראשון בתפריט המשני
+              setTimeout(() => {
+                const firstSubItem = sub.querySelector('a');
+                if (firstSubItem) {
+                  firstSubItem.focus();
+                }
+              }, 100);
+            }
+          });
+          
+          // הוספת מאזיני מקלדת לתפריטים משניים
+          btn.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              if (sub.classList.contains('show')) {
+                sub.classList.remove('show');
+              } else {
+                closeAllSubs();
+                sub.classList.add('show');
+                
+                // העברת פוקוס לפריט הראשון בתפריט המשני
+                setTimeout(() => {
+                  const firstSubItem = sub.querySelector('a');
+                  if (firstSubItem) {
+                    firstSubItem.focus();
+                  }
+                }, 100);
+              }
+            }
+          });
+          
+          // לכידת פוקוס בתפריט המשני
+          sub.addEventListener('keydown', function(e) {
+            if (e.key === 'Tab') {
+              const focusableElements = sub.querySelectorAll('a, [tabindex]:not([tabindex="-1"])');
+              if (focusableElements.length > 0) {
+                if (e.shiftKey && document.activeElement === focusableElements[0]) {
+                  e.preventDefault();
+                  btn.focus(); // חוזר לכפתור הראשי
+                } else if (!e.shiftKey && document.activeElement === focusableElements[focusableElements.length - 1]) {
+                  e.preventDefault();
+                  // עובר לפריט הבא בתפריט הראשי
+                  const nextMainItem = btn.closest('li').nextElementSibling;
+                  if (nextMainItem) {
+                    const nextMainBtn = nextMainItem.querySelector('a, .popup-main-btn, [tabindex]:not([tabindex="-1"])');
+                    if (nextMainBtn) nextMainBtn.focus();
+                  } else {
+                    // אם אין פריט הבא, חוזר לכפתור הראשי
+                    btn.focus();
+                  }
+                }
+              }
+            }
+          });
+        }
+      });
     }
 
     // Contact form functionality - using EmailJS
@@ -1726,15 +2062,25 @@
       // Hide all error messages
       document.getElementById('emailError').style.display = 'none';
       document.getElementById('phoneError').style.display = 'none';
+      document.getElementById('disclaimerError').style.display = 'none';
       
       // Check required fields and mark invalid ones with red border
       let hasErrors = false;
       const requiredFields = form.querySelectorAll('[required]');
       
       requiredFields.forEach(field => {
-        if (!field.value.trim()) {
-          field.style.borderColor = '#e74c3c';
-          hasErrors = true;
+        if (field.type === 'checkbox') {
+          if (!field.checked) {
+            field.classList.add('error');
+            hasErrors = true;
+          } else {
+            field.classList.remove('error');
+          }
+        } else {
+          if (!field.value.trim()) {
+            field.style.borderColor = '#e74c3c';
+            hasErrors = true;
+          }
         }
       });
       
@@ -1778,8 +2124,27 @@
         phoneError.style.display = 'none';
       }
       
+      // Check disclaimer checkbox specifically
+      const disclaimerField = form.querySelector('#disclaimer');
+      const disclaimerError = document.getElementById('disclaimerError');
+      if (disclaimerField && !disclaimerField.checked) {
+        disclaimerField.classList.add('error');
+        hasErrors = true;
+      } else if (disclaimerField) {
+        disclaimerField.classList.remove('error');
+        disclaimerError.style.display = 'none';
+      }
+
       // If there are validation errors, don't submit
       if (hasErrors) {
+        // הצגת הודעת שגיאה קופצת
+        const errorToast = document.getElementById('errorToast');
+        if (errorToast) {
+          errorToast.classList.add('show');
+          setTimeout(() => {
+            errorToast.classList.remove('show');
+          }, 3000);
+        }
         return;
       }
       
@@ -1877,9 +2242,20 @@
       });
       
       input.addEventListener('focus', function() {
-        this.style.borderColor = '#BA8663';
+        this.style.borderColor = '#8B6B47'; /* שינוי לחום כהה שעומד בתנאי הנגישות */
       });
     });
+
+    // Disclaimer checkbox validation feedback
+    const disclaimerCheckbox = document.getElementById('disclaimer');
+    if (disclaimerCheckbox) {
+      disclaimerCheckbox.addEventListener('change', function() {
+        if (this.checked) {
+          this.classList.remove('error');
+          document.getElementById('disclaimerError').style.display = 'none';
+        }
+      });
+    }
 
     // Cart badge (load from localStorage like other pages)
     const cartBadge = document.getElementById('cartBadge');
@@ -2101,7 +2477,7 @@ document.addEventListener('DOMContentLoaded', function() {
       sideCartList.innerHTML = '';
       
       if (!cart.length) {
-        sideCartList.innerHTML = '<div style="text-align: center; padding: 20px; font-family: \'Amatica SC\', cursive; font-size: 20px; color: #775A47;">העגלה ריקה</div>';
+        sideCartList.innerHTML = '<div style="text-align: center; padding: 20px; font-family: \'Amatica SC\', cursive; font-size: 20px; color: #8B6B47;">העגלה ריקה</div>';
         return;
       }
       
@@ -2133,18 +2509,18 @@ document.addEventListener('DOMContentLoaded', function() {
             <div style="flex: 1; height: 100%; display: flex; align-items: center;">
               <div style="width: 100%; display: flex; flex-direction: column; gap: 8px;">
                 <div style="height: 30px; display: flex; align-items: center; justify-content: center;">
-                  <span style="font-family: 'Amatica SC', cursive; font-size: 22px; font-weight: bold; color: #775A47; text-align: center; line-height: 1.1;">${mainTitle}</span>
+                  <span style="font-family: 'Amatica SC', cursive; font-size: 22px; font-weight: bold; color: #8B6B47; text-align: center; line-height: 1.1;">${mainTitle}</span>
                 </div>
                 <div style="height: 24px; display: flex; align-items: center; justify-content: center;">
-                  <span style="font-family: 'Amatica SC', cursive; font-size: 16px; color: #BA8663; text-align: center; font-weight: normal;">${subTitle}</span>
+                  <span style="font-family: 'Amatica SC', cursive; font-size: 16px; color: #8B6B47; text-align: center; font-weight: normal;">${subTitle}</span>
                 </div>
             ${window.cartSync && window.cartSync.renderCartPrice ? window.cartSync.renderCartPrice(item) : ''}
               </div>
             </div>
             <div style="width: 48px; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; margin-left: 8px;">
-              <button class="side-cart-item-add-btn" title="הוסף" style="background: none; border: none; font-size: 22px; color: #5EA189; cursor: pointer; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;">+</button>
-              <span class="side-cart-item-qty" style="width: 32px; height: 28px; font-size: 18px; color: #BA8663; display: flex; align-items: center; justify-content: center; background: none; border-radius: 0; border: none; font-family: 'Amatica SC', cursive; font-weight: bold;">${item.qty}</span>
-              <button class="side-cart-item-minus-btn" title="הפחת" style="background: none; border: none; font-size: 22px; color: #5EA189; cursor: pointer; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;">–</button>
+              <button class="side-cart-item-add-btn" title="הוסף" style="background: none; border: none; font-size: 22px; color: #4C8467; cursor: pointer; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;">+</button>
+              <span class="side-cart-item-qty" style="width: 32px; height: 28px; font-size: 18px; color: #8B6B47; display: flex; align-items: center; justify-content: center; background: none; border-radius: 0; border: none; font-family: 'Amatica SC', cursive; font-weight: bold;">${item.qty}</span>
+                              <button class="side-cart-item-minus-btn" title="הפחת" style="background: none; border: none; font-size: 22px; color: #4C8467; cursor: pointer; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;">–</button>
             </div>
           </div>
           <div class="side-cart-item-details" style="padding: 0 0 8px 0;">
@@ -2199,21 +2575,59 @@ document.addEventListener('DOMContentLoaded', function() {
       sideCart.classList.add('active');
       cartOverlay.classList.add('active');
       document.body.style.overflow = 'hidden';
+      
+      // העברת פוקוס לכפתור הסגירה
+      setTimeout(() => {
+        if (closeSideCartBtn) {
+          closeSideCartBtn.focus();
+        }
+      }, 100);
     }
 
     function closeSideCart() {
       sideCart.classList.remove('active');
       cartOverlay.classList.remove('active');
       document.body.style.overflow = '';
+      
+      // החזרת פוקוס לאייקון הסל קניות
+      setTimeout(() => {
+        if (cartBtn) {
+          cartBtn.focus();
+        }
+      }, 100);
     }
 
     cartBtn.addEventListener('click', function(e) {
       e.preventDefault();
       openSideCart();
     });
+    
+    cartBtn.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openSideCart();
+      }
+    });
 
     cartOverlay.addEventListener('click', closeSideCart);
     closeSideCartBtn.addEventListener('click', closeSideCart);
+    
+    // לכידת פוקוס בסל הקניות
+    sideCart.addEventListener('keydown', function(e) {
+      if (e.key === 'Tab') {
+        const focusableElements = sideCart.querySelectorAll('button, a, [tabindex]:not([tabindex="-1"])');
+        const firstElement = focusableElements[0];
+        const lastElement = focusableElements[focusableElements.length - 1];
+        
+        if (e.shiftKey && document.activeElement === firstElement) {
+          e.preventDefault();
+          lastElement.focus();
+        } else if (!e.shiftKey && document.activeElement === lastElement) {
+          e.preventDefault();
+          firstElement.focus();
+        }
+      }
+    });
 
     viewCartBtn.addEventListener('click', function() {
       window.location.href = 'Shopping Cart.html';
@@ -2236,7 +2650,16 @@ document.addEventListener('DOMContentLoaded', function() {
     let cartDeleteIdx = null;
     function showDeleteDialog(idx) {
       cartDeleteIdx = idx;
-      document.getElementById('cartDeleteDialog').style.display = 'flex';
+      const dialog = document.getElementById('cartDeleteDialog');
+      dialog.style.display = 'flex';
+      
+      // העברת פוקוס לכפתור "כן"
+      setTimeout(() => {
+        const yesBtn = document.getElementById('cartDeleteYes');
+        if (yesBtn) {
+          yesBtn.focus();
+        }
+      }, 100);
     }
 
     document.getElementById('cartDeleteYes').onclick = function() {
@@ -2245,12 +2668,53 @@ document.addEventListener('DOMContentLoaded', function() {
         cartDeleteIdx = null;
       }
       document.getElementById('cartDeleteDialog').style.display = 'none';
+      // החזרת פוקוס לסל הקניות
+      setTimeout(() => {
+        document.querySelector('.cart').focus();
+      }, 100);
+      
+      // Return focus to side cart
+      setTimeout(() => {
+        const closeSideCartBtn = document.getElementById('closeSideCart');
+        if (closeSideCartBtn) {
+          closeSideCartBtn.focus();
+        }
+      }, 200);
     };
 
     document.getElementById('cartDeleteNo').onclick = function() {
       cartDeleteIdx = null;
       document.getElementById('cartDeleteDialog').style.display = 'none';
+      // החזרת פוקוס לסל הקניות
+      setTimeout(() => {
+        document.querySelector('.cart').focus();
+      }, 100);
+      
+      // Return focus to side cart
+      setTimeout(() => {
+        const closeSideCartBtn = document.getElementById('closeSideCart');
+        if (closeSideCartBtn) {
+          closeSideCartBtn.focus();
+        }
+      }, 200);
     };
+    
+    // לכידת פוקוס בדיאלוג המחיקה
+    document.getElementById('cartDeleteDialog').addEventListener('keydown', function(e) {
+      if (e.key === 'Tab') {
+        const focusableElements = this.querySelectorAll('button, [tabindex]:not([tabindex="-1"])');
+        const firstElement = focusableElements[0];
+        const lastElement = focusableElements[focusableElements.length - 1];
+        
+        if (e.shiftKey && document.activeElement === firstElement) {
+          e.preventDefault();
+          lastElement.focus();
+        } else if (!e.shiftKey && document.activeElement === lastElement) {
+          e.preventDefault();
+          firstElement.focus();
+        }
+      }
+    });
 
     // Initialize
     updateCartBadge();
@@ -2277,5 +2741,7 @@ document.addEventListener('DOMContentLoaded', function() {
     setTimeout(ensureViewCartButtonVisibleOniPad, 1000);
     setTimeout(ensureViewCartButtonVisibleOniPad, 2000);
   </script>
+<!-- מערכת ניהול הסכמה לעוגיות -->
+<script src="cookie-consent.js"></script>
 </body>
 </html> 

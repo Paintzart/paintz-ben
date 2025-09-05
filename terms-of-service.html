@@ -7,7 +7,7 @@
   <link rel="icon" type="image/jpeg" href="logo.jpg">
   <link rel="shortcut icon" type="image/jpeg" href="logo.jpg">
   <link rel="apple-touch-icon" href="logo.jpg">
-  <title>Policy - Paintz | מדיניות - פיינטז</title>
+      <title>Terms of Service - Paintz | תנאי שימוש - פיינטז</title>
   <link href="https://fonts.googleapis.com/css2?family=Amatica+SC:wght@700&family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700;900&display=swap" rel="stylesheet">
   <!-- <link href="./css/main.css" rel="stylesheet"> -->
@@ -218,9 +218,9 @@
       text-shadow: none;
     }
     .policy-box {
-      background: rgba(255, 249, 240, 0.94);
+      background: #fff;
       border-radius: 32px;
-      box-shadow: 0 4px 24px #0002;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.12);
       padding: 30px 25px;
       margin: 30px 20px;
       max-width: calc(100% - 40px);
@@ -238,19 +238,64 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: url('IMG_8558.JPG') no-repeat center center;
-      background-size: cover;
+      background: #F9F1DC;
       position: relative;
       z-index: 1;
     }
 
-    .policy-bg-box::before {
-      content: "";
+    /* Policy content styles */
+    .policy-content {
+      font-family: 'Arial', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: #424242;
+      text-align: right;
+      width: 100%;
+      max-width: 800px;
+    }
+
+    .policy-content h2 {
+      font-family: 'Amatica SC', cursive;
+      font-size: 28px;
+      font-weight: 700;
+      color: #4C8467;
+      margin-top: 30px;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+    }
+
+    .policy-content h3 {
+      font-family: 'Amatica SC', cursive;
+      font-size: 22px;
+      font-weight: 700;
+      color: #8B4513;
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+
+    .policy-content p {
+      margin-bottom: 15px;
+    }
+
+    .policy-content ul, .policy-content ol {
+      margin-right: 20px;
+      margin-bottom: 15px;
+      list-style: none;
+      padding-right: 0;
+    }
+
+    .policy-content li {
+      margin-bottom: 8px;
+      position: relative;
+      padding-right: 15px;
+    }
+
+    .policy-content li::before {
+      content: "-";
       position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(255,255,255,0.55);
-      z-index: 2;
-      border-radius: inherit;
+      right: 0;
+      color: #4C8467;
+      font-weight: bold;
     }
     /* Footer Section */
     footer {
@@ -356,13 +401,13 @@
     /* --- Shop Popup refined styles --- */
     .shop-popup {
       display: none;
-      position: fixed;
+      position: absolute;
       top: 100%;
       right: 0;
       left: auto;
       background: #fff;
       border-radius: 12px;
-      box-shadow: 0 2px 12px #0002;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.12);
       z-index: 1000;
       min-width: 140px;
       padding: 4px 0;
@@ -407,10 +452,14 @@
       top: 0;
       background: #f6eee0;
       border-radius: 8px;
-      box-shadow: 0 2px 8px #0001;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
       padding: 2px 0;
       min-width: 110px;
       z-index: 101;
+    }
+    
+    .popup-sub.show {
+      display: block !important;
     }
     .popup-sub li {
       margin-bottom: 0;
@@ -422,7 +471,7 @@
       padding: 2px 0;
     }
     .popup-sub.show {
-      display: block !important;
+      display: block;
     }
     .shop-popup-btn {
       border: none !important;
@@ -465,68 +514,6 @@
       outline: 2px solid #4C8467 !important;
       outline-offset: 2px !important;
     }
-    
-    /* נגישות - Focus States */
-    *:focus:not(:focus-visible) {
-      outline: none !important;
-      box-shadow: none !important;
-    }
-    
-    *:focus-visible {
-      outline: 2px solid #4C8467 !important;
-      outline-offset: 2px !important;
-    }
-    
-    .shop-popup-btn:focus-visible {
-      outline: 2px solid #4C8467 !important;
-      outline-offset: 2px !important;
-      background: transparent !important;
-      box-shadow: none !important;
-    }
-    
-    .cart:focus-visible {
-      outline: 2px solid #4C8467 !important;
-      outline-offset: 2px !important;
-      background: transparent !important;
-      box-shadow: none !important;
-    }
-    
-    /* נגישות - Hover States */
-    button:hover, a:hover {
-      opacity: 0.8;
-    }
-    
-    /* נגישות - Skip Link */
-    .skip-link {
-      position: absolute;
-      top: -40px;
-      left: 6px;
-      background: #4C8467;
-      color: white;
-      padding: 8px;
-      text-decoration: none;
-      border-radius: 4px;
-      z-index: 10000;
-      font-family: 'Amatica SC', cursive;
-      font-size: 16px;
-    }
-    
-    .skip-link:focus {
-      top: 6px;
-    }
-    
-    /* נגישות - Screen Reader Only */
-    .sr-only {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      white-space: nowrap;
-      border: 0;
-    }
     /* --- פופאפ חנות בפוטר --- */
     .footer-link-shop-popup {
       position: relative;
@@ -539,7 +526,7 @@
       transform: translateX(-50%);
       background: #fff;
       border-radius: 12px;
-      box-shadow: 0 2px 12px #0002;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.12);
       z-index: 200;
       min-width: 140px;
       padding: 4px 0;
@@ -573,7 +560,7 @@
       max-width: 90vw;
       height: 100vh;
       background: #fff;
-      box-shadow: -2px 0 16px #0002;
+      box-shadow: -2px 0 16px rgba(0,0,0,0.12);
       z-index: 100;
       transform: translateX(100%);
       transition: all 0.35s cubic-bezier(.7,.2,.2,1);
@@ -609,7 +596,7 @@
       background: none;
       border: none;
       font-size: 32px;
-      color: #fff;
+      color: #5D4037; /* שינוי מ-#775A47 ל-#5D4037 לניגודיות טובה יותר */
       cursor: pointer;
       font-family: inherit;
       line-height: 1;
@@ -628,7 +615,7 @@
       border-radius: 8px;
       margin: 0 16px 12px 16px;
       padding: 10px 10px 10px 6px;
-      box-shadow: 0 1px 4px #0001;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
       position: relative;
       min-height: 60px;
       user-select: none;
@@ -973,27 +960,115 @@
     .side-cart-view-btn:hover {
       background: #3D6B4A; /* שינוי לירוק כהה יותר שעומד בתנאי הנגישות */
     }
+    
+    /* נגישות - Focus States */
+    *:focus-visible {
+      outline: 2px solid #4C8467;
+      outline-offset: 2px;
+    }
+    
+    button:focus-visible, a:focus-visible {
+      outline: 2px solid #4C8467;
+      outline-offset: 2px;
+    }
+    
+    /* הסרת outline מclick */
+    *:focus:not(:focus-visible) {
+      outline: none !important;
+      box-shadow: none !important;
+    }
+    
+    /* הסרת outline לחלוטין אם לא משתמשים בTab */
+    *:focus:not(:focus-visible) {
+      outline: none !important;
+      box-shadow: none !important;
+    }
+    
+    /* הסרת outline מclick על כל האלמנטים */
+    button:focus:not(:focus-visible),
+    a:focus:not(:focus-visible),
+    input:focus:not(:focus-visible),
+    select:focus:not(:focus-visible),
+    textarea:focus:not(:focus-visible),
+    [tabindex]:focus:not(:focus-visible) {
+      outline: none !important;
+      box-shadow: none !important;
+    }
+    
+    /* וידוא שהפוקוס נראה עם Tab */
+    *:focus-visible {
+      outline: 2px solid #4C8467 !important;
+      outline-offset: 2px !important;
+    }
+    
+    /* נגישות - Hover States */
+    button:hover, a:hover {
+      opacity: 0.8;
+    }
+    
+    /* נגישות - פוקוס על כפתור החנות */
+    .shop-popup-btn:focus-visible {
+      background: transparent !important;
+      box-shadow: none !important;
+    }
+    
+    .cart:focus-visible {
+      background: transparent !important;
+      box-shadow: none !important;
+    }
+    
+    .shop-popup a:focus-visible,
+    .shop-popup .popup-main-btn:focus-visible {
+      outline: 2px solid #4C8467;
+      outline-offset: 2px;
+      background: #f0f0f0;
+      border-radius: 6px;
+    }
+    
+
+    
+    /* נגישות - Screen Reader Only */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
   </style>
 </head>
 <body>
   <!-- נגישות - אזור הודעות לקוראי מסך -->
   <div id="accessibilityAnnouncements" class="sr-only" aria-live="polite" aria-atomic="true"></div>
   
-  <!-- נגישות - קישור לקפיצה לתוכן הראשי -->
-  
+
   
   <div id="cartOverlay" class="cart-overlay"></div>
   <div id="cartDeleteDialog" class="cart-delete-dialog" style="display:none;">
     <div class="cart-delete-dialog-content">
       <div class="cart-delete-dialog-title">האם למחוק את המוצר מהעגלה?</div>
       <div class="cart-delete-dialog-actions">
-        <button id="cartDeleteYes" class="cart-delete-btn-yes">כן</button>
-        <button id="cartDeleteNo" class="cart-delete-btn-no">לא</button>
+        <button id="cartDeleteYes" class="cart-delete-btn-yes" aria-label="כן, מחק את המוצר מהעגלה">כן</button>
+        <button id="cartDeleteNo" class="cart-delete-btn-no" aria-label="לא, אל תמחק את המוצר מהעגלה">לא</button>
       </div>
     </div>
   </div>
-                   <div class="body-center">
-          <header>
+  <aside id="sideCart" class="side-cart">
+    <div class="side-cart-header">
+      <span class="side-cart-title">סל קניות</span>
+      <button class="side-cart-close" id="closeSideCart" aria-label="סגור סל קניות">×</button>
+    </div>
+    <div class="side-cart-list" id="sideCartList">
+      <!-- כאן יתווספו המוצרים -->
+    </div>
+    <button class="side-cart-view-btn" id="viewCartBtn" aria-label="לצפייה בסל הקניות">לצפייה בסל הקניות</button>
+  </aside>
+    <div class="body-center">
+        <header>
       <h1 class="logo" alt="לוגו Paintz - חזרה לעמוד הבית"></h1>
       <a class="cart" aria-label="סל קניות" tabindex="0">
         <div class="cart-icon" alt="אייקון סל קניות">
@@ -1002,49 +1077,113 @@
       </a>
     </header>
         <nav>
-              <h4 class="nav-link" style="margin: 0;"><a href="homepage.html" style="color: inherit; text-decoration: none;">דף הבית</a></h4>
-        <button class="nav-link shop-popup-btn" id="shopPopupBtn" type="button" aria-label="תפריט חנות - לחץ לפתיחה" aria-expanded="false" aria-haspopup="true" style="margin: 0; color: inherit; text-decoration: none; background: none; border: none; font: inherit; cursor: pointer;">חנות</button>
-        <!-- Popup (ממש אחרי כפתור החנות) -->
-        <div class="shop-popup" id="shopPopup">
-          <ul>
-            <li><h6 style="margin: 0;"><a href="shop.html" style="color: inherit; text-decoration: none;">כללי</a></h6></li>
-            <li>
-              <h6 class="popup-main-btn" type="button" data-target="sheshbesh" style="margin: 0;" tabindex="0">שש בש</h6>
-              <ul class="popup-sub" id="sub-sheshbesh">
-                <li><h6 style="margin: 0;"><a href="Backgammon Custum.html" style="color: inherit; text-decoration: none;">עיצוב אישי</a></h6></li>
-                <li><h6 style="margin: 0;"><a href="Backgammon Models.html" style="color: inherit; text-decoration: none;">דגמים</a></h6></li>
-              </ul>
-            </li>
-            <li>
-              <h6 class="popup-main-btn" type="button" data-target="matkot" style="margin: 0;" tabindex="0">מטקות</h6>
-              <ul class="popup-sub" id="sub-matkot">
-                <li><h6 style="margin: 0;"><a href="Matka Custum.html" style="color: inherit; text-decoration: none;">עיצוב אישי</a></h6></li>
-                <li><h6 style="margin: 0;"><a href="Matka Models.html" style="color: inherit; text-decoration: none;">דגמים</a></h6></li>
-              </ul>
-            </li>
-            <li><h6 style="margin: 0;"><a href="Canvas.html" style="color: inherit; text-decoration: none;">קנבסים</a></h6></li>
-            <li><h6 style="margin: 0;"><a href="Record.html" style="color: inherit; text-decoration: none;">תקליטים</a></h6></li>
-          </ul>
-        </div>
-        <h4 class="nav-link" style="margin: 0;"><a href="policy.html" style="color: inherit; text-decoration: none;">מדיניות</a></h4>
-        <h4 class="nav-link" style="margin: 0;"><a href="contact.html" style="color: inherit; text-decoration: none;">צור קשר</a></h4>
+      <h4 class="nav-link" style="margin: 0;"><a href="homepage.html" style="color: inherit; text-decoration: none;">דף הבית</a></h4>
+      <button class="nav-link shop-popup-btn" id="shopPopupBtn" type="button" aria-label="תפריט חנות - לחץ לפתיחה" aria-expanded="false" aria-haspopup="true" style="margin: 0; color: inherit; text-decoration: none; background: none; border: none; font: inherit; cursor: pointer;">חנות</button>
+      <h4 class="nav-link" style="margin: 0;"><a href="policy.html" style="color: inherit; text-decoration: none;">מדיניות</a></h4>
+      <h4 class="nav-link" style="margin: 0;"><a href="contact.html" style="color: inherit; text-decoration: none;">צור קשר</a></h4>
     </nav>
-    
-    <main>
-      <div class="policy-bg-box" id="main-content">
+    <!-- Popup (ממש אחרי ה-nav) -->
+    <div class="shop-popup" id="shopPopup">
+      <ul>
+                  <li><h6 style="margin: 0;"><a href="shop.html" style="color: inherit; text-decoration: none;">כללי</a></h6></li>
+        <li>
+          <h6 class="popup-main-btn" type="button" data-target="sheshbesh" style="margin: 0;" tabindex="0">שש בש</h6>
+          <ul class="popup-sub" id="sub-sheshbesh">
+                          <li><h6 style="margin: 0;"><a href="Backgammon Custum.html" style="color: inherit; text-decoration: none;">עיצוב אישי</a></h6></li>
+              <li><h6 style="margin: 0;"><a href="Backgammon Models.html" style="color: inherit; text-decoration: none;">דגמים</a></h6></li>
+          </ul>
+        </li>
+        <li>
+          <h6 class="popup-main-btn" type="button" data-target="matkot" style="margin: 0;" tabindex="0">מטקות</h6>
+          <ul class="popup-sub" id="sub-matkot">
+                          <li><h6 style="margin: 0;"><a href="Matka Custum.html" style="color: inherit; text-decoration: none;">עיצוב אישי</a></h6></li>
+              <li><h6 style="margin: 0;"><a href="Matka Models.html" style="color: inherit; text-decoration: none;">דגמים</a></h6></li>
+          </ul>
+        </li>
+                  <li><h6 style="margin: 0;"><a href="Canvas.html" style="color: inherit; text-decoration: none;">קנבסים</a></h6></li>
+          <li><h6 style="margin: 0;"><a href="Record.html" style="color: inherit; text-decoration: none;">תקליטים</a></h6></li>
+      </ul>
+    </div>
+    <main id="main-content">
+      <div class="policy-bg-box">
         <div class="policy-box">
           <div style="font-size: 28px; color: #5C4638; text-align: center; max-width: 800px;">
-            <h2 class="mediniut-title">מדיניות</h2>
-            <div class="mediniut-text">
-              כל מוצר באתר שלנו נעשה בעבודת יד ובהתאמה אישית – במיוחד בשבילך.<br>
-              אין החזרות או החלפות, לאור אופיים הייחודי והמותאם אישית של המוצרים.<br>
-              אם המוצר הגיע פגום – יש לשלוח הודעה מיידית בצירוף תמונה ברורה של הפגם ברגע קבלת המשלוח או האיסוף. אנו נבחן את המקרה ונטפל בו בהתאם.<br>
-              במקרה של טעות בעיצוב אשר הופיעה בהדמיה המאושרת – האחריות על הלקוח בלבד, מאחר וההכנה מתבצעת לפי אישור סופי טרם ההדפסה/הייצור.<br>
-              במקרים חריגים – ניתן לפנות אלינו ואנו נשתדל לעזור ככל שנוכל, בגישה אנושית ואכפתית.<br>
-              <div style="margin: 48px 0;">אין להעתיק, לשכפל, להשתמש או להפיץ את העיצובים, התמונות או האלמנטים הגרפיים – ללא אישור בכתב מראש.</div>
-              תודה שאת/ה חלק מהיצירה, אנחנו כאן לכל שאלה.<br>
-              פיינטז, ציור שמשאיר חותם<br><br>
-              <a href="about.html" style="color: #5C4638; text-decoration: underline; font-weight: bold;">לחץ כאן לקריאה עלינו</a> 
+            <h2 class="mediniut-title">תנאי שימוש</h2>
+            <div class="policy-content">
+              <p><strong>עודכן לאחרונה בתאריך:</strong> 01.09.2025</p>
+              
+              <p>ברוכים הבאים לאתר Paintz (להלן: "האתר"). האתר מנוהל ומופעל על־ידי ירדן פדלון (להלן: "בעלת האתר"). השימוש באתר כפוף לתנאים המפורטים להלן ומהווה הסכמה מצד המשתמש לתנאים אלה.</p>
+              
+              <h2>1. כללי</h2>
+              
+              <p><strong>1.1</strong> תנאי שימוש אלה מסדירים את השימוש באתר והם מהווים הסכם מחייב בין המשתמש לבין בעלת האתר.</p>
+              <p><strong>1.2</strong> בעלת האתר שומרת לעצמה את הזכות לעדכן, לשנות או להפסיק את פעילות האתר או חלק ממנה, וכן לעדכן את תנאי השימוש בכל עת, והכול ללא הודעה מוקדמת. התנאים המעודכנים ייכנסו לתוקף מרגע פרסומם באתר.</p>
+              
+              <h2>2. שימוש באתר</h2>
+              
+              <p><strong>2.1</strong> האתר נועד להזמנות פרטיות של מוצרים בלבד.</p>
+              <p><strong>2.2</strong> הזמנה באתר באמצעות טופס ההזמנה או טופס "צור קשר" אינה מהווה עסקה מחייבת אלא בקשה ראשונית בלבד. בעלת האתר תיצור קשר עם הלקוח באמצעות הדוא״ל או הטלפון שהושארו לאישור ההזמנה ולסיכום פרטי העסקה.</p>
+              <p><strong>2.3</strong> המשתמש מתחייב לעשות שימוש באתר בתום לב וללא ניסיון לפגוע בפעילותו התקינה, לרבות הימנעות מהתחזות, מסירת פרטים כוזבים, או כל שימוש העלול לפגוע בבעלת האתר או בצדדים שלישיים.</p>
+              <p><strong>2.4</strong> השימוש באתר מהווה הסכמה של המשתמש לשימוש בעוגיות (Cookies) לצרכים טכניים, פונקציונליים, סטטיסטיים ושיווקיים. המשתמש רשאי לשנות את הגדרות העוגיות בדפדפן או באתר עצמו בכל עת.</p>
+              
+              <h2>3. מה זה עוגיות (Cookies)</h2>
+              
+              <p>עוגיות הן קבצי טקסט קטנים הנשמרים במכשיר שלך (מחשב, טלפון נייד או טאבלט) כאשר אתה מבקר באתר שלנו.</p>
+              <p>הן מאפשרות לאתר לזכור מידע על הביקור שלך, כגון העדפות שפה, פריטי עגלת קניות או פרמטרים טכניים אחרים.</p>
+              
+              <h3>סוגי עוגיות באתר:</h3>
+              
+              <p><strong>עוגיות חיוניות (Essential Cookies):</strong> הכרחיות לתפקוד האתר, כגון שמירת פריטי עגלה והתחברות.</p>
+              
+              <!-- עוגיות אנליטיקה הוסרו - אין Google Analytics -->
+              
+              <p><strong>עוגיות שיווק (Marketing Cookies):</strong> משמשות להצגת פרסומות מותאמות אישית.</p>
+              
+              <p><strong>עוגיות פונקציונליות (Functional Cookies):</strong> מאפשרות התאמה אישית של האתר לפי העדפות המשתמש.</p>
+              
+              <h2>4. תהליך ההזמנה והתשלום</h2>
+              
+              <p><strong>4.1</strong> לאחר השארת פרטים בטופס ההזמנה, תבוצע התקשרות אישית בין בעלת האתר לבין הלקוח לצורך אישור ההזמנה.</p>
+              <p><strong>4.2</strong> התשלום עבור המוצרים יתבצע באמצעות אמצעים חיצוניים מאובטחים בלבד (כגון Bit או PayBox), בהתאם לסיכום עם הלקוח. האתר אינו מאחסן מידע על כרטיסי אשראי או פרטי תשלום רגישים.</p>
+              <p><strong>4.3</strong> לא ניתן לבטל את ההזמנה לאחר תשלום.</p>
+              <p><strong>4.4</strong> בעלת האתר רשאית לסרב לאשר הזמנה מכל סיבה שהיא, לפי שיקול דעתה הבלעדי.</p>
+              
+              <h2>5. מדיניות החזרות ומחירים</h2>
+              
+              <p><strong>5.1</strong> המוצרים באתר הינם מוצרים בעבודת יד ובהתאמה אישית ולכן אינם ניתנים להחזרה או להחלפה, למעט במקרה של מוצר פגום או שגוי.</p>
+              <p><strong>5.2</strong> במקרה של מוצר פגום או שגוי, הלקוח מתבקש ליצור קשר מידי באמצעות המייל או הטלפון שצוין באתר, ולספק תמונה או תיאור ברור של הפגם. בעלת האתר תבדוק את המוצר ותציע פתרון פרטני, בהתאם לשיקול דעתה הבלעדי.</p>
+              <p><strong>5.3</strong> כל המחירים באתר כוללים מע"מ.</p>
+              
+              <h2>6. שימוש אסור באתר</h2>
+              
+              <p><strong>6.1</strong> המשתמש מתחייב שלא להשתמש באתר לפגיעה, התחזות או מסירת מידע כוזב.</p>
+              <p><strong>6.2</strong> המשתמש אינו רשאי להשתמש באתר למטרות מסחריות או פרסום ללא קבלת רשות מראש מבעלת האתר.</p>
+              <p><strong>6.3</strong> אין להעתיק, לשכפל, להפיץ או לפרסם את תוכן האתר או חלק ממנו ללא אישור מפורש ובכתב מבעלת האתר.</p>
+              <p><strong>6.4</strong> שימוש לרעה באתר, לרבות התקפות סייבר או פגיעה במידע של משתמשים אחרים, אסור בהחלט.</p>
+              
+              <h2>7. קניין רוחני</h2>
+              
+              <p><strong>7.1</strong> כל זכויות היוצרים והקניין הרוחני באתר, לרבות עיצובים, טקסטים, תמונות, לוגואים ותוכן מכל סוג שהוא, הינם רכושה הבלעדי של בעלת האתר ואין לעשות בהם שימוש ללא קבלת רשות מראש ובכתב.</p>
+              <p><strong>7.2</strong> חל איסור להעתיק, לשכפל, להפיץ, לפרסם או לעשות כל שימוש אחר בתוכן האתר ללא אישור מפורש.</p>
+              
+              <h2>8. קישורים חיצוניים</h2>
+              
+              <p>באתר עשויים להופיע קישורים לאתרים חיצוניים. בעלת האתר אינה אחראית לתכנים, לשירותים או למדיניות הפרטיות של אתרים אלה, והשימוש בהם הוא על אחריות המשתמש בלבד.</p>
+              
+              <h2>9. הגבלת אחריות</h2>
+              
+              <p><strong>9.1</strong> בעלת האתר עושה מאמצים להבטיח פעילות תקינה ורציפה של האתר, אולם אינה מתחייבת כי השימוש באתר יהיה נטול תקלות או שגיאות.</p>
+              <p><strong>9.2</strong> בעלת האתר אינה אחראית לכל נזק, ישיר או עקיף, שייגרם כתוצאה מהשימוש באתר, מהסתמכות על המידע בו, מעיכוב באספקת המוצר או משיבושים טכניים כלשהם.</p>
+              <p><strong>9.3</strong> מבלי לגרוע מהאמור לעיל, אחריות בעלת האתר בכל מקרה לא תעלה על הסכום ששולם בפועל בעבור ההזמנה הרלוונטית.</p>
+              
+              <h2>10. כוח עליון</h2>
+              
+              <p>בעלת האתר לא תישא בכל אחריות לעיכובים או כשלים במתן שירות או באספקת מוצרים כתוצאה מנסיבות שאינן בשליטתה הסבירה, לרבות שביתות, תקלות תקשורת, אסונות טבע, מגיפות וכיו״ב.</p>
+              
+              <h2>11. דין וסמכות שיפוט</h2>
+              
+              <p><strong>11.1</strong> על תנאי שימוש אלה יחולו אך ורק דיני מדינת ישראל.</p>
+              <p><strong>11.2</strong> סמכות השיפוט הייחודית בכל מחלוקת הקשורה לאתר נתונה לבית המשפט המוסמך במחוז תל אביב–יפו.</p>
             </div>
           </div>
         </div>
@@ -1053,7 +1192,7 @@
     </div>
     <footer>
         <div class="footer-content">
-          <div class="footer-nav">
+                    <div class="footer-nav">
             <h5 class="footer-link" style="margin: 0;"><a href="homepage.html" style="color: inherit; text-decoration: none;">דף הבית</a></h5>
             <span class="footer-sep">|</span>
             <h5 class="footer-link" style="margin: 0;"><a href="shop.html" style="color: inherit; text-decoration: none;">חנות</a></h5>
@@ -1085,7 +1224,7 @@
           </div>
         </div>
       
-        <div class="footer-logo" role="img" aria-label="לוגו Paintz"></div>
+        <div class="footer-logo" alt="לוגו Paintz"></div>
     </footer>
     <section class="copyright-section">
         <div class="copyright-text">
@@ -1095,17 +1234,6 @@
           Paintz 2025©
         </div>
     </section>
-    
-    <aside id="sideCart" class="side-cart">
-      <div class="side-cart-header">
-        <span class="side-cart-title">סל קניות</span>
-        <button class="side-cart-close" id="closeSideCart">×</button>
-      </div>
-      <div class="side-cart-list" id="sideCartList">
-        <!-- כאן יתווספו המוצרים -->
-      </div>
-      <button class="side-cart-view-btn" id="viewCartBtn" aria-label="לצפייה בסל הקניות">לצפייה בסל הקניות</button>
-    </aside>
 
 </div>
   <script src="cart-sync.js"></script>
@@ -1125,61 +1253,13 @@ function announceToScreenReader(message) {
   }
 }
 
-// --- נגישות - ניווט במקלדת ---
-function handleKeyboardNavigation(event) {
-  const shopBtn = document.getElementById('shopPopupBtn');
-  const shopPopup = document.getElementById('shopPopup');
-  
-  // Enter או Space לפתיחת תפריט החנות
-  if ((event.key === 'Enter' || event.key === ' ') && event.target === shopBtn) {
-    event.preventDefault();
-    if (shopPopup.style.display === 'block') {
-      closeShopPopup();
-    } else {
-      openShopPopup();
-    }
-  }
-  
-  // Escape לסגירת תפריטים
-  if (event.key === 'Escape') {
-    if (shopPopup.style.display === 'block') {
-      closeShopPopup();
-    }
-    if (document.getElementById('cartDeleteDialog').style.display === 'flex') {
-      document.getElementById('cartDeleteDialog').style.display = 'none';
-      // החזרת פוקוס לסל הקניות
-      setTimeout(() => {
-        document.querySelector('.cart').focus();
-      }, 100);
-    }
-  }
-  
-  // Tab לתפריט החנות - לכידת פוקוס
-  if (event.key === 'Tab' && shopPopup.style.display === 'block') {
-    const focusableElements = shopPopup.querySelectorAll('a, button, [tabindex]:not([tabindex="-1"])');
-    const firstElement = focusableElements[0];
-    const lastElement = focusableElements[focusableElements.length - 1];
-    
-    if (event.shiftKey && document.activeElement === firstElement) {
-      event.preventDefault();
-      lastElement.focus();
-    } else if (!event.shiftKey && document.activeElement === lastElement) {
-      event.preventDefault();
-      firstElement.focus();
-    }
-  }
-}
-
-// הוספת מאזין לניווט במקלדת
-document.addEventListener('keydown', handleKeyboardNavigation);
-
 // --- Shop Popup Logic ---
 const shopBtn = document.getElementById('shopPopupBtn');
 const shopPopup = document.getElementById('shopPopup');
 
 function positionShopPopup() {
   const rect = shopBtn.getBoundingClientRect();
-  shopPopup.style.top = (rect.bottom + window.scrollY) + 'px';
+  shopPopup.style.top = rect.bottom + 'px';
   shopPopup.style.right = (window.innerWidth - rect.right) + 'px';
   shopPopup.style.left = 'auto';
   shopPopup.style.transform = 'none';
@@ -1189,6 +1269,14 @@ function openShopPopup() {
   positionShopPopup();
   shopPopup.style.display = 'block';
   shopBtn.setAttribute('aria-expanded', 'true');
+  
+  // העברת פוקוס לפריט הראשון בתפריט
+  setTimeout(() => {
+    const firstItem = shopPopup.querySelector('a, .popup-main-btn');
+    if (firstItem) {
+      firstItem.focus();
+    }
+  }, 100);
 }
 
 function closeShopPopup() {
@@ -1197,40 +1285,21 @@ function closeShopPopup() {
   shopBtn.setAttribute('aria-expanded', 'false');
 }
 
+// Desktop: open on hover, Mobile: open on click
 function setShopPopupEvents() {
   if (window.innerWidth > 700) {
+    // Desktop: hover
     shopBtn.removeEventListener('click', shopBtn._shopClickHandler || (()=>{}));
-    
-    // Hover functionality with delay
-    let hoverTimeout;
-    let isHovering = false;
-    
-    shopBtn.addEventListener('mouseenter', function() {
-      isHovering = true;
-      clearTimeout(hoverTimeout);
-      openShopPopup();
+    shopBtn.addEventListener('mouseenter', openShopPopup);
+    shopBtn.addEventListener('mouseleave', function(e) {
+      if (!shopPopup.contains(e.relatedTarget)) closeShopPopup();
     });
-    
-    shopBtn.addEventListener('mouseleave', function() {
-      isHovering = false;
-      hoverTimeout = setTimeout(() => {
-        if (!isHovering) closeShopPopup();
-      }, 200);
+    shopPopup.addEventListener('mouseleave', function(e) {
+      if (!shopBtn.contains(e.relatedTarget)) closeShopPopup();
     });
-    
-    shopPopup.addEventListener('mouseenter', function() {
-      isHovering = true;
-      clearTimeout(hoverTimeout);
-    });
-    
-    shopPopup.addEventListener('mouseleave', function() {
-      isHovering = false;
-      hoverTimeout = setTimeout(() => {
-        if (!isHovering) closeShopPopup();
-      }, 200);
-    });
-    
+    shopPopup.addEventListener('mouseenter', function() { openShopPopup(); });
   } else {
+    // Mobile: click
     shopBtn._shopClickHandler = function(e) {
       e.stopPropagation();
       if (shopPopup.style.display === 'block') {
@@ -1240,20 +1309,28 @@ function setShopPopupEvents() {
       }
     };
     shopBtn.addEventListener('click', shopBtn._shopClickHandler);
+    shopBtn.removeEventListener('mouseenter', openShopPopup);
+    shopBtn.removeEventListener('mouseleave', closeShopPopup);
+    shopPopup.removeEventListener('mouseleave', closeShopPopup);
+    shopPopup.removeEventListener('mouseenter', openShopPopup);
   }
 }
+
 setShopPopupEvents();
 window.addEventListener('resize', setShopPopupEvents);
+
 window.addEventListener('resize', function() {
   if (shopPopup.style.display === 'block') {
     positionShopPopup();
   }
 });
+
 document.addEventListener('click', function(e) {
   if (!shopPopup.contains(e.target) && e.target !== shopBtn) {
     closeShopPopup();
   }
 });
+
 function closeAllSubs() {
   document.querySelectorAll('.popup-sub').forEach(sub => sub.classList.remove('show'));
 }
@@ -1341,6 +1418,84 @@ function setSubmenuEvents() {
 setSubmenuEvents();
 window.addEventListener('resize', setSubmenuEvents);
 
+// --- נגישות - תמיכה במקלדת ---
+function handleKeyboardNavigation(e) {
+  // Enter או Space לפתיחת תפריט חנות
+  if (e.target.id === 'shopPopupBtn' && (e.key === 'Enter' || e.key === ' ')) {
+    e.preventDefault();
+    if (shopPopup.style.display === 'block') {
+      closeShopPopup();
+    } else {
+      openShopPopup();
+    }
+  }
+  
+  // Escape לסגירת תפריטים
+  if (e.key === 'Escape') {
+    closeShopPopup();
+    if (sideCart.classList.contains('active')) {
+      closeSideCart();
+    }
+  }
+  
+  // Tab לניווט בתפריט
+  if (e.key === 'Tab' && shopPopup.style.display === 'block') {
+    const focusableElements = shopPopup.querySelectorAll('a, button, [tabindex]:not([tabindex="-1"])');
+    if (focusableElements.length > 0) {
+      if (e.shiftKey && document.activeElement === focusableElements[0]) {
+        e.preventDefault();
+        focusableElements[focusableElements.length - 1].focus();
+      } else if (!e.shiftKey && document.activeElement === focusableElements[focusableElements.length - 1]) {
+        e.preventDefault();
+        focusableElements[0].focus();
+      }
+    }
+  }
+}
+
+// הוספת מאזיני מקלדת
+document.addEventListener('keydown', handleKeyboardNavigation);
+
+// --- נגישות - הכרזת הודעות לקוראי מסך ---
+function announceToScreenReader(message) {
+  const announcements = document.getElementById('accessibilityAnnouncements');
+  if (announcements) {
+    announcements.textContent = message;
+    // ניקוי ההודעה אחרי 3 שניות
+    setTimeout(() => {
+      announcements.textContent = '';
+    }, 3000);
+  }
+}
+
+function positionShopPopup() {
+  const rect = shopBtn.getBoundingClientRect();
+  shopPopup.style.top = rect.bottom + 'px';
+  shopPopup.style.right = (window.innerWidth - rect.right) + 'px';
+  shopPopup.style.left = 'auto';
+  shopPopup.style.transform = 'none';
+}
+
+function openShopPopup() {
+  positionShopPopup();
+  shopPopup.style.display = 'block';
+  shopBtn.setAttribute('aria-expanded', 'true');
+  
+  // העברת פוקוס לפריט הראשון בתפריט
+  setTimeout(() => {
+    const firstItem = shopPopup.querySelector('a, .popup-main-btn');
+    if (firstItem) {
+      firstItem.focus();
+    }
+  }, 100);
+}
+
+function closeShopPopup() {
+  shopPopup.style.display = 'none';
+  closeAllSubs();
+  shopBtn.setAttribute('aria-expanded', 'false');
+}
+
 // --- Side Cart Logic ---
 let cart = [];
 
@@ -1369,6 +1524,16 @@ const closeSideCartBtn = document.getElementById('closeSideCart');
 const sideCartList = document.getElementById('sideCartList');
 const viewCartBtn = document.getElementById('viewCartBtn');
 const cartBadge = document.getElementById('cartBadge');
+
+// הוספת מאזיני מקלדת לסל הקניות
+if (cartBtn) {
+  cartBtn.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      openSideCart();
+    }
+  });
+}
 
 // Color mapping functions
 function getColorFromName(colorName) {
@@ -1540,9 +1705,9 @@ function renderCart() {
           </div>
         </div>
         <div style="width: 48px; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; margin-left: 8px;">
-          <button class="side-cart-item-add-btn" title="הוסף" style="background: none; border: none; font-size: 22px; color: #4C8467; cursor: pointer; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;">+</button>
-          <span class="side-cart-item-qty" style="width: 32px; height: 28px; font-size: 18px; color: #8B6B47; display: flex; align-items: center; justify-content: center; background: none; border-radius: 0; border: none; font-family: 'Amatica SC', cursive; font-weight: bold;">${item.qty}</span>
-                      <button class="side-cart-item-minus-btn" title="הפחת" style="background: none; border: none; font-size: 22px; color: #4C8467; cursor: pointer; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;">–</button>
+          <button class="side-cart-item-add-btn" title="הוסף" aria-label="הוסף כמות" style="background: none; border: none; font-size: 22px; color: #4C8467; cursor: pointer; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;">+</button>
+                      <span class="side-cart-item-qty" style="width: 32px; height: 28px; font-size: 18px; color: #8B6B47; display: flex; align-items: center; justify-content: center; background: none; border-radius: 0; border: none; font-family: 'Amatica SC', cursive; font-weight: bold;" aria-label="כמות: ${item.qty}">${item.qty}</span>
+                                              <button class="side-cart-item-minus-btn" title="הפחת" aria-label="הפחת כמות" style="background: none; border: none; font-size: 22px; color: #4C8467; cursor: pointer; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;">–</button>
         </div>
       </div>
       <div class="side-cart-item-details" style="padding: 0 0 8px 0;">
@@ -1550,7 +1715,7 @@ function renderCart() {
           ${details}
         </ul>
       </div>
-      <button class="side-cart-item-trash-btn" title="מחק" style="position: absolute; left: 8px; bottom: 8px; background: none; border: none; padding: 0; margin: 0; cursor: pointer; width: 22px; height: 22px;"><span class="side-cart-item-trash-icon"></span></button>
+      <button class="side-cart-item-trash-btn" title="מחק" aria-label="מחק מוצר מהעגלה" style="position: absolute; left: 8px; bottom: 8px; background: none; border: none; padding: 0; margin: 0; cursor: pointer; width: 22px; height: 22px;"><span class="side-cart-item-trash-icon"></span></button>
     `;
     
     row.querySelector('.side-cart-item-trash-btn').onclick = function(e) {
@@ -1570,6 +1735,7 @@ function renderCart() {
       }
         updateCartBadge();
         renderCart();
+        announceToScreenReader(`כמות הועלתה ל-${cart[idx].qty}`);
     };
     // כפתור הפחתה
     row.querySelector('.side-cart-item-minus-btn').onclick = function(e) {
@@ -1584,6 +1750,7 @@ function renderCart() {
         }
           updateCartBadge();
           renderCart();
+          announceToScreenReader(`כמות הופחתה ל-${cart[idx].qty}`);
       } else {
         showDeleteDialog(idx);
       }
@@ -1597,10 +1764,10 @@ function openSideCart() {
   sideCart.classList.add('active');
   cartOverlay.classList.add('active');
   document.body.style.overflow = 'hidden';
+  announceToScreenReader('סל הקניות נפתח');
   
   // העברת פוקוס לכפתור הסגירה
   setTimeout(() => {
-    const closeSideCartBtn = document.getElementById('closeSideCart');
     if (closeSideCartBtn) {
       closeSideCartBtn.focus();
     }
@@ -1611,53 +1778,66 @@ function closeSideCart() {
   sideCart.classList.remove('active');
   cartOverlay.classList.remove('active');
   document.body.style.overflow = '';
+  announceToScreenReader('סל הקניות נסגר');
   
-  // החזרת פוקוס לאייקון הסל קניות
+  // העברת פוקוס לכפתור הסל הראשי
   setTimeout(() => {
-    const cartBtn = document.querySelector('.cart');
     if (cartBtn) {
       cartBtn.focus();
     }
   }, 100);
 }
 
-    cartBtn.addEventListener('click', function(e) {
+// הוספת מאזיני מקלדת לסל הקניות
+if (cartBtn) {
+  cartBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    openSideCart();
+  });
+  
+  cartBtn.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
       e.preventDefault();
       openSideCart();
-    });
-    
-    cartBtn.addEventListener('keydown', function(e) {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        openSideCart();
-      }
-    });
-
-cartOverlay.addEventListener('click', closeSideCart);
-closeSideCartBtn.addEventListener('click', closeSideCart);
-
-// לכידת פוקוס בסל הקניות
-sideCart.addEventListener('keydown', function(e) {
-  if (e.key === 'Tab') {
-    const focusableElements = sideCart.querySelectorAll('button, a, [tabindex]:not([tabindex="-1"])');
-    const firstElement = focusableElements[0];
-    const lastElement = focusableElements[focusableElements.length - 1];
-    
-    if (e.shiftKey && document.activeElement === firstElement) {
-      e.preventDefault();
-      lastElement.focus();
-    } else if (!e.shiftKey && document.activeElement === lastElement) {
-      e.preventDefault();
-      firstElement.focus();
     }
+  });
+}
+
+if (cartOverlay) {
+  cartOverlay.addEventListener('click', closeSideCart);
+}
+
+if (closeSideCartBtn) {
+  closeSideCartBtn.addEventListener('click', closeSideCart);
+}
+
+// לכידת פוקוס בתוך הסל הצדדי
+if (sideCart) {
+  sideCart.addEventListener('keydown', function(e) {
+    if (e.key === 'Tab') {
+      const focusableElements = sideCart.querySelectorAll('button, a, [tabindex]:not([tabindex="-1"])');
+      if (focusableElements.length > 0) {
+        if (e.shiftKey && document.activeElement === focusableElements[0]) {
+          e.preventDefault();
+          // עובר לפריט האחרון בסל (לולאה)
+          focusableElements[focusableElements.length - 1].focus();
+        } else if (!e.shiftKey && document.activeElement === focusableElements[focusableElements.length - 1]) {
+          e.preventDefault();
+          // עובר לפריט הראשון בסל (לולאה)
+          focusableElements[0].focus();
+        }
+      }
+    }
+  });
+}
+  
+  if (viewCartBtn) {
+    viewCartBtn.addEventListener('click', function() {
+      window.location.href = 'Shopping Cart.html';
+    });
   }
-});
-
-viewCartBtn.addEventListener('click', function() {
-  window.location.href = 'Shopping Cart.html';
-});
-
-function removeFromCart(idx) {
+  
+  function removeFromCart(idx) {
   if (idx >= 0 && idx < cart.length) {
     if (window.cartSync) {
       window.cartSync.removeItem(idx);
@@ -1676,12 +1856,13 @@ function showDeleteDialog(idx) {
   cartDeleteIdx = idx;
   const dialog = document.getElementById('cartDeleteDialog');
   dialog.style.display = 'flex';
+  announceToScreenReader('דיאלוג מחיקת מוצר נפתח');
   
-  // העברת פוקוס לכפתור "כן"
+  // העברת פוקוס לכפתור "לא"
   setTimeout(() => {
-    const yesBtn = document.getElementById('cartDeleteYes');
-    if (yesBtn) {
-      yesBtn.focus();
+    const noBtn = document.getElementById('cartDeleteNo');
+    if (noBtn) {
+      noBtn.focus();
     }
   }, 100);
 }
@@ -1692,78 +1873,38 @@ document.getElementById('cartDeleteYes').onclick = function() {
     cartDeleteIdx = null;
   }
   document.getElementById('cartDeleteDialog').style.display = 'none';
-  // החזרת פוקוס לסל הקניות
-  setTimeout(() => {
-    document.querySelector('.cart').focus();
-  }, 100);
-  
-  // Return focus to side cart
-  setTimeout(() => {
-    const closeSideCartBtn = document.getElementById('closeSideCart');
-    if (closeSideCartBtn) {
-      closeSideCartBtn.focus();
-    }
-  }, 200);
+  announceToScreenReader('מוצר נמחק מהעגלה');
 };
+
+// לכידת פוקוס בתוך הדיאלוג
+const dialog = document.getElementById('cartDeleteDialog');
+if (dialog) {
+  dialog.addEventListener('keydown', function(e) {
+    if (e.key === 'Tab') {
+      const focusableElements = dialog.querySelectorAll('button, [tabindex]:not([tabindex="-1"])');
+      if (focusableElements.length > 0) {
+        if (e.shiftKey && document.activeElement === focusableElements[0]) {
+          e.preventDefault();
+          focusableElements[focusableElements.length - 1].focus();
+        } else if (!e.shiftKey && document.activeElement === focusableElements[focusableElements.length - 1]) {
+          e.preventDefault();
+          focusableElements[0].focus();
+        }
+      }
+    }
+  });
+}
 
 document.getElementById('cartDeleteNo').onclick = function() {
   cartDeleteIdx = null;
   document.getElementById('cartDeleteDialog').style.display = 'none';
-  // החזרת פוקוס לסל הקניות
-  setTimeout(() => {
-    document.querySelector('.cart').focus();
-  }, 100);
-  
-  // Return focus to side cart
-  setTimeout(() => {
-    const closeSideCartBtn = document.getElementById('closeSideCart');
-    if (closeSideCartBtn) {
-      closeSideCartBtn.focus();
-    }
-  }, 200);
 };
-
-// לכידת פוקוס בדיאלוג המחיקה
-document.getElementById('cartDeleteDialog').addEventListener('keydown', function(e) {
-  if (e.key === 'Tab') {
-    const focusableElements = this.querySelectorAll('button, [tabindex]:not([tabindex="-1"])');
-    const firstElement = focusableElements[0];
-    const lastElement = focusableElements[focusableElements.length - 1];
-    
-    if (e.shiftKey && document.activeElement === firstElement) {
-      e.preventDefault();
-      lastElement.focus();
-    } else if (!e.shiftKey && document.activeElement === lastElement) {
-      e.preventDefault();
-      firstElement.focus();
-    }
-  }
-});
 
 // Initialize
 updateCartBadge();
 renderCart();
 
-// iPad and Safari specific fixes
-function ensureViewCartButtonVisibleOniPad() {
-  const viewCartBtn = document.getElementById('viewCartBtn');
-  if (viewCartBtn) {
-    viewCartBtn.style.display = 'block';
-    viewCartBtn.style.visibility = 'visible';
-    viewCartBtn.style.opacity = '1';
-    viewCartBtn.style.position = 'sticky';
-    viewCartBtn.style.bottom = '0';
-    viewCartBtn.style.zIndex = '9999';
-    viewCartBtn.style.webkitTransform = 'none';
-    viewCartBtn.style.transform = 'none';
-  }
-}
 
-// Call the function multiple times to ensure it works
-setTimeout(ensureViewCartButtonVisibleOniPad, 100);
-setTimeout(ensureViewCartButtonVisibleOniPad, 500);
-setTimeout(ensureViewCartButtonVisibleOniPad, 1000);
-setTimeout(ensureViewCartButtonVisibleOniPad, 2000);
 </script>
 <!-- מערכת ניהול הסכמה לעוגיות -->
 <script src="cookie-consent.js"></script>

@@ -7,38 +7,18 @@
   <link rel="icon" type="image/jpeg" href="logo.jpg">
   <link rel="shortcut icon" type="image/jpeg" href="logo.jpg">
   <link rel="apple-touch-icon" href="logo.jpg">
-  <title>Policy - Paintz | מדיניות - פיינטז</title>
+      <title>הצהרת נגישות - Paintz | Accessibility Statement - פיינטז</title>
   <link href="https://fonts.googleapis.com/css2?family=Amatica+SC:wght@700&family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700;900&display=swap" rel="stylesheet">
   <!-- <link href="./css/main.css" rel="stylesheet"> -->
   <style>
-    /* נגישות - תמיכה בהגדלת טקסט */
+    /* גלילה תקינה */
     html {
-      font-size: 16px;
       overflow-x: hidden !important;
       overflow-y: auto !important;
       height: 100% !important;
       width: 100% !important;
       max-width: 100vw !important;
-    }
-    
-    /* נגישות - תמיכה ב-zoom עד 200% */
-    @media screen and (max-width: 1200px) {
-      html {
-        font-size: 18px;
-      }
-    }
-    
-    @media screen and (max-width: 900px) {
-      html {
-        font-size: 20px;
-      }
-    }
-    
-    @media screen and (max-width: 600px) {
-      html {
-        font-size: 22px;
-      }
     }
     
     body {
@@ -147,6 +127,18 @@
       align-items: center;
       justify-content: center;
     }
+    
+    /* Focus styles for cart icon */
+    .cart:focus,
+    .cart:focus-visible {
+      outline: 2px solid #4C8467;
+      outline-offset: 2px;
+      border-radius: 50%;
+    }
+    
+    .cart:focus:not(:focus-visible) {
+      outline: none;
+    }
     .cart-icon {
       width: 32px;
       height: 32px;
@@ -165,7 +157,7 @@
       width: 100%;
       max-width: 100vw;
       height: 44px;
-      background: #8B6B47; /* שינוי לחום כהה שעומד בתנאי הנגישות */
+      background: #8B6B47;
       box-sizing: border-box;
     }
     .nav-link {
@@ -189,8 +181,56 @@
       text-decoration: none;
       justify-content: center;
     }
+    
+    /* Focus styles for navigation */
+    .nav-link:focus,
+    .nav-link:focus-visible {
+      outline: 2px solid #4C8467;
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+    
+    .nav-link:focus:not(:focus-visible) {
+      outline: none;
+    }
+    
+    /* Focus styles for shop button */
+    .shop-popup-btn:focus,
+    .shop-popup-btn:focus-visible {
+      outline: 2px solid #4C8467 !important;
+      outline-offset: 2px !important;
+      border-radius: 4px !important;
+    }
+    
+    .shop-popup-btn:focus:not(:focus-visible) {
+      outline: none !important;
+    }
+    
+    /* Focus styles for buttons */
+    button:focus,
+    button:focus-visible {
+      outline: 2px solid #4C8467;
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+    
+    button:focus:not(:focus-visible) {
+      outline: none;
+    }
+    
+    /* Focus styles for links */
+    a:focus,
+    a:focus-visible {
+      outline: 2px solid #4C8467;
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+    
+    a:focus:not(:focus-visible) {
+      outline: none;
+    }
     .mediniut-title {
-      color: #4C8467; /* שינוי לירוק-כחול כהה שעומד בתנאי הנגישות */
+      color: #4C8467;
       text-align: center;
       font-size: 44px;
       font-family: 'Oswald', 'Amatic SC', cursive;
@@ -218,9 +258,9 @@
       text-shadow: none;
     }
     .policy-box {
-      background: rgba(255, 249, 240, 0.94);
+      background: #fff;
       border-radius: 32px;
-      box-shadow: 0 4px 24px #0002;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.12);
       padding: 30px 25px;
       margin: 30px 20px;
       max-width: calc(100% - 40px);
@@ -238,20 +278,54 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: url('IMG_8558.JPG') no-repeat center center;
-      background-size: cover;
+      background: #F9F1DC;
       position: relative;
       z-index: 1;
     }
 
-    .policy-bg-box::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(255,255,255,0.55);
-      z-index: 2;
-      border-radius: inherit;
+    /* Policy content styles */
+    .policy-content {
+      font-family: 'Arial', sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+      color: #424242;
+      text-align: right;
+      width: 100%;
+      max-width: 800px;
     }
+
+    .policy-content h2 {
+      font-family: 'Amatica SC', cursive;
+      font-size: 28px;
+      font-weight: 700;
+      color: #4C8467;
+      margin-top: 30px;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+    }
+
+    .policy-content h3 {
+      font-family: 'Amatica SC', cursive;
+      font-size: 22px;
+      font-weight: 700;
+      color: #8B4513;
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+
+    .policy-content p {
+      margin-bottom: 15px;
+    }
+
+    .policy-content ul, .policy-content ol {
+      margin-right: 20px;
+      margin-bottom: 15px;
+    }
+
+    .policy-content li {
+      margin-bottom: 8px;
+    }
+
     /* Footer Section */
     footer {
       display: flex;
@@ -356,13 +430,13 @@
     /* --- Shop Popup refined styles --- */
     .shop-popup {
       display: none;
-      position: fixed;
+      position: absolute;
       top: 100%;
       right: 0;
       left: auto;
       background: #fff;
       border-radius: 12px;
-      box-shadow: 0 2px 12px #0002;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.12);
       z-index: 1000;
       min-width: 140px;
       padding: 4px 0;
@@ -400,6 +474,17 @@
     .shop-popup a:hover, .shop-popup .popup-main-btn:hover {
       background: #f9f1dc;
     }
+    
+    /* Focus styles for shop popup */
+    .shop-popup a:focus,
+    .shop-popup a:focus-visible,
+    .shop-popup .popup-main-btn:focus,
+    .shop-popup .popup-main-btn:focus-visible {
+      outline: 2px solid #4C8467;
+      outline-offset: 2px;
+      border-radius: 4px;
+      background: #f9f1dc;
+    }
     .popup-sub {
       display: none;
       position: absolute;
@@ -407,7 +492,7 @@
       top: 0;
       background: #f6eee0;
       border-radius: 8px;
-      box-shadow: 0 2px 8px #0001;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
       padding: 2px 0;
       min-width: 110px;
       z-index: 101;
@@ -421,111 +506,30 @@
       line-height: 1.2;
       padding: 2px 0;
     }
-    .popup-sub.show {
-      display: block !important;
+    .shop-popup .active + .popup-sub {
+      display: block;
     }
     .shop-popup-btn {
       border: none !important;
       outline: none !important;
       box-shadow: none !important;
       background: transparent;
+      color: #fff !important;
       font-family: 'Amatica SC', cursive !important;
       font-weight: 700 !important;
       font-size: 32px !important;
-      line-height: 48px !important;
-      color: #fff !important;
       cursor: pointer !important;
       padding: 0 !important;
       margin: 0 2vw !important;
       transform: rotate(0.52deg) !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      min-width: 65px !important;
+      height: 48px !important;
+      line-height: 48px !important;
       text-transform: uppercase !important;
       letter-spacing: 0.04em !important;
-    }
-    
-    .popup-main-btn {
-      cursor: pointer;
-      outline: none;
-      border: none;
-      background: transparent;
-      font-family: inherit;
-      font-size: inherit;
-      color: inherit;
-      padding: 4px 8px;
-      margin: 2px 0;
-      border-radius: 4px;
-      transition: background-color 0.2s;
-    }
-    
-    .popup-main-btn:hover,
-    .popup-main-btn:focus {
-      background-color: #f0f0f0;
-    }
-    
-    .popup-main-btn:focus-visible {
-      outline: 2px solid #4C8467 !important;
-      outline-offset: 2px !important;
-    }
-    
-    /* נגישות - Focus States */
-    *:focus:not(:focus-visible) {
-      outline: none !important;
-      box-shadow: none !important;
-    }
-    
-    *:focus-visible {
-      outline: 2px solid #4C8467 !important;
-      outline-offset: 2px !important;
-    }
-    
-    .shop-popup-btn:focus-visible {
-      outline: 2px solid #4C8467 !important;
-      outline-offset: 2px !important;
-      background: transparent !important;
-      box-shadow: none !important;
-    }
-    
-    .cart:focus-visible {
-      outline: 2px solid #4C8467 !important;
-      outline-offset: 2px !important;
-      background: transparent !important;
-      box-shadow: none !important;
-    }
-    
-    /* נגישות - Hover States */
-    button:hover, a:hover {
-      opacity: 0.8;
-    }
-    
-    /* נגישות - Skip Link */
-    .skip-link {
-      position: absolute;
-      top: -40px;
-      left: 6px;
-      background: #4C8467;
-      color: white;
-      padding: 8px;
-      text-decoration: none;
-      border-radius: 4px;
-      z-index: 10000;
-      font-family: 'Amatica SC', cursive;
-      font-size: 16px;
-    }
-    
-    .skip-link:focus {
-      top: 6px;
-    }
-    
-    /* נגישות - Screen Reader Only */
-    .sr-only {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      white-space: nowrap;
-      border: 0;
     }
     /* --- פופאפ חנות בפוטר --- */
     .footer-link-shop-popup {
@@ -539,7 +543,7 @@
       transform: translateX(-50%);
       background: #fff;
       border-radius: 12px;
-      box-shadow: 0 2px 12px #0002;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.12);
       z-index: 200;
       min-width: 140px;
       padding: 4px 0;
@@ -573,7 +577,7 @@
       max-width: 90vw;
       height: 100vh;
       background: #fff;
-      box-shadow: -2px 0 16px #0002;
+      box-shadow: -2px 0 16px rgba(0,0,0,0.12);
       z-index: 100;
       transform: translateX(100%);
       transition: all 0.35s cubic-bezier(.7,.2,.2,1);
@@ -596,8 +600,8 @@
       justify-content: space-between;
       align-items: center;
       padding: 18px 20px 10px 20px;
-      border-bottom: 1px solid #eee;
-      background: #8B6B47; /* שינוי לחום כהה שעומד בתנאי הנגישות */
+      border-bottom: 1px solid #e0e0e0;
+      background: #8B6B47;
     }
     .side-cart-title {
       font-family: 'Amatica SC', cursive;
@@ -609,7 +613,7 @@
       background: none;
       border: none;
       font-size: 32px;
-      color: #fff;
+      color: #fff; /* שינוי לצבע לבן לניגודיות טובה יותר על הרקע הכהה */
       cursor: pointer;
       font-family: inherit;
       line-height: 1;
@@ -628,7 +632,7 @@
       border-radius: 8px;
       margin: 0 16px 12px 16px;
       padding: 10px 10px 10px 6px;
-      box-shadow: 0 1px 4px #0001;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
       position: relative;
       min-height: 60px;
       user-select: none;
@@ -667,7 +671,7 @@
       text-overflow: ellipsis;
     }
     .side-cart-item-details-label {
-      color: #4C8467; /* שינוי לירוק-כחול כהה שעומד בתנאי הנגישות */
+      color: #4C8467;
       font-weight: bold;
       flex-shrink: 0;
       text-align: right;
@@ -684,7 +688,7 @@
       width: 11px;
       height: 11px;
       border-radius: 2px;
-      border: 1px solid #ccc;
+      border: 1px solid #b0b0b0;
       margin-left: 4px;
       vertical-align: middle;
       align-self: center;
@@ -706,6 +710,37 @@
     .side-cart-item-trash-btn:hover, .side-cart-item-add-btn:hover {
       opacity: 1;
     }
+    
+    /* Focus styles for cart item buttons */
+    .side-cart-item-trash-btn:focus,
+    .side-cart-item-trash-btn:focus-visible,
+    .side-cart-item-add-btn:focus,
+    .side-cart-item-add-btn:focus-visible {
+      outline: 2px solid #4C8467;
+      outline-offset: 2px;
+      border-radius: 4px;
+      opacity: 1;
+    }
+    
+    .side-cart-item-trash-btn:focus:not(:focus-visible),
+    .side-cart-item-add-btn:focus:not(:focus-visible) {
+      outline: none;
+    }
+    
+    /* Focus styles for quantity buttons */
+    .side-cart-item-add-btn:focus,
+    .side-cart-item-add-btn:focus-visible,
+    .side-cart-item-minus-btn:focus,
+    .side-cart-item-minus-btn:focus-visible {
+      outline: 2px solid #4C8467;
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+    
+    .side-cart-item-add-btn:focus:not(:focus-visible),
+    .side-cart-item-minus-btn:focus:not(:focus-visible) {
+      outline: none;
+    }
     .side-cart-item-trash-icon {
       width: 20px;
       height: 20px;
@@ -718,7 +753,7 @@
       bottom: 3px;
       top: auto;
       transform: translateX(-50%);
-      color: #111;
+      color: #1a1a1a;
       font-size: 18px;
       font-family: 'Rubik', sans-serif;
       font-weight: bold;
@@ -747,7 +782,7 @@
     .cart-delete-dialog-content {
       background: #fff;
       border-radius: 12px;
-      box-shadow: 0 2px 16px #0003;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.18);
       padding: 32px 28px 18px 28px;
       min-width: 260px;
       text-align: center;
@@ -755,7 +790,7 @@
     .cart-delete-dialog-title {
       font-family: 'Amatica SC', cursive;
       font-size: 22px;
-      color: #8B6B47; /* שינוי לחום כהה שעומד בתנאי הנגישות */
+      color: #8B6B47;
       margin-bottom: 18px;
     }
     .cart-delete-dialog-actions {
@@ -774,14 +809,37 @@
       cursor: pointer;
     }
     .cart-delete-btn-no {
-      background: #eee;
-      color: #8B6B47; /* שינוי לחום כהה שעומד בתנאי הנגישות */
+      background: #e0e0e0;
+      color: #8B6B47;
       border: none;
       border-radius: 8px;
       font-size: 18px;
       font-family: 'Amatica SC', cursive;
       padding: 6px 22px;
       cursor: pointer;
+    }
+    
+    /* Focus styles for delete dialog buttons */
+    .cart-delete-btn-yes:focus,
+    .cart-delete-btn-yes:focus-visible {
+      outline: 2px solid #fff;
+      outline-offset: 2px;
+      border-radius: 8px;
+    }
+    
+    .cart-delete-btn-yes:focus:not(:focus-visible) {
+      outline: none;
+    }
+    
+    .cart-delete-btn-no:focus,
+    .cart-delete-btn-no:focus-visible {
+      outline: 2px solid #4C8467;
+      outline-offset: 2px;
+      border-radius: 8px;
+    }
+    
+    .cart-delete-btn-no:focus:not(:focus-visible) {
+      outline: none;
     }
     @media (max-width: 700px) {
       /* Side Cart Mobile */
@@ -795,7 +853,7 @@
         bottom: 0;
         width: calc(100% - 32px);
         height: 48px;
-        background: #4C8467; /* שינוי לירוק-כחול כהה שעומד בתנאי הנגישות */
+        background: #4C8467;
         color: #fff;
         font-family: 'Amatica SC', cursive;
         font-size: 20px;
@@ -810,7 +868,19 @@
       }
       
       .side-cart-view-btn:hover {
-        background: #3D6B4A; /* שינוי לירוק כהה יותר שעומד בתנאי הנגישות */
+        background: #3D6B4A;
+      }
+      
+      /* Focus styles for side cart buttons */
+      .side-cart-view-btn:focus,
+      .side-cart-view-btn:focus-visible {
+        outline: 2px solid #fff;
+        outline-offset: 2px;
+        border-radius: 8px;
+      }
+      
+      .side-cart-view-btn:focus:not(:focus-visible) {
+        outline: none;
       }
       
       /* Mobile Header */
@@ -959,7 +1029,7 @@
       width: 90%;
       margin: 16px auto 18px auto;
       height: 48px;
-      background: #4C8467; /* שינוי לירוק-כחול כהה שעומד בתנאי הנגישות */
+      background: #4C8467;
       color: #fff;
       font-family: 'Amatica SC', cursive;
       font-size: 24px;
@@ -971,30 +1041,25 @@
       display: block;
     }
     .side-cart-view-btn:hover {
-      background: #3D6B4A; /* שינוי לירוק כהה יותר שעומד בתנאי הנגישות */
+      background: #3D6B4A;
     }
   </style>
 </head>
 <body>
-  <!-- נגישות - אזור הודעות לקוראי מסך -->
-  <div id="accessibilityAnnouncements" class="sr-only" aria-live="polite" aria-atomic="true"></div>
-  
-  <!-- נגישות - קישור לקפיצה לתוכן הראשי -->
-  
-  
   <div id="cartOverlay" class="cart-overlay"></div>
   <div id="cartDeleteDialog" class="cart-delete-dialog" style="display:none;">
     <div class="cart-delete-dialog-content">
       <div class="cart-delete-dialog-title">האם למחוק את המוצר מהעגלה?</div>
-      <div class="cart-delete-dialog-actions">
-        <button id="cartDeleteYes" class="cart-delete-btn-yes">כן</button>
-        <button id="cartDeleteNo" class="cart-delete-btn-no">לא</button>
-      </div>
+             <div class="cart-delete-dialog-actions">
+         <button id="cartDeleteYes" class="cart-delete-btn-yes" tabindex="0">כן</button>
+         <button id="cartDeleteNo" class="cart-delete-btn-no" tabindex="0">לא</button>
+       </div>
     </div>
   </div>
-                   <div class="body-center">
-          <header>
-      <h1 class="logo" alt="לוגו Paintz - חזרה לעמוד הבית"></h1>
+
+    <div class="body-center">
+        <header>
+      <h1 class="logo" role="img" aria-label="לוגו Paintz - חזרה לעמוד הבית"></h1>
       <a class="cart" aria-label="סל קניות" tabindex="0">
         <div class="cart-icon" alt="אייקון סל קניות">
           <span class="cart-badge" id="cartBadge" style="display:none;">0</span>
@@ -1002,49 +1067,135 @@
       </a>
     </header>
         <nav>
-              <h4 class="nav-link" style="margin: 0;"><a href="homepage.html" style="color: inherit; text-decoration: none;">דף הבית</a></h4>
-        <button class="nav-link shop-popup-btn" id="shopPopupBtn" type="button" aria-label="תפריט חנות - לחץ לפתיחה" aria-expanded="false" aria-haspopup="true" style="margin: 0; color: inherit; text-decoration: none; background: none; border: none; font: inherit; cursor: pointer;">חנות</button>
-        <!-- Popup (ממש אחרי כפתור החנות) -->
-        <div class="shop-popup" id="shopPopup">
-          <ul>
-            <li><h6 style="margin: 0;"><a href="shop.html" style="color: inherit; text-decoration: none;">כללי</a></h6></li>
-            <li>
-              <h6 class="popup-main-btn" type="button" data-target="sheshbesh" style="margin: 0;" tabindex="0">שש בש</h6>
-              <ul class="popup-sub" id="sub-sheshbesh">
-                <li><h6 style="margin: 0;"><a href="Backgammon Custum.html" style="color: inherit; text-decoration: none;">עיצוב אישי</a></h6></li>
-                <li><h6 style="margin: 0;"><a href="Backgammon Models.html" style="color: inherit; text-decoration: none;">דגמים</a></h6></li>
-              </ul>
-            </li>
-            <li>
-              <h6 class="popup-main-btn" type="button" data-target="matkot" style="margin: 0;" tabindex="0">מטקות</h6>
-              <ul class="popup-sub" id="sub-matkot">
-                <li><h6 style="margin: 0;"><a href="Matka Custum.html" style="color: inherit; text-decoration: none;">עיצוב אישי</a></h6></li>
-                <li><h6 style="margin: 0;"><a href="Matka Models.html" style="color: inherit; text-decoration: none;">דגמים</a></h6></li>
-              </ul>
-            </li>
-            <li><h6 style="margin: 0;"><a href="Canvas.html" style="color: inherit; text-decoration: none;">קנבסים</a></h6></li>
-            <li><h6 style="margin: 0;"><a href="Record.html" style="color: inherit; text-decoration: none;">תקליטים</a></h6></li>
-          </ul>
-        </div>
+        <h4 class="nav-link" style="margin: 0;"><a href="homepage.html" style="color: inherit; text-decoration: none;">דף הבית</a></h4>
+        <button class="nav-link shop-popup-btn" id="shopPopupBtn" type="button" aria-label="תפריט חנות - לחץ לפתיחה" aria-expanded="false" aria-haspopup="true" tabindex="0">חנות</button>
         <h4 class="nav-link" style="margin: 0;"><a href="policy.html" style="color: inherit; text-decoration: none;">מדיניות</a></h4>
         <h4 class="nav-link" style="margin: 0;"><a href="contact.html" style="color: inherit; text-decoration: none;">צור קשר</a></h4>
     </nav>
-    
+    <!-- Popup (ממש אחרי ה-nav) -->
+    <div class="shop-popup" id="shopPopup">
+      <ul>
+        <li><h6 style="margin: 0;"><a href="shop.html" style="color: inherit; text-decoration: none;">כללי</a></h6></li>
+        <li>
+          <h6 class="popup-main-btn" type="button" data-target="sheshbesh" style="margin: 0;" tabindex="0">שש בש</h6>
+          <ul class="popup-sub" id="sub-sheshbesh">
+            <li><h6 style="margin: 0;"><a href="Backgammon Custum.html" style="color: inherit; text-decoration: none;">עיצוב אישי</a></h6></li>
+            <li><h6 style="margin: 0;"><a href="Backgammon Models.html" style="color: inherit; text-decoration: none;">דגמים</a></h6></li>
+          </ul>
+        </li>
+        <li>
+          <h6 class="popup-main-btn" type="button" data-target="matkot" style="margin: 0;" tabindex="0">מטקות</h6>
+          <ul class="popup-sub" id="sub-matkot">
+            <li><h6 style="margin: 0;"><a href="Matka Custum.html" style="color: inherit; text-decoration: none;">עיצוב אישי</a></h6></li>
+            <li><h6 style="margin: 0;"><a href="Matka Models.html" style="color: inherit; text-decoration: none;">דגמים</a></h6></li>
+          </ul>
+        </li>
+        <li><h6 style="margin: 0;"><a href="Canvas.html" style="color: inherit; text-decoration: none;">קנבסים</a></h6></li>
+        <li><h6 style="margin: 0;"><a href="Record.html" style="color: inherit; text-decoration: none;">תקליטים</a></h6></li>
+      </ul>
+    </div>
     <main>
-      <div class="policy-bg-box" id="main-content">
+      <div class="policy-bg-box">
         <div class="policy-box">
           <div style="font-size: 28px; color: #5C4638; text-align: center; max-width: 800px;">
-            <h2 class="mediniut-title">מדיניות</h2>
-            <div class="mediniut-text">
-              כל מוצר באתר שלנו נעשה בעבודת יד ובהתאמה אישית – במיוחד בשבילך.<br>
-              אין החזרות או החלפות, לאור אופיים הייחודי והמותאם אישית של המוצרים.<br>
-              אם המוצר הגיע פגום – יש לשלוח הודעה מיידית בצירוף תמונה ברורה של הפגם ברגע קבלת המשלוח או האיסוף. אנו נבחן את המקרה ונטפל בו בהתאם.<br>
-              במקרה של טעות בעיצוב אשר הופיעה בהדמיה המאושרת – האחריות על הלקוח בלבד, מאחר וההכנה מתבצעת לפי אישור סופי טרם ההדפסה/הייצור.<br>
-              במקרים חריגים – ניתן לפנות אלינו ואנו נשתדל לעזור ככל שנוכל, בגישה אנושית ואכפתית.<br>
-              <div style="margin: 48px 0;">אין להעתיק, לשכפל, להשתמש או להפיץ את העיצובים, התמונות או האלמנטים הגרפיים – ללא אישור בכתב מראש.</div>
-              תודה שאת/ה חלק מהיצירה, אנחנו כאן לכל שאלה.<br>
-              פיינטז, ציור שמשאיר חותם<br><br>
-              <a href="about.html" style="color: #5C4638; text-decoration: underline; font-weight: bold;">לחץ כאן לקריאה עלינו</a> 
+            <h2 class="mediniut-title">הצהרת נגישות</h2>
+            <div class="policy-content">
+              <p><strong>תאריך עדכון אחרון:</strong> ינואר 2025</p>
+              
+              <h2>1. מחויבותנו לנגישות</h2>
+              <p>Paintz מחויבת להנגיש את שירותיה לכלל הציבור, כולל אנשים עם מוגבלויות. אנו פועלים ליצירת חווית משתמש נגישה, שוויונית ונוחה לכולם.</p>
+
+              <h2>2. תקנים ומדיניות נגישות</h2>
+              <p>האתר שלנו נבנה בהתאם לתקן הישראלי (ת"י 5568) ולהנחיות הנגישות הבינלאומיות WCAG 2.1 ברמת AA, כפי שנדרש על פי חוק שוויון זכויות לאנשים עם מוגבלות, התשנ"ח-1998 ותקנותיו.</p>
+
+              <h2>3. תכונות נגישות באתר</h2>
+              <h3>ניווט במקלדת:</h3>
+              <ul>
+                <li>ניתן לנווט באתר באמצעות מקלדת בלבד</li>
+                <li>סדר הטאבים לוגי וברור</li>
+                <li>סימון ברור של המיקום הנוכחי באתר</li>
+              </ul>
+
+              <h3>תמיכה בקוראי מסך:</h3>
+              <ul>
+                <li>תגיות HTML סמנטיות מתאימות</li>
+                <li>תיאורים חלופיים לתמונות</li>
+                <li>כותרות מובנות היטב</li>
+                <li>תוויות מתאימות לטפסים</li>
+              </ul>
+
+              <h3>עיצוב נגיש:</h3>
+              <ul>
+                <li>ניגודיות גבוהה בין הטקסט לרקע</li>
+                <li>גדלי גופן הניתנים להגדלה</li>
+                <li>צבעים שאינם מהווים את האמצעי היחיד להעברת מידע</li>
+                <li>עיצוב רספונסיבי לכל סוגי המכשירים</li>
+              </ul>
+
+              <h2>4. טכנולוגיות נגישות נתמכות</h2>
+              <p>האתר נבדק ומותאם לעבודה עם:</p>
+              <ul>
+                <li>NVDA</li>
+                <li>JAWS</li>
+                <li>VoiceOver (Mac/iOS)</li>
+                <li>TalkBack (Android)</li>
+                <li>Dragon NaturallySpeaking</li>
+              </ul>
+
+              <h2>5. דפדפנים נתמכים</h2>
+              <p>האתר נבדק ומותאם לעבודה עם הדפדפנים הבאים:</p>
+              <ul>
+                <li>Google Chrome (גרסה 90 ומעלה)</li>
+                <li>Mozilla Firefox (גרסה 88 ומעלה)</li>
+                <li>Microsoft Edge (גרסה 90 ומעלה)</li>
+                <li>Safari (גרסה 14 ומעלה)</li>
+              </ul>
+
+              <h2>6. מגבלות נגישות ידועות</h2>
+              <p>אנו מודעים למגבלות הבאות ופועלים לתיקונן:</p>
+              <ul>
+                <li>חלק מהתמונות בגלריה עדיין זקוקות לתיאורים מפורטים יותר</li>
+                <li>מערכת התשלום מופעלת על ידי צד שלישי ועשויה להיות פחות נגישה</li>
+              </ul>
+
+              <h2>7. שיפורים עתידיים</h2>
+              <p>אנו פועלים ללא הרף לשיפור הנגישות, כולל:</p>
+              <ul>
+                <li>הוספת תמיכה בהגדלת טקסט עד 200%</li>
+                <li>שיפור תמיכה בטכנולוגיות עזר נוספות</li>
+                <li>הוספת אפשרויות התאמה אישית נוספות</li>
+              </ul>
+
+              <h2>8. משוב ותמיכה</h2>
+              <p>אנו מזמינים אתכם לפנות אלינו בכל נושא הקשור לנגישות האתר:</p>
+              
+              <h3>רכזת נגישות:</h3>
+              <ul>
+                <li>שם: צוות Paintz</li>
+                <li>אימייל: accessibility@paintz.co.il</li>
+                <li>טלפון: 053-317-4482</li>
+              </ul>
+
+              <h3>זמני תגובה:</h3>
+              <ul>
+                <li>בקשות דחופות: תוך 24 שעות</li>
+                <li>בקשות רגילות: תוך 5 ימי עבודה</li>
+              </ul>
+
+              <h2>9. תהליך הגשת תלונות</h2>
+              <p>אם נתקלתם בבעיית נגישות באתר:</p>
+              <ol>
+                <li>פנו אלינו תחילה דרך פרטי הקשר למעלה</li>
+                <li>אם לא קיבלתם מענה מספק, ניתן לפנות למשרד המשפטים</li>
+                <li>כתובת: משרד המשפטים, היחידה לזכויות אנשים עם מוגבלות</li>
+                <li>טלפון: 02-646-6346</li>
+                <li>אימייל: disability.rights@justice.gov.il</li>
+              </ol>
+
+              <h2>10. עדכונים והתחייבויות</h2>
+              <p>הצהרת נגישות זו עודכנה לאחרונה בינואר 2025. אנו מתחייבים לעדכן הצהרה זו בהתאם לשינויים באתר ובתקנות הנגישות.</p>
+
+              <p><strong>אנו מחויבים להנגשה מתמשכת ולשיפור חווית המשתמש עבור כלל המשתמשים.</strong></p>
             </div>
           </div>
         </div>
@@ -1053,7 +1204,7 @@
     </div>
     <footer>
         <div class="footer-content">
-          <div class="footer-nav">
+                    <div class="footer-nav">
             <h5 class="footer-link" style="margin: 0;"><a href="homepage.html" style="color: inherit; text-decoration: none;">דף הבית</a></h5>
             <span class="footer-sep">|</span>
             <h5 class="footer-link" style="margin: 0;"><a href="shop.html" style="color: inherit; text-decoration: none;">חנות</a></h5>
@@ -1099,12 +1250,12 @@
     <aside id="sideCart" class="side-cart">
       <div class="side-cart-header">
         <span class="side-cart-title">סל קניות</span>
-        <button class="side-cart-close" id="closeSideCart">×</button>
+        <button class="side-cart-close" id="closeSideCart" tabindex="0">×</button>
       </div>
       <div class="side-cart-list" id="sideCartList">
         <!-- כאן יתווספו המוצרים -->
       </div>
-      <button class="side-cart-view-btn" id="viewCartBtn" aria-label="לצפייה בסל הקניות">לצפייה בסל הקניות</button>
+      <button class="side-cart-view-btn" id="viewCartBtn" aria-label="לצפייה בסל הקניות" tabindex="0">לצפייה בסל הקניות</button>
     </aside>
 
 </div>
@@ -1117,65 +1268,9 @@
         sideCart.classList.remove('active');
       }
     });
-// --- נגישות - הודעות לקוראי מסך ---
-function announceToScreenReader(message) {
-  const announcements = document.getElementById('accessibilityAnnouncements');
-  if (announcements) {
-    announcements.textContent = message;
-  }
-}
-
-// --- נגישות - ניווט במקלדת ---
-function handleKeyboardNavigation(event) {
-  const shopBtn = document.getElementById('shopPopupBtn');
-  const shopPopup = document.getElementById('shopPopup');
-  
-  // Enter או Space לפתיחת תפריט החנות
-  if ((event.key === 'Enter' || event.key === ' ') && event.target === shopBtn) {
-    event.preventDefault();
-    if (shopPopup.style.display === 'block') {
-      closeShopPopup();
-    } else {
-      openShopPopup();
-    }
-  }
-  
-  // Escape לסגירת תפריטים
-  if (event.key === 'Escape') {
-    if (shopPopup.style.display === 'block') {
-      closeShopPopup();
-    }
-    if (document.getElementById('cartDeleteDialog').style.display === 'flex') {
-      document.getElementById('cartDeleteDialog').style.display = 'none';
-      // החזרת פוקוס לסל הקניות
-      setTimeout(() => {
-        document.querySelector('.cart').focus();
-      }, 100);
-    }
-  }
-  
-  // Tab לתפריט החנות - לכידת פוקוס
-  if (event.key === 'Tab' && shopPopup.style.display === 'block') {
-    const focusableElements = shopPopup.querySelectorAll('a, button, [tabindex]:not([tabindex="-1"])');
-    const firstElement = focusableElements[0];
-    const lastElement = focusableElements[focusableElements.length - 1];
-    
-    if (event.shiftKey && document.activeElement === firstElement) {
-      event.preventDefault();
-      lastElement.focus();
-    } else if (!event.shiftKey && document.activeElement === lastElement) {
-      event.preventDefault();
-      firstElement.focus();
-    }
-  }
-}
-
-// הוספת מאזין לניווט במקלדת
-document.addEventListener('keydown', handleKeyboardNavigation);
-
 // --- Shop Popup Logic ---
-const shopBtn = document.getElementById('shopPopupBtn');
-const shopPopup = document.getElementById('shopPopup');
+let shopBtn;
+let shopPopup;
 
 function positionShopPopup() {
   const rect = shopBtn.getBoundingClientRect();
@@ -1193,8 +1288,8 @@ function openShopPopup() {
 
 function closeShopPopup() {
   shopPopup.style.display = 'none';
-  closeAllSubs();
   shopBtn.setAttribute('aria-expanded', 'false');
+  closeAllSubs();
 }
 
 function setShopPopupEvents() {
@@ -1241,105 +1336,20 @@ function setShopPopupEvents() {
     };
     shopBtn.addEventListener('click', shopBtn._shopClickHandler);
   }
-}
-setShopPopupEvents();
-window.addEventListener('resize', setShopPopupEvents);
-window.addEventListener('resize', function() {
-  if (shopPopup.style.display === 'block') {
-    positionShopPopup();
-  }
-});
-document.addEventListener('click', function(e) {
-  if (!shopPopup.contains(e.target) && e.target !== shopBtn) {
-    closeShopPopup();
-  }
-});
-function closeAllSubs() {
-  document.querySelectorAll('.popup-sub').forEach(sub => sub.classList.remove('show'));
-}
-function setSubmenuEvents() {
-  const isDesktop = window.innerWidth > 700;
   
-  // ניקוי מאזינים ישנים
-  document.querySelectorAll('.popup-main-btn').forEach(btn => {
-    const newBtn = btn.cloneNode(true);
-    btn.parentNode.replaceChild(newBtn, btn);
-  });
-  
-  // הוספת מאזינים חדשים
-  document.querySelectorAll('.popup-main-btn').forEach(btn => {
-    const target = btn.getAttribute('data-target');
-    const sub = document.getElementById('sub-' + target);
-    
-    if (sub) {
-      // Desktop: open submenus only on click
-      btn.addEventListener('click', function(e) {
-        e.stopPropagation();
-        if (sub.classList.contains('show')) {
-          sub.classList.remove('show');
-        } else {
-          closeAllSubs();
-          sub.classList.add('show');
-          
-          // העברת פוקוס לפריט הראשון בתפריט המשני
-          setTimeout(() => {
-            const firstSubItem = sub.querySelector('a');
-            if (firstSubItem) {
-              firstSubItem.focus();
-            }
-          }, 100);
-        }
-      });
-      
-      // הוספת מאזיני מקלדת לתפריטים משניים
-      btn.addEventListener('keydown', function(e) {
-        if (e.key === 'Enter' || e.key === ' ') {
-          e.preventDefault();
-          if (sub.classList.contains('show')) {
-            sub.classList.remove('show');
-          } else {
-            closeAllSubs();
-            sub.classList.add('show');
-            
-            // העברת פוקוס לפריט הראשון בתפריט המשני
-            setTimeout(() => {
-              const firstSubItem = sub.querySelector('a');
-              if (firstSubItem) {
-                firstSubItem.focus();
-              }
-            }, 100);
-          }
-        }
-      });
-      
-      // לכידת פוקוס בתפריט המשני
-      sub.addEventListener('keydown', function(e) {
-        if (e.key === 'Tab') {
-          const focusableElements = sub.querySelectorAll('a, [tabindex]:not([tabindex="-1"])');
-          if (focusableElements.length > 0) {
-            if (e.shiftKey && document.activeElement === focusableElements[0]) {
-              e.preventDefault();
-              btn.focus(); // חוזר לכפתור הראשי
-            } else if (!e.shiftKey && document.activeElement === focusableElements[focusableElements.length - 1]) {
-              e.preventDefault();
-              // עובר לפריט הבא בתפריט הראשי
-              const nextMainItem = btn.closest('li').nextElementSibling;
-              if (nextMainItem) {
-                const nextMainBtn = nextMainItem.querySelector('a, .popup-main-btn, [tabindex]:not([tabindex="-1"])');
-                if (nextMainBtn) nextMainBtn.focus();
-              } else {
-                // אם אין פריט הבא, חוזר לכפתור הראשי
-                btn.focus();
-              }
-            }
-          }
-        }
-      });
+  // Add keyboard navigation for shop button
+  shopBtn.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      if (shopPopup.style.display === 'block') {
+        closeShopPopup();
+      } else {
+        openShopPopup();
+      }
     }
   });
 }
-setSubmenuEvents();
-window.addEventListener('resize', setSubmenuEvents);
+
 
 // --- Side Cart Logic ---
 let cart = [];
@@ -1357,18 +1367,176 @@ function initializeCart() {
 }
 
 initializeCart();
+
+function closeAllSubs() {
+  document.querySelectorAll('.popup-sub').forEach(sub => sub.style.display = 'none');
+}
+
+function setSubmenuEvents() {
+  document.querySelectorAll('.popup-main-btn').forEach(btn => {
+    const target = btn.getAttribute('data-target');
+    const sub = document.getElementById('sub-' + target);
+    
+    if (sub) {
+      btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        if (sub.style.display === 'block') {
+          sub.style.display = 'none';
+        } else {
+          closeAllSubs();
+          sub.style.display = 'block';
+        }
+      });
+    }
+  });
+}
+
 document.addEventListener('DOMContentLoaded', function() {
   setTimeout(initializeCart, 100);
-  setSubmenuEvents();
+  
+  // Initialize shop popup
+  shopBtn = document.getElementById('shopPopupBtn');
+  shopPopup = document.getElementById('shopPopup');
+  
+  if (shopBtn && shopPopup) {
+    setShopPopupEvents();
+    window.addEventListener('resize', setShopPopupEvents);
+    window.addEventListener('resize', function() {
+      if (shopPopup.style.display === 'block') {
+        positionShopPopup();
+      }
+    });
+    document.addEventListener('click', function(e) {
+      if (!shopPopup.contains(e.target) && e.target !== shopBtn) {
+        closeShopPopup();
+      }
+    });
+    
+    setSubmenuEvents();
+    window.addEventListener('resize', setSubmenuEvents);
+  }
+  const cartBtn = document.querySelector('.cart');
+  const sideCart = document.getElementById('sideCart');
+  const cartOverlay = document.getElementById('cartOverlay');
+  const closeSideCartBtn = document.getElementById('closeSideCart');
+  const sideCartList = document.getElementById('sideCartList');
+  const viewCartBtn = document.getElementById('viewCartBtn');
+  const cartBadge = document.getElementById('cartBadge');
+  
+  if (cartBtn) {
+    // Add keyboard navigation for cart button
+    cartBtn.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openSideCart();
+      }
+    });
+    
+    // Add click event for cart button
+    cartBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      openSideCart();
+    });
+  }
+  
+  if (cartOverlay) {
+    cartOverlay.addEventListener('click', closeSideCart);
+  }
+  
+  if (closeSideCartBtn) {
+    // Add keyboard navigation for close cart button
+    closeSideCartBtn.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        closeSideCart();
+      }
+    });
+    
+    // Add click event for close cart button
+    closeSideCartBtn.addEventListener('click', closeSideCart);
+  }
+  
+  if (viewCartBtn) {
+    // Add keyboard navigation for view cart button
+    viewCartBtn.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        window.location.href = 'Shopping Cart.html';
+        return;
+      }
+    });
+    
+    // Add click event for view cart button
+    viewCartBtn.addEventListener('click', function() {
+      window.location.href = 'Shopping Cart.html';
+    });
+  }
+  
+  // Add keyboard navigation for delete dialog buttons
+  const deleteYesBtn = document.getElementById('cartDeleteYes');
+  const deleteNoBtn = document.getElementById('cartDeleteNo');
+  
+  if (deleteYesBtn) {
+    deleteYesBtn.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        if (cartDeleteIdx !== null) {
+          removeFromCart(cartDeleteIdx);
+          cartDeleteIdx = null;
+        }
+        document.getElementById('cartDeleteDialog').style.display = 'none';
+      }
+    });
+    
+    deleteYesBtn.onclick = function() {
+      if (cartDeleteIdx !== null) {
+        removeFromCart(cartDeleteIdx);
+        cartDeleteIdx = null;
+      }
+      document.getElementById('cartDeleteDialog').style.display = 'none';
+    };
+  }
+  
+  if (deleteNoBtn) {
+    deleteNoBtn.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        cartDeleteIdx = null;
+        document.getElementById('cartDeleteDialog').style.display = 'none';
+      }
+    });
+    
+    deleteNoBtn.onclick = function() {
+      cartDeleteIdx = null;
+      document.getElementById('cartDeleteDialog').style.display = 'none';
+    };
+  }
+  
+  // Initialize
+  updateCartBadge();
+  renderCart();
+  
+  // iPad and Safari specific fixes
+  function ensureViewCartButtonVisibleOniPad() {
+    const viewCartBtn = document.getElementById('viewCartBtn');
+    if (viewCartBtn) {
+      viewCartBtn.style.display = 'block';
+      viewCartBtn.style.visibility = 'visible';
+      viewCartBtn.style.opacity = '1';
+      viewCartBtn.style.position = 'sticky';
+      viewCartBtn.style.bottom = '0';
+      viewCartBtn.style.zIndex = '9999';
+      viewCartBtn.style.webkitTransform = 'none';
+      viewCartBtn.style.transform = 'none';
+    }
+  }
+  
+  // Call the function multiple times to ensure it works
+  setTimeout(ensureViewCartButtonVisibleOniPad, 100);
+  setTimeout(ensureViewCartButtonVisibleOniPad, 500);
+  setTimeout(ensureViewCartButtonVisibleOniPad, 1000);
+  setTimeout(ensureViewCartButtonVisibleOniPad, 2000);
 });
-
-const cartBtn = document.querySelector('.cart');
-const sideCart = document.getElementById('sideCart');
-const cartOverlay = document.getElementById('cartOverlay');
-const closeSideCartBtn = document.getElementById('closeSideCart');
-const sideCartList = document.getElementById('sideCartList');
-const viewCartBtn = document.getElementById('viewCartBtn');
-const cartBadge = document.getElementById('cartBadge');
 
 // Color mapping functions
 function getColorFromName(colorName) {
@@ -1378,7 +1546,7 @@ function getColorFromName(colorName) {
     'שחור': '#000000', 'לבן': '#FFFFFF', 'אפור': '#808080', 'תכלת': '#00CED1',
     'בז\'': '#F5F5DC', 'זהב': '#FFD700', 'כסף': '#C0C0C0', 'ברונזה': '#CD7F32'
   };
-  return colorMap[colorName.trim()] || '#ccc';
+          return colorMap[colorName.trim()] || '#b0b0b0';
 }
 
 function truncateText(text, maxLength = 10) {
@@ -1526,32 +1694,32 @@ function renderCart() {
     row.className = 'side-cart-item';
     row.setAttribute('data-idx', idx);
     row.style.position = 'relative';
-    row.innerHTML = `
-      <div style="height: 120px; display: flex; flex-direction: row; width: 100%; position: relative;">
-        <div style="flex: 1; height: 100%; display: flex; align-items: center;">
-          <div style="width: 100%; display: flex; flex-direction: column; gap: 8px;">
-            <div style="height: 30px; display: flex; align-items: center; justify-content: center;">
-              <span style="font-family: 'Amatica SC', cursive; font-size: 22px; font-weight: bold; color: #8B6B47; text-align: center; line-height: 1.1;">${mainTitle}</span>
-            </div>
-            <div style="height: 24px; display: flex; align-items: center; justify-content: center;">
-              <span style="font-family: 'Amatica SC', cursive; font-size: 16px; color: #8B6B47; text-align: center; font-weight: normal;">${subTitle}</span>
-            </div>
-            ${window.cartSync && window.cartSync.renderCartPrice ? window.cartSync.renderCartPrice(item) : ''}
-          </div>
-        </div>
-        <div style="width: 48px; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; margin-left: 8px;">
-          <button class="side-cart-item-add-btn" title="הוסף" style="background: none; border: none; font-size: 22px; color: #4C8467; cursor: pointer; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;">+</button>
-          <span class="side-cart-item-qty" style="width: 32px; height: 28px; font-size: 18px; color: #8B6B47; display: flex; align-items: center; justify-content: center; background: none; border-radius: 0; border: none; font-family: 'Amatica SC', cursive; font-weight: bold;">${item.qty}</span>
-                      <button class="side-cart-item-minus-btn" title="הפחת" style="background: none; border: none; font-size: 22px; color: #4C8467; cursor: pointer; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;">–</button>
-        </div>
-      </div>
-      <div class="side-cart-item-details" style="padding: 0 0 8px 0;">
-        <ul class="side-cart-item-details-list" style="max-width: 100%; overflow: hidden;">
-          ${details}
-        </ul>
-      </div>
-      <button class="side-cart-item-trash-btn" title="מחק" style="position: absolute; left: 8px; bottom: 8px; background: none; border: none; padding: 0; margin: 0; cursor: pointer; width: 22px; height: 22px;"><span class="side-cart-item-trash-icon"></span></button>
-    `;
+         row.innerHTML = `
+       <div style="height: 120px; display: flex; flex-direction: row; width: 100%; position: relative;">
+         <div style="flex: 1; height: 100%; display: flex; align-items: center;">
+           <div style="width: 100%; display: flex; flex-direction: column; gap: 8px;">
+             <div style="height: 30px; display: flex; align-items: center; justify-content: center;">
+               <span style="font-family: 'Amatica SC', cursive; font-size: 22px; font-weight: bold; color: #8B6B47; text-align: center; line-height: 1.1;">${mainTitle}</span>
+             </div>
+             <div style="height: 24px; display: flex; align-items: center; justify-content: center;">
+               <span style="font-family: 'Amatica SC', cursive; font-size: 16px; color: #8B6B47; text-align: center; font-weight: normal;">${subTitle}</span>
+             </div>
+             ${window.cartSync && window.cartSync.renderCartPrice ? window.cartSync.renderCartPrice(item) : ''}
+           </div>
+         </div>
+         <div style="width: 48px; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; margin-left: 8px;">
+           <button class="side-cart-item-add-btn" title="הוסף" tabindex="0" style="background: none; border: none; font-size: 22px; color: #4C8467; cursor: pointer; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;">+</button>
+           <span class="side-cart-item-qty" style="width: 32px; height: 28px; font-size: 18px; color: #8B6B47; display: flex; align-items: center; justify-content: center; background: none; border-radius: 0; border: none; font-family: 'Amatica SC', cursive; font-weight: bold;">${item.qty}</span>
+           <button class="side-cart-item-minus-btn" title="הפחת" tabindex="0" style="background: none; border: none; font-size: 22px; color: #4C8467; cursor: pointer; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center;">–</button>
+         </div>
+       </div>
+       <div class="side-cart-item-details" style="padding: 0 0 8px 0;">
+         <ul class="side-cart-item-details-list" style="max-width: 100%; overflow: hidden;">
+           ${details}
+         </ul>
+       </div>
+       <button class="side-cart-item-trash-btn" title="מחק" tabindex="0" style="position: absolute; left: 8px; bottom: 8px; background: none; border: none; padding: 0; margin: 0; cursor: pointer; width: 22px; height: 22px;"><span class="side-cart-item-trash-icon"></span></button>
+     `;
     
     row.querySelector('.side-cart-item-trash-btn').onclick = function(e) {
       e.stopPropagation();
@@ -1594,68 +1762,24 @@ function renderCart() {
 }
 
 function openSideCart() {
-  sideCart.classList.add('active');
-  cartOverlay.classList.add('active');
-  document.body.style.overflow = 'hidden';
-  
-  // העברת פוקוס לכפתור הסגירה
-  setTimeout(() => {
-    const closeSideCartBtn = document.getElementById('closeSideCart');
-    if (closeSideCartBtn) {
-      closeSideCartBtn.focus();
-    }
-  }, 100);
+  const sideCart = document.getElementById('sideCart');
+  const cartOverlay = document.getElementById('cartOverlay');
+  if (sideCart && cartOverlay) {
+    sideCart.classList.add('active');
+    cartOverlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
 }
 
 function closeSideCart() {
-  sideCart.classList.remove('active');
-  cartOverlay.classList.remove('active');
-  document.body.style.overflow = '';
-  
-  // החזרת פוקוס לאייקון הסל קניות
-  setTimeout(() => {
-    const cartBtn = document.querySelector('.cart');
-    if (cartBtn) {
-      cartBtn.focus();
-    }
-  }, 100);
-}
-
-    cartBtn.addEventListener('click', function(e) {
-      e.preventDefault();
-      openSideCart();
-    });
-    
-    cartBtn.addEventListener('keydown', function(e) {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        openSideCart();
-      }
-    });
-
-cartOverlay.addEventListener('click', closeSideCart);
-closeSideCartBtn.addEventListener('click', closeSideCart);
-
-// לכידת פוקוס בסל הקניות
-sideCart.addEventListener('keydown', function(e) {
-  if (e.key === 'Tab') {
-    const focusableElements = sideCart.querySelectorAll('button, a, [tabindex]:not([tabindex="-1"])');
-    const firstElement = focusableElements[0];
-    const lastElement = focusableElements[focusableElements.length - 1];
-    
-    if (e.shiftKey && document.activeElement === firstElement) {
-      e.preventDefault();
-      lastElement.focus();
-    } else if (!e.shiftKey && document.activeElement === lastElement) {
-      e.preventDefault();
-      firstElement.focus();
-    }
+  const sideCart = document.getElementById('sideCart');
+  const cartOverlay = document.getElementById('cartOverlay');
+  if (sideCart && cartOverlay) {
+    sideCart.classList.remove('active');
+    cartOverlay.classList.remove('active');
+    document.body.style.overflow = '';
   }
-});
-
-viewCartBtn.addEventListener('click', function() {
-  window.location.href = 'Shopping Cart.html';
-});
+}
 
 function removeFromCart(idx) {
   if (idx >= 0 && idx < cart.length) {
@@ -1675,97 +1799,12 @@ let cartDeleteIdx = null;
 function showDeleteDialog(idx) {
   cartDeleteIdx = idx;
   const dialog = document.getElementById('cartDeleteDialog');
-  dialog.style.display = 'flex';
-  
-  // העברת פוקוס לכפתור "כן"
-  setTimeout(() => {
-    const yesBtn = document.getElementById('cartDeleteYes');
-    if (yesBtn) {
-      yesBtn.focus();
-    }
-  }, 100);
-}
-
-document.getElementById('cartDeleteYes').onclick = function() {
-  if (cartDeleteIdx !== null) {
-    removeFromCart(cartDeleteIdx);
-    cartDeleteIdx = null;
-  }
-  document.getElementById('cartDeleteDialog').style.display = 'none';
-  // החזרת פוקוס לסל הקניות
-  setTimeout(() => {
-    document.querySelector('.cart').focus();
-  }, 100);
-  
-  // Return focus to side cart
-  setTimeout(() => {
-    const closeSideCartBtn = document.getElementById('closeSideCart');
-    if (closeSideCartBtn) {
-      closeSideCartBtn.focus();
-    }
-  }, 200);
-};
-
-document.getElementById('cartDeleteNo').onclick = function() {
-  cartDeleteIdx = null;
-  document.getElementById('cartDeleteDialog').style.display = 'none';
-  // החזרת פוקוס לסל הקניות
-  setTimeout(() => {
-    document.querySelector('.cart').focus();
-  }, 100);
-  
-  // Return focus to side cart
-  setTimeout(() => {
-    const closeSideCartBtn = document.getElementById('closeSideCart');
-    if (closeSideCartBtn) {
-      closeSideCartBtn.focus();
-    }
-  }, 200);
-};
-
-// לכידת פוקוס בדיאלוג המחיקה
-document.getElementById('cartDeleteDialog').addEventListener('keydown', function(e) {
-  if (e.key === 'Tab') {
-    const focusableElements = this.querySelectorAll('button, [tabindex]:not([tabindex="-1"])');
-    const firstElement = focusableElements[0];
-    const lastElement = focusableElements[focusableElements.length - 1];
-    
-    if (e.shiftKey && document.activeElement === firstElement) {
-      e.preventDefault();
-      lastElement.focus();
-    } else if (!e.shiftKey && document.activeElement === lastElement) {
-      e.preventDefault();
-      firstElement.focus();
-    }
-  }
-});
-
-// Initialize
-updateCartBadge();
-renderCart();
-
-// iPad and Safari specific fixes
-function ensureViewCartButtonVisibleOniPad() {
-  const viewCartBtn = document.getElementById('viewCartBtn');
-  if (viewCartBtn) {
-    viewCartBtn.style.display = 'block';
-    viewCartBtn.style.visibility = 'visible';
-    viewCartBtn.style.opacity = '1';
-    viewCartBtn.style.position = 'sticky';
-    viewCartBtn.style.bottom = '0';
-    viewCartBtn.style.zIndex = '9999';
-    viewCartBtn.style.webkitTransform = 'none';
-    viewCartBtn.style.transform = 'none';
+  if (dialog) {
+    dialog.style.display = 'flex';
   }
 }
-
-// Call the function multiple times to ensure it works
-setTimeout(ensureViewCartButtonVisibleOniPad, 100);
-setTimeout(ensureViewCartButtonVisibleOniPad, 500);
-setTimeout(ensureViewCartButtonVisibleOniPad, 1000);
-setTimeout(ensureViewCartButtonVisibleOniPad, 2000);
 </script>
 <!-- מערכת ניהול הסכמה לעוגיות -->
 <script src="cookie-consent.js"></script>
 </body>
-</html> 
+</html>
