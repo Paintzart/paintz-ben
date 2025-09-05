@@ -507,9 +507,9 @@
     .copyright-text {
       width: auto;
       height: auto;
-      font-family: 'Amatica SC', cursive;
-      font-weight: 700;
-      font-size: 18px;
+      font-family: 'Amatica SC', 'Amatic SC', cursive !important;
+      font-weight: 700 !important;
+      font-size: 18px !important;
       white-space: nowrap;
       color: #000;
       display: flex;
@@ -520,37 +520,58 @@
       text-transform: uppercase;
     }
     
+    /* Force font for all elements in copyright section */
+    .copyright-text * {
+      font-family: 'Amatica SC', 'Amatic SC', cursive !important;
+      font-weight: 700 !important;
+    }
+    
     /* Responsive design for mobile */
     @media screen and (max-width: 768px) {
       .copyright-text {
-        font-family: 'Amatica SC', cursive !important;
+        font-family: 'Amatica SC', 'Amatic SC', cursive !important;
         font-weight: 700 !important;
         font-size: 14px !important;
         white-space: normal;
         text-align: center;
         line-height: 1.2;
       }
+      .copyright-text * {
+        font-family: 'Amatica SC', 'Amatic SC', cursive !important;
+        font-weight: 700 !important;
+        font-size: 14px !important;
+      }
     }
     
     @media screen and (max-width: 480px) {
       .copyright-text {
-        font-family: 'Amatica SC', cursive !important;
+        font-family: 'Amatica SC', 'Amatic SC', cursive !important;
         font-weight: 700 !important;
         font-size: 12px !important;
         white-space: normal;
         text-align: center;
         line-height: 1.1;
       }
+      .copyright-text * {
+        font-family: 'Amatica SC', 'Amatic SC', cursive !important;
+        font-weight: 700 !important;
+        font-size: 12px !important;
+      }
     }
     
     @media screen and (max-width: 360px) {
       .copyright-text {
-        font-family: 'Amatica SC', cursive !important;
+        font-family: 'Amatica SC', 'Amatic SC', cursive !important;
         font-weight: 700 !important;
         font-size: 10px !important;
         white-space: normal;
         text-align: center;
         line-height: 1.0;
+      }
+      .copyright-text * {
+        font-family: 'Amatica SC', 'Amatic SC', cursive !important;
+        font-weight: 700 !important;
+        font-size: 10px !important;
       }
     }
     .shop-products {

@@ -904,10 +904,16 @@
       text-transform: uppercase;
     }
     
+    /* Force font for all elements in copyright section */
+    .copyright-text * {
+      font-family: 'Amatica SC', 'Amatic SC', cursive !important;
+      font-weight: 700 !important;
+    }
+    
     /* Responsive design for mobile */
     @media screen and (max-width: 768px) {
       .copyright-text {
-        font-family: 'Amatica SC', cursive !important;
+        font-family: 'Amatica SC', 'Amatic SC', cursive !important;
         font-weight: 700 !important;
         font-size: 14px !important;
         white-space: normal;
@@ -918,7 +924,7 @@
     
     @media screen and (max-width: 480px) {
       .copyright-text {
-        font-family: 'Amatica SC', cursive !important;
+        font-family: 'Amatica SC', 'Amatic SC', cursive !important;
         font-weight: 700 !important;
         font-size: 12px !important;
         white-space: normal;
@@ -929,7 +935,7 @@
     
     @media screen and (max-width: 360px) {
       .copyright-text {
-        font-family: 'Amatica SC', cursive !important;
+        font-family: 'Amatica SC', 'Amatic SC', cursive !important;
         font-weight: 700 !important;
         font-size: 10px !important;
         white-space: normal;
@@ -1014,7 +1020,7 @@
       outline: none !important;
       box-shadow: none !important;
       background: transparent;
-      font-family: 'Amatica SC', cursive !important;
+      font-family: 'Amatica SC', 'Amatic SC', cursive !important;
       font-weight: 700 !important;
       font-size: 32px !important;
       line-height: 48px !important;
@@ -2416,6 +2422,7 @@
     @media (max-width: 700px) {
       .side-cart-item-color-box {
         /* ודא שהצבע שנבחר מוצג, לא מאופס */
+        display: block;
       }
     }
 
@@ -2508,7 +2515,7 @@
       color: #ff4444 !important;
       padding: 6px 12px !important;
       border-radius: 4px !important;
-      font-family: 'Amatica SC', cursive !important;
+      font-family: 'Amatica SC', 'Amatic SC', cursive !important;
       font-size: 18px !important;
       font-weight: 700 !important;
       margin: 5px 0 5px 0 !important;
@@ -2524,7 +2531,7 @@
       color: #ff4444 !important;
       padding: 6px 12px !important;
       border-radius: 4px !important;
-      font-family: 'Amatica SC', cursive !important;
+      font-family: 'Amatica SC', 'Amatic SC', cursive !important;
       font-size: 18px !important;
       font-weight: 700 !important;
       margin: 5px 0 5px 0 !important;
@@ -2678,7 +2685,7 @@
 
     .file-error-message {
       color: #ff4444 !important;
-      font-family: 'Amatica SC', cursive !important;
+      font-family: 'Amatica SC', 'Amatic SC', cursive !important;
       font-size: 16px !important;
       font-weight: 700 !important;
       margin: 5px 0 5px 0 !important;
@@ -2906,10 +2913,10 @@
     </footer>
     <section class="copyright-section">
       <div class="copyright-text">
-              <a href="privacy-policy.html" style="color: inherit; text-decoration: none; font-size: 18px; font-family: 'Amatica SC', cursive !important; font-weight: 700 !important;">מדיניות פרטיות</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; 
-      <a href="terms-of-service.html" style="color: inherit; text-decoration: none; font-size: 18px; font-family: 'Amatica SC', cursive !important; font-weight: 700 !important;">תנאי שימוש</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; 
-      <a href="accessibility-statement.html" style="color: inherit; text-decoration: none; font-size: 18px; font-family: 'Amatica SC', cursive !important; font-weight: 700 !important;">הצהרת נגישות</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; 
-      <span style="font-family: 'Amatica SC', cursive !important; font-weight: 700 !important;">Paintz 2025©</span>
+              <a href="privacy-policy.html" style="color: inherit; text-decoration: none; font-size: 18px; font-family: 'Amatica SC', 'Amatic SC', cursive !important; font-weight: 700 !important;">מדיניות פרטיות</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; 
+      <a href="terms-of-service.html" style="color: inherit; text-decoration: none; font-size: 18px; font-family: 'Amatica SC', 'Amatic SC', cursive !important; font-weight: 700 !important;">תנאי שימוש</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; 
+      <a href="accessibility-statement.html" style="color: inherit; text-decoration: none; font-size: 18px; font-family: 'Amatica SC', 'Amatic SC', cursive !important; font-weight: 700 !important;">הצהרת נגישות</a> &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; 
+      <span style="font-family: 'Amatica SC', 'Amatic SC', cursive !important; font-weight: 700 !important;">Paintz 2025©</span>
       </div>
     </section>
 
@@ -4627,6 +4634,9 @@ document.addEventListener('DOMContentLoaded', function() {
   setTimeout(initializeColors, 500);
 });
 
+</script>
+
+<script>
 // סמן את התמונה הראשונה כברירת מחדל
 setTimeout(function() {
   const firstThumb = document.querySelector('.record-thumb');
@@ -4643,4 +4653,5 @@ setTimeout(function() {
 </script>
 <!-- מערכת ניהול הסכמה לעוגיות -->
 <script src="cookie-consent.js"></script>
+</body>
 </html>
