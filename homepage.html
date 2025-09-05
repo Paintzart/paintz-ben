@@ -4227,9 +4227,9 @@
     .copyright-text {
       width: auto;
       height: auto;
-      font-family: 'Amatica SC', cursive;
-      font-weight: 700;
-      font-size: 18px;
+      font-family: 'Amatica SC', 'Amatic SC', cursive !important;
+      font-weight: 700 !important;
+      font-size: 18px !important;
       white-space: nowrap;
       color: #1A1A1A; /* שינוי מ-#000 ל-#1A1A לניגודיות טובה יותר */
       display: flex;
@@ -4238,6 +4238,12 @@
       text-align: center;
       letter-spacing: 0.04em;
       text-transform: uppercase;
+    }
+    
+    /* Force font for all elements in copyright section */
+    .copyright-text * {
+      font-family: 'Amatica SC', 'Amatic SC', cursive !important;
+      font-weight: 700 !important;
     }
     
     /* Responsive design for mobile */
