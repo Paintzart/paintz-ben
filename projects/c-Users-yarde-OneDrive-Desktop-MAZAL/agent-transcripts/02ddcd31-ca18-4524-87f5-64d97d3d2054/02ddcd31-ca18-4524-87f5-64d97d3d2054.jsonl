@@ -1,0 +1,15 @@
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nלמה יש את הטלפון של המסעדה למעלה בעמוד של הלקוח תמחק את זה\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מחפשים איפה מוצג מספר הטלפון בעמוד הלקוח.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מסירים את שורת הטלפון מהכותרת — היא ב-`site-header.tsx` (מוצגת במובייל מתחת לשורת הניווט).\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מסירים את בלוק הטלפון ואת הייבוא/השימוש ב-`useAppStore` — הוא שימש רק לטלפונים.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"**למה זה היה שם:** ב־`SiteHeader` הוגדרה שורה נוספת **למובייל בלבד** (`sm:hidden`) שמציגה את `contactPhone` ו־`contactPhone2` מההגדרות — כדי שיהיה קל להתקשר מהכותרת.\n\n**מה עשיתי:** הסרתי את השורה הזו לגמרי, יחד עם הייבואים והלוגיקה שלא נחוצים יותר (`Phone`, `ClickablePhone`, `useAppStore` בקובץ הזה).\n\nמספרי הטלפון **נשארים בפוטר** (אם מוגדרים בהגדרות), רק לא למעלה בכותרת. אם תרצה להסיר גם משם — כתוב.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nבטלפון אם שולחים והטלפון לא תקין שיהיה כתוב \nמספר הטלפון לא תקין אל תרשום את הפירוט שכתבת\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מעדכן את הודעות האימות בעמודי הלקוח (בעיקר checkout) ל\"מספר הטלפון לא תקין\".\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"עדכנתי את ההודעות בצד הלקוח:\n\n1. **`app/(customer)/checkout/page.tsx`** — אחרי שליחה עם טלפון לא תקין, במקום הפירוט הארוך מוצגת רק: **«מספר הטלפון לא תקין»**.\n\n2. **`app/(customer)/newsletter/page.tsx`** — אותו ניסוח גם בהסרה מרשימת תפוצה כשהמספר לא עובר ולידציה.\n\nהודעות כמו «נא למלא שם וטלפון» או «נא להזין טלפון» כשהשדה ריק נשארו כמו שהן — רק מקרה של **מספר לא תקין** קוצר לטקסט שביקשת. אם תרצה את אותו ניסוח גם באדמין (הזמנה ידנית / טלפונים), אפשר ליישר גם שם.\n\n[REDACTED]"}]}}

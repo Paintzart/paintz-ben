@@ -1,0 +1,38 @@
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nתבניות יש לי רק תבניות שסוגרים זמנית או שבית העסק סגור לא יותר מזה\nולכל אחד מהם יש ברירת מחדל \nואני רוצה שזה מה שיהיה לי ושהתבנת תופיע שיהיה לי אפשרות לערוך או להוסיף תבנית או למחוק תבנית\nושהעיצוב יהיה הכי טוב ומובן שיהיה\n\nואין תבניות סגירה זה לא מופיע בשום מקום אפשר למחוק את זה לדעתי\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"בודקים את הקוד הנוכחי של תבניות וסוגי הסגירה כדי ליישם את מה שביקשת.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מצמצמים לשתי תבניות מערכת («סוגרים זמנית» ו«בית העסק סגור»), מסירים את «חופשה» ו«עקב המצב», מאחדים את עריכת התבניות המותאמות תחת אותו מסך הגדרות ומסירים את סעיף הניווט «תבניות סגירה».\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מעדכן את רכיב ההגדרות: מאחד תבניות מותאמות ומשפר את המבנה והניסוח.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מעדכן את צבע כפתורי «תבניות נוספות» בתפריט היומי כדי שיתאימו לעיצוב החדש.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שבוצע:\n\n### שתי תבניות מערכת בלבד\nב־`lib/customer-closure-templates.ts` נשארו רק:\n- **סוגרים זמנית** (`weekend`)\n- **בית העסק סגור** (`gap_day_done`)\n\nהוסרו **חופשה** ו**עקב המצב**. ברירות המחדל של הטקסט עודכנו (כולל אחידות «סוגרים זמנית» במקום «סגורים זמנית»), ושמות הכפתורים זהים בכל מצבי הסגירה (ידני / לוח / חלון שעות).\n\n### הגדרות — מסך אחד, ברור יותר\n- סעיף הניווט **«תבניות סגירה»** הוסר.\n- הכל נמצא תחת **«תבניות הודעה ללקוח»** (הקישור הישן `?section=templates-closure` מפנה אוטומטית לשם).\n- באותו מסך, בסדר לוגי:\n  1. הסבר קצר בכרטיס עליון  \n  2. **ברירת מחדל** ל־«סגור הזמנות מיד» (בין שתי התבניות)  \n  3. **שתי תבניות המערכת** — בחירה בשורה + עריכה בטאבים (סגירה ידנית / יום סגור בלוח / חלון שעות)  \n  4. **תבניות נוספות** — הוספה, עריכה (שם כפתור, כותרת, גוף), מחיקה  \n  5. **מחר סגור בלוח** — נשאר כמו קודם (שלוש תבניות מובנות)\n\n### תפריט יומי\n- תווית **«תבניות נוספות»** במקום «מההגדרות».\n- עיצוב כפתורי התבניות הנוספות מיושר לסגנון אפור-צבעוני עדין (במקום ענבר).\n\n### תיקונים נלווים\n- `lib/calendar-closure-copy.ts` — `MANUAL_WEEKEND_TITLE` מעודכן ל־**«סוגרים זמנית»** כדי להתאים לתבנית החדשה.\n- `lib/mock/seed.ts` — כותרת דמו ליום סגור בלוח מעודכנת.\n\n**הערה:** דריסות ישנות ב־Firebase למפתחות כמו `holiday_*` / `sudden_*` אם היו קיימות — פשוט לא בשימוש; אפשר להתעלם או לנקות ידנית בהגדרות אם תרצו.\n\n[REDACTED]"}]}}

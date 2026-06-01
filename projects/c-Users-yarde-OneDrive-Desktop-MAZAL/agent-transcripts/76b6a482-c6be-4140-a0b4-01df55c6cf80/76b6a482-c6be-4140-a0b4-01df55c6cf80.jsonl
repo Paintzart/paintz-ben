@@ -1,0 +1,432 @@
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nבדיאלוג מוכן לאיסוף של תזכורת לאיסוף \nהכותרת שתיהיה בצד השני\nהכפתור שלח בצבע של הרקע של הכותרת ושהכפתור ביטול יהיה לפניו גם\n</user_query>"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nבמסך גדול החלק שבצד התפריט יומי והודעה ללקוח שיהיה נגלל אם זה נסתר ויש מידע שנעלם\n\nבהודעה לללקוחות הכפתור שלח הודעה שיהיה בצבע טורכיז של העמודות\n\nתפריט יומי במסך קטן או במסך גדול במיקוד שזה הכפתורים הצפים אם התפריט ארוך מידי שזה יהיה נגלל \n</user_query>"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nבדיאלוג של הודעה שהכותרת תיהיה צמודה לימין ושיהיה איקס בצד השני\n\nבשאר הדיאלוגים בכפתור איקס שיהיה כתוב ביטול\nושיהיו צמודים לצד שמאל אבל הכפתור ביטול הוא לא הכי בסוף קודם הכפתור הצבעוני שצמוד הכי לשמאל ואז כפתור ביטול\n</user_query>"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nהדיאלוג תזכורת לאיסוף שהכותרת תיהיה צמוד לימיןן\n</user_query>"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nבכל הדיאלוגים הכותרת בעמוד ניהול הזמנה צמודה לימין\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מחפשים דיאלוגים בעמוד ניהול הזמנה ומתאימים את הכותרות ליישור ימין.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מעדכנים: ב־`DashboardDayMenuPanel` הכותרת בדיאלוג המלאי משתמשת ב־`flex` בלי יישור מפורש, וב־`Sheet` של הפאנל הנייד יש `text-start`. נקבע `text-right` ו־`w-full` באופן עקבי כמו בשאר הדיאלוגים בעמוד.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן:\n\n### 1. `app/admin/page.tsx` — Sheet של הפאנל הנייד (לוח שעות / סיכום / תפריט / הודעה)\n- ב־`SheetHeader` ו־`SheetTitle` הוחלף `text-start` ב־**`text-right`** כדי שהכותרת תהיה צמודה לימין באופן עקבי עם שאר הדיאלוגים.\n- ל־`SheetTitle` נוספו **`m-0 w-full`** כמו בדיאלוגים האחרים.\n\n### 2. `components/admin/dashboard-day-menu-panel.tsx` — דיאלוג «עריכת מלאי»\n- לעטיפת הכותרת: **`text-right`** במקום `text-start`.\n- ל־`DialogTitle`: **`m-0 w-full`**, **`justify-end`** (יחד עם ה־flex), ו־**`text-right`** — כך שורת «עריכת מלאי | שם המנה» מיושרת לימין.\n\nשאר הדיאלוגים בעמוד (תזכורת לאיסוף, הזמנה מורחבת, עריכת הזמנה, `AdminManualOrderDialog`, `AdminWhatsAppMessageDialog`, `OrderCardToolbar`) כבר השתמשו ב־`DialogTitle` עם `text-right`. אם עדיין רואים כותרת שלא בצד ימין, תאר איזה מסך/פעולה ונבדוק ספציפית (למשל cache או רכיב נוסף).\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nהוספת הזמנה ידנית רגיל שרוג כפול זה רק אם קיים למוצר הזה זה אמור להופיע לא לכולם יש את שלושת האופציות\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nבדיאלוג מוכן לאיסוף של תזכורת לאיסוף \nהכותרת שתיהיה בצד השני\nהכפתור שלח בצבע של הרקע של הכותרת ושהכפתור ביטול יהיה לפניו גם\n</user_query>"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nבמסך גדול החלק שבצד התפריט יומי והודעה ללקוח שיהיה נגלל אם זה נסתר ויש מידע שנעלם\n\nבהודעה לללקוחות הכפתור שלח הודעה שיהיה בצבע טורכיז של העמודות\n\nתפריט יומי במסך קטן או במסך גדול במיקוד שזה הכפתורים הצפים אם התפריט ארוך מידי שזה יהיה נגלל \n</user_query>"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nבדיאלוג של הודעה שהכותרת תיהיה צמודה לימין ושיהיה איקס בצד השני\n\nבשאר הדיאלוגים בכפתור איקס שיהיה כתוב ביטול\nושיהיו צמודים לצד שמאל אבל הכפתור ביטול הוא לא הכי בסוף קודם הכפתור הצבעוני שצמוד הכי לשמאל ואז כפתור ביטול\n</user_query>"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nהדיאלוג תזכורת לאיסוף שהכותרת תיהיה צמוד לימיןן\n</user_query>"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nבכל הדיאלוגים הכותרת בעמוד ניהול הזמנה צמודה לימין\n</user_query>"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nהוספת הזמנה ידנית רגיל שרוג כפול זה רק אם קיים למוצר הזה זה אמור להופיע לא לכולם יש את שלושת האופציות\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מציגים רק אפשרויות גודל מנה (רגיל / שדרוג / כפול) לפי `offeredPortionSizes` — כמו אצל הלקוח (מחיר > 0).\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מוסיפים פונקציית עזר `clampPortionSizeForMenuItem` ב-`cart-utils` ומעדכנים את דיאלוג ההזמנה הידנית ואת `EditOrderBody` לעקביות.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מפשטים את ה-JSX (בלי IIFE), מסנכרנים את `submit`, ומעדכנים את `EditOrderBody`.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שבוצע:\n\n### לוגיקה (כמו אצל הלקוח)\nב־`lib/cart-utils.ts` כבר היה `offeredPortionSizes` — **רק גדלים עם מחיר גדול מ־0** נחשבים זמינים.  \nנוספה **`clampPortionSizeForMenuItem`** — כשמחליפים מנה, אם הגודל הנוכחי לא קיים למוצר החדש, נבחר אוטומטית גודל תקף (למשל אין «כפול» → נשאר «רגיל» או מה שמוגדר).\n\n### דיאלוג «הוספת הזמנה ידנית»\n- רשימת הגודל מציגה רק **רגיל / שדרוג / כפול** לפי המחירים של המנה שנבחרה.\n- בחירת מנה מעדכנת גם את הגודל אם צריך.\n- לפני שליחה, הגדלים נשלחים אחרי **clamp** (בטיחות נוספת).\n\n### דיאלוג «עריכת הזמנה» (אותו עיקרון)\n- שורות נטענות עם גודל ומחיר **מתקנים** אם ההזמנה הישנה לא תואמת למחירים הנוכחיים.\n- החלפת מנה מעדכנת גודל + מחיר לפי מה שמותר למוצר.\n\nאם למוצר במאגר יש למשל רק `regular` עם מחיר ו־`upgrade`/`double` ב־0 — יופיע רק **רגיל**.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nבהודעה בוואטסאפ ללקוח חסר X בכותרת בצד השני וכפתור ביטול למטה\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מזהים את הבעיה: ב־`DialogContent` יש את המחלקה `[&_[data-slot=dialog-close]]:hidden` — היא מסתירה את כל כפתורי הסגירה, כולל ה־X בכותרת וכפתור «ביטול» בתחתית (שניהם משתמשים ב־`DialogClose`). מסירים את המחלקה — `showCloseButton={false}` כבר מונע את כפתור ה־X ברירת המחדל של הקומפוננטה.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"**מה היה:** ב־`DialogContent` הייתה מחלקת Tailwind  \n`[&_[data-slot=dialog-close]]:hidden`  \nשהסתירה **כל** רכיב עם `data-slot=\"dialog-close\"` בתוך הדיאלוג — כולל:\n- כפתור ה־**X** בכותרת (הצד השמאלי, מול הכותרת בימין)\n- כפתור **ביטול** במטה (גם הוא `DialogClose`)\n\n**מה עשינו:** הסרנו את המחלקה הזו.  \n`showCloseButton={false}` כבר מבטל את כפתור הסגירה האוטומטי של `DialogContent` (ה־X בפינה מימין־על של ברירת המחדל), בלי צורך להסתיר את הכפתורים המותאמים אישית.\n\nעכשיו אמורים להופיע שוב ה־X בכותרת וכפתור **ביטול** למטה ליד **שלח**.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nבכפתור עריכה שהכפתור שמור וביטול יהיו באותו גודל וצמודים לצד שמאל\n\nוגם בשאר הכפתוים שהכפתור ביטול יהיה באותו גודל של הכפתור שליד\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מחפשים דיאלוגים עם כפתורי שמור/ביטול ושולחים/ביטול כדי לאחד גודל ויישור.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מאחדים את גודל הכפתורים (`size=\"sm\"` לשניהם) ומוודאים יישור לשמאל עם `items-center` בפוטרים.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה המצב בפרויקט **כבר עכשיו** (אחרי העדכונים שבקוד):\n\n### דיאלוג «עריכת הזמנה» (`EditOrderBody` ב־`app/admin/page.tsx`)\n- **שמור** ו־**ביטול** שניהם עם `size=\"sm\"`, `shrink-0`, והפוטר עם `dir=\"ltr\"` + `justify-start` + `items-center` — כלומר צמודים לצד **שמאל** (סדר LTR: קודם הכפתור הצבעוני, אחריו ביטול), **באותו גובה**.\n\n### שאר דיאלוגים שכבר מיושרים באותו עיקרון\n- **הזמנה ידנית** — `admin-manual-order-dialog.tsx`: שני הכפתורים `size=\"sm\"` + `shrink-0` + `items-center`.\n- **וואטסאפ ללקוח** — `admin-whatsapp-message-dialog.tsx`: שלח וביטול `size=\"sm\"` + `shrink-0`.\n- **תזכורת לאיסוף** — `app/admin/page.tsx`: שלח/ביטול `size=\"sm\"` + `shrink-0`.\n- **מלאי / הוספה מהמאגר / עורך יום** — `dashboard-day-menu-panel.tsx`, `add-from-catalog-dialog.tsx`, `day-menu-editor.tsx`: פוטרים עם `items-center justify-start`, שמירה/הסרה/הוספה עם `size=\"sm\"` ו־`shrink-0` לצד ביטול באותו גודל.\n\n### שורה אחת שכדאי לאחד גם אותה (אם אצלך עדיין לא עודכן)\nב־`components/admin/order-card-toolbar.tsx`, בדיאלוג האישור, הכפתור הצבעוני מומלץ עם **`shrink-0`** כמו ביטול (כדי שלא יימעך אחרת מביטול):\n\n```tsx\nclassName={cn(\n  \"shrink-0 border-0 text-white shadow-sm hover:brightness-105\",\n  CONFIRM_TONE[confirmKind],\n)}\n```\n\n(רק להוסיף את `shrink-0` בתוך המחרוזת הראשונה של `cn`.)\n\nאם תרצה, אפשר גם להגדיר ברמת `DialogFooter` ב־`dialog.tsx` ברירת מחדל של `items-center` לכל הדיאלוגים — זה יפחית חזרות; לא שיניתי את זה בלי בקשה מפורשת.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nהדיאלוג תזכורת לאיסוף שהכותרת תיהיה צמוד לימיןן\n</user_query>"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nבכל הדיאלוגים הכותרת בעמוד ניהול הזמנה צמודה לימין\n</user_query>"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nהוספת הזמנה ידנית רגיל שרוג כפול זה רק אם קיים למוצר הזה זה אמור להופיע לא לכולם יש את שלושת האופציות\n</user_query>"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nבהודעה בוואטסאפ ללקוח חסר X בכותרת בצד השני וכפתור ביטול למטה\n</user_query>"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nבכפתור עריכה שהכפתור שמור וביטול יהיו באותו גודל וצמודים לצד שמאל\n\nוגם בשאר הכפתוים שהכפתור ביטול יהיה באותו גודל של הכפתור שליד\n</user_query>"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nאם משהו  אזל במלאי ואני מחזירה את זה למלאי שיהיה המלאי אין סופי ויחזור למלאי עד שמבטלים אותו\n\nבנוסף במגבה ליום אני רוצה להוסיף עוד אופציה או להוסיף למה שקיים אם נגיד משהו נגמר ואני מוסיפה 4 מנות אז זה ועוד מה שהיה או מלאי לכל היום הוא 60 ומה שנגמר היום נכנס בפנים\n\nבמסך גדול שהדברים בצד שפותחים אותם שזה יהיה נגלל אם יש עוד תוכן למטה כי כרגע התוכן נעלם\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"בודקים איך מלאי, תקרה יומית וחזרה למלאי ממומשים בקוד, ואת פריסת המסך הגדול.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מיישמים: (1) ביטול «אזל במלאי» יאפס את המכסה היומית ויחזיר למצב ללא הגבלה. (2) במגבלה ליום — אפשרות להגדיר מכסה כוללת או להוסיף מנות למכסה הקיימת. (3) תיקון גלילה ב־SidebarFold במסך גדול.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שיושם:\n\n### 1. החזרה מ־«אזל במלאי» → מלאי **ללא הגבלה**\nב־`applyToggleManualOutOfStock` (`lib/daily-stock.ts`): כשמבטלים סימון אזל ידני, המערכת **מסירה את `dailyStockCap`** (מלאי אינסופי), ולא משאירה מכסה שגורמת מיד ל־«אזל» בגלל מכירות קודמות.  \nאותה לוגיקה רצה ב־**מצב מקומי** (`local-app-store.tsx`) וב־**Firebase** (`write-remote.ts`).\n\n### 2. דיאלוג «מגבלה ליום» — שתי דרכים\nב־**עריכת תפריט יומי** (`day-menu-editor.tsx`) וב־**לוח הבקרה** (`dashboard-day-menu-panel.tsx`):\n\n- **מכסה כוללת ליום** — כמו קודם: מספר = סה״כ מנות ליום.\n- **הוספה למכסה** — מוסיפים מנות לבסיס:  \n  `בסיס = מכסה נוכחית` אם יש מכסה, **אחרת** `נמכר עד כה` (מתאים למצב ללא מכסה פורמלית).  \n  דוגמה: מכסה 60, מוסיפים 4 → מכסה חדשה **64**.\n\nמוצגים גם **נמכר היום** ו**מכסה נוכחית** לעזר.\n\n### 3. מסך גדול — גלילה בפאנלים מתקפלים\nב־`SidebarFold` (`app/admin/page.tsx`): הוסר המצב `xl:overflow-visible` שגרם לתוכן «לברוח» בלי גלילה. עכשיו גם ב־**xl** יש `max-h` ו־`overflow-y-auto` (גובה מקסימלי גדול יותר במסכים גדולים), כך שאפשר לגלול לתוכן בתפריט יומי / הודעה ללקוחות.\n\n---\n\n**הערה:** אם תרצו שב־**מסך תפריט יומי** (עמוד `/admin/menu/daily`) יהיה אותו כפתור «אזל / במלאי» כמו בלוח הבקרה — אפשר להוסיף שם בנפרד; כרגע הטוגל הזה מופיע ב־`DashboardDayMenuPanel`.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nשהגללילה עצמ אבבל תיהיה רק איפה שרואים ואז רואים כמה יש עודלמטה\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"בודקים את אזורי הגלילה בפאנל הצד וב־SidebarFold כדי להפוך את פס הגלילה לגלוי וברור.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nהודעה ללקוחות גם יכול להיות נגלל אז שיהיה גם\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"בודקים: שני ה־`SidebarFold` כבר עם `bodyScrollable`. נוודא שגלילת «הודעה ללקוחות» מתנהגת כמו «תפריט יומי» (מינימום גובה, flex) ונוסיף את אותן מחלקות גלילה גלויה במובייל (Sheet).\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מגבילים את גובה ה־Textarea ומוסיפים `min-h-0` כדי שגלילת הפאנל תעבוד — תוכן ארוך ב«הודעה ללקוחות» הרחיב את הקופסה בלי להפעיל גלילה פנימית.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן:\n\n### 1. **עמודת הצד (מסך גדול)**  \nעמודת לוח השעות / סיכום / תפריט יומי / **הודעה ללקוחות** משתמשת עכשיו באותו `SIDEBAR_SCROLL_AREA_CLASS` כמו גוף ה־`SidebarFold` — פס גלילה ברור ו־`scrollbar-gutter: stable`, כך שגם כשגוללים את כל העמודה רואים שיש עוד תוכן.\n\n### 2. **כרטיס «הודעה ללקוחות»**  \nל־`SidebarFold` נוסף `min-h-0` כדי שב־flex הגיליון הפנימי (כולל הודעה ללקוחות) יתנהג כמו «תפריט יומי» ולא “ינעל” בלי גלילה.\n\n### 3. **תיבת הטקסט**  \nל־`Textarea` נוספו `max-h` ו־`overflow-y-auto` — טקסט ארוך נגלל **בתוך** התיבה, והפאנל כולו יכול גם להיגלל כשצריך (במקום להתרחב ללא הגבלה ולבטל גלילה).\n\n### 4. **מובייל (Sheet)**  \nאזור התוכן של ה־Sheet (כולל «הודעה ללקוחות») קיבל את אותן מחלקות גלילה גלויה.\n\nכך גם **הודעה ללקוחות** נגללת בצורה ברורה, במקביל לתפריט היומי.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nעריכת מלאי שהכותרת בצד ימין האיקס שמאל ווהכפתורים למטה צמודים לשמאל בבקשה\n\nואם יש עוד דיאלוגים שלא ככה תטפל בזה\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מאתרים את דיאלוגי «עריכת מלאי» ודיאלוגים דומים ומיישרים כותרת (ימין), X (שמאל) ופוטר (כפתורים צמודים לשמאל).\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מיישרים את כותרת «עריכת מלאי» ב־`day-menu-editor` (כמו ב־dashboard), ומעדכנים דיאלוגים נוספים באותו סגנון.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן:\n\n### עריכת מלאי (ותפריטים קשורים)\n- **`day-menu-editor.tsx`** — דיאלוג **עריכת מלאי**: כותרת `text-right` + `justify-end`, מרווחים `py-3 pl-12 pr-4 sm:pl-14`, **איקס** ב־`left-2 sm:left-3`. פוטר כבר היה `dir=\"ltr\"` עם שמירה ואז ביטול.\n- **`dashboard-day-menu-panel.tsx`** — אותו דיאלוג: אותה כותרת ואיקס (יישור לשאר המערכת).\n\n### דיאלוגים נוספים באותו סגנון\n- **`add-from-catalog-dialog.tsx`** — «הוספת מנה מהמאגר» ו־«הוספת מוצר לתפריט»: כותרת ימין, איקס שמאל, פוטר ראשון עם `gap-2`.\n- **`app/admin/menu/catalog/page.tsx`** — דיאלוג מוצר (הוספה/עריכה) ודיאלוג מחיקה: כמו למעלה; לפוטרים נוסף `items-center`.\n- **`app/admin/login/page.tsx`** — «איפוס סיסמה»: כותרת ימין, איקס שמאל, פוטר עם `items-center`.\n\n### דיאלוג «להסיר מהתפריט?» (`day-menu-editor`)\n- כותרת אדומה: ימין, איקס שמאל, אותם מרווחים.\n\nהדפוס המשותף: `dir=\"rtl\"` על פס הכותרת, **`m-0 w-full text-right`** (או `flex … justify-end` כשיש שם מנה), כפתור סגירה **`absolute left-2 … sm:left-3`**, ובפוטרים **`dir=\"ltr\"`** + **`justify-start`** + **`items-center`** כדי שהכפתור הצבעוני יהיה **הכי שמאל** ואחריו ביטול.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nעכשיו בדיאלוג עריכת מלא מגלבה ליום שכמה נמכו והמכסה שיהיה כתוב מעל 2 הכפתורים ל ללא הדבלה ומגלבה יומית \n\nעכשיו הטאבין המשנים שיהיו בצבע אחיד \n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מארגנים מחדש את דיאלוג עריכת המלאי: מציגים את נמכר/מכסה מעל שני הכפתורים הראשיים, ומאחדים את עיצוב הטאבים המשניים.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מעבירים את שורת «נמכר היום / מכסה נוכחית» מעל שני הכפתורים הראשיים, ומאחדים את צבעי הטאבים והמגבלה היומית לטורקיז `#4a6f72` כמו «ללא הגבלה».\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן:\n\n### שורת «נמכר היום · מכסה נוכחית»\n- מוצגת **מעל** שני הכפתורים **ללא הגבלה** ו־**מגבלה להיום** (ב־`day-menu-editor` וב־`dashboard-day-menu-panel`).\n- בתיבה עדינה: `border-[#4a6f72]/25`, רקע `bg-[#4a6f72]/6`, טקסט ממורכז וקריא.\n\n### צבע אחיד (טורקיז `#4a6f72`)\n- **מגבלה להיום** (בחירה) — אותו סגנון כמו **ללא הגבלה** (לא עוד `primary`).\n- **הטאבים המשניים** «מכסה כוללת ליום» / «הוספה למכסה» — גם הם עם אותו מסגרת/רקע טורקיז כשהם נבחרים.\n- **שדות המספרים** — מסגרת ו־focus ב־`#4a6f72`, וקופסאות העזר עם `border-[#4a6f72]/30` ו־`bg-[#4a6f72]/5`.\n\n### דיאלוג «הוספת מוצר לתפריט» (`add-from-catalog-dialog`)\n- **מגבלה להיום** + שדה «מנות ליום» עודכנו לאותו טורקיז, כדי שיתאימו לדיאלוג עריכת המלאי.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nהכפתורים בדיאלוגים שלמטה צריכים להיות צמודים לצד שמאל\n\nבהוספת מנה למאגר אז הכפתור של עריכת מלאי צריך לפתוח את הדיאלוג של עריכת מלאי ולא הוספת מוצר לתפריט\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nהכפתורים בדיאלוגים שלמטה צריכים להיות צמודים לצד שמאל\n\nבהוספת מנה למאגר אז הכפתור של עריכת מלאי צריך לפתוח את הדיאלוג של עריכת מלאי ולא הוספת מוצר לתפריט\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מעדכן את `dialog.tsx` ליישור ברירת המחדל, ומממש את מצב «עריכת מלאי» ב־`add-from-catalog-dialog.tsx`.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שבוצע:\n\n### 1. כפתורי פוטר בדיאלוגים — צמודים לשמאל (ב־`dir=\"ltr\"`)\nב־`components/ui/dialog.tsx` ו־`components/ui/alert-dialog.tsx` עודכנה ברירת המחדל מ־`sm:justify-end` ל־**`sm:justify-start`**.  \nכך ברוחב `sm` ומעלה הכפתורים מיושרים לשמאל (בלי שה־`justify-end` של ברירת המחדל ינצח את `justify-start` שמועבר ב־`className`).\n\n### 2. «הוספת מנה מהמאגר» — «עריכת מלאי»\nב־`components/admin/add-from-catalog-dialog.tsx`:\n\n- **«הוסף לתפריט»** נשאר עם הדיאלוג הפשוט (ללא הגבלה / מגבלה + מנות ליום) וכותרת **«הוספת מוצר לתפריט»**.\n- **«עריכת מלאי»** פותחת את **אותו סוג דיאלוג כמו בעורך התפריט**: סיכום נמכר/מכסה, ללא הגבלה / מגבלה להיום, טאבים **מכסה כוללת ליום** / **הוספה למכסה**, ושמירה עם **`SET_DAILY_STOCK_CAP`** (כמו ב־`day-menu-editor`).\n\nהכפתור הראשי בדיאלוג עריכת המלאי הוא **«שמירה»**, לא «הוסף לתפריט».\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nעריכת מלאי אני רוצה שהכותרת תייהיה צמודה אבל לימין\n\nוהעיצוב עצמו זה שהמכסה כוללת ליום והוספה למכסה שהטאב שאחנו עליו יהיה בצבע של אדום חום של הניהול\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מחפש את צבע הניהול (אדום-חום) ואת כותרות דיאלוג עריכת המלאי.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מתקן יישור: ב־RTL `justify-end` בפלקס דוחף את התוכן לשמאל. מחליפים ל־`justify-start` או `block text-right`. מעדכן את טאבי המכסה לצבע הטרקוטה/פריימרי (`#9c5648`).\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מתקן את יישור הכותרת ב־RTL (`justify-start`) ומעדכן את שני הטאבים הפנימיים ל־`primary` (טרקוטה `#9c5648`).\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מדגישים את הטקסט בטאב הפעיל בצבע הטרקוטה של המערכת.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן:\n\n### כותרת «עריכת מלאי» — צמודה לימין\nב־RTL, `justify-end` על פלקס דוחף את השורה לכיוון הלא-נכון. עדכנתי ל־**בלוק עם `text-right`**:\n- **`day-menu-editor.tsx`** ו־**`dashboard-day-menu-panel.tsx`**: שורה עליונה «עריכת מלאי», מתחתיה שם המנה (בלי `|` באמצע).\n- **`add-from-catalog-dialog.tsx`**: אותו מבנה **רק** במצב `edit-stock`; במצב «הוספת מוצר לתפריט» נשארה שורה אחת עם `|` ו־**`justify-start`** (ב־RTL זה מיישר לימין).\n\n### טאבים «מכסה כוללת ליום» / «הוספה למכסה»\nבשלושת הקבצים, הטאב הפעיל משתמש ב־**`primary`** מה־theme — זה הטרקוטה (`#9c5648` ב־`globals.css`, צבע הניהול):\n- `border-primary`, `bg-primary/12`, `ring-primary/25`, **`text-primary`**\n\nשורת «ללא הגבלה» / «מגבלה להיום» נשארה בטורקיז (`#4a6f72`) כמו קודם, רק שני הטאבים הפנימיים של המכסה שינו צבע.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nבתפריטים העתידיים  במלאי הוא המלאי הרגיל בלי ההוספה\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"בודקים איך תפריטים עתידיים מטפלים במלאי ובמכסה.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מסתירים את מצב «הוספה למכסה» בתפריטים עתידיים (תאריך > היום בלוח ירושלים) ומשאירים רק הגדרת מכסה כוללת — המלאי הרגיל.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שיושם:\n\n### לוגיקה\nנוספה ב־`lib/business-schedule.ts` הפונקציה **`isFuturePlannerMenuDate(isoDate)`** — נחשבת מול **היום בלוח ירושלים** (`ymdJerusalem`): אם `isoDate > היום` זה **יום עתידי בתכנון**.\n\n### התנהגות במלאי לימים עתידיים\nלכל מקום שמציג את דיאלוג «עריכת מלאי» (`DayMenuEditor`, `DashboardDayMenuPanel`, `AddFromCatalogDialog`):\n\n1. **אין** יותר את שני הטאבים «מכסה כוללת ליום» / «הוספה למכסה» — רק שדה **«סה״כ מנות ליום»** (מכסה מוחלטת), כמו מלאי רגיל בלי חיבור לנמכר.\n2. **שמירה** תמיד דרך מצב המכסה המלאה (לא מסלול הדלתא + `baseCapForAdd`).\n3. בטקסט **«מכסה נוכחית»** כשאין מכסה: מוצג **«ללא הגבלה»** במקום **«ללא (לפי נמכר)»** — כי ביום עתידי אין עדיין משמעות של «לפי נמכר» כמו בהיום.\n\n### מה נשאר כמו קודם\n- **היום וכל יום שאינו עתידי** (`date <= היום בירושלים`): נשארים שני המצבים «מכסה כוללת» ו־«הוספה למכסה» מול הנמכר.\n\nאם תרצה, אפשר גם לעדכן את שורת **«נמכר היום»** בדיאלוג לימים עתידיים (למשל להסתיר או לשנות ניסוח) — כרגע היא עדיין מציגה 0 כשאין הזמנות ליום העתידי.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nשלא יהיהגם את הנמכר היום ומכסה נוכחית\n\nוהכותרת שתיהיה עריכת מלאי | שם המוצר\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מסירים את שורת הסיכום (נמכר היום / מכסה נוכחית) מדיאלוגי עריכת המלאי, ומעדכנים את הכותרת ל־«עריכת מלאי | שם המוצר» בשורה אחת.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מעדכן את שלושת הקבצים: כותרת בשורה אחת עם `|`, והסרת בלוק הסיכום.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן:\n\n### כותרת\nבכל דיאלוגי **עריכת מלאי** (`day-menu-editor`, `dashboard-day-menu-panel`, `add-from-catalog-dialog` במצב עריכת מלאי) הכותרת היא עכשיו בשורה אחת, בפורמט:\n\n**עריכת מלאי | שם המוצר**\n\nעם `justify-start` ב־RTL כך שהטקסט צמוד לימין, וביניים `|` ב־`text-white/75` כמו בדיאלוג «הוספת מוצר לתפריט».\n\n### סיכום נמכר / מכסה\nהוסר לחלוטין הבלוק עם **«נמכר היום»** ו־**«מכסה נוכחית»** — התוכן מתחיל ישר מ־«ללא הגבלה» / «מגבלה להיום».\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nבתפריטים עתידיים שיהיה כתוב גם שנה בלמעלה ובכותרת למטה אבל לא בתכנון שבועי \nסבבה?\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"בודקים את מבנה עמוד «תפריטים עתידיים» כדי להוסיף שנה בכותרות העליונה והתחתונה, בלי לשנות את פס התכנון השבועי.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מוסיפים פורמט תאריך עם שנה ומעדכנים את הכותרת העליונה ואת כותרת «תפריט ליום» — בלי לשנות את כותרת «תכנון שבועי» או את פס הימים.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"סבבה.\n\n### מה נוסף ב־`lib/format-menu-date.ts`\n- **`formatIsoHebrewDayMonthYear(iso)`** — למשל `5 באפר׳ 2026`\n- **`formatIsoHebrewWeekRangeLineWithYear(weekStart, weekEnd)`** — טווח השבוע: אם כל השבוע באותה שנה מופיעה **שנה אחת בסוף**; אם השבוע חוצה שנים — **שנה מלאה בכל קצה**\n\n### בעמוד תפריטים עתידיים\n- **למעלה** (מתחת ל־«תפריטים עתידיים»): השורה עם טווח השבוע משתמשת ב־`formatIsoHebrewWeekRangeLineWithYear` במקום בלי שנה.\n- **למטה** (שתי הכותרות «תפריט ליום …» — גם בצפייה בלבד וגם בעריכה): התאריך עם **`formatIsoHebrewDayMonthYear(selectedIso)`**.\n\n### בלי שינוי (כפי שביקשת)\n- **«תכנון שבועי | …»** — נשאר כמו שהיה\n- **פס הימים** (שבעת הכפתורים) — עדיין **בלי שנה**, רק `formatIsoHebrewDayMonthNoYear`\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nמ־5 באפר׳ עד 11 באפר׳ 2026\n\nשיהיה ככה\nמ־5 באפר׳ 2026  עד 11 באפר׳ 2026\n\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מעדכנים את `formatIsoHebrewWeekRangeLineWithYear` כך שבשנה אחת יוצגו שתי התאריכים עם שנה.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"עודכן: **`formatIsoHebrewWeekRangeLineWithYear`** מחזירה עכשיו תמיד:\n\n`מ־5 באפר׳ 2026 עד 11 באפר׳ 2026`\n\nכלומר שנה בשני הצדדים (ובשבוע שחוצה שנים זה עדיין עובד: שנה מתאימה לכל תאריך).\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nבעריכת מלאי מתי שמופיע במכסה יומית 2 האופציות שיהיה כתוב למעלה כמה נמכר ואיזה מצב הוא היה קודם\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מוסיפים רצועת מידע למעלה כשמוצגות שתי אופציות המכסה (מכסה כוללת / הוספה למכסה): נמכר היום ומצב המלאי לפני העריכה.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מוסיפים פונקציית תיאור מצב מלאי ב-`lib/daily-stock.ts` ומציגים רצועת מידע מעל שני הטאבים (רק כשלא מצב תכנון עתידי).\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nבתפריט יומי בכרטיס מוצר חסר הכפתור סמן כ\"אזל,\n\nעריכת מלאי הכמה נמכר וסוג המלאי שיההי כתוב למעלה מעל הכל ובשורה אחת כמו שהיה קודם שיהיה כתוב פשוט או מספר או את הסימן אין סוף\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"בודקים את כרטיס המנה בתפריט היומי ואת דיאלוג עריכת המלאי.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"יוצרים רכיב שורת סיכום אחת לדיאלוג, מוסיפים כפתור «במלאי/אזל» לכרטיסי התפריט היומי, ומסירים את בלוק השתי שורות הפנימי.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן:\n\n### תפריט יומי — כפתור «במלאי / אזל»\nב־`day-menu-editor` נוסף כפתור עגול כמו בלוח הבקרה:\n- **רשת כרטיסים (ברירת מחדל)** — ליד כותרת המנה (מימין), עם `TOGGLE_OUT_OF_STOCK`.\n- **פריסת שורה (`rowCatalog`)** — בשורה עם שם הקטגוריה.\n\nכשהמנה באזל: מסגרת/רקע מעומעמים, תמונה אפורה, והתצוגה מתאימה (כולל שורת המלאי התחתונה בפריסת שורה).\n\n### דיאלוג «עריכת מלאי» — שורה אחת למעלה\nנוסף רכיב `components/admin/stock-dialog-snapshot-line.tsx`:  \n**נמכר** [מספר] **·** **מכסה** [מספר **או** סימן ∞ כשאין מכסה קבועה].\n\nהשורה מופיעה **מעל** «ללא הגבלה / מגבלה להיום» ב־`day-menu-editor`, `dashboard-day-menu-panel` ו־`add-from-catalog-dialog`.\n\nהוסרו בלוק השתי שורות (נמכר היום / לפני העריכה) והפונקציה `describePreviousDailyCapState` מ־`lib/daily-stock.ts` (לא בשימוש יותר).\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nהכפתור סמן כ\"אזל\" תעשה כמו שהיה קודם למטה ליד העריכת מלאי ולא כעיגול שיהיה שונה מהדף הראשי\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מעבירים את כפתור האזל לשורה התחתונה ליד «עריכת מלאי», בסגנון כפתור רגיל (לא עגול כמו בלוח הבקרה).\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מחזירים את מבנה הכותרת לפשוט, ומציבים שני כפתורי `outline` בשורה אחת בתחתית: «סמן אזל» / «החזר למלאי» ו«עריכת מלאי».\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה ששיניתי ב־`day-menu-editor.tsx`:\n\n### כרטיס רשת (תפריט יומי רגיל)\n- הוסר הכפתור העגול ליד הכותרת.\n- **בתחתית הכרטיס**, בשורה אחת: שני כפתורי `outline` ברוחב שווה (`flex-1`):\n  - **«סמן אזל»** / **«החזר למלאי»** (כשהמנה מסומנת כאזל — מודגש בסגנון destructive)\n  - **«עריכת מלאי»** (עם אייקון העיפרון כמו קודם)\n\n### כרטיס שורה (`rowCatalog`)\n- אותו דבר: אחרי שורת המלאי הרחבה, שני כפתורים זה ליד זה — **סמן אזל** ו־**עריכת מלאי** (במקום העיגול למעלה).\n\nכך זה מיושר עם שורת פעולות רגילה ולא עם העיגול של לוח הבקרה. ב־`readOnly` שני הכפתורים לא מוצגים (כמו קודם עם עריכת מלאי).\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nלא לא טוב זה אמור להפוך הכל לאפור\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"משפרים את מצב «אזל» כך שכל הכרטיס ייראה אפור/מעומעם.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מחילים `grayscale` ורקע אפור על כל הכרטיס במצב «אזל», ומסירים כפילות מהתמונה.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"עדכנתי את מצב **«אזל»** כך:\n\n- על **כל ה־`<article>`** (כרטיס רשת וכרטיס שורה) נוספים: **`grayscale`**, **`bg-muted/50`**, ומסגרת/טבעת מעט יותר מעומעמים.\n- הוספתי **`transition` גם ל־`filter`** כדי שהמעבר יהיה חלק.\n- הסרתי את ה־`grayscale` / `opacity` מהתמונה בנפרד — עכשיו **כל** תוכן הכרטיס (טקסט, טורקיז, כפתורים, טבלת מלאי) נכנס לאותו אפור דרך הסינון על הכרטיס כולו.\n\nכך כשמסמנים אזל, **כל הכרטיס** נראה אפור, לא רק חלקים ממנו.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nאבל שיהיה רשום על התמונה אזל\n\n</user_query>"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<git_status>\nThis is the git status at the start of the conversation. Note that this status is a snapshot in time, and will not update during the conversation.\n\nGit repo: C:/Users/yarde/OneDrive/Desktop/MAZAL\n\n```\n## master\n M app/admin/login/page.tsx\n M app/admin/menu/catalog/page.tsx\n M app/admin/menu/future/page.tsx\n M app/admin/page.tsx\n M app/admin/settings/page.tsx\n M components/admin/add-from-catalog-dialog.tsx\n M components/admin/admin-manual-order-dialog.tsx\n M components/admin/admin-whatsapp-message-dialog.tsx\n M components/admin/dashboard-day-menu-panel.tsx\n M components/admin/day-menu-editor.tsx\n M components/admin/order-card-toolbar.tsx\n M lib/mock/seed.ts\n M lib/store/firebase-app-store.tsx\n M lib/types.ts\n```\n</git_status>\n\n<agent_transcripts>\nAgent transcripts (past chats) live in C:\\Users\\yarde\\.cursor\\projects\\c-Users-yarde-OneDrive-Desktop-MAZAL/agent-transcripts. They have names like <uuid>.jsonl, cite them to the user as [<title for chat <=6 words>](<uuid excluding .jsonl>). NEVER cite subagent transcripts/IDs; you can only cite parent uuids. Don't discuss the folder structure.\n</agent_transcripts>\n\n<agent_skills>\nWhen users ask you to perform tasks, check if any of the available skills below can help complete the task more effectively. Skills provide specialized capabilities and domain knowledge. To use a skill, read the skill file at the provided absolute path using the Read tool, then follow the instructions within. When a skill is relevant, read and follow it IMMEDIATELY as your first action. NEVER just announce or mention a skill without actually reading and following it. Only use skills listed below.\n\n<available_skills description=\"Skills the agent can use. Use the Read tool with the provided absolute path to fetch full contents.\">\n<agent_skill fullPath=\"C:\\Users\\yarde\\.codex\\skills\\.system\\openai-docs\\SKILL.md\">Use when the user asks how to build with OpenAI products or APIs and needs up-to-date official documentation with citations, help choosing the latest model for a use case, or explicit GPT-5.4 upgrade and prompt-upgrade guidance; prioritize OpenAI docs MCP tools, use bundled references only as helper context, and restrict any fallback browsing to official OpenAI domains.</agent_skill>\n\n<agent_skill fullPath=\"C:\\Users\\yarde\\.codex\\skills\\.system\\skill-creator\\SKILL.md\">Guide for creating effective skills. This skill should be used when users want to create a new skill (or update an existing skill) that extends Codex's capabilities with specialized knowledge, workflows, or tool integrations.</agent_skill>\n\n<agent_skill fullPath=\"C:\\Users\\yarde\\.codex\\skills\\.system\\skill-installer\\SKILL.md\">Install Codex skills into $CODEX_HOME/skills from a curated list or a GitHub repo path. Use when a user asks to list installable skills, install a curated skill, or install a skill from another repo (including private repos).</agent_skill>\n\n<agent_skill fullPath=\"C:\\Users\\yarde\\.cursor\\skills-cursor\\babysit\\SKILL.md\">Keep a PR merge-ready by triaging comments, resolving clear conflicts, and fixing CI in a loop.</agent_skill>\n\n<agent_skill fullPath=\"C:\\Users\\yarde\\.cursor\\skills-cursor\\canvas\\SKILL.md\">You MUST use a Cursor Canvas for chats involving dashboards, charts, timelines, interactive explorations, repeatable tools, etc. Use when the topic is complex enough that a plain markdown response would be inadequate, or when the user asks for something reusable or interactive.</agent_skill>\n\n<agent_skill fullPath=\"C:\\Users\\yarde\\.cursor\\skills-cursor\\create-rule\\SKILL.md\">Create Cursor rules for persistent AI guidance. Use when you want to create a rule, add coding standards, set up project conventions, configure file-specific patterns, create RULE.md files, or asks about .cursor/rules/ or AGENTS.md.</agent_skill>\n\n<agent_skill fullPath=\"C:\\Users\\yarde\\.cursor\\skills-cursor\\create-skill\\SKILL.md\">Guides users through creating effective Agent Skills for Cursor. Use when you want to create, write, or author a new skill, or asks about skill structure, best practices, or SKILL.md format.</agent_skill>\n\n<agent_skill fullPath=\"C:\\Users\\yarde\\.cursor\\skills-cursor\\update-cursor-settings\\SKILL.md\">Modify Cursor/VSCode user settings in settings.json. Use when you want to change editor settings, preferences, configuration, themes, font size, tab size, format on save, auto save, keybindings, or any settings.json values.</agent_skill>\n</available_skills>\n</agent_skills>"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nאבל שיהיה רשום על התמונה אזל\n\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מוסיפים שכבת «אזל» ממורכזת על התמונה. משאירים את ה־`grayscale` על הכרטיס — טקסט לבן על רקע כהה נשאר קריא גם אחרי סינון אפור.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן:\n\n### שכבת «אזל» על התמונה\n- **כרטיס שורה** (`size-28` / `sm:size-32`): רקע חצי־שקוף `bg-black/50`, במרכז תג לבן עם הכיתוב **אזל** (גודל טקסט גדול יותר במסכים רחבים).\n- **כרטיס רשת** (תמונה קטנה): אותו עיקרון, עם תג קומפקטי (`text-[8px]` / `sm:text-[9px]`) שמתאים לגודל התמונה.\n\nהשכבה מופיעה גם כשאין תמונה (מעל «ללא תמונה» / «ללא»).  \nיש `aria-hidden` על ה־overlay כי מצב האזל כבר מסומן בכפתורים ובמצב הכרטיס; אם תרצה נוכל להוסיף `aria-label` על המיכל.\n\nה־`grayscale` נשאר על הכרטיס — לבן/שחור על התג נשארים קריאים גם עם הסינון.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nבתפריטים עתידיים לא אממור להיות אזל במלאי... ועריכת מלאי\n\nהעריכת מלאי זה שלוחצים על הכפתור הכחול\nושלא יהיה פה בעריכת מלאי בדיאלוג את הנמכר ומכסה\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"בודקים איך מזוהים תפריטים עתידיים ואיפה מוצגים מלאי, אזל ודיאלוג עריכת המלאי.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מטפלים בתפריטים עתידיים (`date > היום`): מסתירים מצב אזל וכפתורי «סמן אזל»/«עריכת מלאי», משאירים רק את לחיצה על רצועת המלאי (הכחולה/טורקיז), ומסירים מדיאלוג העריכה את שורת «נמכר · מכסה».\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מעדכן את מיון הכרטיסים כך שיתאים, ומיישם את שאר השינויים.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מיישרים את לוח הבקרה (לשונית «מחר») עם אותה לוגיקה.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מעדכנים את לוח הבקרה לשונית «מחר» כך שיתאים לאותה התנהגות.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שיושם:\n\n### לוגיקה\nלכל תאריך **אחרי היום** בלוח (`isFuturePlannerMenuDate`) — תפריטים עתידיים וגם לשונית **מחר** בלוח הבקרה.\n\n### ב־`day-menu-editor.tsx`\n- **אין מצב «אזל»** על הכרטיס (אפור, overlay «אזל» על התמונה, מיון לפי אזל).\n- **אין** «סמן אזל» / «החזר למלאי» ו**אין** כפתור **«עריכת מלאי»** (עם העיפרון).\n- **רק** רצועת המלאי הטורקיז (הכפתור הכחול־ירקרק) פותחת את הדיאלוג — בכרטיס רשת זה כפתור אחד עם **מלאי** + המספר/∞ בלבד.\n- בכרטיס רשת (`rowCatalog`) נשאר רק **שורת המלאי** הניתנת ללחיצה (כמו קודם).\n\n### בדיאלוג «עריכת מלאי»\n- **לא** מוצגת השורה **«נמכר · מכסה»** (`StockDialogSnapshotLine`) — רק בחירה בין ללא הגבלה / מגבלה להיום והשדות הרלוונטיים.\n\n### ב־`dashboard-day-menu-panel.tsx` (מחר)\n- אותה התנהגות: בלי עיגול אזל/במלאי, בלוק מלאי עם **מלאי** בלבד, בלי **נמכרו**/**נשאר**, ובדיאלוג בלי שורת נמכר/מכסה.\n\nכך בתכנון עתידי עובדים רק על **מכסה יומית מתוכננת**, בלי מכירות, בלי אזל תפעולי ובלי כפתור עריכה כפול.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nעריכת מלאי אם לוחצים מחוץ לדיאלוג שיסגור אותו  \n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מוסיפים סגירה בלחיצה על הרקע (ה־backdrop) ברכיב ה־Dialog המשותף — כך שכל הדיאלוגים, כולל «עריכת מלאי», ייסגרו.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מחליפים את הייבוא הפנימי שנכשל ב-TypeScript בקונטקסט פשוט שקורא ל־`onOpenChange(false)` של ה־Root.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן:\n\n### `components/ui/dialog.tsx`\n\n1. **`DialogBackdropDismissContext`** – פונקציית סגירה שמפעילה את `onOpenChange(false, …)` של ה־Root (בכפוף ל־`disablePointerDismissal`).\n\n2. **`Dialog`** – מעטפת את הילדים ב־Provider, מושכת `onOpenChange` ו־`disablePointerDismissal` מה־props ומעבירה אותם ל־`DialogPrimitive.Root` כרגיל.\n\n3. **`DialogOverlay`** – ב־`onPointerDown` על ה־backdrop (רק כשהלחיצה על שכבת הרקע עצמה, לא על התוכן): קורא לסגירה. לחיצת עכבר נשלחת רק לכפתור שמאלי.\n\nכך **כל** דיאלוג שמשתמש ב־`Dialog` + `DialogContent` (כולל «עריכת מלאי») נסגר בלחיצה מחוץ לחלון, בלי לשנות כל מסך בנפרד.\n\nאם תרצה דיאלוג שלא ייסגר בלחיצה חיצונית, אפשר להעביר `disablePointerDismissal` ל־`<Dialog>`.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nעריכת מלאי של הלוח הבית בתפריט היומי לא סוגר לי שלוחצים על השטח המת\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"בודקים איך דיאלוג «עריכת מלאי» מוצג בלוח הבית ובפאנל התפריט היומי.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מתקנים: כנראה לחיצה לא מגיעה ל-handler (למשל בגלל `defaultPrevented` או `target !== currentTarget`) או שקונפליקט z-index עם Sheet (שניהם z-50). נעדכן את `dialog.tsx`: העלאת z-index לדיאלוג והוספת `onClick` על הרקע לסגירה.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מסירים כפילות: סגירה רק ב-`onClick` על הרקע (מונע קריאה כפולה), ומעבירים `onPointerDown` כרגיל.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מתקנים: `{...props}` בסוף עלול לדרוס את ה-handlers אם יועברו `onClick`/`onPointerDown`. מסירים קוד מת ומשלבים סגירה ב־`onPointerDown` (לפני כל `preventDefault`) וב־`onClick` כגיבוי.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שתוקן ב־`components/ui/dialog.tsx`:\n\n### 1. **סדר ה־props על ה־Backdrop**\nקודם הופעל `{...props}` **ואז** `onPointerDown` / `onClick`. אם ל־`Backdrop` הגיעו מיזוגים פנימיים עם `onClick`/`onPointerDown`, הם **דרסו** את הלוגיקה שלנו ולחיצה על הרקע לא סגרה. עכשיו ה־handlers שלנו **אחרונים** ותמיד נכנסים לפעולה.\n\n### 2. **z-index**\nה־overlay וה־popup הועלו מ־`z-50` ל־**`z-[100]`**, כדי שיופיעו **מעל** רכיבים כמו Sheet / לוח (לרוב גם `z-50`). במצב כזה לחיצה על “האזור המעומעם” בעצם פגעה בשכבה אחרת ולא בדיאלוג.\n\n### 3. **סגירה מלחיצה על הרקע**\nב־`onPointerDown` (כולל עכבר שמאלי ומגע) נקראת `tryDismiss` כש־`target === currentTarget` על שכבת הרקע, בלי להתעכב אחרי `preventDefault` של handlers אחרים.\n\nאם משהו עדיין לא נסגר, כדאי לבדוק בדפדפן אחרי רענון — אם זה ממשיך, תאר אם זה במובייל (עם ה־Sheet של הדשבורד) או בדסקטופ בלבד.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nבמסך גדול לא במיקוד החלקים בצד ש ההודעה והתפריט יומי צריך להיות נגלל!!!\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מתקנים את שרשרת הגובה ב־flex/grid כדי ש־`overflow-y-auto` יעבוד, ומעדכנים את `SidebarFold` כך שב־xl התפריט וההודעה יגללו (גלילה בצד או בתוך הבלוק).\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מסירים `xl:overflow-hidden` מהעמודה הימנית — עלול לחתוך את לוח ההזמנות; נשאיר רק את הגריד והעמודה השמאלית.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן:\n\n### הבעיה\nב־**xl**, כשלא במצב מיקוד לוח הזמנות, העמודה השמאלית (לוח שעות, סיכום, **תפריט יומי**, **הודעה ללקוחות**) לא גללה כמו שצריך. בגריד של CSS ברירת המחדל של `min-height` על תאים מונעת כיווץ, ולכן `overflow-y-auto` לא “ננעל” לגובה המסך.\n\n### מה שיניתי\n\n1. **מיכל הגריד** (`!ordersBoardFocus`): נוסף **`xl:overflow-hidden`** יחד עם **`xl:min-h-0`** הקיים — כך גובה הגריד נשאר בתוך אזור התצוגה והתאים לא “מתרחבים” אינסופית עם התוכן.\n\n2. **עמודה שמאלית**: במקום `xl:h-full xl:max-h-full` ש־`h-full` לפעמים לא נסגר טוב בשרשרת flex, הוגדר במפורש **`xl:overflow-y-auto`** + **`xl:min-h-0 xl:max-h-full`** (עם `SIDEBAR_SCROLL_AREA_CLASS` כמו קודם) — כל הבלוקים בצד יכולים לגלול יחד.\n\n3. **`SidebarFold`** (תפריט יומי / הודעה): הוסרה תקרת ה־**xl** שהייתה `xl:max-h-[min(72vh,46rem)]` ונגרמה לגלילה פנימית צרה. עכשיו ב־**xl** יש **`xl:max-h-none`** ו־**`xl:overflow-visible`** (אחרי מחלקת הגלילה) כדי שהתוכן הארוך יידחף לגלילה של **כל העמודה**, לא רק בתוך כרטיס עם תקרת vh.\n\n4. **העמודה הימנית** (לוח הזמנות): **לא** הוספתי `overflow-hidden` כדי לא לשבור את הגלילה הקיימת בלוח.\n\nבמסך רחב, כשלא במצב מיקוד, צריך להופיע גלילה בצד השמאלי על כל אזור התפריט וההודעה כשהתוכן ארוך מהמקום הזמין.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nבמסך גדול לא במיקוד החלקים בצד ש ההודעה והתפריט יומי שפותחים שהצד יהיה נגלל ויהיה אפשר לרדת למטהולראות הכל שיפתח מלא\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"בודקים את פריסת לוח הבקרה והפאנלים הצדדיים במסכים גדולים.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מסירים את תקרת הגובה והגלילה הפנימית ב־`SidebarFold` במסכי `xl+`, כדי שהעמודה הצדדית תיגלל כיחידה אחת ותוכן מלא יוצג.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה ששיניתי:\n\n### הבעיה\nב־**«תפריט יומי»** ו־**«הודעה ללקוחות»** (כשהם פתוחים) היה לגוף הקיפול **תקרת גובה** (`~70vh`) ו־**גלילה פנימית** נפרדת. במסך גדול זה חתך את התוכן והקשה לראות הכל בגלילה אחת נוחה.\n\n### הפתרון (`app/admin/page.tsx`)\n- נוסף קבוע `SIDEBAR_FOLD_BODY_SCROLL_MAX_XL_CLASS`:\n  - **מתחת ל־`xl`**: נשארים גלילה פנימית + תקרה (כמו קודם, למובייל/מסך צר).\n  - **מ־`xl` ומעלה**: **בלי** `max-height` ו**בלי** גלילה פנימית (`xl:max-h-none xl:overflow-visible`) — גוף הקיפול מתרחב לפי כל התוכן.\n- **העמודה השמאלית** כבר מוגדרת עם `SIDEBAR_SCROLL_AREA_CLASS` (גלילה אנכית), אז במסך גדול, כשאין מיקוד ללוח הזמנות, **כל הצד** נגלל יחד ואפשר לרדת למטה ולראות את התפריט וההודעה במלואם.\n\nאם משהו עדיין נחתך, תאר אם זה קורה רק כשלוח הזמנות תופס את כל הגובה (אז נוכל לכוון גם את גובה הגריד/ה־`main`).\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nיש שגיאה\nBuild Error\n\nModule not found: Can't resolve '@base-ui/react/dialog/root/DialogRootContext'\n./components/ui/dialog.tsx (5:1)\n\nModule not found: Can't resolve '@base-ui/react/dialog/root/DialogRootContext'\n  3 | ...\n  4 | ...tive } from \"@base-ui/...\n> 5 | ...} from \"@base-ui/react...\n    |    ^^^^^^^^^^^^^^^^^^^^^^^^^\n  6 | ...ils } from \"@base-ui/r...\n  7 | ...-ui/react/utils/reasons\"\n  8 | ...\n\nImport traces:\n  Client Component Browser:\n    ./components/ui/dialog.tsx [Client Component Browser]\n    ./components/admin/admin-whatsapp-message-dialog.tsx [Client Component Browser]\n    ./app/admin/menu/daily/page.tsx [Client Component Browser]\n    ./app/admin/menu/daily/page.tsx [Server Component]\n\n  Client Component SSR:\n    ./components/ui/dialog.tsx [Client Component SSR]\n    ./components/admin/admin-whatsapp-message-dialog.tsx [Client Component SSR]\n    ./app/admin/menu/daily/page.tsx [Client Component SSR]\n    ./app/admin/menu/daily/page.tsx [Server Component]\n\nhttps://nextjs.org/docs/messages/module-not-found\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"ב־repo הנוכחי `components/ui/dialog.tsx` **לא** מייבא מ־`DialogRootContext` — רק מ־`@base-ui/react/dialog`, וה־build כאן עובר. כנראה אצלך נשארו שורות ישנות (או קובץ לא נשמר / לא מסונכרן).\n\n**מה למחוק:** כל שורה כמו:\n\n```ts\nimport { useDialogRootContext } from \"@base-ui/react/dialog/root/DialogRootContext\"\nimport { createChangeEventDetails } from \"@base-ui/react/utils/createBaseUIEventDetails\"\nimport { REASONS } from \"@base-ui/react/utils/reasons\"\n```\n\nה־package לא מייצא נתיבים פנימיים האלה ל־bundler — לכן `Module not found`.\n\n**תחילת הקובץ הנכונה** (עד אחרי `lucide-react`):\n\n```3:8:components/ui/dialog.tsx\nimport * as React from \"react\"\nimport { Dialog as DialogPrimitive } from \"@base-ui/react/dialog\"\n\nimport { cn } from \"@/lib/utils\"\nimport { Button } from \"@/components/ui/button\"\nimport { XIcon } from \"lucide-react\"\n```\n\nאחרי זה מגיעים `DialogBackdropDismissContext` וה־`Dialog` עם `onOpenChange` — בלי ייבואי Base UI נוספים.\n\n**אם השגיאה נשארת:**  \n1. שמור את `dialog.tsx` וודא שאין את שלוש השורות למעלה.  \n2. מחק cache: `Remove-Item -Recurse -Force .next` (או מחק את תיקיית `.next` ידנית) והרץ `npm run build` שוב.\n\nאם תרצה, אפשר להדביק כאן את 15 השורות הראשונות של `dialog.tsx` מהמחשב שלך — נאמת מול הקובץ המלא.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nבמסך גדול לא במיקוד החלקים בצד של ההודעות ללקוחות והתפריט יומי שפותחים שכל הצד יהיה נגלל ויהיה אפשר לרדת למטה ולראות הכל שיפתח מלא\nולא יהיה בגודל ספציפי מש שיהיה נגלל הכל בפנים\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מסירים את מגבלת הגובה (`max-h`) והגלילה הפנימית ב־`SidebarFold` — העמודה השמאלית כבר גוללת כולה; תוכן המקטעים יתפרש לגובה מלא והגלילה תהיה בעמודה החיצונית.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה ששיניתי:\n\n### `SidebarFold` ב־`app/admin/page.tsx`\n\n**לפני:** כש־`bodyScrollable` היה מופעל, גוף המקטע (תפריט יומי / הודעה ללקוחות) קיבל **`max-h-[min(70vh,44rem)]`** וגלילה **פנימית** — כלומר תיבה בגובה קבוע עם פס גלילה בתוך הכרטיס.\n\n**אחרי:**\n- ביטלתי את `bodyScrollable` ואת כל מגבלת הגובה ואת הגלילה הפנימית.\n- גוף המקטע הוא רק `border-t` + ריפוד — התוכן **נפתח לגובה מלא**.\n- הגלילה נשארת על **עמודת הצד כולה** (שכבר מוגדרת עם `SIDEBAR_SCROLL_AREA_CLASS`), כך שאפשר לגלול למטה ולראות לוח שעות, סיכום, תפריט פתוח והודעות — **בלי תיבה מוגבלת בגודל קבוע**.\n\nהוספתי `shrink-0` על כרטיס המקטע כדי שלא יידחס ב-flex ויישאר בגובה התוכן.\n\nבמובייל/Sheet לא נגעתי — ביקשת במפורש מסך גדול ולא במיקוד.\n\n[REDACTED]"}]}}

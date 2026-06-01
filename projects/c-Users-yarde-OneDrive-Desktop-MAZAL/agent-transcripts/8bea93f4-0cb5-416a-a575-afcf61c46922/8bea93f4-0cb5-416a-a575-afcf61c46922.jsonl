@@ -1,0 +1,22 @@
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nבחיפוש בעמוד ניהול הזמנות תרשום הקלד שם, טלפון, מספר הזמנה או מנה... משהו כזהה שיהיה מובן שזה חיפוש\n\nבנוסף הכפתור של הוספת הזמנה ידני שיהיה לא ככה אלא כאייקון ליד המדפסת כמו במיקוד\n\nהמיקוד שיהיה בהתאם לזה שאם אני בהיום או במחר\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מחפשים את עמוד ניהול ההזמנות ומעדכנים את טקסט החיפוש, מיקום כפתור הוספת הזמנה ידני והתנהגות המיקוד.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מעדכנים: מציבים placeholder ברור לחיפוש; מסירים את כפתורי ההדר הרחבים ומוסיפים כפתור אייקון ליד הדפסה; מעדכנים את תווית «מיקוד» לפי היום/מחר.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מעדכן את סרגל המיקוד העליון כך שיציג במפורש היום/מחר, ומתאים את תווית יציאה ממצב מיקוד.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן ב־`app/admin/page.tsx`:\n\n### חיפוש\n- בשני שדות החיפוש (תצוגה רגילה ומצב מיקוד) ה־placeholder הוא עכשיו: **«הקלד שם, טלפון, מספר הזמנה או מנה…»** — כדי שיהיה ברור שמדובר בשדה הקלדה לחיפוש.\n\n### הזמנה ידנית\n- הוסרו הכפתורים הרחבים בכותרת («הוספת הזמנה ידנית» ב־xl ובמובייל).\n- נוסף כפתור **באותו סגנון כמו במצב מיקוד**: אייקון `ClipboardPlus` ליד **הדפסה**, ובמסכים רחבים מופיע גם הטקסט «הזמנה ידנית» (כמו בסרגל המיקוד).\n\n### מיקוד לפי היום / מחר\n- בכפתור המיקוד (ליד ההדפסה): בטקסט מוצג **«מיקוד · היום»** או **«מיקוד · מחר»** לפי הטאב הפעיל, ו־`aria-label` מעודכן בהתאם.\n- **בסרגל העליון של מצב מיקוד** הכותרת היא **«לוח הזמנות · היום»** / **«· מחר»**, וכפתור «תצוגה רגילה» כולל תיאור נגישות שמציין אם יוצאים ממיקוד של היום או של מחר.\n\nאם תרצה שהכיתוב יהיה קצר יותר (למשל רק נקודה אמצעית בלי מילה «מיקוד» במסכים צרים), אפשר לכוון את זה בנפרד.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nהכוונה במיקוד שאם אני לוחצת על המיקוד ואני על מחר שיעשה לפי הנתונים של מחר אם אני לוחצת על המיקוד ואני על היום שיהיה לפי הנתונים של היום\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"בודקים אם מצב מיקוד משתמש בנתונים של יום אחר מזה שנבחר (היום/מחר).\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מזהים בעיה אפשרית: מעבר למצב מיקוד משנה את עץ הרכיבים ב-`AdminShell`, מה שעלול לגרום ל-remount של עמוד הדשבורד ולאיפוס `dashDayTab` ל-`null`, כך שהנתונים חוזרים ל-`businessDate` במקום היום/מחר שנבחרו.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מתקנים: מעבר למצב מיקוד החליף את כל עץ ה-JSX ב-`AdminShell`, מה שגורם ל-remount של `{children}` ולאיפוס `dashDayTab` ושדות נוספים. מאחדים את המבנה כך ש-`{children}` יישאר באותו מיקום בעץ.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הבעיה הייתה טכנית: בלחיצה על **מיקוד**, `AdminShell` החליף **בכללותו** את מה שהוא מחזיר (ענף JSX אחד במקום אחר). ב-React זה גורם ל־**הרכבה מחדש** של `{children}` — כלומר עמוד ניהול ההזמנות נטען מחדש, ואז `dashDayTab` חזר ל־`null` והתצוגה עברה ל־`businessDate` במקום ליום שבחרת (היום/מחר).\n\n**מה שיניתי:** מבנה אחד קבוע — תמיד אותו עטיפה סביב `{children}`; במצב מיקוד רק **מסתירים** סרגל צד וניווט מובייל (`null`), בלי להחליף את כל העץ. כך מצב הדשבורד (כולל היום/מחר) נשמר בכניסה ויציאה ממיקוד.\n\nהקובץ שעודכן: `components/admin/admin-shell.tsx`.\n\n[REDACTED]"}]}}

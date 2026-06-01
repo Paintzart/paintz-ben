@@ -1,0 +1,28 @@
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nהמסך קטן באתר של הלקוח שהכותרת של הטלפון שיהיה באותה שורה כמו הכתובת ולא ממורכז\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מחפשים בקוד איפה מוצגים הטלפון והכתובת במסך הלקוח כדי ליישר אותם באותה שורה ולהסיר יישור מרכזי.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"בודקים את כרטיס הכתובת/טלפון בעמוד ההזמנה — אולי שם הבעיה.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מתקנים: בשורת השם והטלפון בעמוד ההזמנות יש `text-center` — ניישר לימין כמו כרטיס הכתובת. בפוטר הלוגו עם `self-center` ממרכז את הלוגו אנכית מול בלוק גבוה — נשנה ל-`self-start` במסכים קטנים. מוסיפים פריסת `grid` במובייל לעמודת הכתובת והטלפון כדי לשמור על שורת כותרות מיושרת בלי גלילה אופקית.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן:\n\n### 1. עמוד «ההזמנות שלך» (`order/[token]/page.tsx`)\nשורת **שם · טלפון** וההערה מתחת היו עם `text-center`, בזמן שכרטיס האיסוף והתוכן האחר מיושרים לימין (RTL). שיניתי ל־`text-end` כדי שהטלפון יישב על אותו ציר כמו הכתובת למטה, בלי מירכוז.\n\n### 2. פוטר האתר (`customer-site-footer.tsx`)\n- **לוגו:** במקום `self-center` (שמרכז את הלוגו אנכית מול בלוק גבוה של כתובת/שעות) — `self-start`, כך שהלוגו מיושר לראש ולא «צף» באמצע.\n- **כתובת וטלפון במובייל:** מ־`flex` עם גלילה אופקית עברתי ל־`grid` עם שתי עמודות `minmax(0,1fr)` ו־`auto`, כך שכותרות «כתובת» ו־«טלפון» נשארות **באותה שורה** (שתי עמודות), והטקסט מתכווץ בעמודה השמאלית במקום גלילה.\n- **גלילה:** ב־`max-sm` הוגדר `overflow-x-visible` כדי שלא ייווצר פס גלילה מיותר כשהפריסה מתאימה למסך.\n\nמ־`sm` ומעלה נשארת אותה פריסת `flex` כמו קודם (כולל הרווח הווירטואלי בין העמודות).\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nשכ החחלק של הכותרת ימורכז כולל השם והטלפון ומוצגות הזמנות..\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מחזירים יישור מרכזי לבלוק שכולל את השם, הטלפון ושורת «מוצגות הזמנות...».\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"עודכן: הבלוק מתחת לכותרת «ההזמנות שלך» (שם · טלפון וגם המשפט «מוצגות הזמנות של היום ומחר בלבד») שוב עם `text-center`, כך שהכותרת והשורות האלה ממורכזות יחד כמו קודם.\n\n[REDACTED]"}]}}

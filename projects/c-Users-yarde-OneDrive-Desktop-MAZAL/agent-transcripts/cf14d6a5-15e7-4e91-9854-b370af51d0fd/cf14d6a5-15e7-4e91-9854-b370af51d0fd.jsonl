@@ -1,0 +1,9 @@
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nבהזמנה שלי שהסטטוסים במקום עבודה שיהיה התקבלה ואז למעלה שיהיה כתוב התקבלה במקום התקבלה / בטיפול\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מחפש בקוד איפה מוצגים סטטוסי ההזמנה והטקסט \"התקבלה / בטיפול\".\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מעדכן את התווית בבאדג' למעלה ל־\"התקבלה\", ואת שלב העמודה `work` בפס ההתקדמות מ־\"עבודה\" ל־\"התקבלה\" (לקוח בלבד; הניהול נשאר עם \"עבודה\").\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן בדף **ההזמנה שלי** (`app/(customer)/order/[token]/page.tsx`):\n\n1. **למעלה (הבאדג' ליד \"סטטוס ההזמנה\")** – לעמודת `work` מוצג עכשיו **\"התקבלה\"** במקום **\"התקבלה / בטיפול\"** (דרך `columnStatusLabel`, כולל כשמוצגות כמה הזמנות קשורות).\n\n2. **בכרטיס \"מצב ההזמנה\" (פס השלבים)** – מתחת לשלב של עמודת העבודה מוצג עכשיו **\"התקבלה\"** במקום **\"עבודה\"** (רק במסך הלקוח; בלוח הניהול נשאר **\"עבודה\"**).\n\nאם תרצה שגם בניהול העמודה תיקרא \"התקבלה\", אפשר לעדכן גם את `COLUMN_LABELS.work` ב־`lib/mock/seed.ts`.\n\n[REDACTED]"}]}}

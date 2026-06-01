@@ -1,0 +1,53 @@
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nבין שעה הפתיחה שזה יום לפני בשתיים וחצי תמיד עד השעה של אותו יום בשעב אחת עשרה בית העסק פתוח להזמנות (לפי ההגדרות) ובשישי ההזמנות שונות\nאבל אם אני פותחת את העסק מידי אז שהעסק יהיה פתוח\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"בודקים בקוד איך מוגדרים שעות פתיחה והזמנות (כולל שישי) כדי שנוכל ליישם את הלוגיקה שתיארת.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מזהים את הבעיה: עם `orderOpenTime` ב\"יום לפני\" ו-`closeOrdersAt` ב\"אותו יום\" (חלון רציף עד 23:00), הלוגיקה הנוכחית של `isInMiddayOrderGap` משתמשת ב-`close` של מחר ומפיקה חלון סגירה הפוך. נתקן את הלוגיקה ונעדכן ברירות מחדל ל-14:30 ביום לפני עד 23:00 באותו יום.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מתקנים את חישוב חלון ההזמנות: עם `פתיחה` ביום לפני ו`סגירה` באותו יום, החלון צריך להיות רציף מ־14:30 אתמול עד 23:00 היום — הלוגיקה הנוכחית מתייחסת לסגירה כאילו היא של מחר. נתקן גם את `resolveOrderingMenuDate` כדי שתאריך ההזמנה יהיה יום האיסוף הנכון.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מעדכנים את `business-schedule.ts`: מוסיפים את ענף חלון הרצף ומתקנים את `resolveOrderingMenuDate`.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן בפועל:\n\n## מה ביקשת (כפי שתרגמתי)\n- **ימי חול:** חלון הזמנות **רציף** מ־**14:30 ביום שלפני** יום האיסוף ועד **23:00 ביום האיסוף** (11 בערב).\n- **שישי:** נשאר על לוח נפרד (`friday` + `fridayOrderTimeScopes`) בלי לשנות את המודל.\n- **פתיחה מוקדמת:** כשמקדימים את שעת הפתיחה (דריסת יום בתפריט היומי / עורך השעות המהיר) — זה כבר נכנס ל־`activeScheduleForCalendarIso`, ואחרי התיקון החישוב של «פתוח/סגור» משתמש בערכים האלה, כלומר **העסק נשאר פתוח לפי השעה שערכת**.\n\n## מה היה שבור\nבשילוב **פתיחה = יום לפני** ו־**סגירה = באותו יום**, הקוד התייחס לסגירה כאילו היא של **מחר**, ולכן רוב היום סומן בטעות כ־«מחוץ לחלון» (או להפך — חסום כשאמור להיות פתוח).\n\n## מה שיניתי בקוד\n1. **`lib/business-schedule.ts`**  \n   - `isInMiddayOrderGap` / `isInMiddayOrderGapAtMinutes`: לשילוב `eveBefore` + `sameDay` — **פתוח** רק בין אתמול ב־`orderOpenTime` להיום ב־`closeOrdersAt`; מחוץ לזה — סגור.  \n   - `resolveOrderingMenuDate`: באותו שילוב, **תאריך התפריט** בזמן החלון הוא **היום בלוח** (יום האיסוף), לא «אתמול» בטעות.\n\n2. **`lib/types.ts`** — ברירת מחדל לימי חול:  \n   `orderOpenTime` + `manualApprovalFrom` → `eveBefore`, `closeOrdersAt` → `sameDay`.\n\n3. **`lib/mock/seed.ts`** — דוגמה: חול 14:30–23:00; שישי נשאר 11:00–14:30 כמו קודם.\n\n4. **`lib/customer-guards.ts`** ו־**`lib/customer-preview.ts`** — טקסט הודעה מתאים לחלון הרציף (במקום הניסוח של «רווח צהריים»).\n\n---\n\n**חשוב:** במסמכי Firebase שכבר קיימים, אם נשמר `orderTimeScopes` **חלקי**, המיזוג עם ברירות המחדל החדשות עלול לעדכן שדות שלא נשמרו במפורש. אם יש לך מסד ישן, כדאי פעם אחת לפתוח **הגדרות → שעות הזמנות** ולוודא שימי חול מוגדרים כמו שאת רוצה (ושישי נפרד).  \n\nאם תרצי **לשמור** את ברירות המחדל הישנות בפרויקט אבל רק **לתקן את הבאג** לכל מי שמגדיר ידנית את השילוב «יום לפני + אותו יום», אפשר להחזיר רק את `DEFAULT_ORDER_TIME_SCOPES_WEEKDAY` ואת ה־seed לערכים הקודמים — תגידי ואכוון accordingly.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nשבית העסק פתוח למעלה אין הודעה.... זה היה מצויין שינת משהו במהלך שעיצבנו את ההגדרות\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מחפשים איפה מוצגת הודעה בראש האתר כשהעסק פתוח — ומה השתנה בהגדרות.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מוסיפים פס סטטוס אוטומטי כשההזמנות פתוחות (בנוסף לפס המותאם אישית), ומאפשרים לכבות או לערוך את הטקסט בהגדרות.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nשבית העסק םתוח וההזמנות לא סגורות אלא פתוחות אין הודעה שחוסמת את ההזמנות באתר\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"בודקים איפה מוצגת חסימת הזמנות ללקוחות ומוודאים שלא תופיע כשהעסק פתוח בלוח וההזמנות פתוחות.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מסירים את חסימת «חלון השעות» (`isInMiddayOrderGap`) מזרימת הלקוח — חסימה רק ב«סגור הזמנות מיד», או כשהיום/יום ההזמנה סגורים בלוח.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"עדכנתי את הלוגיקה כך ש**באתר הלקוחות** לא תוצג חסימה בגלל «חלון שעות» (`isInMiddayOrderGap`).\n\nמעכשיו מסך החסימה (`OrderingClosed`) מופיע **רק** כאשר:\n1. **«סגור הזמנות מיד»** פעיל (`ordersClosedNow`), או  \n2. **היום בלוח** סגור, או  \n3. **יום ההזמנה** (`businessDate`) סגור בלוח.\n\nאם בית העסק **פתוח** בלוח (גם להיום וגם ליום שאליו מתייחסת ההזמנה), ו־**ההזמנות לא סגורות ידנית** — **לא** תופיע הודעה שחוסמת הזמנות.\n\nבניהול עדיין אפשר לראות «חלון שעות» בדשבורד/תפריט יומי לעזרה תפעולית; תבניות סגירה ל־`scheduleGap` נשארות בקוד לתאימות, אבל סיבה הזו כבר לא נבחרת ללקוחות בפועל.\n\n[REDACTED]"}]}}

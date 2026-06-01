@@ -1,0 +1,32 @@
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nבניהול הזמנות שהחיפוש יהיהה מתחת לכותרת לוח הזמנות\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מחפש את מסך ניהול ההזמנות וממקם את שדה החיפוש מתחת לכותרת \"לוח הזמנות\".\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"בודקים את המבנה המלא: החיפוש כרגע לפני שורת הכותרת \"לוח הזמנות\". נעביר אותו מתחתיה.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מעבירים את שדה החיפוש כך שיופיע מתחת לשורת הכותרת \"לוח הזמנות\" (כרגע הוא מופיע מעליה).\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן:\n\n**בתצוגת ניהול הזמנות הרגילה** (לא מצב מיקוד) שדה החיפוש היה **מעל** שורת הכותרת «לוח הזמנות». עכשיו הוא **מתחתיה** — מיד אחרי השורה עם האייקון, הכותרת והכפתורים (הזמנה ידנית, הדפסה, מיקוד), ולפני טאבי השלבים / עמודות ה־xl.\n\nהמרווחים עודכנו כך שיישמר ריווח נוח בין הכותרת לחיפוש (`xl:mb-2` לשורת הכותרת) ובין החיפוש ללוח (`mb-2` / `xl:mb-3` על ה־`Input`).\n\nמצב מיקוד לא השתנה — שם החיפוש כבר היה בשורה נפרדת מתחת לכותרת «לוח הזמנות».\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nבהודעה ללקוחות הבחירה באיזה עמודות לא רואים את הריבוע\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מזהים את הבעיה: ב־`globals.css` המשתנה `--input` מוגדר כצבע רקע בהיר (`#f7f2ec`), וה־Checkbox משתמש ב־`border-input` — כך שהמסגרת כמעט זהה לרקע ונעלמת.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"**מה היה:** בפרויקט `--input` מוגדר כצבע **רקע** של שדות (`#f7f2ec`), לא כצבע מסגרת. רכיב ה־`Checkbox` השתמש ב־`border-input`, ולכן במצב לא מסומן המסגרת הייתה כמעט באותה גוון כמו הרקע (בסיידבר ובגוף הדף) — וה\"ריבוע\" לא נראה.\n\n**מה שיניתי:** ב־`components/ui/checkbox.tsx` עברתי למסגרת ברורה עם `border-border`, והוספתי `bg-background` במצב בהיר. במצב כהה נשאר `dark:border-input dark:bg-input/30` כמו קודם.\n\nהתיקון חל על **כל** תיבות הסימון באפליקציה, כולל בחירת העמודות ב\"הודעה ללקוחות\".\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nשלא יהיה כתוב מתחת להיום ומחר את בית העסק סגור היום/מחר גם בתפריט יומי\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מסירים את תגיות \"בית העסק סגור היום/מחר\" מתחת לכפתורי היום/מחר בדף הניהול ובדף תפריט יומי, ומסירים את אותן שורות בכרטיס \"לוח שעות\" ב־`DayOrderHoursCallout` (מופיע בתפריט היומי).\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מעדכן את `DayOrderHoursCallout`: כשהיום סגור ואין מעבר למחר — לא יוצג כלום (במקום רק ההודעה שהוסרנו).\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן:\n\n### 1. לוח ניהול הזמנות (`app/admin/page.tsx`)\nהוסרו התגיות «בית העסק סגור היום» / «בית העסק סגור מחר» שמופיעות מתחת לכפתורי היום/מחר. הוסר גם ייבוא ה־`Badge` שלא בשימוש.\n\n### 2. תפריט יומי (`app/admin/menu/daily/page.tsx`)\nאותו דבר בכותרת «תפריט יומי» — בלי התגיות מתחת לכפתורים.\n\n### 3. כרטיס «לוח שעות» (`DayOrderHoursCallout` ב־`day-menu-editor.tsx`)\n- תחת **היום**: הוסרה השורה «בית העסק סגור היום». אם רלוונטי, נשאר רק שורת **מעבר לתפריט והזמנות למחר** עם השעה.\n- תחת **מחר**: כשהעסק סגור — לא מוצג טקסט נוסף (רק הכותרת «מחר» והתאריך), בלי «בית העסק סגור מחר».\n\nמסך «בית העסק סגור» המלא כשבוחרים יום סגור ללוח ההזמנות נשאר כפי שהיה — רק ההודעות הקטנות מתחת לכפתורי היום/מחר ובלוח השעות הוסרו.\n\n[REDACTED]"}]}}

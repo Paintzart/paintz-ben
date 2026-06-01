@@ -26,16 +26,30 @@ function loadCartFromStorage() {
         cart = [];
       }
       
-      // נרמול נתונים בסיסיים
-      cart = cart.map(item => ({
-        ...item,
-        qty: parseInt(item.qty) || 1,
-        title: (item.title || '').trim(),
-        subtitle: (item.subtitle || '').trim(),
-        notes: (item.notes || '').trim(),
-        desc: typeof item.desc === 'string' ? item.desc.trim() : item.desc,
-        files: Array.isArray(item.files) ? item.files : (item.file ? [item.file] : [])
-      }));
+      let migratedImages = false;
+      cart = cart.map(item => {
+        const next = {
+          ...item,
+          qty: parseInt(item.qty) || 1,
+          title: (item.title || '').trim(),
+          subtitle: (item.subtitle || '').trim(),
+          notes: (item.notes || '').trim(),
+          desc: typeof item.desc === 'string' ? item.desc.trim() : item.desc,
+          files: Array.isArray(item.files) ? item.files : (item.file ? [item.file] : [])
+        };
+        ['img', 'image', 'mainImage', 'imgSrc'].forEach(function (key) {
+          if (!next[key]) return;
+          const rewritten = canonicalizeCartImageRef(next[key]);
+          if (rewritten !== next[key]) {
+            next[key] = rewritten;
+            migratedImages = true;
+          }
+        });
+        return next;
+      });
+      if (migratedImages) {
+        saveCartToStorage(cart, true);
+      }
     }
   } catch (e) {
     console.error('Error loading cart:', e);
@@ -154,7 +168,7 @@ function syncUpdateCartBadge() {
       const cart = loadCartFromStorage();
       const total = cart.reduce((sum, item) => sum + (parseInt(item.qty) || 1), 0);
       if (total > 0) {
-        cartBadge.style.display = 'block';
+        cartBadge.style.display = 'flex';
         cartBadge.textContent = total.toString();
       } else {
         cartBadge.style.display = 'none';
@@ -171,15 +185,10 @@ function syncRenderCart() {
   if (syncInProgress) return;
   
   try {
-    // Check if the current page has a cart render function
-    if (typeof renderCart === 'function') {
-      // Update the global cart variable first
-      if (typeof cart !== 'undefined') {
-        const newCart = loadCartFromStorage();
-        // Always update to ensure UI reflects latest state
-        cart = newCart;
-        renderCart();
-      }
+    if (window.PaintzSiteUI && typeof window.PaintzSiteUI.renderCart === 'function') {
+      window.PaintzSiteUI.renderCart();
+    } else if (typeof renderCart === 'function') {
+      renderCart();
     }
     
     // Check if the current page has a big cart render function (Shopping Cart page)
@@ -283,18 +292,15 @@ document.addEventListener('visibilitychange', function() {
   }
 });
 
-// Initialize when DOM is ready
+// Initialize when DOM is ready — defer until layout partials may be loaded
 document.addEventListener('DOMContentLoaded', function() {
   try {
-    // Set initial cart string for comparison
     const initialCart = localStorage.getItem('cart') || '[]';
     window.lastCartString = initialCart;
     lastKnownCartHash = hashString(initialCart);
-    
-    // Initial synchronization with delay to let page load
-    setTimeout(() => {
+    setTimeout(function () {
       synchronizeCart('dom-ready');
-    }, 50);
+    }, 300);
   } catch (e) {
     console.error('Error initializing cart sync:', e);
   }
@@ -594,21 +600,15 @@ function renderCartNotes(item, hidePrices = false) {
     // For big cart - return UL format
     return details.length ? `<ul class='big-cart-item-notes' style='list-style:none;margin:0 0 2px 0;padding:0;'>${details.map(detail => `<li>${detail}</li>`).join('')}</ul>` : '';
   } else {
-    // For mini cart - check if it's a custom design item and return li format
-    if ((allTitles.includes('מטקה') && allTitles.includes('עיצוב אישי')) || 
-        (allTitles.includes('שש בש') && allTitles.includes('עיצוב אישי'))) {
-      return details.map(detail => `<li>${detail}</li>`).join('');
-    } else {
-      // For other items, return DIV format
-      return details.map(detail => `<div style="font-family: 'Amatica SC', cursive;">${detail}</div>`).join('');
-    }
+    // Side cart — always use li items inside side-cart-item-details-list
+    return details.map(function (detail) { return '<li>' + detail + '</li>'; }).join('');
   }
 }
 
 // Function to get price display HTML for mini cart
 function renderCartPrice(item, hidePrices = false) {
   if (!hidePrices && item.price) {
-    return `<div class='side-cart-item-price-display' style='font-size: 14px; color: #000; margin-top: 4px; font-family: "Amatica SC", cursive; text-align: center; display: flex; justify-content: center; align-items: center;'>${item.price}</div>`;
+    return `<div class="side-cart-item-price-display">${item.price}</div>`;
   }
   return '';
 }
@@ -659,8 +659,11 @@ function addItem(item) {
 
 // Remove base64 data from files; keep only meta to avoid quota issues
 function sanitizeItemForStorage(item) {
-  // Restore original behavior: do not strip file data, keep full objects for email attachments
-  return item;
+  const next = Object.assign({}, item);
+  ['img', 'image', 'mainImage', 'imgSrc'].forEach(function (key) {
+    if (next[key]) next[key] = canonicalizeCartImageRef(next[key]);
+  });
+  return next;
 }
 
 // Function to find existing item in cart
@@ -725,19 +728,41 @@ function findExistingItemIndex(cart, item) {
 
       // בדיקת הסברים (תמיכה במחרוזת או אובייקט {right,left})
       const normalizeDesc = (d) => {
-        if (!d) return { right: '', left: '' };
+        if (!d) return { right: '', left: '', desc1: '', desc2: '' };
         if (typeof d === 'string') {
           const t = d.trim();
-          return { right: t, left: t };
+          return { right: t, left: t, desc1: t, desc2: t };
         }
         return {
           right: (d.right || '').toString().trim(),
-          left: (d.left || '').toString().trim()
+          left: (d.left || '').toString().trim(),
+          desc1: (d.desc1 || '').toString().trim(),
+          desc2: (d.desc2 || '').toString().trim()
         };
       };
       const ed = normalizeDesc(existing.desc);
       const idesc = normalizeDesc(item.desc);
-      if (ed.right !== idesc.right || ed.left !== idesc.left) {
+      const isMatkaCustom = ((existing.title + ' ' + existing.subtitle).includes('מטקה') &&
+                             (existing.title + ' ' + existing.subtitle).includes('עיצוב אישי')) ||
+                            ((item.title + ' ' + item.subtitle).includes('מטקה') &&
+                             (item.title + ' ' + item.subtitle).includes('עיצוב אישי'));
+      if (isMatkaCustom) {
+        if (ed.desc1 !== idesc.desc1 || ed.desc2 !== idesc.desc2) {
+          return false;
+        }
+        const c1 = existing.colorData || {};
+        const c2 = item.colorData || {};
+        for (const key of ['color1', 'color2']) {
+          const a = c1[key] || {};
+          const b = c2[key] || {};
+          if ((a.text || '').toString().trim().toLowerCase() !== (b.text || '').toString().trim().toLowerCase()) {
+            return false;
+          }
+          if ((a.color || '').toString().trim().toLowerCase() !== (b.color || '').toString().trim().toLowerCase()) {
+            return false;
+          }
+        }
+      } else if (ed.right !== idesc.right || ed.left !== idesc.left) {
         return false;
       }
 
@@ -782,6 +807,156 @@ function findExistingItemIndex(cart, item) {
 // Make function globally available
 window.addItem = addItem;
 
+function getSiteBasePath() {
+  if (typeof window.PAINTZ_SITE_BASE === 'string') {
+    return window.PAINTZ_SITE_BASE;
+  }
+  const path = window.location.pathname;
+  const lastSlash = path.lastIndexOf('/');
+  return lastSlash > 0 ? path.substring(0, lastSlash + 1) : '/';
+}
+
+function stripSiteBaseFromAssetPath(relativePath) {
+  if (!relativePath) return '';
+  let path = String(relativePath).replace(/^\//, '');
+  const base = getSiteBasePath().replace(/^\//, '').replace(/\/$/, '');
+  if (base && (path === base || path.startsWith(base + '/'))) {
+    path = path.slice(base.length).replace(/^\//, '');
+  }
+  if (path.startsWith('.cursor/')) {
+    path = path.slice('.cursor/'.length);
+  }
+  return path;
+}
+
+function encodeAssetPath(relativePath) {
+  return relativePath
+    .replace(/^\//, '')
+    .split('/')
+    .map(function encodeSegment(segment) {
+      try {
+        return encodeURIComponent(decodeURIComponent(segment));
+      } catch (e) {
+        return encodeURIComponent(segment);
+      }
+    })
+    .join('/');
+}
+
+function isLocalDevHost() {
+  const host = window.location.hostname;
+  return !host || host === 'localhost' || host === '127.0.0.1';
+}
+
+function pathFromRemoteImageUrl(url) {
+  try {
+    const parsed = new URL(url, window.location.href);
+    let path = parsed.pathname.replace(/^\//, '');
+    if (parsed.origin === window.location.origin) {
+      path = stripSiteBaseFromAssetPath(path);
+    }
+    return path;
+  } catch (e) {
+    return '';
+  }
+}
+
+function pathAfterMarker(url, marker) {
+  if (!url.includes(marker)) return '';
+  return (url.split(marker)[1] || '').replace(/^\//, '');
+}
+
+function rewriteStoredCartImageField(value) {
+  if (!value || typeof value !== 'string' || value.startsWith('data:')) return value;
+  let trimmed = value.trim();
+  const wrapped = trimmed.match(/^url\(['"]?(.+?)['"]?\)$/i);
+  if (wrapped) trimmed = wrapped[1];
+  if (!/^https?:\/\//i.test(trimmed)) return value;
+  const relative = pathFromRemoteImageUrl(trimmed);
+  return relative || value;
+}
+
+function canonicalizeCartImageRef(value) {
+  if (!value || typeof value !== 'string') return value || '';
+  const rewritten = rewriteStoredCartImageField(value);
+  if (rewritten !== value) return stripSiteBaseFromAssetPath(rewritten);
+  return stripSiteBaseFromAssetPath(value);
+}
+
+function isAllowedCartImageSrc(url) {
+  if (!url) return false;
+  if (url.startsWith('data:')) return true;
+  try {
+    const parsed = new URL(url, window.location.href);
+    if (isLocalDevHost()) {
+      return parsed.origin === window.location.origin;
+    }
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
+function resolveCartImageUrl(rawImage) {
+  if (!rawImage) return { primary: '', fallback: '' };
+  if (rawImage.startsWith('data:')) {
+    return { primary: rawImage, fallback: rawImage };
+  }
+  const origin = window.location.origin;
+  const basePath = getSiteBasePath();
+  const toLocal = (p) => `${origin}${basePath}${encodeAssetPath(stripSiteBaseFromAssetPath(p))}`;
+  const toProd = (p) => `https://paintz.store/${encodeAssetPath(p)}`;
+  const withFallback = (localUrl, prodUrl) => ({
+    primary: localUrl,
+    fallback: isLocalDevHost() ? localUrl : prodUrl
+  });
+
+  if (rawImage.startsWith('http')) {
+    if (isLocalDevHost()) {
+      const localPath = pathFromRemoteImageUrl(rawImage);
+      if (localPath) {
+        return withFallback(toLocal(localPath), toLocal(localPath));
+      }
+    }
+    const ghMarker = 'yardenfad.github.io/paintz-website/';
+    if (rawImage.includes(ghMarker)) {
+      const after = pathAfterMarker(rawImage, ghMarker);
+      return withFallback(toLocal(after), toProd(after));
+    }
+    if (rawImage.includes('paintz.store/')) {
+      const after = pathAfterMarker(rawImage, 'paintz.store/');
+      return withFallback(toLocal(after), toProd(after));
+    }
+    if (rawImage.includes('netlify.app/')) {
+      const after = pathFromRemoteImageUrl(rawImage);
+      return withFallback(toLocal(after), toProd(after));
+    }
+    const same = rawImage;
+    return { primary: same, fallback: isLocalDevHost() ? toLocal(pathFromRemoteImageUrl(same) || '') || same : same };
+  }
+  const normalizedPath = rawImage.replace(/^\//, '');
+  return withFallback(toLocal(normalizedPath), toProd(normalizedPath));
+}
+
+function addProductToCart(item) {
+  const index = addItem(item);
+  synchronizeCart('add-product');
+  if (window.PaintzSiteUI) {
+    if (typeof window.PaintzSiteUI.updateCartBadge === 'function') {
+      window.PaintzSiteUI.updateCartBadge();
+    }
+    if (typeof window.PaintzSiteUI.renderCart === 'function') {
+      window.PaintzSiteUI.renderCart();
+    }
+    if (typeof window.PaintzSiteUI.openSideCart === 'function') {
+      window.PaintzSiteUI.openSideCart(index);
+    }
+  }
+  return index;
+}
+
+window.addProductToCart = addProductToCart;
+
 // Expose functions to global scope for external use
 window.cartSync = {
   loadCart: loadCartFromStorage,
@@ -793,8 +968,11 @@ window.cartSync = {
   findExistingIndex: findExistingItemIndex,
   normalizeProduct: normalizeProductData,
   addItem: addItem,
+  addProductToCart: addProductToCart,
   updateItem: updateCartItem,
-  removeItem: removeCartItem
+  removeItem: removeCartItem,
+  resolveCartImageUrl: resolveCartImageUrl,
+  isAllowedCartImageSrc: isAllowedCartImageSrc
 };
 
 // Function to compare files more accurately
@@ -1000,132 +1178,67 @@ window.confirmDelete = confirmDelete;
 
 // Function to update cart badge
 function updateCartBadge() {
-  const cartBadge = document.getElementById('cartBadge');
-  if (!cartBadge) return;
-  
-  try {
-    const cart = window.cart || loadCartFromStorage();
-    const total = cart.reduce((sum, item) => sum + (parseInt(item.qty) || 1), 0);
-    
-    if (total > 0) {
-      cartBadge.style.display = 'block';
-      cartBadge.textContent = total.toString();
-    } else {
-      cartBadge.style.display = 'none';
-    }
-  } catch (e) {
-    console.error('Error updating cart badge:', e);
-    cartBadge.style.display = 'none';
+  if (window.PaintzSiteUI && typeof window.PaintzSiteUI.updateCartBadge === 'function') {
+    window.PaintzSiteUI.updateCartBadge();
+    return;
   }
+  syncUpdateCartBadge();
 }
 
-// Make function globally available
-window.updateCartBadge = updateCartBadge;
-
-// Function to render cart items
+// Function to render cart items — delegates to shared site UI
 function renderCart() {
-  const cartList = document.querySelector('.side-cart-list');
-  if (!cartList) return;
-  
-  try {
-    const cart = window.cart || loadCartFromStorage();
-    
-    if (!cart || cart.length === 0) {
-      cartList.innerHTML = '<div class="empty-cart-message">הסל ריק</div>';
-      return;
-    }
-    
-    let html = '';
-    cart.forEach((item, index) => {
-      const isCustom = item.type === 'custom';
-      
-      html += `
-        <div class="cart-item" data-index="${index}">
-          <div class="cart-item-content">
-            <div class="cart-item-title">${item.title}</div>
-            <div class="cart-item-subtitle">${item.subtitle}</div>
-            ${isCustom ? renderCustomItemDetails(item) : ''}
-            <div class="cart-item-qty">כמות: ${item.qty}</div>
-          </div>
-          <button class="cart-item-remove" onclick="showDeleteDialog(${index})">
-            <img src="trash.svg" alt="הסר" />
-          </button>
-        </div>
-      `;
-    });
-    
-    cartList.innerHTML = html;
-  } catch (e) {
-    console.error('Error rendering cart:', e);
-    cartList.innerHTML = '<div class="error-message">שגיאה בטעינת הסל</div>';
+  if (window.PaintzSiteUI && typeof window.PaintzSiteUI.renderCart === 'function') {
+    window.PaintzSiteUI.renderCart();
+    return;
   }
+  syncRenderCartLegacy();
 }
 
-// Helper function to render custom item details
-function renderCustomItemDetails(item) {
-  const { colorData = {}, desc = {} } = item;
-  
-  let details = '<div class="cart-item-details">';
-  
-  // Add color information
-  if (colorData.bgOuter) {
-    details += `<div>צבע רקע חיצוני: ${colorData.bgOuter.text}</div>`;
-  }
-  if (colorData.bgInnerRight) {
-    details += `<div>צבע רקע פנימי ימין: ${colorData.bgInnerRight.text}</div>`;
-  }
-  if (colorData.bgInnerLeft) {
-    details += `<div>צבע רקע פנימי שמאל: ${colorData.bgInnerLeft.text}</div>`;
-  }
-  if (colorData.triangle1) {
-    details += `<div>צבע משולש 1: ${colorData.triangle1.text}</div>`;
-  }
-  if (colorData.triangle2) {
-    details += `<div>צבע משולש 2: ${colorData.triangle2.text}</div>`;
-  }
-  
-  // Add descriptions
-  if (desc.right) {
-    details += `<div>ציור ימין: ${desc.right}</div>`;
-  }
-  if (desc.left) {
-    details += `<div>ציור שמאל: ${desc.left}</div>`;
-  }
-  
-  // Add file information
-  if (item.files && item.files.length > 0) {
-    details += `<div>קבצים מצורפים: ${item.files.length}</div>`;
-  }
-  
-  details += '</div>';
-  return details;
+function syncRenderCartLegacy() {
+  const cartList = document.getElementById('sideCartList');
+  if (!cartList) return;
+  try {
+    const items = loadCartFromStorage();
+    if (!items || items.length === 0) {
+      cartList.innerHTML = '<div style="text-align:center;padding:20px;font-family:\'Amatica SC\',cursive;font-size:20px;color:#8B6B47;">העגלה ריקה</div>';
+    }
+  } catch (e) {}
 }
 
 // Make functions globally available
+window.updateCartBadge = updateCartBadge;
 window.renderCart = renderCart;
 
 // Function to open side cart
-function openSideCart(highlightIndex = -1) {
+function openSideCart(highlightIndex) {
+  if (window.PaintzSiteUI && typeof window.PaintzSiteUI.openSideCart === 'function') {
+    window.PaintzSiteUI.openSideCart(highlightIndex);
+    return;
+  }
   const sideCart = document.getElementById('sideCart');
   const overlay = document.getElementById('cartOverlay');
   if (!sideCart || !overlay) return;
-  
-  // Show cart and overlay
+
+  if (typeof renderCart === 'function') {
+    renderCart();
+  }
+
   sideCart.classList.add('active');
   overlay.classList.add('active');
-  
-  // Highlight item if specified
-  if (highlightIndex >= 0) {
-    setTimeout(() => {
-      const item = document.querySelector(`.cart-item[data-index="${highlightIndex}"]`);
-      if (item) {
-        item.classList.add('highlight');
-        item.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        
-        // Remove highlight after animation
-        setTimeout(() => {
-          item.classList.remove('highlight');
-        }, 2000);
+  document.body.style.overflow = 'hidden';
+
+  if (highlightIndex !== false && highlightIndex !== null && highlightIndex !== -1) {
+    setTimeout(function () {
+      const sideCartList = document.getElementById('sideCartList');
+      if (!sideCartList) return;
+      const items = sideCartList.querySelectorAll('.side-cart-item');
+      const targetItem = (typeof highlightIndex === 'number' && highlightIndex >= 0)
+        ? (items[highlightIndex] || items[items.length - 1])
+        : items[items.length - 1];
+      if (targetItem) {
+        targetItem.classList.add('just-added');
+        targetItem.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        setTimeout(function () { targetItem.classList.remove('just-added'); }, 2000);
       }
     }, 300);
   }
@@ -1178,7 +1291,9 @@ function initializeCart() {
 // Make function globally available
 window.initializeCart = initializeCart;
 
-// Initialize cart on page load
-document.addEventListener('DOMContentLoaded', () => {
-  initializeCart();
+// Initialize cart on page load (after layout partials have time to inject)
+document.addEventListener('DOMContentLoaded', function () {
+  setTimeout(function () {
+    initializeCart();
+  }, 350);
 }); 

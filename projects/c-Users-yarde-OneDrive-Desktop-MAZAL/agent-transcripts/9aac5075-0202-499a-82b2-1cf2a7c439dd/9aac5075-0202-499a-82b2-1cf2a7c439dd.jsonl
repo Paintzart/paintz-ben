@@ -1,0 +1,10 @@
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nבמסך גדול הכרטיסיות מנה לדעתי גדול מידי שיתאים בבקשה\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מחפשים איפה מוגדרות כרטיסיות המנות ומתאימים את הגודל למסכים גדולים.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מגבילים את רוחב תוכן התפריט ומוסיפים עמודות ברקעים גדולים — כרגע הרשת היא 3→4 עמודות על כל הרוחב, כך שבמסך רחב כל כרטיסיה תופסת ~25% מהמסך ונראית גדולה מדי.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן:\n\n### 1. **רוחב מרכזי** (`max-w-6xl` + `mx-auto`)\nתוכן תפריט הלקוח (כותרת, חיפוש, קטגוריות והגריד) מוגבל ל־1152px וממורכז. במסכים רחבים זה מונע מכרטיסיות למתוח על כל רוחב המסך.\n\n### 2. **יותר עמודות במסכים גדולים**\nהגריד: `lg:grid-cols-5` ו־`xl:grid-cols-6` (במקום להישאר עם 4 עמודות לנצח). כך כל כרטיסיה נשארת בגודל סביר גם כשהמסך רחב.\n\n### 3. **תמונות**\nב־`sizes` של `DishPhoto` עודכן היחס לתצוגות גדולות כדי שיתאים לכרטיסיות צרות יותר (כולל מקסימום ~180px לרזולוציות גבוהות).\n\nאם תרצה כרטיסיות **עוד** קטנות אפשר להחמיר ל־`max-w-5xl`, או להוסיף `2xl:grid-cols-7` — תגיד ונכוון.\n\n[REDACTED]"}]}}

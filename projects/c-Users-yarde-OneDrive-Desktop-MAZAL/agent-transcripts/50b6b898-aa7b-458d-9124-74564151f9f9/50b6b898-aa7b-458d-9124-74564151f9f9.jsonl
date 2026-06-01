@@ -1,0 +1,51 @@
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nשהלקוח שומר את האפליקציה השם שלה יכול להיות הקוסקוס של מזל וולא  קוסקוס מזל?\n\nושהניהול שומר את האפלקציה שהשם יהיה ניהול - הקוסקוס של מזל ולא מזל ניהול\\\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מחפשים היכן מוגדרים שם האפליקציה וה-metadata לשמירה/PWA.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מעדכנים: בלקוח — `short_name` במניפסט היה \"קוסקוס מזל\"; נשנה ל-\"הקוסקוס של מזל\". בניהול — השם היה \"הקוסקוס של מזל ניהול\" ו-`short_name` \"מזל ניהול\" (נראה כמו \"מזל ניהול\"); נשנה ל-\"ניהול - הקוסקוס של מזל\".\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן:\n\n### לקוחות\n- ב־`manifest-customer.json` וב־`manifest.json` השדה **`short_name`** היה `קוסקוס מזל` — זה מה שמופיע לעיתים קרובות מתחת לאייקון בשמירה לבית. שיניתי ל־**`הקוסקוס של מזל`** (כמו ב־`name`).\n- ב־`app/layout.tsx` תיקנתי את **`appleWebApp.title`** מ־`קוסקוס של מזל` ל־**`הקוסקוס של מזל`** (עקביות עם iOS / “הוסף למסך הבית”).\n- ב־`app/(customer)/layout.tsx` כבר היה **`הקוסקוס של מזל`** — לא נגעתי.\n\n### ניהול\n- ב־`manifest-admin.json`: **`name`** ו־**`short_name`** מ־`הקוסקוס של מזל ניהול` / `מזל ניהול` ל־**`ניהול - הקוסקוס של מזל`** — כך לא נשארת התצוגה המבלבלת של **„מזל ניהול“** בקיצור.\n- ב־`app/admin/layout.tsx`: **`title`** ו־**`appleWebApp.title`** אותו ניסוח.\n\nאחרי פריסה, מומלץ לרענן / להסיר ולהוסיף שוב קיצור דרך כדי לראות את השמות החדשים (המטמון של המניפסט לפעמים שומר את הישן).\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nרק הניהול כותב רק הקוסקוס של מזל ולא ניהול הקוסקוס של מזל\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"בודקים למה בנתיב הניהול מוצגת כותרת הלקוח במקום כותרת הניהול.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nרק הניהול כותב רק הקוסקוס של מזל ולא ניהול הקוסקוס של מזל מהעמוד של הסיסמא זה אמור להיות ניהול\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"בודקים את עמוד הכניסה של הניהול — כנראה שיש שם metadata שדורס את כותרת ה-layout.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nרק הניהול מהעמוד של הסיסמא זה אמור להיות ניהול\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מבינים: רק בעמוד הכניסה (סיסמה) הכותרת צריכה להיות \"ניהול\"; בשאר האדמין — כותרת אחרת. בודקים את מבנה הנתיבים וה-metadata.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מוסיפים `layout.tsx` תחת `admin/login` עם `title: { absolute: \"ניהול\" }` כדי שרק בכרטיסיית הדפדפן בעמוד הסיסמה יופיע \"ניהול\", בלי לשנות את שאר האדמין או את המניפסט.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"בוצע.\n\nנוסף `app/admin/login/layout.tsx` עם `title: { absolute: \"ניהול\" }`. ב־Next.js זה מגדיר את כותרת הטאב **רק** ל־`/admin/login` בלי להוסיף את תבנית הכותרת מה־layout של `/admin`.\n\nשאר האדמין נשאר עם הכותרת מה־`app/admin/layout.tsx` (**ניהול - הקוסקוס של מזל**), והמניפסט / `appleWebApp` לא שונו — הם עדיין מתאימים לשמירת האפליקציה מכל עמוד ניהול.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nהניהול גם מהעמוד של הסיסמא זה אמור להיות ניהול\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מוודאים שעמוד ההתחברות (`/admin/login`) מקבל את מטא-דאטה של הניהול (כותרת, מניפסט, צבע נושא) — ייתכן שהשורש דורס או שחסר `viewport` לניהול.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מוסיפים `layout` ייעודי ל־`/admin/login` עם מטא-דאטה מפורשת של הניהול (כולל מניפסט ו־Apple Web App), ומוסיפים `viewport` ב־`app/admin/layout.tsx` כדי שצבע הנושא בדפדפן יהיה של הניהול ולא של האתר הראשי.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעשיתי:\n\n### 1. `app/admin/login/layout.tsx` (חדש)\nמטא-דאטה **מפורשת** לעמוד הסיסמה: כותרת **`ניהול - הקוסקוס של מזל`**, `manifest-admin.json`, ו־`appleWebApp` באותו ניסוח. כך כשפותחים או שומרים את האפליקציה **מ־`/admin/login`**, לא אמורים “ליפול” לברנדינג של השורש (`הקוסקוס של מזל` / מניפסט לקוחות).\n\n### 2. `app/admin/layout.tsx`\nנוסף **`viewport.themeColor: \"#4A6F72\"`** (כמו ב־`manifest-admin`) — בשורת הדפדפן / מסך מלא בניהול לא יופיע צבע הלקוחות מה־layout הראשי.\n\nהבילד עבר בהצלחה. אם עדיין רואים שם ישן, כדאי לרענן קשיח או להסיר ולהוסיף שוב קיצור / התקנת PWA.\n\n[REDACTED]"}]}}

@@ -1,0 +1,65 @@
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nבהוספת הזמנה ידנית לא עובד הבחר מנה\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"בודקים את הקוד של הוספת הזמנה ידנית ובחירת מנה.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מזהים בעיה: רכיב ה-Select משתמש ב-`z-50` (50), בעוד שהדיאלוג משתמש ב-`zIndex: 100`. רשימת הבחירה נפתחת בפורטל לגוף המסמך ונשארת מתחת לרקע הדיאלוג — לכן לחיצות לא מגיעות לפריטים. מתקנים על ידי העלאת ה-z-index של תוכן ה-Select מעל הדיאלוג.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"## מה היה הפגם\n\nרשימת ה-Select (״בחרו מנה״) נפתחת ב־**portal** לגוף המסמך, עם `z-index` של **50** (`z-50`). חלון ההזמנה הידנית הוא **Dialog** עם `z-index` **100** (ראו `dialogZBase` ב־`components/ui/dialog.tsx`).\n\nבגלל זה הרשימה נשארה **מתחת לרקע הדיאלוג** — לא רואים אותה כמו שצריך, או שלחיצות נבלעות ברקע ונראה כאילו בחירת המנה לא עובדת.\n\n## התיקון\n\nב־`components/ui/select.tsx` הועלה ה־`z-index` של ה־Positioner וה־Popup של תוכן ה־Select ל־**`z-[200]`**, כדי שיופיעו **מעל** הדיאלוג והרקע שלו.\n\nאחרי שינוי זה, פתיחת ״בחרו מנה״ בהזמנה ידנית אמורה לאפשר לבחור מנה בצורה תקינה.\n\nאם תרצה, אפשר לעבור גם על Popover/Dropdown אם יש מקומות שבהם אותה בעיה מופיעה מחוץ ל־Select.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nבתפריט יומי במחר החלק של הכרטיס צריך להיראות כמו היום\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מזהים את הבעיה: לתאריך «מחר» מופעל `isFuturePlannerMenuDate` — הכרטיס מציג בלוק מלאי מצומצם (כפתור אחד) במקום רשת של שלושה עמודות כמו ב«היום» (מלאי | נמכרו | נשאר). נאחד את תצוגת הכרטיס ונוסיף שורת כפתור «עריכת מלאי» לתאריכים עתידיים.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"## מה היה\n\nב־`DayMenuEditor`, לתאריכים **אחרי היום** בלוח (כולל **מחר**) מופעל `isFuturePlannerMenuDate` → `isFuturePlannerStock`. עבור מצב רשת (`cardLayout` רגיל) זה החליף את בלוק המלאי בכפתור יחיד (מלאי + מספר), במקום אותה **רשת של 3 עמודות** כמו ביום הנוכחי: מלאי | נמכרו | נשאר.\n\n## מה שיניתי\n\nב־`components/admin/day-menu-editor.tsx`:\n\n1. **תמיד** מוצג אותו בלוק ויזואלי: רשת `מלאי / נמכרו / נשאר` עם אותן עיצוב ומחלקות כמו ב«היום».\n2. לתאריך עתידי נשארת הלוגיקה שלא מציגה «סמן אזל», אבל מתווספת שורה עם כפתור **«עריכת מלאי»** (במקום לחיצה על כל בלוק המלאי המצומצם), כדי שעדיין יהיה איך לפתוח את דיאלוג המלאי.\n\nכך תצוגת הכרטיס במחר תתאים ליום, כולל שלושת העמודות בבלוק הטורקיז.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nבתפריטיים העתידיים בכרטיס לא אמור להיות המחיר\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מסתירים מחיר בכרטיסים כשהתאריך הוא עתידי (`isFuturePlannerMenuDate`). כרגע `cardLayout=\"rowCatalog\"` בתפריט העתידי מאלץ הצגת מחיר.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"## מה השתנה\n\nב־`DayMenuEditor` המחיר הוצג כש־`cardLayout === \"rowCatalog\"` (כמו במסך **תפריטים עתידיים**), בלי קשר לתאריך.\n\nעדכנתי את `showPricesEffective` כך שכאשר התאריך הוא **עתידי** (`isFuturePlannerMenuDate`, כלומר אחרי היום בלוח ירושלים) — **לא** יוצג מחיר, גם לא במצב `rowCatalog` וגם אם מועבר `showPrices`.\n\nבתפריט יומי ל«מחר» המחיר כבר לא הוצג (רק `regular` בלי prop מחיר); השינוי משפיע בעיקר על מסך התפריטים העתידיים עם כרטיסי השורה.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nשלא יופיע גם בעבר מה שעברנו את המחיר שישמר בזיכרון אבל שלא יופיע\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מציגים מחיר בכרטיס רק כשהתפריט הוא לתאריך היום בלוח — בעבר ובעתיד הנתונים נשמרים אך המחיר לא יוצג.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"## מה עשינו\n\nב־`DayMenuEditor` עדכנתי את חישוב `showPricesEffective`:\n\n- **רק** כש־`date` שווה ל־**היום בלוח ירושלים** (`ymdJerusalem(new Date())`) — יוצג מחיר בכרטיס (במצב שבו כבר היה מוצג: `showPrices` או `rowCatalog`).\n- **מחר, אתמול וכל תאריך אחר** — **לא** מוצג מחיר בכרטיס.\n\nהמחירים **לא נמחקים**: הם נשארים ב־`MenuItem` / מאגר המוצרים ובמקומות אחרים (למשל דיאלוג הוספה מהמאגר), רק **לא מוצגים** על כרטיס התפריט היומי כשהתאריך לא היום.\n\nעדכנתי גם את הערה ב־`Props` של `showPrices` כדי שתשקף את ההתנהגות הזו.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nגם של היום לא עשית\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מסירים הצגת מחיר מכרטיסי התפריט לכל התאריכים, כולל היום.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מסירים את הצגת המחיר לחלוטין מכרטיסי `DayMenuEditor` (כולל היום), ומנקים את הפרופ והייבוא המיותרים.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"## מה תיקנתי\n\nהגדרנו קודם שמחיר יוצג **רק** כשהתפריט הוא לתאריך **היום** בלוח — ולכן במסך תפריט עתידי (`rowCatalog`) המחיר **לא** הופיע כמעט אף פעם, וב«היום» בתפריט יומי (רשת) גם ככה לא היה מחיר — אבל ב«היום» אם היה `rowCatalog` המחיר כן הופיע.\n\nעכשיו **בכלל לא** מוצג מחיר על כרטיסי המנות ב־`DayMenuEditor` — לא להיום, לא למחר ולא לתאריכים אחרים. המחירים נשארים בפריטי המאגר ובנתונים כרגיל; רק **התצוגה** בכרטיס הוסרה.\n\nהסרתי גם את הפרופ `showPrices` (לא היה בשימוש בשום קריאה) ואת כל הלוגיקה של `showPricesEffective` / `ymdJerusalem` לצורך זה.\n\n[REDACTED]"}]}}

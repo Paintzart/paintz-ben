@@ -1,0 +1,2 @@
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\n..\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"Your last message was only `..`, so there isn’t a clear request yet.\n\nWhat do you want to do next? For example: continue work on `lib/admin-print-orders.ts`, fix a bug, or add a feature—say what you’re aiming for and we can go from there.\n\n[REDACTED]"}]}}

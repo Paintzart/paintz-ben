@@ -1,0 +1,47 @@
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nבתפריטים עתידיין בהגדרות השעות ליום הנבחר\nתוכל להווסיף לי הנוסף לשעה גם כפתורים יום לפני באותו יום שתמיד אחד מהם לחוץ (ברירת מחדל לפי ההגדרות\n\nוגם בשינוי שעות פעילות בתפריט יומי \n\nלר בחלק של הודעת תפוצה בוואטסטפ אלא בשעות ליום הנבחר פתיחת השעות אישור ידני וסגירה \n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"בודקים את הקוד הנוכחי של תפריטים עתידיים, תפריט יומי והגדרות השעות.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"בודקים איך `orderTimeScopes` משפיעים על חישוב הלוח ועל דריסות יומיות.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מממשים: מוסיפים דריסת `orderTimeScopes` לפי יום, מעדכנים את לוגיקת הלוח, משפרים את `QuickHoursEditor` עם כפתורי «יום לפני» / «באותו יום», מאחדים את תפוצת הוואטסאפ עם בלוק השעות בעמודים העתידי והיומי.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מזהים התנגשות בשמות: `orderTimeScopes` מקונן ב-`DayScheduleOverrideFields` — אין התנגשות עם שדות הזמן.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מעדכן את `QuickHoursEditor`: מוסיף את הלוגיקה המלאה.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מעדכן את העתקת התכנון העתידי כדי לכלול את `orderTimeScopes`.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מעדכן את עמוד התפריט העתידי ואת היומי.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שיושם:\n\n### תפריטים עתידיים — «שעות ליום הנבחר»\n- ליד **כל** אחת משלוש השעות (פתיחת הזמנות, אישור ידני, סגירת הזמנות) נוספו כפתורי **יום לפני** / **באותו יום** (תמיד אחד נבחר). הברירה הראשונית נלקחת מההגדרות הגלובליות (חול/שישי), ואפשר לדרוס **לפי תאריך** דרך `dayScheduleOverrides[תאריך].orderTimeScopes`.\n- במצב **מעבר לתפריט והזמנות למחר** (רק שדה מעבר) מופיעים כפתורי יום ליד **שעת המעבר** בלבד.\n- בצפייה בלבד / בסיכום השעות מוצג גם סוג היום ליד כל שעה, למשל `14:30 (יום לפני)`.\n\n### לוגיקה\n- נוספה `effectiveOrderTimeScopesForCalendarIso` ב־`business-schedule.ts` ומשמשת בחישובי אישור ידני, חלון «צהריים» ותאריך תפריט — כך שדריסות היום נכנסות ללוגיקה של הלקוח.\n- פרסור Firebase עודכן כדי לטעון גם `orderTimeScopes` מתוך `dayScheduleOverrides`.\n- שכפול שבוע בתכנון העתידי מעתיק גם את דריסות ה־scopes הרלוונטיות.\n\n### תפוצת וואטסאפ — תפריט עתידי\n- אוחד לתוך אותו בלוק **שעות ליום הנבחר** (מתחת לעורך השעות): מתג שליחה אוטומטית, **יום לפני** / **ביום התפריט** (`futureMenuBroadcastDaysBefore`: 1 או 0), ושדה שעה.\n\n### תפריט יומי\n- **הגדרות מהירות**: כותרת **שעות ליום הנבחר** עוטפת את `QuickHoursEditor` ומתחתיו, באותו כרטיס, את **תפוצת הוואטסאפ** (היום / מחר — כולל שליחה אוטומטית למחר כשהמצב מאפשר), במקום בלוק נפרד למעלה.\n\n[REDACTED]"}]}}

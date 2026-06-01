@@ -1,0 +1,24 @@
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nבקטגוריות תפריט בהגדרות שיהיה אפשר גם לערוך את השם של הקטגוריה\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מחפשים איפה מוגדרות קטגוריות התפריט בהגדרות כדי לאפשר עריכת שם הקטגוריה.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מוסיפים פעולת `RENAME_CATEGORY` בשרשרת הפעולות (מקומי + Firestore) ומעדכנים את ממשק ההגדרות.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שבוצע:\n\n### מה נוסף\n1. **פעולה `RENAME_CATEGORY`** ב־`app-store-actions.ts` — מזהה קטגוריה ושם חדש.\n2. **רדוסר מקומי** ב־`local-app-store.tsx` — מעדכן את `name` ברשימה (אם השם אחרי `trim` ריק — אין שינוי).\n3. **Firestore** ב־`write-remote.ts` — `updateDoc` על `categories/{id}` עם `{ name }` (רק אם השם לא ריק והקטגוריה קיימת ב־snapshot).\n4. **ממשק** ב־`settings-business-panel.tsx` — לכל קטגוריה יש **שדה טקסט** לעריכת השם; **יציאה מהשדה (blur)** או **Enter** שומרים. אם השדה ריק — השם חוזר לערך הקודם ומוצגת הודעת שגיאה. אם השם השתנה — נשלח עדכון והודעת \"עודכן\".\n\nכך אפשר לערוך את שם הקטגוריה ישירות בהגדרות **קטגוריות תפריט**, בלי לשנות את מזהה הקטגוריה (כל המנות המקושרות נשארות תקינות).\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nשיהיה אבל כפתור שמור\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מוסיפים כפתור «שמור» ומסירים שמירה אוטומטית ב-blur.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"עדכנתי את השורה כך:\n\n- יש **כפתור «שמור»** — פעיל רק כשהשם **שונה** מהערך השמור (אחרי `trim`).\n- **אין שמירה ב־blur** — רק «שמור» או **Enter** בשדה מפעילים שמירה.\n- **«מחק»** נשאר ליד «שמור», עם גובה אחיד (`h-10`) לשורה.\n\nבמסכים צרים השדה והכפתורים יכולים לרדת שורה (`flex-wrap`) כדי שלא ייחתך התוכן.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nגם בתוויות שיהיה עריכה כמו בקטגוריות\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מוסיפים רכיב שורה לתוויות — שדה טקסט, כפתור «שמור» ו«מחק», כמו בקטגוריות; בורר הצבע נשאר עם עדכון מיידי.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"זה בוצע.\n\nב־**תוויות מנה** כל שורה עכשיו כמו בקטגוריות:\n\n- **בורר צבע** — עדיין מעדכן מיד (כמו קודם).\n- **שדה טקסט** לשם התווית.\n- **שמור** — מופעל רק כשהשם השתנה (אחרי `trim`); **Enter** בשדה גם שומר.\n- **מחק** — כמו קודם.\n\nאם מנסים לשמור שם ריק — השדה חוזר לערך השמור ומוצגת הודעת שגיאה.\n\n[REDACTED]"}]}}

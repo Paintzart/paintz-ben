@@ -1,0 +1,1798 @@
+Drawer · Base UI
+
+# Drawer
+
+A panel that slides in from the edge of the screen.
+
+Open drawer
+
+index.tsxindex.module.csstheme.css
+
+CSS Modules
+
+StackBlitzCopy
+
+Show code
+
+## Usage guidelines
+
+- Drawer extends [Dialog](https://base-ui.com/react/components/dialog): It adds gesture support, snap points, and indent effects. If you don’t need these, use Dialog instead. A panel that slides in from the edge of the screen and doesn’t need gesture support is a positioned Dialog.
+
+## Anatomy
+
+Import the component and assemble its parts:
+
+Anatomy
+
+Copy
+
+```
+import { Drawer } from '@base-ui/react/drawer';
+
+<Drawer.Provider>
+  <Drawer.IndentBackground />
+  <Drawer.Indent>
+    <Drawer.Root>
+      <Drawer.Trigger />
+      <Drawer.SwipeArea />
+      <Drawer.Portal>
+        <Drawer.Backdrop />
+        <Drawer.Viewport>
+          <Drawer.Popup>
+            <Drawer.Content>
+              <Drawer.Title />
+              <Drawer.Description />
+              <Drawer.Close />
+            </Drawer.Content>
+          </Drawer.Popup>
+        </Drawer.Viewport>
+      </Drawer.Portal>
+    </Drawer.Root>
+  </Drawer.Indent>
+</Drawer.Provider>
+```
+
+Drawer supports swipe gestures to dismiss. Set`swipeDirection` to control which direction dismisses the drawer.` ` allows text selection of its children without swipe interference when using a mouse pointer. Add`data-base-ui-swipe-ignore` to a descendant when you need to opt that element out of swipe dismissal for all input types.
+
+## Examples
+
+### State
+
+By default, Drawer is an uncontrolled component that manages its own state.
+
+Uncontrolled drawer
+
+Copy
+
+```
+<Drawer.Root>
+  <Drawer.Trigger>Open</Drawer.Trigger>
+  <Drawer.Portal>
+    <Drawer.Viewport>
+      <Drawer.Popup>
+        <Drawer.Content>
+          <Drawer.Title>Example drawer</Drawer.Title>
+          <Drawer.Close>Close</Drawer.Close>
+        </Drawer.Content>
+      </Drawer.Popup>
+    </Drawer.Viewport>
+  </Drawer.Portal>
+</Drawer.Root>
+```
+
+Use`open` and`onOpenChange` props if you need to access or control the state of the drawer.
+
+Controlled drawer
+
+Copy
+
+```
+const [open, setOpen] = React.useState(false);
+return (
+  <Drawer.Root open={open} onOpenChange={setOpen}>
+    <Drawer.Trigger>Open</Drawer.Trigger>
+    <Drawer.Portal>
+      <Drawer.Viewport>
+        <Drawer.Popup>
+          <Drawer.Content>
+            <Drawer.Title>Example drawer</Drawer.Title>
+            <Drawer.Close>Close</Drawer.Close>
+          </Drawer.Content>
+        </Drawer.Popup>
+      </Drawer.Viewport>
+    </Drawer.Portal>
+  </Drawer.Root>
+);
+```
+
+### Position
+
+Positioning is handled by your styles.`swipeDirection` defaults to`"down"` for bottom sheets. Use`"up"`,`"left"`, or`"right"` for other drawer positions.
+
+Swipe directions
+
+Copy
+
+```
+<Drawer.Root swipeDirection="right">
+```
+
+Open bottom drawer
+
+index.tsxindex.module.csstheme.css
+
+CSS Modules
+
+StackBlitzCopy
+
+Show code
+
+### Nested drawers
+
+Use the`[data-nested-drawer-open]` selector and the`--nested-drawers` CSS variable to style drawers when a nested drawer is open.
+
+This demo stacks nested drawers using a constant peek so the frontmost drawer stays anchored to the bottom while the ones behind it are scaled down and lifted. It also uses the`--drawer-height` and`--drawer-frontmost-height` CSS variables to handle varying drawer heights.
+
+Open drawer stack
+
+Show code
+
+### Snap points
+
+Use`snapPoints` to snap a bottom sheet drawer to preset heights. Numbers between 0 and 1 represent fractions of the viewport height, and numbers greater than 1 are treated as pixel values. String values support`px` and`rem` units (for example,`'148px'` or`'30rem'`).
+
+Snap points
+
+Copy
+
+```
+const snapPoints = ['148px', 1];
+const [snapPoint, setSnapPoint] = React.useState<Drawer.Root.SnapPoint | null>(snapPoints[0]);
+
+<Drawer.Root snapPoints={snapPoints} snapPoint={snapPoint} onSnapPointChange={setSnapPoint}>
+  {/* ... */}
+</Drawer.Root>
+```
+
+Apply the snap point offset in your styles when using vertical drawers:
+
+Snap point offset
+
+Copy
+
+```
+.DrawerPopup {
+  transform: translateY(calc(var(--drawer-snap-point-offset) + var(--drawer-swipe-movement-y)));
+}
+```
+
+Open snap drawer
+
+index.tsxindex.module.csstheme.css
+
+CSS Modules
+
+StackBlitzCopy
+
+Show code
+
+By default, the drawer can skip snap points when swiping quickly. Specify the`snapToSequentialPoints` prop to disable velocity-based skipping so the snap target is determined by drag distance (you can still drag past multiple points).
+
+### Indent effect
+
+Scale the background down when any drawer opens by wrapping your app in` ` and use` `+` ` at the top of your tree. Any` ` within the provider notifies it when it mounts, which activates the indent parts (they receive`[data-active]` state attributes).
+
+Open drawer
+
+index.tsxindex.module.csstheme.css
+
+CSS Modules
+
+StackBlitzCopy
+
+Show code
+
+### Non-modal
+
+Set`modal={false}` to opt out of focus trapping and`disablePointerDismissal` to keep the drawer open on outside clicks.
+
+Open non-modal drawer
+
+index.tsxindex.module.csstheme.css
+
+CSS Modules
+
+StackBlitzCopy
+
+Show code
+
+### Mobile navigation
+
+You can build a full-screen mobile navigation sheet using Drawer parts, including a flick-to-dismiss from the top gesture.
+
+Open mobile menu
+
+index.tsxindex.module.csstheme.css
+
+CSS Modules
+
+StackBlitzCopy
+
+Show code
+
+### Swipe to open
+
+Place` ` along the edge of the viewport to enable swipe-to-open gestures.
+
+Swipe from the right edge to open the drawer.
+
+index.tsxindex.module.csstheme.css
+
+CSS Modules
+
+StackBlitzCopy
+
+Show code
+
+### Action sheet with separate destructive action
+
+This demo builds an action sheet with a grouped list of actions plus a separate destructive action button.
+
+Open action sheet
+
+Show code
+
+### Detached triggers
+
+A drawer can be controlled by a trigger located either inside or outside the` ` component. For simple, one-off interactions, place the` ` inside` `.
+
+However, if defining the drawer’s content next to its trigger is not practical, you can use a detached trigger. This involves placing the` ` outside of` ` and linking them with a`handle` created by the`Drawer.createHandle()` function.
+
+Detached triggers
+
+Copy
+
+```
+const demoDrawer = Drawer.createHandle();
+
+<Drawer.Trigger handle={demoDrawer}>Open</Drawer.Trigger>
+
+<Drawer.Root handle={demoDrawer}>
+  ...
+</Drawer.Root>
+```
+
+The drawer can render different content depending on which trigger opened it. This is achieved by passing a`payload` to the` ` and using the function-as-a-child pattern in` `.
+
+Detached triggers with payload
+
+Copy
+
+```
+const demoDrawer = Drawer.createHandle<{ title: string }>();
+
+<Drawer.Trigger handle={demoDrawer} payload={{ title: 'Profile' }}>
+  Profile
+</Drawer.Trigger>
+
+<Drawer.Trigger handle={demoDrawer} payload={{ title: 'Settings' }}>
+  Settings
+</Drawer.Trigger>
+
+<Drawer.Root handle={demoDrawer}>
+  {({ payload }) => (
+    <Drawer.Portal>
+      <Drawer.Popup>
+        <Drawer.Content>
+          <Drawer.Title>{payload?.title}</Drawer.Title>
+        </Drawer.Content>
+      </Drawer.Popup>
+    </Drawer.Portal>
+  )}
+</Drawer.Root>
+```
+
+### Stacking and animations
+
+Use CSS transitions or animations to animate drawer opening, closing, swipe interactions, and nested stacking. The`data-starting-style` attribute is applied when a drawer starts to open, and`data-ending-style` is applied when it starts to close.
+
+The`--nested-drawers` CSS variable can be used to determine stack depth. The frontmost drawer has index`0`.
+
+Stack depth
+
+Copy
+
+```
+.DrawerPopup {
+  --stack-step: 0.05;
+  --stack-scale: calc(1 - (var(--nested-drawers) * var(--stack-step)));
+  transform: translateY(var(--drawer-swipe-movement-y)) scale(var(--stack-scale));
+}
+```
+
+When stacked drawers have varying heights, use the`--drawer-height` and`--drawer-frontmost-height` variables to keep collapsed drawers aligned with the frontmost one.
+
+Variable-height stacking
+
+Copy
+
+```
+.DrawerPopup {
+  --bleed: 3rem;
+  --stack-height: max(
+    0px,
+    calc(var(--drawer-frontmost-height, var(--drawer-height)) - var(--bleed))
+  );
+  height: var(--drawer-height, auto);
+}
+
+.DrawerPopup[data-nested-drawer-open] {
+  height: calc(var(--stack-height) + var(--bleed));
+  overflow: hidden;
+}
+```
+
+The`data-nested-drawer-open` attribute marks drawers behind the frontmost drawer. Use it with`data-nested-drawer-swiping` to dim or hide parent drawer content while keeping it visible during nested swipe interactions.
+
+Nested content visibility
+
+Copy
+
+```
+.DrawerContent {
+  transition: opacity 300ms;
+}
+
+.DrawerPopup[data-nested-drawer-open] .DrawerContent {
+  opacity: 0;
+}
+
+.DrawerPopup[data-nested-drawer-open][data-nested-drawer-swiping] .DrawerContent {
+  opacity: 1;
+}
+```
+
+The`--drawer-swipe-movement-x`,`--drawer-swipe-movement-y`, and`--drawer-snap-point-offset` CSS variables can be used to create smooth drag and snap offsets:
+
+Swipe and snap offset
+
+Copy
+
+```
+.DrawerPopup[data-swipe-direction='right'] {
+  transform: translateX(var(--drawer-swipe-movement-x));
+}
+
+.DrawerPopup[data-swipe-direction='down'] {
+  transform: translateY(calc(var(--drawer-snap-point-offset) + var(--drawer-swipe-movement-y)));
+}
+```
+
+The`data-swipe-direction` attribute can be used with`data-ending-style` to animate directional dismissal:
+
+Swipe dismissal direction
+
+Copy
+
+```
+.DrawerPopup[data-ending-style][data-swipe-direction='right'] {
+  transform: translateX(100%);
+}
+
+.DrawerPopup[data-ending-style][data-swipe-direction='down'] {
+  transform: translateY(100%);
+}
+```
+
+Use`--drawer-swipe-progress` to fade the backdrop as the drawer is swiped, and`--drawer-swipe-strength` to scale release transition durations based on swipe velocity.
+
+Backdrop and release timing
+
+Copy
+
+```
+.DrawerBackdrop {
+  --backdrop-opacity: 0.2;
+  opacity: calc(var(--backdrop-opacity) * (1 - var(--drawer-swipe-progress)));
+}
+
+.DrawerPopup[data-ending-style],
+.DrawerBackdrop[data-ending-style] {
+  transition-duration: calc(var(--drawer-swipe-strength) * 400ms);
+}
+
+.DrawerPopup[data-swiping],
+.DrawerBackdrop[data-swiping] {
+  transition-duration: 0ms;
+}
+```
+
+## API reference
+
+### Provider
+
+Provides a shared context for coordinating global Drawer UI, such as indent/background effects based on whether any Drawer is open. Doesn't render its own HTML element.
+
+`children``ReactNode``—`
+
+Name
+
+`children`
+
+Type
+
+```
+React.ReactNode
+```
+
+### IndentBackground
+
+An element placed before` ` to render a background layer that can be styled based on whether any drawer is open. Renders a` ` element.
+
+`className``string | function``—`
+
+Name
+
+`className`
+
+Description
+
+CSS class applied to the element, or a function that returns a class based on the component’s state.
+
+Type
+
+```
+| string
+| ((
+    state: Drawer.IndentBackground.State,
+  ) => string | undefined)
+```
+
+`style``React.CSSProperties | function``—`
+
+Name
+
+`style`
+
+Type
+
+```
+| React.CSSProperties
+| ((
+    state: Drawer.IndentBackground.State,
+  ) => CSSProperties | undefined)
+| undefined
+```
+
+`render``ReactElement | function``—`
+
+Name
+
+`render`
+
+Description
+
+Allows you to replace the component’s HTML element with a different tag, or compose it with another component.
+
+Accepts a`ReactElement` or a function that returns the element to render.
+
+Type
+
+```
+| ReactElement
+| ((
+    props: HTMLProps,
+    state: Drawer.IndentBackground.State,
+  ) => ReactElement)
+```
+
+### Indent
+
+A wrapper element intended to contain your app's main UI. Applies`data-active` when any drawer within the nearest` ` is open. Renders a` ` element.
+
+`className``string | function``—`
+
+Name
+
+`className`
+
+Description
+
+CSS class applied to the element, or a function that returns a class based on the component’s state.
+
+Type
+
+```
+| string
+| ((state: Drawer.Indent.State) => string | undefined)
+```
+
+`style``React.CSSProperties | function``—`
+
+Name
+
+`style`
+
+Type
+
+```
+| React.CSSProperties
+| ((
+    state: Drawer.Indent.State,
+  ) => CSSProperties | undefined)
+| undefined
+```
+
+`render``ReactElement | function``—`
+
+Name
+
+`render`
+
+Description
+
+Allows you to replace the component’s HTML element with a different tag, or compose it with another component.
+
+Accepts a`ReactElement` or a function that returns the element to render.
+
+Type
+
+```
+| ReactElement
+| ((
+    props: HTMLProps,
+    state: Drawer.Indent.State,
+  ) => ReactElement)
+```
+
+### Root
+
+Groups all parts of the drawer. Doesn't render its own HTML element.
+
+`defaultOpen``boolean``false`
+
+Name
+
+`defaultOpen`
+
+Description
+
+Whether the drawer is initially open.
+
+To render a controlled drawer, use the`open` prop instead.
+
+Type
+
+```
+boolean | undefined
+```
+
+Default
+
+`false`
+
+`open``boolean``—`
+
+Name
+
+`open`
+
+Description
+
+Whether the drawer is currently open.
+
+Type
+
+```
+boolean | undefined
+```
+
+`onOpenChange``function``—`
+
+Name
+
+`onOpenChange`
+
+Description
+
+Event handler called when the drawer is opened or closed.
+
+Type
+
+```
+| ((
+    open: boolean,
+    eventDetails: Drawer.Root.ChangeEventDetails,
+  ) => void)
+| undefined
+```
+
+`snapPoints``DrawerSnapPoint[]``—`
+
+Name
+
+`snapPoints`
+
+Description
+
+Snap points used to position the drawer. Use numbers between 0 and 1 to represent fractions of the viewport height, numbers greater than 1 as pixel values, or strings in`px`/`rem` units (for example,`'148px'` or`'30rem'`).
+
+Type
+
+```
+DrawerSnapPoint[] | undefined
+```
+
+`defaultSnapPoint``DrawerSnapPoint | null``—`
+
+Name
+
+`defaultSnapPoint`
+
+Description
+
+The initial snap point value when uncontrolled.
+
+Type
+
+```
+number | string | null | undefined
+```
+
+`snapPoint``DrawerSnapPoint | null``—`
+
+Name
+
+`snapPoint`
+
+Description
+
+The currently active snap point. Use with`onSnapPointChange` to control the snap point.
+
+Type
+
+```
+number | string | null | undefined
+```
+
+`onSnapPointChange``function``—`
+
+Name
+
+`onSnapPointChange`
+
+Description
+
+Callback fired when the snap point changes.
+
+Type
+
+```
+| ((
+    snapPoint: DrawerSnapPoint | null,
+    eventDetails: Drawer.Root.SnapPointChangeEventDetails,
+  ) => void)
+| undefined
+```
+
+`actionsRef``RefObject ``—`
+
+Name
+
+`actionsRef`
+
+Description
+
+A ref to imperative actions.
+
+- `unmount`: When specified, the drawer will not be unmounted when closed. Instead, the`unmount` function must be called to unmount the drawer manually. Useful when the drawer's animation is controlled by an external library.
+- `close`: Closes the drawer imperatively when called.
+
+Type
+
+```
+| React.RefObject<Drawer.Root.Actions | null>
+| undefined
+```
+
+`defaultTriggerId``string | null``—`
+
+Name
+
+`defaultTriggerId`
+
+Description
+
+ID of the trigger that the drawer is associated with. This is useful in conjunction with the`defaultOpen` prop to create an initially open drawer.
+
+Type
+
+```
+string | null | undefined
+```
+
+`disablePointerDismissal``boolean``false`
+
+Name
+
+`disablePointerDismissal`
+
+Description
+
+Determines whether the drawer should close on outside clicks.
+
+Type
+
+```
+boolean | undefined
+```
+
+Default
+
+`false`
+
+`handle``Drawer.Handle ``—`
+
+Name
+
+`handle`
+
+Description
+
+A handle to associate the drawer with a trigger. If specified, allows detached triggers to control the drawer's open state. Can be created with the Drawer.createHandle() method.
+
+Type
+
+```
+{} | undefined
+```
+
+`modal``boolean | 'trap-focus'``true`
+
+Name
+
+`modal`
+
+Description
+
+Determines if the drawer enters a modal state when open.
+
+- `true`: user interaction is limited to just the drawer: focus is trapped, document page scroll is locked, and pointer interactions on outside elements are disabled.
+- `false`: user interaction with the rest of the document is allowed.
+- `'trap-focus'`: focus is trapped inside the drawer, but document page scroll is not locked and pointer interactions outside of it remain enabled.
+
+Type
+
+```
+boolean | 'trap-focus' | undefined
+```
+
+Default
+
+`true`
+
+`onOpenChangeComplete``function``—`
+
+Name
+
+`onOpenChangeComplete`
+
+Description
+
+Event handler called after any animations complete when the drawer is opened or closed.
+
+Type
+
+```
+((open: boolean) => void) | undefined
+```
+
+`snapToSequentialPoints``boolean``false`
+
+Name
+
+`snapToSequentialPoints`
+
+Description
+
+Disables velocity-based snap skipping so drag distance determines the next snap point.
+
+Type
+
+```
+boolean | undefined
+```
+
+Default
+
+`false`
+
+`swipeDirection``DrawerSwipeDirection``'down'`
+
+Name
+
+`swipeDirection`
+
+Description
+
+The swipe direction used to dismiss the drawer.
+
+Type
+
+```
+'up' | 'down' | 'left' | 'right' | undefined
+```
+
+Default
+
+`'down'`
+
+`triggerId``string | null``—`
+
+Name
+
+`triggerId`
+
+Description
+
+ID of the trigger that the drawer is associated with. This is useful in conjunction with the`open` prop to create a controlled drawer. There's no need to specify this prop when the drawer is uncontrolled (i.e. when the`open` prop is not set).
+
+Type
+
+```
+string | null | undefined
+```
+
+`children``ReactNode | PayloadChildRenderFunction ``—`
+
+Name
+
+`children`
+
+Description
+
+The content of the drawer.
+
+Type
+
+```
+| React.ReactNode
+| ((arg: { payload: Payload | undefined }) => ReactNode)
+```
+
+### Trigger
+
+A button that opens the drawer. Renders a` ` element.
+
+`handle``DrawerHandle ``—`
+
+Name
+
+`handle`
+
+Description
+
+A handle to associate the trigger with a drawer. Can be created with the Drawer.createHandle() method.
+
+Type
+
+```
+{} | undefined
+```
+
+`nativeButton``boolean``true`
+
+Name
+
+`nativeButton`
+
+Description
+
+Whether the component renders a native` ` element when replacing it via the`render` prop. Set to`false` if the rendered element is not a button (e.g.` `).
+
+Type
+
+```
+boolean | undefined
+```
+
+Default
+
+`true`
+
+`payload``Payload``—`
+
+Name
+
+`payload`
+
+Description
+
+A payload to pass to the drawer when it is opened.
+
+Type
+
+```
+Payload | undefined
+```
+
+`id``string``—`
+
+Name
+
+`id`
+
+Description
+
+ID of the trigger. In addition to being forwarded to the rendered element, it is also used to specify the active trigger for drawers in controlled mode (with the Drawer.Root`triggerId` prop).
+
+Type
+
+```
+string | undefined
+```
+
+`className``string | function``—`
+
+Name
+
+`className`
+
+Description
+
+CSS class applied to the element, or a function that returns a class based on the component’s state.
+
+Type
+
+```
+| string
+| ((state: Drawer.Trigger.State) => string | undefined)
+```
+
+`style``React.CSSProperties | function``—`
+
+Name
+
+`style`
+
+Type
+
+```
+| React.CSSProperties
+| ((
+    state: Drawer.Trigger.State,
+  ) => CSSProperties | undefined)
+| undefined
+```
+
+`render``ReactElement | function``—`
+
+Name
+
+`render`
+
+Description
+
+Allows you to replace the component’s HTML element with a different tag, or compose it with another component.
+
+Accepts a`ReactElement` or a function that returns the element to render.
+
+Type
+
+```
+| ReactElement
+| ((
+    props: HTMLProps,
+    state: Drawer.Trigger.State,
+  ) => ReactElement)
+```
+
+### SwipeArea
+
+An invisible area that listens for swipe gestures to open the drawer. Renders a` ` element.
+
+`swipeDirection``DrawerSwipeDirection``—`
+
+Name
+
+`swipeDirection`
+
+Description
+
+The swipe direction that opens the drawer. Defaults to the opposite of`Drawer.Root``swipeDirection`.
+
+Type
+
+```
+'up' | 'down' | 'left' | 'right' | undefined
+```
+
+`disabled``boolean``false`
+
+Name
+
+`disabled`
+
+Description
+
+Whether the swipe area is disabled.
+
+Type
+
+```
+boolean | undefined
+```
+
+Default
+
+`false`
+
+`className``string | function``—`
+
+Name
+
+`className`
+
+Description
+
+CSS class applied to the element, or a function that returns a class based on the component’s state.
+
+Type
+
+```
+| string
+| ((state: Drawer.SwipeArea.State) => string | undefined)
+```
+
+`style``React.CSSProperties | function``—`
+
+Name
+
+`style`
+
+Type
+
+```
+| React.CSSProperties
+| ((
+    state: Drawer.SwipeArea.State,
+  ) => CSSProperties | undefined)
+| undefined
+```
+
+`render``ReactElement | function``—`
+
+Name
+
+`render`
+
+Description
+
+Allows you to replace the component’s HTML element with a different tag, or compose it with another component.
+
+Accepts a`ReactElement` or a function that returns the element to render.
+
+Type
+
+```
+| ReactElement
+| ((
+    props: HTMLProps,
+    state: Drawer.SwipeArea.State,
+  ) => ReactElement)
+```
+
+`data-open`
+
+Present when the drawer is open.
+
+`data-closed`
+
+Present when the drawer is closed.
+
+`data-disabled`
+
+Present when the swipe area is disabled.
+
+`data-swipe-direction`
+
+Indicates the swipe direction.
+
+`data-swiping`
+
+Present when the drawer is being swiped.
+
+| Attribute | Description |
+| --- | --- |
+| `data-open` | Present when the drawer is open. |
+| `data-closed` | Present when the drawer is closed. |
+| `data-disabled` | Present when the swipe area is disabled. |
+| `data-swipe-direction` | Indicates the swipe direction. |
+| `data-swiping` | Present when the drawer is being swiped. |
+
+### Portal
+
+A portal element that moves the popup to a different part of the DOM. By default, the portal element is appended to` `. Renders a` ` element.
+
+`container``Union``—`
+
+Name
+
+`container`
+
+Description
+
+A parent element to render the portal element into.
+
+Type
+
+```
+| HTMLElement
+| ShadowRoot
+| React.RefObject<HTMLElement | ShadowRoot | null>
+| null
+| undefined
+```
+
+`className``string | function``—`
+
+Name
+
+`className`
+
+Description
+
+CSS class applied to the element, or a function that returns a class based on the component’s state.
+
+Type
+
+```
+| string
+| ((state: Drawer.Portal.State) => string | undefined)
+```
+
+`style``React.CSSProperties | function``—`
+
+Name
+
+`style`
+
+Type
+
+```
+| React.CSSProperties
+| ((
+    state: Drawer.Portal.State,
+  ) => CSSProperties | undefined)
+| undefined
+```
+
+`keepMounted``boolean``false`
+
+Name
+
+`keepMounted`
+
+Description
+
+Whether to keep the portal mounted in the DOM while the popup is hidden.
+
+Type
+
+```
+boolean | undefined
+```
+
+Default
+
+`false`
+
+`render``ReactElement | function``—`
+
+Name
+
+`render`
+
+Description
+
+Allows you to replace the component’s HTML element with a different tag, or compose it with another component.
+
+Accepts a`ReactElement` or a function that returns the element to render.
+
+Type
+
+```
+| ReactElement
+| ((
+    props: HTMLProps,
+    state: Drawer.Portal.State,
+  ) => ReactElement)
+```
+
+### Backdrop
+
+An overlay displayed beneath the popup. Renders a` ` element.
+
+`forceRender``boolean``false`
+
+Name
+
+`forceRender`
+
+Description
+
+Whether the backdrop is forced to render even when nested.
+
+Type
+
+```
+boolean | undefined
+```
+
+Default
+
+`false`
+
+`className``string | function``—`
+
+Name
+
+`className`
+
+Description
+
+CSS class applied to the element, or a function that returns a class based on the component’s state.
+
+Type
+
+```
+| string
+| ((state: Drawer.Backdrop.State) => string | undefined)
+```
+
+`style``React.CSSProperties | function``—`
+
+Name
+
+`style`
+
+Type
+
+```
+| React.CSSProperties
+| ((
+    state: Drawer.Backdrop.State,
+  ) => CSSProperties | undefined)
+| undefined
+```
+
+`render``ReactElement | function``—`
+
+Name
+
+`render`
+
+Description
+
+Allows you to replace the component’s HTML element with a different tag, or compose it with another component.
+
+Accepts a`ReactElement` or a function that returns the element to render.
+
+Type
+
+```
+| ReactElement
+| ((
+    props: HTMLProps,
+    state: Drawer.Backdrop.State,
+  ) => ReactElement)
+```
+
+`data-open`
+
+Present when the drawer is open.
+
+`data-closed`
+
+Present when the drawer is closed.
+
+`data-starting-style`
+
+Present when the drawer is animating in.
+
+`data-ending-style`
+
+Present when the drawer is animating out.
+
+| Attribute | Description |
+| --- | --- |
+| `data-open` | Present when the drawer is open. |
+| `data-closed` | Present when the drawer is closed. |
+| `data-starting-style` | Present when the drawer is animating in. |
+| `data-ending-style` | Present when the drawer is animating out. |
+
+`--drawer-swipe-progress`
+
+The swipe progress of the drawer gesture.
+
+| CSS Variable | Description |
+| --- | --- |
+| `--drawer-swipe-progress` | The swipe progress of the drawer gesture. |
+
+### Viewport
+
+A positioning container for the drawer popup that can be made scrollable. Renders a` ` element.
+
+`className``string | function``—`
+
+Name
+
+`className`
+
+Description
+
+CSS class applied to the element, or a function that returns a class based on the component’s state.
+
+Type
+
+```
+| string
+| ((state: Drawer.Viewport.State) => string | undefined)
+```
+
+`style``React.CSSProperties | function``—`
+
+Name
+
+`style`
+
+Type
+
+```
+| React.CSSProperties
+| ((
+    state: Drawer.Viewport.State,
+  ) => CSSProperties | undefined)
+| undefined
+```
+
+`render``ReactElement | function``—`
+
+Name
+
+`render`
+
+Description
+
+Allows you to replace the component’s HTML element with a different tag, or compose it with another component.
+
+Accepts a`ReactElement` or a function that returns the element to render.
+
+Type
+
+```
+| ReactElement
+| ((
+    props: HTMLProps,
+    state: Drawer.Viewport.State,
+  ) => ReactElement)
+```
+
+`data-open`
+
+Present when the drawer is open.
+
+`data-closed`
+
+Present when the drawer is closed.
+
+`data-nested`
+
+Present when the drawer is nested within another drawer.
+
+`data-starting-style`
+
+Present when the drawer is animating in.
+
+`data-ending-style`
+
+Present when the drawer is animating out.
+
+| Attribute | Description |
+| --- | --- |
+| `data-open` | Present when the drawer is open. |
+| `data-closed` | Present when the drawer is closed. |
+| `data-nested` | Present when the drawer is nested within another drawer. |
+| `data-starting-style` | Present when the drawer is animating in. |
+| `data-ending-style` | Present when the drawer is animating out. |
+
+### Popup
+
+A container for the drawer contents. Renders a` ` element.
+
+`initialFocus``Union``—`
+
+Name
+
+`initialFocus`
+
+Description
+
+Determines the element to focus when the drawer is opened.
+
+- `false`: Do not move focus.
+- `true`: Move focus based on the default behavior (first tabbable element or popup).
+- `RefObject`: Move focus to the ref element.
+- `function`: Called with the interaction type (`mouse`,`touch`,`pen`, or`keyboard`). Return an element to focus,`true` to use the default behavior, or`false`/`undefined` to do nothing.
+
+Type
+
+```
+| boolean
+| React.RefObject<HTMLElement | null>
+| ((
+    openType: InteractionType,
+  ) => boolean | void | HTMLElement | null)
+| undefined
+```
+
+`finalFocus``Union``—`
+
+Name
+
+`finalFocus`
+
+Description
+
+Determines the element to focus when the drawer is closed.
+
+- `false`: Do not move focus.
+- `true`: Move focus based on the default behavior (trigger or previously focused element).
+- `RefObject`: Move focus to the ref element.
+- `function`: Called with the interaction type (`mouse`,`touch`,`pen`, or`keyboard`). Return an element to focus,`true` to use the default behavior, or`false`/`undefined` to do nothing.
+
+Type
+
+```
+| boolean
+| React.RefObject<HTMLElement | null>
+| ((
+    closeType: InteractionType,
+  ) => boolean | void | HTMLElement | null)
+| undefined
+```
+
+`className``string | function``—`
+
+Name
+
+`className`
+
+Description
+
+CSS class applied to the element, or a function that returns a class based on the component’s state.
+
+Type
+
+```
+| string
+| ((state: Drawer.Popup.State) => string | undefined)
+```
+
+`style``React.CSSProperties | function``—`
+
+Name
+
+`style`
+
+Type
+
+```
+| React.CSSProperties
+| ((state: Drawer.Popup.State) => CSSProperties | undefined)
+| undefined
+```
+
+`render``ReactElement | function``—`
+
+Name
+
+`render`
+
+Description
+
+Allows you to replace the component’s HTML element with a different tag, or compose it with another component.
+
+Accepts a`ReactElement` or a function that returns the element to render.
+
+Type
+
+```
+| ReactElement
+| ((
+    props: HTMLProps,
+    state: Drawer.Popup.State,
+  ) => ReactElement)
+```
+
+`data-open`
+
+Present when the drawer is open.
+
+`data-closed`
+
+Present when the drawer is closed.
+
+`data-expanded`
+
+Present when the drawer is at the expanded (full-height) snap point.
+
+`data-nested-drawer-open`
+
+Present when a nested drawer is open.
+
+`data-nested-drawer-swiping`
+
+Present when a nested drawer is being swiped.
+
+`data-swipe-direction`
+
+Indicates the swipe direction.
+
+`data-swipe-dismiss`
+
+Present when the drawer is dismissed by swiping.
+
+`data-swiping`
+
+Present when the drawer is being swiped.
+
+`data-starting-style`
+
+Present when the drawer is animating in.
+
+`data-ending-style`
+
+Present when the drawer is animating out.
+
+| Attribute | Description |
+| --- | --- |
+| `data-open` | Present when the drawer is open. |
+| `data-closed` | Present when the drawer is closed. |
+| `data-expanded` | Present when the drawer is at the expanded (full-height) snap point. |
+| `data-nested-drawer-open` | Present when a nested drawer is open. |
+| `data-nested-drawer-swiping` | Present when a nested drawer is being swiped. |
+| `data-swipe-direction` | Indicates the swipe direction. |
+| `data-swipe-dismiss` | Present when the drawer is dismissed by swiping. |
+| `data-swiping` | Present when the drawer is being swiped. |
+| `data-starting-style` | Present when the drawer is animating in. |
+| `data-ending-style` | Present when the drawer is animating out. |
+
+`--drawer-frontmost-height`
+
+The height of the frontmost open drawer in the current nested drawer stack.
+
+`--drawer-height`
+
+The height of the drawer popup.
+
+`--drawer-snap-point-offset`
+
+The snap point offset used for translating the drawer.
+
+`--drawer-swipe-movement-x`
+
+The swipe movement on the X axis.
+
+`--drawer-swipe-movement-y`
+
+The swipe movement on the Y axis.
+
+`--drawer-swipe-strength`
+
+A scalar (0.1-1) used to scale the swipe release transition duration in CSS.
+
+`--nested-drawers`
+
+The number of nested drawers that are currently open.
+
+| CSS Variable | Description |
+| --- | --- |
+| `--drawer-frontmost-height` | The height of the frontmost open drawer in the current nested drawer stack. |
+| `--drawer-height` | The height of the drawer popup. |
+| `--drawer-snap-point-offset` | The snap point offset used for translating the drawer. |
+| `--drawer-swipe-movement-x` | The swipe movement on the X axis. |
+| `--drawer-swipe-movement-y` | The swipe movement on the Y axis. |
+| `--drawer-swipe-strength` | A scalar (0.1-1) used to scale the swipe release transition duration in CSS. |
+| `--nested-drawers` | The number of nested drawers that are currently open. |
+
+A heading that labels the drawer. Renders an` ` element.
+
+`className``string | function``—`
+
+Name
+
+`className`
+
+Description
+
+CSS class applied to the element, or a function that returns a class based on the component’s state.
+
+Type
+
+```
+| string
+| ((state: Drawer.Title.State) => string | undefined)
+```
+
+`style``React.CSSProperties | function``—`
+
+Name
+
+`style`
+
+Type
+
+```
+| React.CSSProperties
+| ((state: Drawer.Title.State) => CSSProperties | undefined)
+| undefined
+```
+
+`render``ReactElement | function``—`
+
+Name
+
+`render`
+
+Description
+
+Allows you to replace the component’s HTML element with a different tag, or compose it with another component.
+
+Accepts a`ReactElement` or a function that returns the element to render.
+
+Type
+
+```
+| ReactElement
+| ((
+    props: HTMLProps,
+    state: Drawer.Title.State,
+  ) => ReactElement)
+```
+
+### Description
+
+A paragraph with additional information about the drawer. Renders a` ` element.
+
+`className``string | function``—`
+
+Name
+
+`className`
+
+Description
+
+CSS class applied to the element, or a function that returns a class based on the component’s state.
+
+Type
+
+```
+| string
+| ((state: Drawer.Description.State) => string | undefined)
+```
+
+`style``React.CSSProperties | function``—`
+
+Name
+
+`style`
+
+Type
+
+```
+| React.CSSProperties
+| ((
+    state: Drawer.Description.State,
+  ) => CSSProperties | undefined)
+| undefined
+```
+
+`render``ReactElement | function``—`
+
+Name
+
+`render`
+
+Description
+
+Allows you to replace the component’s HTML element with a different tag, or compose it with another component.
+
+Accepts a`ReactElement` or a function that returns the element to render.
+
+Type
+
+```
+| ReactElement
+| ((
+    props: HTMLProps,
+    state: Drawer.Description.State,
+  ) => ReactElement)
+```
+
+### Close
+
+A button that closes the drawer. Renders a` ` element.
+
+`nativeButton``boolean``true`
+
+Name
+
+`nativeButton`
+
+Description
+
+Whether the component renders a native` ` element when replacing it via the`render` prop. Set to`false` if the rendered element is not a button (e.g.` `).
+
+Type
+
+```
+boolean | undefined
+```
+
+Default
+
+`true`
+
+`className``string | function``—`
+
+Name
+
+`className`
+
+Description
+
+CSS class applied to the element, or a function that returns a class based on the component’s state.
+
+Type
+
+```
+| string
+| ((state: Drawer.Close.State) => string | undefined)
+```
+
+`style``React.CSSProperties | function``—`
+
+Name
+
+`style`
+
+Type
+
+```
+| React.CSSProperties
+| ((state: Drawer.Close.State) => CSSProperties | undefined)
+| undefined
+```
+
+`render``ReactElement | function``—`
+
+Name
+
+`render`
+
+Description
+
+Allows you to replace the component’s HTML element with a different tag, or compose it with another component.
+
+Accepts a`ReactElement` or a function that returns the element to render.
+
+Type
+
+```
+| ReactElement
+| ((
+    props: HTMLProps,
+    state: Drawer.Close.State,
+  ) => ReactElement)
+```

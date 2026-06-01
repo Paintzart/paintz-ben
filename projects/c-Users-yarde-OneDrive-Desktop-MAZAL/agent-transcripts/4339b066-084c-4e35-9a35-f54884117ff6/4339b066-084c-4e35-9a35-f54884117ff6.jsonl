@@ -1,0 +1,8 @@
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nששומרים את הניהול שיהיה כתוב \nהקוסקוס של מזל ניהול\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מחפשים איפה מוגדר כותרת או טקסט של אזור הניהול כדי לעדכן ל\"הקוסקוס של מזל ניהול\".\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מעדכן את שם האפליקציה ב-PWA ובמטא־דאטה: מחליף את \"הקוסקוס של מזל - ניהול\" ב\"הקוסקוס של מזל ניהול\" (בלי מקף).\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן:\n\n### 1. `app/admin/layout.tsx`\n- **`title`** — כותרת לשונית הדפדפן: **הקוסקוס של מזל ניהול**\n- **`appleWebApp.title`** — השם כשמוסיפים למסך הבית ב־iOS: אותו טקסט (במקום \"הקוסקוס של מזל - ניהול\")\n\n### 2. `public/manifest-admin.json`\n- **`name`** — השם המלא של אפליקציית הניהול ב־PWA / \"התקן\": **הקוסקוס של מזל ניהול**\n\n`short_name` נשאר **מזל ניהול** כדי שיישאר קצר תחת האייקון במסך הבית.\n\nאם תרצה גם את התווית **אזור ניהול** בסרגל ובמסך הכניסה תחליף לטקסט המלא — אפשר לעדכן גם את זה.\n\n[REDACTED]"}]}}

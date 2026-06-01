@@ -1,0 +1,28 @@
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nבפריטים עתידיים תגדיל קמת את הכתב של התאריכים שבין 2 הכפתורים\n\nושהכותרת של השכפול משבוע קודם הדיאלוג שיהיה הטורכיז של האתר\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מחפש בקוד את מסך הפריטים העתידיים ואת דיאלוג השכפול משבוע קודם.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מעדכן: הפריימרי באתר הוא טרקוטה (`globals.css`); הטורקיז הוא `#4a6f72` (`--teal-stone`). מגדילים את הטקסט בין כפתורי השבוע ומחליפים את כותרת הדיאלוג לרקע/צבע טורקיז של המותג.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן ב־`app/admin/menu/future/page.tsx`:\n\n### טווח התאריכים בין «שבוע קודם» ו־«שבוע הבא»\n- גודל טקסט: מ־`text-xs` / `sm:text-sm` ל־**`text-sm` / `sm:text-base`**.\n- רוחב מינימלי קצת הורחב (`min-w`) כדי שהשורה לא תידחס אחרי הגדלת הפונט.\n\n### דיאלוג «שכפול משבוע קודם»\n- פס הכותרת היה `bg-primary` (טרקוטה מה־theme). עבר ל־**`bg-[#4a6f72]`** — אותו טורקיז/אבן-ירוק שמופיע בשאר האדמין (כמו כפתור «שכפל»).\n- הכותרת והכפתור לסגירה: **`text-white`** עם hover מתאים, כדי שיישארו קריאים על הרקע הטורקיז.\n\nאם התכוונת לכותרת **בצבע טורקיז על רקע בהיר** (בלי פס צבעוני), אפשר להחליף לזה במקום — תגיד ואכוון בהתאם.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nשהשכפל והביטול יהיה הפוכים שהשכפל יהיה הכי צמוד לימין וושהם יהיו באותו גובה 2 הכפתורים\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מסדרים את שורת הכפתורים ב־RTL כך ש־«שכפל» יהיה בימין, ומאחדים גובה (שניהם `default` — `h-8`).\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"עדכנתי את שורת הפעולות בדיאלוג השכפול:\n\n1. **`dir=\"rtl\"`** – עם `justify-start`, האלמנט הראשון נצמד ל**ימין** (תחילת השורה בעברית).\n2. **סדר ב־DOM** – קודם **שכפל**, אחריו **ביטול**, כך ששכפל הכי ימין וביטול משמאלו.\n3. **אותו גובה** – הוסר `size=\"sm\"` מביטול; שני הכפתורים על **`size` ברירת־מחדל** (`h-8` לפי `button.tsx`), בלי הבדל גובה ביניהם.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nתגדיל עוד קמת את הכתב של התאריך 05/04-11/04\n\nשבין הכפתור שבוע קודם ושבוע הבא\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מגדילים את טקסט טווח התאריכים עוד דרגה.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"עודכן ב־`app/admin/menu/future/page.tsx`: טקסט הטווח (למשל `05/04-11/04`) עבר מ־`text-sm` / `sm:text-base` ל־**`text-base` / `sm:text-lg`**, וה־`min-w` הורחב קלות כדי שלא יישבר בשורה עם הפונט הגדול יותר.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nבדיאלוג שכפל משבוע קודם שהכפתור שכפל יצמד לשמאל וביטול אחריו\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מחליפים ל־`dir=\"ltr\"`: עם `justify-start`, «שכפל» יוצמד לשמאל ו«ביטול» מימינו.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"עודכן: שורת הכפתורים בדיאלוג עברה ל־**`dir=\"ltr\"`** עם `justify-start`. סדר ה־DOM נשאר **שכפל** ואז **ביטול**, כך ששכפל נצמד ל**שמאל** וביטול מיד **מימינו**.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nתגדיל עוד קמת את הכתב של התאריך \nשבין הכפתור שבוע קודם ושבוע הבא\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"עודכן ב־`app/admin/menu/future/page.tsx`: טקסט הטווח בין הכפתורים עבר מ־`text-base` / `sm:text-lg` ל־**`text-lg` / `sm:text-xl`**, וה־`min-w` הורחב מעט (`8.5rem` / `10.5rem`) כדי שיישאר נוח לקריאה.\n\n[REDACTED]"}]}}

@@ -1,0 +1,10 @@
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nתוכל בסל הקניות ששמים טלפון שזה יהיה תמיד מספר טלפון תקין בספרות ושיתחיל תמיד ב 0 כי כככה מספר טלפון מתחיל\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מחפשים איפה בסל הקניות מזינים מספר טלפון כדי להוסיף ולידציה: ספרות בלבד וחובה להתחיל ב-0.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מוסיפים פונקציית אימות ב-`lib/mailing-source.ts` ומעדכנים את עמוד התשלום (סל) כך שיקלוט רק ספרות, יגביל לאורך תקין ויוודא שהמספר מתחיל ב-0.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן:\n\n### 1. פונקציית אימות ב־`lib/mailing-source.ts`\nנוספה `isValidIsraeliCustomerPhone`: רק ספרות (אחרי נרמול), **חייב להתחיל ב־0**, ואורך **9 או 10 ספרות** — בדיוק פורמט מקומי ישראלי נפוץ (למשל `0501234567` או קו קצר יותר).\n\n### 2. עמוד הסל / סיכום הזמנה — `app/(customer)/checkout/page.tsx`\n- בשדה הטלפון: **רק ספרות** (מקפים, רווחים וכו׳ נמחקים אוטומטית), עד **10 ספרות**.\n- לפני שליחה: אם המספר לא עובר את האימות — הודעת שגיאה בעברית.\n- בהזמנה נשמרות **רק הספרות** (`mailingPhoneDigits`), כמו בשאר המערכת.\n- `placeholder` עודכן ל־`0501234567`, ו־`inputMode=\"numeric\"` כדי להקל על מקלדת ספרות בנייד.\n\nהדוק של הסל (`customer-cart-dock`) רק מקשר ל־`/checkout`; שדה הטלפון נמצא בעמוד **סיכום הזמנה** — שם בוצע השינוי.\n\nאם תרצה גם **הודעת עזרה קבועה** מתחת לשדה («חובה להתחיל ב־0…»), אפשר להוסיף בשורה אחת של טקסט.\n\n[REDACTED]"}]}}

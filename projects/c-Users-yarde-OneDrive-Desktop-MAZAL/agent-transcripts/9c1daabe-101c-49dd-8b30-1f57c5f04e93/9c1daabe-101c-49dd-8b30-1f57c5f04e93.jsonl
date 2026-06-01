@@ -1,0 +1,42 @@
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nבניהול בתפריט היומי ובתפריטיים העתיידים שמשנים שעות שיהיה כפתור שמור שרק שלוחצים עליו זה מעדכן שעות אם יוצאים בלי לשור שעות זה חוזר למה שהיה ולא משנה אותם\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מחפש בקוד את מסכי ניהול התפריט היומי והתפריטים העתידיים ואת עריכת השעות.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"בודקים אם יש עריכת שעות נוספת ב-`day-menu-editor` או בעמודים אחרים.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"משנים את `QuickHoursEditor` כך שעריכת השעות והסקופים תישמר רק בלוקאלית, ורק לחיצה על «שמור» תשלח ל־`PATCH_SETTINGS`. סגירת הפאנל תאתחל מחדש מהמצב השמור.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מעדכן את שדות הקלט ואת כפתורי הסקופ — מסיר קריאות ל-`commitTriple` ומוסיף את כפתור השמירה.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן:\n\n## מה השתנה\n\nבקומפוננטה המשותפת `QuickHoursEditor` (תפריט יומי ותפריטים עתידיים):\n\n1. **שעות ו«יום לפני / באותו יום»** נשמרים רק ב־**טיוטה** בזיכרון — אין יותר עדכון ל־Firebase בכל הקלדה, ב־blur או בלחיצה על כפתורי ההיקף.\n2. **כפתור «שמור»** (מופעל רק כשיש שינוי ביחס למה ששמור) — רק הוא מפעיל `PATCH_SETTINGS` ומעדכן את `dayScheduleOverrides`.\n3. **סגירת המקטע** (לחיצה על הכותרת) או **מעבר לתאריך אחר** — בפתיחה הבאה (או אחרי שינוי תאריך) הטיוטה נטענת מחדש מהמצב **השמור**, כך ששינויים שלא נשמרו נזרקים.\n\nכפתור **«בטל שינוי שעות ליום הזה…»** נשאר **מיידי** (מוחק את הדריסה ליום ומסנכרן את הטיוטה לשעות מההגדרות), כי זה כבר פעולת ביטול מפורשת.\n\nהקובץ שעודכן: `components/admin/quick-hours-editor.tsx`.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nלמה זה בסמן הכתיבה סגור לי את השינוי שעות פעילות למחר לפעמיים שלא יסגר אם לא סוגרים את ההגדדרות מהירות או את השינוי שעות\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"בודקים את מבנה הממשק — כנראה לחיצה או blur בתוך שדות גורמת לסגירה לא רצויה של המקטע.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מזהים בעיה קלאסית: `DailyQuickSettingsForm` מוגדר כפונקציה בתוך הקומפוננטה הראשית — בכל רינדור מחדש React רואה קומפוננטה חדשה, מפרק ומרכיב מחדש את `QuickHoursEditor`, ולכן מצב `open` של המקטע «שינוי שעות» מתאפס (נראה כמו סגירה). בודקים את היקף ה-closure ומחלצים את הקומפוננטה החוצה.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מחלצים את `DailyQuickSettingsForm` לרמת המודול — הגדרת קומפוננטה פנימית גורמת לרימאונט בכל רינדור ומאפסת את מצב `open` ב-`QuickHoursEditor`.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מוסיפים את הקומפוננטה ברמת המודול ומעדכנים את השימושים.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"## למה זה קרה\n\n`DailyQuickSettingsForm` היה מוגדר **בתוך** `AdminMenuDailyPage` כפונקציה פנימית. ב־React, בכל פעם שההורה עושה רינדור מחדש נוצרת **מחלקת קומפוננטה “חדשה”** (הפונקציה היא אובייקט אחר), אז React **מפורק ומרכיב מחדש** את כל העץ שמתחתיה — כולל `QuickHoursEditor`.\n\nכל רינדור מחדש של העמוד (למשל אחרי עדכון מה־store, טיק של שעון, סנכרון, וכו’) איפס את `useState` של האקורדיון «שינוי שעות…», ולכן נראה כאילו המקטע **נסגר** בזמן הקלדה / מיקוד בשדה.\n\n## מה תיקנתי\n\nהעברתי את `DailyQuickSettingsForm` ל־**קומפוננטה יציבה ברמת המודול** (מחוץ ל־`AdminMenuDailyPage`), עם props מפורשים. עכשיו `QuickHoursEditor` לא נהרס ברינדורים של ההורה, והאקורדיון נשאר פתוח בזמן עריכה עד שסוגרים אותו במכוון או סוגרים את הגיליון/ההגדרות המהירות.\n\nהשינוי ב־`app/admin/menu/daily/page.tsx`.  \n(בפרויקט יש כרגע שגיאת TypeScript לא קשורה ב־`app/admin/page.tsx` — לא נגעתי בה.)\n\n[REDACTED]"}]}}

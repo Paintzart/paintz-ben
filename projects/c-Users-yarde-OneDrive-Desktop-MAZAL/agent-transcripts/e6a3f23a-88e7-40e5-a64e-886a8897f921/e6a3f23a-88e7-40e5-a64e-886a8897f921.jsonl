@@ -1,0 +1,6 @@
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nבתפרייט שרשימת תפוצה תיהיה לפני הגדרות\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מחפש איפה מוגדר סדר הפריטים בתפריט האדמין (רשימת תפוצה והגדרות).\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"משנים את סדר הפריטים ב־`otherLinks` ב־`admin-sidebar.tsx`.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"בוצע.\n\nב־`components/admin/admin-sidebar.tsx` עודכן המערך `otherLinks` כך ש־**רשימת תפוצה** (`/admin/phones`) מופיעה **לפני** **הגדרות** (`/admin/settings`). אותו סרגל משמש גם את תפריט המובייל (`AdminMobileNav`), אז הסדר מתעדכן בשניהם.\n\n[REDACTED]"}]}}

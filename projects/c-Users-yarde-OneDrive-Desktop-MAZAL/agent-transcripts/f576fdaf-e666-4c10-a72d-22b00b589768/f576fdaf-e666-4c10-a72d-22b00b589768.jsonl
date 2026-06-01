@@ -1,0 +1,433 @@
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nבעמוד ניבול תםריטין עתידיים\nשיהיה כתוב\nצפייה בלבד - ימים שהם היום או לפניו לא ניתנים לעריכה כאן.\n\nושיהיה ממורכז ואולי הריבוע צבע יהיה האדום חום?\n\nתשנה רק את ההודעה לא משהו אחר\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מחפשים בעמוד ניהול תורים עתידיים את ההודעה כדי לעדכן אותה בלבד.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מעדכן את ההודעה בעמוד תפריטים עתידיים: טקסט חדש, יישור למרכז ורקע אדום-חום עדין.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"עדכנתי רק את בלוק ההודעה ב־`app/admin/menu/future/page.tsx`:\n\n- **טקסט:** `צפייה בלבד - ימים שהם היום או לפניו לא ניתנים לעריכה כאן.` (מקף במקום `|`)\n- **יישור:** `text-center`\n- **רקע:** גוון אדום־חום (sienna `#a0522d`) בשקיפות עדינה, עם מסגרת באותה משפחת צבע\n\nשום דבר אחר בעמוד לא שונה.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nתעשה את העיצוב של ההודעה קצת אחרת\nבצבע אחר ואולי בבולד\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מעדכן את עיצוב ההודעה: צבע חדש (טורקיז/ירוק-כהה שמתאים לאייקון החנות בעמוד) ובולד.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מפשטים מעט — מסירים את הצל הפנימי כדי שהעיצוב יישאר נקי.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"עדכנתי רק את בלוק ההודעה:\n\n- **צבע:** במקום חום — רקע ירוק־מנטה עדין (`#e8f2f3`) עם מסגרת וטקסט בגוון הטורקיז של העמוד (`#4a6f72` / `#2d4a4d`), כדי שיתאים לשאר האדמין.\n- **טקסט:** `font-bold`, `leading-relaxed`, קצת יותר ריפוד אנכי (`py-3`).\n- **מצב כהה:** רקע כהה ירוק־אפור וטקסט בהיר, שלא ייבלע.\n\nאם תרצה גוון אחר לגמרי (למשל כחול או סגול), אפשר להחליף בקלות.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nימים של צפיה שיהיה רק או את התפריט אם זה פתוח או אם הבית עסק סגור ורק ההודעה \n\nואין אם החנות סגורה את הסגורים זמנית זה רק סגורים היום חופשה עקב המצב או לכתוב בעצמי הודעה\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"בודקים את מבנה עמוד התפריטים העתידיים במצב צפייה בלבד ואת אפשרויות הסגירה.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מצמצמים את מצב צפייה בלבד: רק תפריט כשהעסק פתוח, רק תצוגת ההודעה כשסגור. בודקים אם יש תבנית/תווית \"סגורים זמנית\" בעמוד.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"משנים את המבנה: במצב צפייה בלבד — רק התפריט (יום פתוח) או רק כרטיס ההודעה (יום סגור). משאירים את אזור העריכה המלא (כולל תבניות) רק כשלא בצפייה בלבד.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מבצעים את ההחלפה בחלקים קטנים יותר:\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מחליפים את הקטע באמצעות סקריפט קצר בגלל אי-התאמה אפשרית בתווים:\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן:\n\n### ימי צפייה בלבד (`היום` ומוקדם יותר)\n- **העסק פתוח בלוח:** מוצגים רק פס ההודעה «צפייה בלבד…» ואז **התפריט** (ללא כותרת «תפריט ליום…», ללא מתג פתוח/סגור, ללא תבניות וללא שדות הודעה).\n- **העסק סגור בלוח:** מוצגים רק פס הצפייה ואז **כרטיס תצוגת הלקוח** (ההודעה כפי שתופיע ללקוח).\n\n### ימי עריכה (עתיד)\nנשאר המסך המלא כמו קודם: כותרת, מתג פתוח/סגור, תפריט או בלוק סגירה עם **סגורים היום**, **חופשה**, **עקב המצב** ו־**לכתוב בעצמי** (בלי `disabled` מיותר).\n\n### לגבי «סגורים זמנית»\nבמצב **בית עסק סגור בלוח** הכפתורים משתמשים ב־`closureTemplateButtonLabel(\"calendar\", …)` — לתבנית `weekend` מוצג **«סגורים היום»**, לא «סגורים זמנית» (זה מופיע רק במצב סגירה ידנית אחר). עדכנתי גם את השורה המסבירה ל־«או לכתוב בעצמי למטה».\n\nהקובץ: `app/admin/menu/future/page.tsx`.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nשלא יהיה את התצוגת לקוח כאילו הכיתוב הזה אלא רק מה שהיה כתוב\n\nאבל שכן יהיה כתוב את התפריט ליום X - תאריך ואם בית העסק פתוח או סגור\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מסירים את כיתוב «תצוגת לקוח», מוסיפים שורת כותרת «תפריט ליום… — תאריך» ומצב פתוח/סגור (ללא מתג) בימי צפייה בלבד, ומסירים את `caption` גם במצב עריכה.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"עדכנתי את `app/admin/menu/future/page.tsx` כך:\n\n1. **בלי «תצוגת לקוח»** – הוסר `caption` מ־`CustomerClosurePreviewCard` (בצפייה בלבד ובעריכה). נשארים רק הכותרת והגוף כפי שהוגדרו.\n\n2. **בימי צפייה בלבד** – מעל התוכן מוצגת שורה כמו קודם: **«תפריט ליום … — תאריך»** ולידה **«העסק פתוח» / «העסק סגור»** (אייקון חנות + טקסט, **בלי מתג**).\n\nמתחת לזה: אם סגור – כרטיס ההודעה בלבד; אם פתוח – התפריט. פס «צפייה בלבד…» נשאר למעלה כמו קודם.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nהוספת מנה מהמאגר ויש מנות שיהיה ההוסף מנה מהמאגר בגודל של מנה ופשוט אחרי המנה הקיימת כמו עוד מנה ולא למטה ברוחב כל העמוד\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מזהים את הבעיה: ב־`rowCatalog` אריח ההוספה נמצא ב־`<li className=\"col-span-full\">`, ולכן הוא תופס את כל רוחב הגריד. מסירים את `col-span-full` במצב שורה ומתאימים את גודל האריח לכרטיס מנה.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה ששיניתי ב־`components/admin/day-menu-editor.tsx`:\n\n### 1. בלי `col-span-full` במצב שורה (`rowCatalog`)\nכשיש מנות, אריח **«הוסף מנה מהמאגר»** היה בתוך `<li className=\"col-span-full\">` — ולכן תמיד ירד שורה חדשה ורוחב מלא.  \nעכשיו **`col-span-full` מוחל רק בפריסת רשת הרגילה** (`grid`). ב־`rowCatalog` האריח הוא עוד תא בגריד, **אחרי המנות האחרונות**, באותה רוחב כמו כרטיס מנה.\n\n### 2. וריאנט `row` לכפתור ההוספה\nנוסף `variant=\"row\"` עם גובה מינימלי דומה לכרטיס מנה (`min-h` + `h-full`) כדי שהכרטיס המקווקו יישב טוב ליד המנות.\n\nבמסך **תפריט יומי** (ללא `rowCatalog`) ההתנהגות נשארת: כפתור ההוספה עדיין יכול להימתח לרוחב מלא בשורה נפרדת אם תרצו — שם עדיין `col-span-full`.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nבימי א וש שיהיה ההודעה סגורים היום מוצגת ולא סגורים זמנית (הברירת מחדל)\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מוסיפים פונקציה שמחזירה לשבת וראשון את תבנית הלוח «סגורים היום» במקום «סגורים זמנית», ומשתמשים בה בתצוגה ובלקוח.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"יוצרים מודול נפרד כדי להימנע ממעגל ייבוא אפשרי, ומעדכנים את התצוגה והלקוח.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שנוסף:\n\n### קובץ חדש `lib/calendar-closure-copy.ts`\nפונקציה `effectiveCalendarClosureCopy` שמטפלת ב־**שבת וראשון** (ימים סגורים כברירת מחדל בסופ״ש):\n- אם אין כותרת גלובלית בהגדרות — משתמשים ב־`effectiveClosurePreset(..., \"weekend\", \"calendar\")`, כלומר **«סגורים היום»** + גוף התבנית של הלוח (לא **«סגורים זמנית»** מתבנית ידנית).\n- אם ב־`closedBusinessTitle` מופיע בדיוק **«סגורים זמנית»** — מחליפים לאותה תבנית לוח.\n- אם יש **כותרת מפורשת** אחרת (למשל «חג שמח») — נשארים עם ההגדרות שלך.\n- למחר: אם יש **כותרת ייעודית** ב־`closedTomorrowCalendarTitle` — היא נשמרת.\n\n### שימוש\n- **`lib/customer-preview.ts`** — תצוגת מנהל / תכנון עתידי משקפת את אותו טקסט.\n- **`lib/customer-guards.ts`** — `closedTitle` / `closedMessage` למסך הלקוח משתמשים באותה לוגיקה (כולל מחר כשהעסק סגור במחר ובהיום לא).\n\nכך בימי **א** ו־**ש** (ראשון ושבת בפס השבוע) יוצג **סגורים היום** כברירת המחדל, ולא **סגורים זמנית**, אלא אם הגדרת מפורשות טקסט אחר.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nהעיצוב של ההודעה שהעסק סגור\nשיהיה החלק של התבניות כמו שעשינו בתםריט היומי\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מעדכנים את בלוק התבניות בעמוד התפריטים העתידיים כך שיתאים לעיצוב היומי: כותרת «תבניות», כפתורי pill, מצב נבחר, «הודעה אישית», ושורת תבניות מותאמות אישית מ«מההגדרות».\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מוסיפים את לוגיקת הבחירה ומעדכנים את ה-JSX.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"עדכנתי את **תפריטים עתידיים** כשהעסק סגור כך שבלוק **התבניות** תואם ל**תפריט היומי** (ובדומה לסקשן «מחר»):\n\n### מה השתנה\n- **כותרת** `תבניות` עם קו תחתון בירוק (`border-[#4a6f72]/25`) כמו ביומי.\n- **כפתורי pill** (`rounded-full`, `border-2`, גרדיאנט עדין) עם **מצב נבחר** (מסגרת/רינג ירוק) לפי התוכן שמוצג בפועל.\n- כפתור **«הודעה אישית»** (במקום «לכתוב בעצמי») באותו סגנון מקווקו כמו ביומי.\n- שורה **«מההגדרות»** עם תבניות משתמש (ענבר) — לחיצה מחילה את הטקסט על **היום הנבחר** ושומרת ב־`futurePlannerDayClosureOverrides`.\n- **טוסט** אחרי בחירת תבנית: `הוחל טקסט: …` כמו ביומי.\n- אזור **עריכה ידנית** מתחת: מסגרת `border-[#4a6f72]/20`, רקע `bg-muted/20`, ושדות עם `border-border bg-background` כמו ביומי.\n\nלוגיקת הבחירה (`futureClosureSelection`) משווה את תצוגת הלקוח (`closedPreview`) לתבניות המובניות ולתבניות מההגדרות, כדי שההדגשה תהיה נכונה.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nהחלק של העריכת הודעה\nשיופיע רק בהודעה אישית  או ותעשה כפתור עריכה בתצוגהושלוחצים יפתח לתבנית הזאת\n\nעכשיו אם עושים ניקוי  אז זה חוזר למקור של אותו תבנית שהיינו אליה\nאם עושים הודעה אישית וניקוי זה מנקה את ההודעה אישית\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"קורא את הקוד הנוכחי של עמוד התפריטים העתידיים כדי לממש את מצב העריכה והניקוי.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מסתירים את בלוק העריכה עד שמופעלת «הודעה אישית» או לחיצה על «עריכה», ומעדכנים את לוגיקת הניקוי.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מעדכן את ה-JSX: עוטף את התצוגה בכפתור «עריכה», ומציג את טופס העריכה רק כש-`showClosureManualForm` מתקיים.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מתקן: במצב «הודעה אישית» הטופס תמיד גלוי — מסתירים את כפתור «עריכה». מעטפת את בלוק העריכה ב-`showClosureManualForm` ומעדכנים את כפתור הניקוי.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"שומרים את טופס העריכה פתוח אחרי ניקוי «הודעה אישית», כדי שניתן יהיה להמשיך לערוך.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שיושם ב־`app/admin/menu/future/page.tsx`:\n\n### תצוגת העריכה\n- **טופס כותרת + הודעה** מוצג רק אם:\n  - נבחרה **הודעה אישית** (הטקסט לא תואם תבנית מובנית/מההגדרות), **או**\n  - לוחצים **«עריכה»** ליד כרטיס התצוגה (לתבניות מובנות / מההגדרות).\n- במצב **הודעה אישית** כפתור **«עריכה»** מוסתר — הטופס נשאר גלוי כל עוד זה מצב אישי.\n- **«סגירת עריכה»** (כשמופיע) סוגר את הטופס רק כשלא במצב אישי — כלומר אחרי תבנית מובנית/משתמש.\n\n### כפתור **«עריכה»**\n- ממלא את השדות מהדריסה ליום (`futurePlannerDayClosureOverrides`) אם יש, אחרת מהטקסט שמוצג בתצוגה.\n\n### **ניקוי**\n- **מצב אישי:** מוחק את הדריסה ליום, מאפס שדות, **פותח שוב את מצב עריכה** (`futureClosureEditOpen`) כדי שאפשר יהיה להמשיך לכתוב אחרי הניקוי. טוסט: שההודעה האישית נמחקה וחוזרים להגדרות גלובליות.\n- **תבנית מובנית:** מחזיר את **הטקסט המקורי** של אותה תבנית (`effectiveClosurePreset` ל־calendar) ושומר אותו ליום.\n- **תבנית מההגדרות (ענבר):** מחזיר את הטקסט המקורי של אותה תבנית משתמש.\n\nתווית הכפתור משתנה: **«ניקוי — מחיקת הודעה אישית»** לעומת **«ניקוי — חזרה לטקסט המקורי של התבנית»**.\n\n### אחרים\n- בחירת תבנית מובנית או מתבניות «מההגדרות» **סוגרת** את מצב העריכה (`futureClosureEditOpen`), כדי שהטופס לא יישאר פתוח אחרי מעבר תבנית.\n- מעבר **יום** בשבוע מאפס את מצב העריכה.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nבחלק של א ב ג שיהיה כתוב א' ב' ג'\n\nוהתאריך  מתחת שיהיה 30 במרץ בלי שנה\n30 באוק' ככה\n\nהשבוע הנוכחי שיהיה כתוב שבוע קודם שיהיה קודם מפה שלא יהיה כתוב איזה שבוע \n\nאין איפוס כל השבוע שלא יהיה הכפתור הזה\nאני רוצה במקום כפתור שכפול משבוע קודם.\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"קורא את עמוד התפריטים העתידיים ואת לוגיקת התפריטים כדי לממש את השינויים ואת שכפול משבוע קודם.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מוסיפים את פעולת ה-store, פונקציית תאריך, ומעדכנים את העמוד.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה סיכום השינויים:\n\n### פס הימים (א׳–ש׳)\n- האותיות הן עכשיו **א׳ ב׳ ג׳** … **ש׳** (עם גרש).\n- מתחת: **תאריך בלי שנה** דרך `formatIsoHebrewDayMonthNoYear` — למשל `30 במרץ`, `5 בנוב׳` (פורמט קצר של `he-IL`).\n\n### כותרת העמוד\n- הטווח: **מ־… עד …** באותו פורמט (בלי שנה).\n\n### ניווט שבוע\n- הוסר הטקסט האמצעי (**השבוע הנוכחי** / **X שבועות**).\n- הכפתורים: **קודם** ו־**הבא** (במקום «שבוע קודם» / «שבוע הבא»).\n\n### איפוס\n- הוסר **איפוס כל השבוע** והדיאלוג שלו.\n\n### שכפול משבוע קודם\n- במקום זה: כפתור **שכפול משבוע קודם** (אייקון העתקה).\n- מעתיק את **מבנה התפריט** (מנות) מכל יום בשבוע **שלפני** המוצג, אל **אותו יום בשבוע** בשבוע הנוכחי — **רק לימים עתידיים** (`to > היום`), כדי לא לדרוס ימי עבר/היום (צפייה בלבד).\n- פעולת store חדשה: `COPY_DAY_MENUS_FROM_DATES` (מימוש ב־`local-app-store` וב־`write-remote` ל־Firebase).\n\n### קבצים\n- `lib/format-menu-date.ts` — `formatIsoHebrewDayMonthNoYear`\n- `lib/store/app-store-actions.ts`, `local-app-store.tsx`, `firebase/write-remote.ts`\n- `app/admin/menu/future/page.tsx`\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nשיהיה את הכפתור של העריכה סגירת עריכה למה אין צורך כי יש את הכפתורים של שמירת הודעה וניקוי\n\nבניקוי שיהיה כתוב רק ניקוי\nבשמירת הודעה ליום זה שיהיה כתוב רק שמירה\n\nושלא יהיה כתוב את החלר הזה\nכותרת + הודעה - ....\nעדכון כאן שומר ליום הנבחר בלבד ודורס את התבנית שנבחרה למעלה.\nושיהיה כתוב רק הודעה \n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מסירים את כפתור העריכה ואת מצב `futureClosureEditOpen`, מציגים את טופס הכותרת/ההודעה תמיד כשהעסק סגור (בעריכה), ומפשטים את התוויות והכפתורים.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן ב־`app/admin/menu/future/page.tsx`:\n\n### הוסר\n- כפתור **עריכה / סגירת עריכה** ליד תצוגת הלקוח (וגם ייבוא `Pencil`).\n- כל מצב **`futureClosureEditOpen`** והפונקציה **`toggleClosureEditFromPreview`**.\n- הטקסטים: «כותרת + הודעה — …» ו«עדכון כאן שומר ליום הנבחר…».\n\n### טופס ההודעה\n- מוצג **תמיד** כשהעסק סגור ובמצב עריכה (לא רק במצב אישי / אחרי עריכה), כי אין יותר מצב «פתיחת עריכה».\n\n### תוויות\n- לשדה הגוף: רק **«הודעה»** (במקום «הודעה (גדולה במסך הלקוח)»).\n- **«כותרת»** נשאר כמו שהיה.\n\n### כפתורים\n- **שמירה** (במקום «שמירת הודעה ליום זה»), טוסט: **«נשמר»**.\n- **ניקוי** (בלי הסבר ארוך; הלוגיקה של ניקוי אישי / חזרה לתבנית נשארה אותו דבר).\n\nאם תרצה להסיר גם את תווית **«כותרת»** ולהשאיר רק שדות בלי כותרות — אפשר לעשות זאת בשלב נוסף.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nאם הכותרת והודעה ריק שהשמירה לא יעבוד שיהיה כתוב שאי אפשר לשמור תוכן\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"עודכן: בלחיצה על **שמירה**, אם גם הכותרת וגם ההודעה ריקים (אחרי `trim`) — מוצג `toast.error` עם הטקסט **«אי אפשר לשמור תוכן ריק»** והשמירה לא מתבצעת. אם יש תוכן באחד מהשדות — השמירה כרגיל ואז **נשמר**.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nאם שומרים הודעה או בוחרים תבנית בלי לערוך שלא יופיע העריכה\nבהודעה אישית שיופיע שעשוים שמור שיסגר\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מסתירים את בלוק העריכה כשבוחרים תבנית; מציגים אותו רק אחרי «הודעה אישית» או כשמתאים לעריכת הודעה אישית קיימת. אחרי «שמירה» — סוגרים את הבלוק.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nאם שומרים הודעה או בוחרים תבנית בלי לערוך שלא יופיע העריכה\nבהודעה אישית שיופיע שעשוים שמור שיסגר\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מוסיפים מצב `closureManualOpen`: בוחרים תבנית — מסתירים את שדות העריכה; לוחצים «הודעה אישית» — פותחים; אחרי שמירה — סוגרים.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מעבירים את ה־`useState` וה־`useEffect` של הטיוטה לפני הפונקציות שמשתמשות ב־`setDraftTitle` / `setClosureManualOpen`, כדי לשמור על סדר ברור ולהימנע מבעיות.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שיושם:\n\n### התנהגות\n1. **בלוק העריכה (כותרת/הודעה/שמירה)** מוצג רק כש־`closureManualOpen` פתוח — כלומר אחרי לחיצה על **«הודעה אישית»**, לא אוטומטית כשהיום סגור.\n\n2. **בחירת תבנית** (מובנית או מההגדרות) — שומרת את הטקסט ו־**סוגרת** את מצב העריכה (`setClosureManualOpen(false)`), כך שלא רואים את השדות אחרי בחירה בלי לערוך.\n\n3. **שמירה** — אחרי שמירה מוצלחת הטופס **נסגר** (`setClosureManualOpen(false)`).\n\n4. **«הודעה אישית»** — אם כבר במצב **אישי** (`futureClosureSelection.kind === \"personal\"`), רק **פותחים** את הטופס בלי למחוק את ה־override; אם עוברים מתבנית לאישי — מוחקים override, מאפסים טיוטה ופותחים עריכה כמו קודם.\n\n5. **מעבר ליום אחר** — `closureManualOpen` מתאפס ל־`false` (אותו `useEffect` על `selectedIso`).\n\n6. **ניקוי** — בכל המסלולים של `handleClosureClear` נוסף `setClosureManualOpen(false)`.\n\nה־hooks (`closureManualOpen`, טיוטות, ה־effects) הועברו **לפני** `applyClosureTemplate` וכו', כדי שהסט־טרים יהיו מוגדרים לפני השימוש בהם.\n\nאם תרצה, אפשר גם להדגיש ויזואלית את כפתור «הודעה אישית» כשהטופס סגור ויש כבר הודעה אישית שמורה.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nשיהיה אבל כפתור עריכה \n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מוסיפים פונקציה `openClosureEditor` שממלאת את הטיוטה לפי מה שמוצג ופותחת את הטופס, ומציגים כפתור «עריכה» כשהטופס סגור.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הוספתי:\n\n1. **`openClosureEditor`** – טוען לטיוטה את הטקסט מה־override ליום (אם יש), ואם אין – את מה שמוצג בכרטיס (`closedPreview`), ואז פותח את בלוק העריכה.\n\n2. **כפתור «עריכה»** – מופיע מתחת לכרטיס התצוגה כשהיום סגור וניתן לעריכה, **רק כשבלוק העריכה סגור** (`!showClosureManualForm`). עיצוב: `variant=\"outline\"` ו־`size=\"sm\"`, מיושר ל־`justify-end`.\n\nכך אפשר לפתוח שוב עריכה אחרי שמירה או אחרי בחירת תבנית, בלי להסתמך רק על «הודעה אישית».\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nאם לוחצים ניקוי זה לא סוגר לי את העריכה אלא פשוט מאפס לתבנית או לריק בהודעה אישית\n\nוהכפתור עריכה שיהיה צמוד לימין\n\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מסירים את `setClosureManualOpen(false)` מ־`handleClosureClear` כדי שהניקוי יאפס תוכן בלבד. עם `dir=\"rtl\"` בפרויקט, `justify-end` דוחף לשמאל — נשתמש ב־`justify-start` כדי לצמיד את הכפתור לימין.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן:\n\n### ניקוי\nהוסרו כל הקריאות ל־`setClosureManualOpen(false)` מתוך `handleClosureClear`.  \nאחרי **ניקוי** הטופס **נשאר פתוח**:\n- **הודעה אישית** – מוחקים את ה־override ליום, מאפסים כותרת והודעה בטיוטה (ריק).\n- **תבנית מובנית / מההגדרות** – מחזירים את הטקסט המקורי של התבנית בטיוטה ובשמירה בהגדרות (כמו קודם), בלי לסגור עריכה.\n\n### כפתור עריכה\nב־`app/layout.tsx` מוגדר `dir=\"rtl\"`, ולכן `justify-end` דוחף את הכפתור לכיוון **הסוף** של השורה – ב־RTL זה **שמאל**.  \nהוחלף ל־`flex w-full justify-start` כדי ליישר ל־**ההתחלה** של השורה – ב־RTL זה **ימין**, כלומר הכפתור צמוד לימין.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nניקוי שאני על תבנית שיאפס לי את התבנית ולא יהיה כהודעה אישית\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"בודקים איך נקבעת בחירת התבנית מול «הודעה אישית» ומה קורה בניקוי.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מזהים את הבעיה: אחרי עריכת תבנית הטקסט נחשב כ\"הודעה אישית\", ולחיצה על «ניקוי» מפעילה את ענף ההודעה האישית במקום לאפס לתבנית. נוסיף מעקב כוונה (ref) שמתעדכן בבחירת תבנית ובמעבר להודעה אישית, ונסנכרן ביום חדש ובשמירה.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מוסיפים מעקב «כוונת איפוס» (ref) שלא משתנה כשהטקסט עובר ל\"אישי\" בגלל עריכה, ומסנכרנים אותו רק במעבר יום, בבחירת תבנית, במעבר להודעה אישית ובשמירה.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מתקן: ה-useEffect עם `closedPreview` יאפס את ה-ref בכל עריכה. משאירים סנכרון רק במעבר יום (`selectedIso`).\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן:\n\n### הבעיה\nאחרי שבוחרים תבנית ו**עורכים** את הטקסט, המערכת מסווגת את ההודעה כ־**אישית**. לחיצה על **ניקוי** נכנסה לענף «הודעה אישית» (מחיקת override וריקון) במקום **לאפס לטקסט המקורי של התבנית**.\n\n### הפתרון\nנוספה **כוונת איפוס** ב־`closureResetIntentRef`:\n\n1. **במעבר יום** — מתעדכן לפי מה ששמור/מוצג באותו יום (כמו `futureClosureSelection`).\n2. **בלחיצה על תבנית מובנית / מההגדרות** — נשמר `builtin` או `user` עם המזהה.\n3. **ב־«הודעה אישית»** (כשעוברים מתבנית) — נקבע `personal`.\n4. **אחרי שמירה** — מתעדכן לפי התוכן שנשמר (האם תואם תבנית או אישי).\n\n**ניקוי** משתמש ב־`closureResetIntentRef` ולא רק ב־`futureClosureSelection`, כך שאם ערכת תבנית והטקסט כבר לא תואם בדיוק — עדיין מתבצעת **חזרה לטקסט הקנוני של התבנית** ונשמר override שמתאים לה, והכפתור **«הודעה אישית»** לא נשאר מסומן בטעות.\n\nנוספה פונקציית עזר `matchClosureIntentFromPreview` (משותפת ללוגיקה של `futureClosureSelection`).\n\n**Fallback:** אם הכוונה היא תבנית מההגדרות והתבנית נמחקה מהמאגר — מוחקים את ההודעה ליום ומעבירים ל־`personal`.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nהשככפול משבוע קודם לא משכפל\nאני רוצה שהוא ישכפל את כל הימים המנות, המלאי,  הכל\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"בודקים איך פועל שכפול משבוע קודם ומה נכלל בהעתקה.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"משפרים את שכפול השבוע: טוענים את תפריט המקור מ-Firestore אם חסר בסנאפשוט, ומשכפלים גם הגדרות יום — פתיחה/סגירה, הודעות סגירה, דריסות שעות.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן:\n\n### למה זה לא «שיכפל» כמו שצריך\n1. **מקור בלי מסמך ב־snap** – אם מסמך `dayMenus` של השבוע הקודם לא היה בזיכרון המקומי, `srcDm` היה ריק וההעתקה יצאה ריקה.  \n2. **רק `dayMenus`** – לא הועתקו מצב **פתוח/סגור בלוח**, **הודעת סגירה לתכנון עתידי**, ו־**דריסות שעות ליום**.\n\n### מה נוסף עכשיו\n\n**קובץ חדש** `lib/planner-copy-pair-settings.ts`  \n- מעתיק לכל זוג `(from → to)`:\n  - **מלאי/מנות** – נשאר בלוגיקת `dayMenus` (כולל `outOfStock`, `dailyStockCap`, `dailyStockNote`, `onMenu`).\n  - **פתיחה/סגירה**: חול – `closedDayIsoList`; סופ״ש – `weekendVenueOpenIsoList` (לפי מצב יום המקור).\n  - **`futurePlannerDayClosureOverrides`** – הודעת סגירה ליום.\n  - **`dayScheduleOverrides`** – דריסת שעות ליום.\n\n**`write-remote.ts` (Firebase)**  \n- עדכון אחד של `settings/main` עם כל השדות האלה אחרי כל הזוגות.  \n- לכל יום מקור: **`getDoc(dayMenus/from)`** – קריאה ישירה מהשרת אם אין ב־`snap`, ואז כתיבה ל־`dayMenus/to`.\n\n**`local-app-store.tsx`**  \n- אותה מיזוג הגדרות + העתקת תפריטים כמו קודם (למצב מקומי).\n\nאם אחרי זה עדיין יש יום ריק, כנראה שבשבוע הקודם **לא נשמר** בכלל מסמך `dayMenus` לאותו תאריך (לא נכנסו ליום הזה או לא נשמר ל-Firestore). במקרה כזה כדאי לפתוח פעם אחת כל יום בשבוע המקור כדי שייווצר המסמך, או לשמור שם תפריט – ואז השכפול ימשוך אותו עם `getDoc`.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nתגדיל את התכנון השבועי\n\nואם זה השבוע שאנחנו אליו שיהיה כתוב\nתכנון שבועי | שבוע נוכחי\nשבוע קודם שיהיה כתוב שבוע קודם ובשאר בלי\n\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מגדילים את אזור «תכנון שבועי» ומוסיפים כותרת דינמית לפי `weekOffset` (0 = שבוע נוכחי, -1 = שבוע קודם, אחרת בלי תוספת).\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן:\n\n### גודל «תכנון שבועי»\n- מיכל הסקשן: `p-5 sm:p-6 md:p-7` (במקום `p-4 sm:p-5`).\n- כותרת: `text-lg sm:text-xl md:text-2xl` עם `font-heading font-bold`.\n- כפתור שכפול: `size=\"default\"` ואייקון מעט גדול יותר.\n- ניווט קודם/הבא: `py-3 px-5 sm:px-6` ו־`text-base`.\n- פס הימים: רווחים `gap-2 sm:gap-2.5`, גובה מינימלי `5.25rem` / `5.75rem`, אותיות `text-xl sm:text-2xl`, תאריך `text-[11px] sm:text-xs`.\n\n### טקסט הכותרת לפי שבוע\n- `weekOffset === 0` (שבוע שמכיל את היום בלוח): **תכנון שבועי | שבוע נוכחי**\n- `weekOffset === -1`: **תכנון שבועי | שבוע קודם**\n- כל שאר המצבים (שבועות קדימה או הלאה): **תכנון שבועי** בלבד\n\nהלוגיקה מבוססת על `weekOffset` הקיים (0 = שבוע הבסיס שמכיל את `calendarToday`, −1 = שבוע לפניו, וכו').\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nבמקום קודם שיהיה כתוב שבוע קודם\nובמקום הבא שיהיה כתוב שבוע הבא\n\nתקטין את הכפתורים קודם והבא\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"עודכן:\n\n- **טקסטים:** «קודם» → **שבוע קודם**, «הבא» → **שבוע הבא**.\n- **גודל:** ריפוד `px-3 py-1.5` (וב־sm מעט יותר), טקסט `text-xs` ו־`sm:text-sm`, ריווח בין הכפתורים `gap-2 sm:gap-3`.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nבשובע הבא שיהיה כתוב אבל שבוע הבא גם \n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"בודקים את הכותרת והכפתורים — כנראה שרוצים שגם בכותרת «תכנון שבועי» יופיע «שבוע הבא» כשעוברים לשבוע הבא (כמו «שבוע נוכחי» ו«שבוע קודם»).\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מוסיפים לכותרת «תכנון שבועי» את הסיומת «שבוע הבא» כשמנווטים לשבוע הבא (`weekOffset === 1`), בהתאמה ל«שבוע נוכחי» ו«שבוע קודם».\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"עדכנתי כך שכשמנווטים **שבוע קדימה** מהשבוע הנוכחי (`weekOffset === 1`), כותרת הבלוק תהיה:\n\n**תכנון שבועי | שבוע הבא**\n\nבאותו אופן שיש «שבוע נוכחי» ו־«שבוע קודם».  \nכפתור הניווט נשאר **שבוע הבא** כמו קודם.  \nבשבועות רחוקים יותר (`weekOffset ≥ 2`) הכותרת נשארת רק **תכנון שבועי** (כמו שביקשת קודם ל«שאר» המצבים).\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nתקטין קצת את הכותרת של תכנון שבועי\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"עדכנתי: הכותרת ירדה רמה בכל נקודות השבירה — מ־`text-lg / sm:text-xl / md:text-2xl` ל־**`text-base / sm:text-lg / md:text-xl`**.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nעכשיו בוא נעשה קצת צבעים \n\nהיום שלא עובדים שיהיה אפור או שקוף ושיהיה כתוב מעל סגור לא אכפת לי באיזה מצב\n\nהיום שעובדים זה לבן \n\nהיום שלא עשינו עדיין אולי נעשה גם באיזה צבע ?\n\nוהיום שיהיה בחום כזה? או טורכיז? ויהיה כתוב מכל בבולד \"היום\"\n\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"בודקים את לוגיקת פס הימים והטונים הקיימים כדי להחיל את הצבעים החדשים.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מחליפים את לוגיקת הצבעים: יום נוכחי בטורקיז עם «היום» מודגש, ימים סגורים אפורים עם «סגור», ימי עבודה עם תפריט/עבר — לבן, עתידיים פתוחים בלי מנות — צבע מבדיל (ענבר רך) עם «טרם».\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שיושם בפס השבוע (תכנון עתידי):\n\n### לוגיקה\n- **היום** (`iso === calendarToday`): רקע **טורקיז/מותג** (`#e8f2f3` / כהה `#1a2e30`), מסגרת `#4a6f72`. מעל האות: **«היום»** ב־`font-bold`.\n- **סגור** (העסק סגור בלוח — בלי הבדלה חול/סופ״ש): רקע **אפור שקוף** (`bg-muted/35` + מעט `backdrop-blur`), טקסט מעומעם. מעל: **«סגור»**.\n- **עובדים + תפריט** (פתוח ולפחות מנה אחת מוצגת, או יום שעבר): רקע **לבן** (`bg-white` / `dark:bg-card`) עם מסגרת עדינה.\n- **עתידי פתוח בלי מנות בתפריט**: רקע **ענבר רך** (מצב «טרם תכנון»). מעל: **«טרם»**.\n\nהמצב «טרם» נקבע עם `dayMenuHasVisibleItems` — כלומר אין מנה מסומנת כמוצגת ליום הזה.\n\n### שורת התווית\nלכל אריח יש שורה עליונה בגובה קבוע; בימים «רגילים» (לבן) השורה **נשארת לריווח** (`invisible`) כדי שהאותיות יישארו מיושרות.\n\nאם תרצה לשנות את «טרם» לטקסט אחר (למשל «לעדכן») או לחזק את גוון הטורקיז/הענבר — אפשר לכוון בנקודה.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nשבועות שלא עשיתיי שלא יהיה כתוב טרם רק שיהיה בצבע שעשית\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מסירים את תווית «טרם» ומשאירים רק את צבע הרקע למצב pending.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"עדכנתי: בימים במצב **pending** (עתידי, פתוח, בלי מנה בתפריט) **לא** מוצגת יותר המילה «טרם» — נשאר רק **הרקע הענברי** והמסגרת כמו קודם. שורת התווית העליונה שם מתנהגת כמו בימים הלבנים (שמור ריווח עם `invisible`).  \n«היום» ו«סגור» נשארים רק איפה שצריך.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nתקטין קצת את הכותרת של המוצר קצת \nבכרטיס מוצר\n\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מקטינים מעט את כותרת שם המוצר בכרטיסים — בעורך התפריט (פריסת row ו-grid) ובמאגר הקטלוג.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"עדכנתי **קצת** את גודל כותרת שם המוצר:\n\n### `day-menu-editor.tsx` (כרטיסי מוצר בתפריט)\n- **פריסת row** (אריחים גדולים): `text-lg / sm:text-xl` → **`text-base / sm:text-lg`** (גם למחיר).\n- **פריסת grid** (רשימה קומפקטית): `text-sm / sm:text-base` → **`text-[13px] / sm:text-sm`** (גם למחיר).\n\n### `catalog/page.tsx` (מאגר המוצרים)\n- כותרת המוצר: **`text-base / sm:text-lg`** (במקום `lg` / `xl`).\n- המחיר ליד הכותרת: **`text-xs / sm:text-sm`** כדי שישאר פרופורציונלי.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nכל מה שלפני השבוע קודם שמוצג נמחק נכון? אם מחר אני מתחילה שבוע חדש השבוע שמופיע לי בשבוע קודם נמחק? מהמסד נתונים\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"בודקים בקוד אם קיימת מחיקה אוטומטית של שבועות ישנים או של נתונים לפני «שבוע קודם».\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"**לא — במערכת הזו אין מחיקה אוטומטית** של תפריטים או של שבועות לפי «מה שמוצג» או לפי מעבר ימים.\n\n### מה באמת קורה\n- **מסמכי `dayMenus`** ב-Firestore נשמרים **לפי תאריך** (מפתח כמו `2026-04-01`). הם נשארים במסד **עד שמוחקים אותם במפורש** (בקוד אין פעולה שמנקה תאריכים ישנים בגלל שבוע קודם / שבוע חדש).\n- **ניווט «שבוע קודם» / «שבוע הבא»** רק משנה **איזה טווח תאריכים את רואה** במסך. זה לא מוחק כלום מהמסד.\n- **כשעובר יום / שבוע בלוח** — המידע של ימים קודמים **לא נמחק** רק בגלל ש«השבוע הנוכחי» בממשק התקדם.\n\n### הגדרות (רשימות תאריכים)\nשדות כמו `closedDayIsoList`, `weekendVenueOpenIsoList`, `futurePlannerDayClosureOverrides` וכו׳ הם **רשימות/מפות לפי תאריך**. גם שם **אין בקוד ניקוי אוטומטי** כשמתחילה שבוע חדש — רק מה שמעדכנים בפועל (או מחקת ידנית) משתנה.\n\n### מתי כן נמחקים דברים\nלמשל **איפוס יום עסקים** (`RESET_DAY`) מוחק **הזמנות של אותו יום עסקים** ושומר סיכום — **לא** את `dayMenus` של תאריכי תכנון עתידיים.\n\n**סיכום:** אם מחר נכנסת לשבוע חדש, **השבוע שקודם היה «שבוע קודם» נשאר במסד**; הוא פשוט לא בהכרח במרכז המסך, אלא אם מנווטים אליו.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nמ־5 באפר׳ עד 11 באפר׳\n\nשיהיה כתוב במקום \n\nמ- 05/04/2026 עד ה- 11/04/2026\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מעדכנים את `formatIsoHebrewDayMonthNoYear` כך שיציג תמיד עברית מפורשת (למשל «5 באפר׳») במקום פורמט מספרי — לפעמים `Intl` מחזיר תאריכים בפורמט DD/MM/YYYY.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן:\n\n### הבעיה\n`formatIsoHebrewDayMonthNoYear` השתמש ב־`Intl.DateTimeFormat(\"he-IL\")`. בחלק מהסביבות זה עדיין מחזיר תאריך מספרי כמו `05/04/2026` במקום טקסט עברי.\n\n### הפתרון\nב־`lib/format-menu-date.ts` מוגדרים עכשיו **שמות חודשים קצרים בעברית** (בינוא׳, בפבר׳, … באפר׳ …) והפונקציה בונה מחרוזת קבועה: **`{יום} {חודש}`** בלי אפס מוביל (למשל **5 באפר׳**, **11 באפר׳**).\n\n### תוצאה בשורת הכותרת\nבמקום  \n`מ- 05/04/2026 עד ה- 11/04/2026`  \n\nיוצג (עם מאפיין עברי רגיל):  \n**מ־5 באפר׳ עד 11 באפר׳**\n\nאותה פונקציה משמשת גם בפס הימים ובכותרות «תפריט ליום …», אז הכל יהיה באותו סגנון.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nלמה? אני רוצה שיוצג כמו שביקשתי\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מחפשים היכן עדיין מוצג פורמט DD/MM/YYYY או טקסט שלא תואם את מה שביקשת.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מוסיפים פונקציה אחת לשורת הטווח, מחליפים את כל המקומות שעדיין מציגים תאריך מספרי (בסוגריים ובלוח השעות), ומוודאים `dir=\"rtl\"` על השורה בכותרת.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"**למה זה נראה שלא עבד:**  \nהטקסט שביקשת (מ־5 באפר׳ עד 11 באפר׳) כבר היה אמור להופיע מהפונקציה, אבל **במסך התפריטים העתידיים** עדיין הופיעו תאריכים **במספרים** במקומות אחרים — למשל **בסוגריים ליד «שינוי שעות»** (`(05-04-2026)`), וב־**לוח השעות** בתוך עורך היום (`היום` / `מחר`). בנוסף, כשהעטיפה היא `dir=\"ltr\"`, לפעמים שורת הכותרת עם תאריכים **לא נראית** כמו עברית רציפה.\n\n**מה עשיתי עכשיו:**\n\n1. **`formatIsoHebrewWeekRangeLine`** ב־`lib/format-menu-date.ts` — מחזירה במפורש:  \n   `מ־{יום חודש} עד {יום חודש}` (מאקף עברי `מ־`).\n\n2. **כותרת** «תפריטים עתידיים** — השורה משתמשת בפונקציה הזו + **`dir=\"rtl\"`** ו־**`lang=\"he\"`** כדי שהתצוגה תהיה עקבית.\n\n3. **`QuickHoursEditor`** — הסוגריים ליד התאריך: מ־`(DD-MM-YYYY)` ל־**`(5 באפר׳)`** וכו׳.\n\n4. **`DayMenuEditor`** (בלוק לוח השעות הקטן) — התאריכים תחת «היום» / «מחר»: **עברית** במקום מספרים, עם `dir=\"rtl\"`.\n\nאחרי רענון / בנייה מחדש אמור להופיע בדיוק בסגנון שביקשת, בכל הרלוונטי באותו מסך.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nבצד איפה שההגדרות מהירות (שהכותרת תיהיה צמודה לצד השני אנחנו בעברית)\n\nימים שעברנו ואותו יום אין צורך בהגדרות..\n\nהודעת תפוצה בוואטסאפ\n\nלהפיץ הודעת תפוצה בוואטסאפ  \nאם להפיץ או לא באופן אוטומטית ואם כן  באיזה שעה (שיהיה כמו שבתפריט היומי).\nאם הוחלט להפיץ שיהיה כתוב את השעה שנפתח המסעדה שזה יום קודם בשעה 14:30 ואם רוצים לשנות משנים פה.\nתמיד זה יום קודם... אם רוצים באותו יום זה יהיה ידנית \nאין צורך לכתוב את זה\n\nהודעת איסוף/חלון קופץ — ב־הגדרות מערכת.\nאין צורך בזה\n\nכל הגדרות המערכת\nאין צורך בזה\n\nשיהיה בהגדרות אופציה לאפס את היום שזה אומר אם היום פתוח למחוק את כל המנות ואם העסק סגור לאפס למה שברירת מחדל.\nממש לעשות איפוס. נגיד אם זה יום שמוגדר סגור אז שיהיה סגור וכו'\n\nאופציה לפתוח ולסגור את בית העסק\n\nואופציה אם בית העסק פתוח לשנות את הסגריה, אישור ידני, פתיחת הזמנות ליום הבא.\n\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"קוראים את סרגל ההגדרות בעמוד התפריטים העתידיים ואת דפוס שידור הוואטסאפ בתפריט היומי.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שיושם בעמוד **תפריטים עתידיים**, בעמודת **הגדרות מהירות**:\n\n### פריסה ועברית\n- כותרת: **«הגדרות מהירות»** עם `dir=\"rtl\"` על העמודה, והכותרת **מיושרת לימין** (`text-end`) עם האייקון בצד המתאים.\n\n### מתי מוצגות ההגדרות\n- **ליום שעבר או להיום** (`selectedIso <= calendarToday`): לא מוצגים בלוקי הפעולות — רק משפט קצר: שאין הגדרות מהירות (צפייה בלבד).\n\n### בית העסק + שעות\n- מתג **«בית העסק פתוח ביום הנבחר»** (אותה לוגיקה כמו במסך, עם `requireVisibleMenuToOpen: false`).\n- **אם פתוח:** כותרת **«שעות ליום הנבחר»** ו־`QuickHoursEditor` (סגירה, אישור ידני, פתיחת הזמנות למחר) — **בלי** פסקת הסבר ארוכה.\n- **אם סגור:** משפט קצר שצריך לפתוח את העסק כדי לערוך שעות.\n\n### איפוס יום\n- כפתור **«איפוס יום»** + דיאלוג אישור.\n- **יום פתוח:** `RESET_DAY_MENUS_FOR_DATES` — מנקה מנות; אחר כך `syncVenueClosedWhenMenuEmpty` אם אין מנות.\n- **יום סגור:** מחיקת `futurePlannerDayClosureOverrides` ו־`dayScheduleOverrides` לאותו תאריך — חזרה לברירות מחדל.\n\n### תפוצה בוואטסאפ\n- כותרת: **«הודעת תפוצה בוואטסאפ»**.\n- שורה כמו בתפריט היומי: **«שליחה אוטומטית | הודעת תפוצה בוואטסאפ»** + מתג + (כשמופעל) שדה שעה.\n- **תמיד** נשמר `futureMenuBroadcastDaysBefore: 1` (יום לפני) בהפעלה — **הוסר** שדה «כמה ימים לפני» והסברים הארוכים.\n- בשעה: `placeholder` = **שעת פתיחת ההזמנות** (או `14:30`); בעת הפעלת המתג, אם השדה ריק — נטען ברירת מחדל כזו; `onBlur` עם `normalizeHhmm`.\n\n### הוסר\n- פסקה על איסוף/חלון קופץ והקישור להגדרות מערכת.\n- כפתור **«כל הגדרות המערכת»**.\n\nאם תרצי לכוון את ניסוח דיאלוג האיפוס או את סדר הבלוקים — אפשר לעדכן בנקודה.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nאיפוס יום ביום שעובדים זה אמור להיות טרם עשינו\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מחזירים את תווית «טרם» בפס השבוע למצב pending (כולל אחרי איפוס יום שמנקה מנות).\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מציגים שוב את התווית «טרם» בפס השבוע במצב pending (יום עתידי פתוח בלי מנות בתפריט) — כולל אחרי איפוס יום.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"עדכנתי את פס השבוע:\n\n- במצב **pending** (יום **עתידי**, העסק **פתוח** בלוח, ואין מנה מוצגת בתפריט — כולל **מיד אחרי «איפוס יום»** שמנקה מנות) מוצג שוב **מעל האות** התווית **«טרם»** (בולד, בגוון הענבר של המצב).\n- בימים **לבנים** (open עם תפריט) שורת התווית נשארת ריקה לריווח (`invisible`).\n\nהלוגיקה של `futureWeekStripKind` כבר מסווגת אחרי איפוס ל־`pending` כי אין מנות מוצגות; עכשיו זה גם **נראה** במפורש עם «טרם».\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nהגדרות מהירות שיהיה צמוד לימין ולא לשמאל\nהכותרת\n\nאיפוס יום שיהיה בעיצוב כמו שצריך הדיאלוג\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מתקנים את יישור כותרת «הגדרות מהירות» לימין (ב־RTL הסדר ב־DOM וה־`text-end` גרמו לבעיה), ומשפרים את דיאלוג «איפוס יום».\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן:\n\n### כותרת «הגדרות מהירות»\n- הסרתי את `flex-1` ו־`text-end` (ב־RTL זה דחף את הטקסט לכיוון הלא נכון בתוך רוחב גדול).\n- סידור: קודם **הכותרת**, אחר כך **האייקון**, עם **`justify-between`** על שורה ב־`dir=\"rtl\"` — הכותרת נשארת **בצד ימין** והאייקון **בשמאל**, בלי שהטקסט «יידבק» לשמאל.\n\n### דיאלוג «איפוס יום»\n- תיבת תוכן: `sm:max-w-md`, ריווח `gap-4`.\n- כותרת: `font-heading text-lg font-bold`.\n- תיאור: `leading-relaxed`, צבע משני.\n- כפתורים: **`flex-row-reverse`** + `sm:justify-start` — ב־RTL סדר נוח: **איפוס** (אדום) קרוב לימין, **ביטול** לידו.\n- **`AlertDialogAction`** עם **`variant=\"destructive\"`** לכפתור האישור (איפוס מסוכן), כמו דפוס אזהרה רגיל.\n\nאם תרצי בלי אייקון ליד הכותרת או עם כותרת מלאה לרוחב בלי `justify-between`, אפשר לכוון עוד צעד.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nאם בית העסק סגור לא צריך להופיע לא מתי נפתח בית העסק ומתי הודעת תפוצה בווטטסאפ\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מסתירים את בלוק השעות (כולל ההודעה על פתיחת העסק) ואת בלוק תפוצת הוואטסאפ כשהיום סגור בלוח.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"עודכן כך:\n\nכש־**בית העסק סגור** ביום הנבחר (`venueClosed`):\n\n- **לא** מוצג בלוק **«שעות ליום הנבחר»** (כולל `QuickHoursEditor` — אין שום שדות על מתי נפתחים / סגירה וכו׳).\n- **לא** מוצג בלוק **«הודעת תפוצה בוואטסאפ»**.\n- הוסר גם המשפט *«יום סגור — פתחי את בית העסק כדי להתאים שעות»*.\n\nנשארים: **מתג פתוח/סגור** לבית העסק, ו־**איפוס יום** (כמו קודם).\n\nכשהיום **פתוח**, שעות ותפוצה בוואטסאפ מופיעים כרגיל.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nאיפוס יום סוגר לי אוטומטית את היום\n\nזה אמור להיות אם זה יום א וש זה צריך להיות סגור בית העסק אם זה לא יום חול זה צריך להיות טרם ושבית העסק יהיה פתוח\n\nהדיאלוג של האיפוס יום לא טוב\nצריך להיות כותרת בצבע (הרקע) ובצד שמאל X\nלמטה הכפתורים צמודים לצד השני והתוכן גם\nאם לוחצים בשטח המת שיסגור את הדיאלוכ\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מתקנים את לוגיקת איפוס היום (בלי סגירה אוטומטית; בסופ״ש — פתיחת העסק) ומשפרים את דיאלוג האיפוס. בודקים את הקוד הנוכחי ואת רכיבי הדיאלוג.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nאיפוס יום סוגר לי אוטומטית את היום\n\nזה אמור להיות אם זה יום א וש זה צריך להיות סגור בית העסק אם זה לא יום חול זה צריך להיות טרם ושבית העסק יהיה פתוח\n\nהדיאלוג של האיפוס יום לא טוב\nצריך להיות כותרת בצבע (הרקע) ובצד שמאל X\nלמטה הכפתורים צמודים לצד השני והתוכן גם\nאם לוחצים בשטח המת שיסגור את הדיאלוכ\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מסירים את `syncVenueClosedWhenMenuEmpty` (מקור הסגירה האוטומטית). אחרי איפוס: בסופ״ש — פותחים את בית העסק; ביום חול — סוגרים בלוח. מחליפים את ה-AlertDialog ב-Dialog מעוצב.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מיישמים: מעדכנים את לוגיקת האיפוס, מחליפים את ה-AlertDialog בדיאלוג מעוצב, ומוודאים ש-X משמאל והכפתורים מיושרים.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן:\n\n### 1. לוגיקת איפוס יום (בלי סגירה אוטומטית מהסנכרון)\n- הוסרה הקריאה ל־`syncVenueClosedWhenMenuEmpty` אחרי `RESET_DAY_MENUS_FOR_DATES` (זו הייתה שגורמת לסגירה אוטומטית כשאין מנות).\n- אחרי איפוס תפריט:\n  - **סופ״ש (שבת/ראשון)** — `setVenueOpenForDate(..., true)` כדי שהבית יסומן **פתוח** בלוח (מצב «טרם» עד שמוסיפים מנות).\n  - **יום חול** — `setVenueOpenForDate(..., false)` כדי שהבית יסומן **סגור** בלוח.\n\n### 2. דיאלוג איפוס יום\n- הוחלף `AlertDialog` ב־`Dialog` עם:\n  - **פס כותרת** ברקע `#4a6f72` וטקסט לבן.\n  - **X משמאל** (`absolute left-2`) עם `DialogClose` (בלי כפתור סגירה ברירת־מחדל של `DialogContent`).\n  - **תוכן** מיושר לימין (`text-right`).\n  - **שורת כפתורים** תחתונה עם מרווח פנימי, `איפוס` (destructive) ואז `ביטול`, מיושרים ל־`justify-start` ב־`dir=\"rtl\"` (בצד ה«שני» מ־X).\n- **לחיצה על הרקע** — `Dialog` עם `onOpenChange` מחובר ל־`setResetConfirmOpen`; ב־Base UI לחיצה על ה־backdrop סוגרת את הדיאלוג (כמו במודלים אחרים בפרויקט).\n\nהטקסט המסביר עודכן כך שייתאם להתנהגות החדשה (חול מסומן סגור, סופ״ש פתוח/טרם).\n\nאם תרצי שהכפתורים יהיו דווקא בצד **שמאל** למטה (מסך), אפשר לשנות ל־`justify-end` או `ms-auto` בלבד בשורת הכפתורים.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nהכותרת של איפוס יום הדיאלוג שיהיה צמוד לימין והכפתור איפוס וסיטול שיהיה צמוד לצד שמאל\n\nהכותרת של הדיאלוג של האיפוס שיש החום אדמדם ולא הטורכיז\n\nשלוחצים איפוס זה לא עושה את מה שביקשתי לא עושה לי טרם\n\nומחזיר למה שהיה\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"בודקים את לוגיקת האיפוס ואת מצב «טרם», ומעדכנים את עיצוב הדיאלוג.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מזהים מרוץ: `ENSURE_DAY_MENU` עלול לרוץ עם `snap` ישן ולדרוס את איפוס התפריט ב-Firebase. נוסיף פעולה אטומית אחת ונעדכן את עיצוב הדיאלוג.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מוסיפים פעולה אטומית אחת ב-Firebase: שני `void executeRemoteAction` רצים במקביל, ו-`ENSURE_DAY_MENU` עלול לדרוס את איפוס התפריט עם snapshot ישן.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן:\n\n### למה «טרם» לא הופיע וההכל «חזר»\nב־Firebase היו **שתי כתיבות נפרדות** (`RESET_DAY_MENUS` + `PATCH_SETTINGS`) במקביל, וב־`ENSURE_DAY_MENU` יכול היה להישלח **snap ישן** — ואז נשמר מחדש תפריט ישן **אחרי** האיפוס. זה מסביר «מחזיר למה שהיה».\n\n### התיקון\nנוספה פעולה אחת **`RESET_PLANNER_DAY_FOR_DATE`** שב־`write-remote`:\n1. קודם כותבת ל־`dayMenus` את כל המנות כ־`onMenu: false`\n2. **אחר כך** מעדכנת `settings` (סופ״ש: מוסיפה ל־`weekendVenueOpenIsoList` אם חסר; חול: מוסיפה ל־`closedDayIsoList` אם חסר)\n\nכך אין מרוץ בין איפוס לעדכון הגדרות, והסיכוי ש־ENSURE ידרוס עם נתונים ישנים קטן משמעותית. אותה לוגיקה נוספה גם ל־**local reducer** ל־dev בלי Firebase.\n\n### עיצוב הדיאלוג\n- **כותרת** מיושרת **ימין** (`text-right`, ריווח מ־X משמאל)\n- **רקע כותרת** חום־אדמדם: `#8f4e42` (במקום טורקיז)\n- **כפתורים** בשורה עם `dir=\"ltr\"` ו־`justify-start` — צמודים ל־**שמאל** המסך\n\n### ניקוי\nהוסר `stateRef` שלא בשימוש אחרי המעבר לפעולה האחת.\n\nאם אחרי רענון עדיין יש מקרה חריג, תכתבי באיזה יום בשבוע (למשל שישי מול שבת) ובודקים מול `isSaturdayOrSundayJerusalemIso`.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nאוקיי תקשיב זה מאפס לי את גם ביום חול לבית העסק סגור הוא צריך להיות מסומן כפתוח רק ימי א וש שיהיה סגור!!\n\nוההודעה של סגור בברירת מחדל זה התבנית של סגורים היום ולא סגורים זמנית\n\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מעדכנים את לוגיקת האיפוס: ביום חול — בית העסק פתוח; רק שבת וראשון — סגור. בודקים איפה מוגדרת ברירת המחדל של הודעת «סגור».\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מתקנים את לוגיקת האיפוס (חול = פתוח, שבת/ראשון = סגור) ומתקנים את `effectiveCalendarClosureCopy` כך שכותרת גלובלית «סגורים זמנית» לא תוצג ביום חול — נשתמש בתבנית «סגורים היום».\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מתקנים את לוגיקת האיפוס ואת תצוגת ההודעה בלוח.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן:\n\n### 1. איפוס יום — לוח בית העסק\nאחרי **איפוס תפריט** (`RESET_PLANNER_DAY_FOR_DATE`):\n\n- **יום חול (א׳–ה׳)** — בית העסק **פתוח** בלוח: אם התאריך היה ברשימת **ימים סגורים**, הוא **מוסר** ממנה (`REMOVE_CLOSED_DAY`).\n- **שבת וראשון** — **סגור** כברירת סופ״ש: אם התאריך היה ב־**weekendVenueOpenIsoList**, הוא **מוסר** משם (כמו סגירה ברירתית בסופ״ש).\n\nזה ב־`local-app-store.tsx` וב־`write-remote.ts` (הלוגיקה הקודמת הייתה הפוכה).\n\n### 2. הודעת «סגור» — «סגורים היום» ולא «סגורים זמנית»\nב־`effectiveCalendarClosureCopy` (תצוגת לקוח ליום סגור בלוח):\n\n- **יום חול**: אם הכותרת והגוף **זהים לתבנית הידנית המלאה** של «סגורים זמנית» (`weekend` + `manual`), מחליפים לתבנית **«סגורים היום»** דרך `effectiveTomorrowBuiltin(s, \"closed_today\")` — כלומר אותה משפחת טקסט כמו תבנית **מחר / סגורים היום**, לא תבנית הידני של סגירה זמנית.\n\nכך אם בהגדרות הגלובליות נשאר בטעות הטקסט של **סגורים זמנית** (ידני), בלוח ביום חול יוצג **סגורים היום** עם הגוף המתאים.\n\n### 3. טקסט בדיאלוג האיפוס\nעודכן להסביר: חול → פתוח בלוח, שבת/ראשון → סגור (ברירת סופ״ש).\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nהצבע של איפוס יום הרקע בכותרת צריך להיות האדום של התפריט צד של הכותרת של הניהול ולא מה שעשית\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מחליפים את הרקע המותאם אישית ב־`bg-primary` ו־`text-primary-foreground` — כמו בכותרת «ניהול» ב־`AdminNavHeader`.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"עודכן: כותרת דיאלוג «איפוס יום» משתמשת עכשיו באותם טוקנים של עיצוב הניהול כמו בכותרת הצד ב־`AdminNavHeader`:\n\n- `bg-primary` + `text-primary-foreground`\n- כפתור ה־X עם `hover:bg-black/10` (כמו בכותרת המובייל של הניהול)\n\nכך הצבע תמיד יתאים לאדום/ראשי של הערכת הנושא (`--primary` ב־`globals.css`), ולא ל־hex שהוגדר ידנית.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nאוקיי ההדועה באיפוס יום שיהיה\nאיפוס יום מוחק את כל המנות מתפריט היום או את ההודעה ביום זה.\n\nועכשיו אני רוצה גם שתגדיר לא מעניין אותי מהה היה קודם באותו יום כי זה לא עושה את זה כרגע\n\nימים שמוגדרים בהגדרות של ימים שלא עובדים בהם (כרגע זה יום ש' וא') שיהיו מסומנים בבררית מחדל כיום סגור ולמחוק את ההודעה שהייתה ושתיהיה התבנית סגורים היום ואם היה מנות אז למחוק אותם \n\nיום חול שמוגדר שעובדים בו ימחק ההודעה שהייתה וכל המנות והעסק עדין ישאר פתוח.\n\nתוסיף לי בהגדרות לקבוע גם את ימי החופש שלא עובדים ולפי זה גם בשבועות מסמנים אותם כימים שלא עובדים\n\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"בודקים איך מוגדרים ימי עבודה בהגדרות ואיך פועל איפוס היום, כדי ליישם את הדרישות.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מיישמים: פונקציית איפוס מרכזית, שדה הגדרות לימי חופש, עדכון מסמך Firestore, וממשק בהגדרות ובפס השבוע.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שיושם:\n\n### 1. טקסט בדיאלוג «איפוס יום»\n- כשהיום **לא** מסומן סגור בלוח:  \n  **«איפוס יום מוחק את כל המנות מתפריט היום או את ההודעה ביום זה. לפי «ימי חופש בתכנון» בהגדרות: יום לא פעיל — נסגר בלוח עם תבנית «סגורים היום»; יום פעיל — העסק נשאר פתוח והודעה נמחקת.»**\n- כשהיום **סגור** בלוח: נשאר הסבר על איפוס דריסות טקסט ושעות (כמו קודם).\n\n### 2. לוגיקת איפוס (לא תלוי «מה שהיה»)\nנוסף קובץ `lib/planner-reset-day.ts` עם `nextSettingsAfterResetPlannerDay` שמבצע בכל איפוס:\n\n- **מחיקת כל המנות** ליום (כמו קודם).\n- **מחיקת דריסת שעות** ליום (`dayScheduleOverrides`).\n- **יום שמוגדר כ«לא פעיל»** (ראה סעיף 3):  \n  סגירה בלוח (שבת/ראשון — הוצאה מ־`weekendVenueOpenIsoList`; יום חול — הוספה ל־`closedDayIsoList`), והודעת יום = **תבנית «סגורים היום»** (`effectiveTomorrowBuiltin` / `closed_today`).\n- **יום «פעיל»**: העסק **נשאר פתוח** (שבת/ראשון — בתוך רשימת הפתוחים; חול — לא ברשימת הסגורים), **מוחקים** את `futurePlannerDayClosureOverrides` ליום (בלי הודעה ייעודית).\n\n### 3. הגדרות — «ימי חופש בתכנון עתידי»\nב־**הגדרות מערכת** נוסף כרטיס עם סימון **א׳–ש׳**: אילו ימי שבוע נחשבים «לא עובדים».\n\n- **אם השדה לא קיים במסד** — ברירת מחדל: **ראשון ושבת** (כמו סופ״ש).\n- **אם מסמנים מערך ריק** (מבטלים את כל הסימונים) — אין ימי חופש מוגדרים; האיפוס מתנהג כמו «יום פעיל» תמיד.\n\n### 4. לוח שבוע בתכנון עתידי\nליום **עתידי** שמוגדר כיום חופש בהגדרות: **מסגרת מקווקוות** (`ring-dashed`) בצבע ראשי + `title` עם הסבר.\n\n### 5. טיפים טכניים\n- `plannerNonWorkingWeekdayIndicesSun0` נשמר ב־Firestore דרך `PATCH_SETTINGS`.\n- `mergeSettings` ב־Firebase מטפל בשדה החדש (כולל מערך ריק).\n- `RESET_PLANNER_DAY_FOR_DATE` מעדכן בבת אחת: `dayMenus` + ארבעת שדות ההגדרות הרלוונטיים.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nתקשיב אתה לא מבין ההודעה של איפוס יום יהיה קבוע לא משנה לי אם היום סגור או לא\nוגם הפעולו קבועות\nגם אם הייתי היום חול וזה היהה מסומן כסגור ואני עושה איפוס שיפתח לי את היום\nהבנת?\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מאחדים: טקסט דיאלוג קבוע, ופעולת איפוס אחת תמיד — כולל כשהיום היה מסומן סגור: איפוס יפתח את היום אם הוא יום פעיל לפי «ימי חופש בתכנון».\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מסירים את ענף `venueClosed` — תמיד מריצים `RESET_PLANNER_DAY_FOR_DATE` (כולל פתיחת יום חול פעיל גם אם סומן סגור). מאחדים את טקסט הדיאלוג והטוסט.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן:\n\n### 1. טקסט הדיאלוג — תמיד אותו דבר\nבלי תלות אם היום מסומן פתוח או סגור בלוח, מוצגת רק ההודעה הזו:\n\n*«איפוס יום מוחק את כל המנות מתפריט היום או את ההודעה ביום זה. לפי «ימי חופש בתכנון» בהגדרות: יום לא פעיל — נסגר בלוח עם תבנית «סגורים היום»; יום פעיל — נפתח בלוח, מנות והודעה נמחקים.»*\n\n### 2. פעולה אחת תמיד\nהוסר המצב המיוחד שהיה רק כש־`venueClosed`. **בכל לחיצה על «איפוס»** רצה רק  \n`RESET_PLANNER_DAY_FOR_DATE` — כולל:\n- איפוס מנות  \n- מחיקת דריסות שעות והודעה לפי הלוגיקה ב־`nextSettingsAfterResetPlannerDay`  \n\nאם זה **יום פעיל** (לא מסומן ב«ימי חופש בתכנון») — היום **נפתח בלוח** גם אם לפני כן היה מסומן סגור (למשל יום חול שהיה סגור ידנית).\n\n### 3. טוסט\nאחרי איפוס: **«היום אופס»** (אחיד לכל המקרים).\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nשההדעה תיהיה \nאיפוס יום מוחק את כל המנות מתפריט היום או את ההודעה ביום זה.\nבלי החלק של\n לפי «ימי חופש בתכנון» בהגדרות: יום לא פעיל — נסגר בלוח עם תבנית «סגורים היום»; יום פעיל — נפתח בלוח, מנות והודעה נמחקים\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"עודכן: בדיאלוג מוצגת רק המשפט:\n\n**איפוס יום מוחק את כל המנות מתפריט היום או את ההודעה ביום זה.**\n\nההתנהגות בפועל (לפי ימי חופש בתכנון וכו’) נשארת כמו עכשיו — רק הטקסט למשתמשת התקצר.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nבסגור שעושים איפוס שהתבנית סגורים היום שתיהיה מסומנת\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מעדכנים את איפוס היום לימים סגורים כך שדריסת ההודעה תתאים בדיוק לתבנית «סגורים היום» של הלוח (`weekend` + `calendar`) — כדי שכפתור התבנית יסומן.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הבעיה הייתה שאחרי איפוס נשמרה דריסה עם טקסט מ־`closed_today` (תבנית «מחר»), עם גוף מעט שונה מזה של תבנית **«סגורים היום»** בלוח (`weekend` + `calendar`), ולכן `matchClosureIntentFromPreview` לא זיהה התאמה ולא סימן את הכפתור.\n\n**מה שיניתי:** בימים סגורים (יום לא פעיל בתכנון) הדריסה נקבעת עכשיו עם  \n`effectiveClosurePreset(s, \"weekend\", \"calendar\")` — אותו טקסט כמו כפתור **«סגורים היום»** בתבניות של יום סגור בלוח, כך שהכפתור הזה יסומן אחרי איפוס.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nבשכפול משבוע קודם שישכפל גם את ההגדרות מהירות, השעות וכו\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"משפרים את העתקת השעות: נעתיק את לוח השעות האפקטיבי של יום המקור (כולל דריסה) ליעד, ונעביר `calendarToday` לחישוב נכון. מעדכנים את הטוסט.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"[Image]\n[Image]\n<image_files>\nThe following images were provdied by the user and saved to the workspace for future use:\n1. C:\\Users\\yarde\\.cursor\\projects\\c-Users-yarde-OneDrive-Desktop-MAZAL/assets/c__Users_yarde_AppData_Roaming_Cursor_User_workspaceStorage_af2d1dcb79e6f8c63e030ba190e0ce95_images_image-7c307dd4-a295-43e1-8596-e20214e2c6bb.png\n2. C:\\Users\\yarde\\.cursor\\projects\\c-Users-yarde-OneDrive-Desktop-MAZAL/assets/c__Users_yarde_AppData_Roaming_Cursor_User_workspaceStorage_af2d1dcb79e6f8c63e030ba190e0ce95_images_image-47ddd8b2-af13-4120-b9e0-8596de598e94.png\n\nThese images can be copied for use in other locations.\n</image_files>\n<user_query>\nבתפריט של יום פתוח שיהיה לי אפשרות של מיון לפי קטגוריות\nגם בימים שעברנו ואותו יום\nכמו שעשינו בשאר העמודים \n\nאם אין מנות בקטגוריה הזאת זהה מעלים לי את הקטגוריות שלא יעלים אותם שתמיד יופיעו ושתמיד יופיע ההוסף מנה מהמאגר\nשתמיד יופיע הקטגרויות גם אם אין לי שום מנה\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מחפשים איך מיון לפי קטגוריות מיושם בעמודים אחרים ואיפה מוצג תפריט יום פתוח.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מוסיפים סרגל קטגוריות (כמו במאגר), מסננים את רשימת המנות, ומציגים תמיד את כל הקטגוריות ואת «הוסף מנה מהמאגר» כשהיום פתוח בלוח.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<git_status>\nThis is the git status at the start of the conversation. Note that this status is a snapshot in time, and will not update during the conversation.\n\nGit repo: C:/Users/yarde/OneDrive/Desktop/MAZAL\n\n```\n## master\n```\n</git_status>\n\n<agent_transcripts>\nAgent transcripts (past chats) live in C:\\Users\\yarde\\.cursor\\projects\\c-Users-yarde-OneDrive-Desktop-MAZAL/agent-transcripts. They have names like <uuid>.jsonl, cite them to the user as [<title for chat <=6 words>](<uuid excluding .jsonl>). NEVER cite subagent transcripts/IDs; you can only cite parent uuids. Don't discuss the folder structure.\n</agent_transcripts>\n\n<agent_skills>\nWhen users ask you to perform tasks, check if any of the available skills below can help complete the task more effectively. Skills provide specialized capabilities and domain knowledge. To use a skill, read the skill file at the provided absolute path using the Read tool, then follow the instructions within. When a skill is relevant, read and follow it IMMEDIATELY as your first action. NEVER just announce or mention a skill without actually reading and following it. Only use skills listed below.\n\n<available_skills description=\"Skills the agent can use. Use the Read tool with the provided absolute path to fetch full contents.\">\n<agent_skill fullPath=\"C:\\Users\\yarde\\.codex\\skills\\.system\\openai-docs\\SKILL.md\">Use when the user asks how to build with OpenAI products or APIs and needs up-to-date official documentation with citations, help choosing the latest model for a use case, or explicit GPT-5.4 upgrade and prompt-upgrade guidance; prioritize OpenAI docs MCP tools, use bundled references only as helper context, and restrict any fallback browsing to official OpenAI domains.</agent_skill>\n\n<agent_skill fullPath=\"C:\\Users\\yarde\\.codex\\skills\\.system\\skill-creator\\SKILL.md\">Guide for creating effective skills. This skill should be used when users want to create a new skill (or update an existing skill) that extends Codex's capabilities with specialized knowledge, workflows, or tool integrations.</agent_skill>\n\n<agent_skill fullPath=\"C:\\Users\\yarde\\.codex\\skills\\.system\\skill-installer\\SKILL.md\">Install Codex skills into $CODEX_HOME/skills from a curated list or a GitHub repo path. Use when a user asks to list installable skills, install a curated skill, or install a skill from another repo (including private repos).</agent_skill>\n\n<agent_skill fullPath=\"C:\\Users\\yarde\\.cursor\\skills-cursor\\babysit\\SKILL.md\">Keep a PR merge-ready by triaging comments, resolving clear conflicts, and fixing CI in a loop.</agent_skill>\n\n<agent_skill fullPath=\"C:\\Users\\yarde\\.cursor\\skills-cursor\\canvas\\SKILL.md\">You MUST use a Cursor Canvas for chats involving dashboards, charts, timelines, interactive explorations, repeatable tools, etc. Use when the topic is complex enough that a plain markdown response would be inadequate, or when the user asks for something reusable or interactive.</agent_skill>\n\n<agent_skill fullPath=\"C:\\Users\\yarde\\.cursor\\skills-cursor\\create-rule\\SKILL.md\">Create Cursor rules for persistent AI guidance. Use when you want to create a rule, add coding standards, set up project conventions, configure file-specific patterns, create RULE.md files, or asks about .cursor/rules/ or AGENTS.md.</agent_skill>\n\n<agent_skill fullPath=\"C:\\Users\\yarde\\.cursor\\skills-cursor\\create-skill\\SKILL.md\">Guides users through creating effective Agent Skills for Cursor. Use when you want to create, write, or author a new skill, or asks about skill structure, best practices, or SKILL.md format.</agent_skill>\n\n<agent_skill fullPath=\"C:\\Users\\yarde\\.cursor\\skills-cursor\\update-cursor-settings\\SKILL.md\">Modify Cursor/VSCode user settings in settings.json. Use when you want to change editor settings, preferences, configuration, themes, font size, tab size, format on save, auto save, keybindings, or any settings.json values.</agent_skill>\n</available_skills>\n</agent_skills>"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"[Image]\n[Image]\n<image_files>\nThe following images were provdied by the user and saved to the workspace for future use:\n1. C:\\Users\\yarde\\.cursor\\projects\\c-Users-yarde-OneDrive-Desktop-MAZAL/assets/c__Users_yarde_AppData_Roaming_Cursor_User_workspaceStorage_af2d1dcb79e6f8c63e030ba190e0ce95_images_image-7c307dd4-a295-43e1-8596-e20214e2c6bb.png\n2. C:\\Users\\yarde\\.cursor\\projects\\c-Users-yarde-OneDrive-Desktop-MAZAL/assets/c__Users_yarde_AppData_Roaming_Cursor_User_workspaceStorage_af2d1dcb79e6f8c63e030ba190e0ce95_images_image-47ddd8b2-af13-4120-b9e0-8596de598e94.png\n\nThese images can be copied for use in other locations.\n</image_files>\n<user_query>\nבתפריט של יום פתוח שיהיה לי אפשרות של מיון לפי קטגוריות\nגם בימים שעברנו ואותו יום\nכמו שעשינו בשאר העמודים \n\nאם אין מנות בקטגוריה הזאת זהה מעלים לי את הקטגוריות שלא יעלים אותם שתמיד יופיעו ושתמיד יופיע ההוסף מנה מהמאגר\nשתמיד יופיע הקטגרויות גם אם אין לי שום מנה\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"המשימה הושלמה. הנה סיכום קצר:\n\n## מה נוסף\n\n1. **מיון לפי קטגוריות** בתפריט יום פתוח (`DayMenuEditor`): שורת כפתורי “פיל” — **הכל** + כל הקטגוריות מהמערכת, באותו סגנון כמו בשאר העמודים.\n\n2. **הקטגוריות תמיד מוצגות** — לא מוסתרות כשאין מנות בקטגוריה. אם בחרת קטגוריה בלי מנות, מוצגת הודעה מתאימה (למשל שאין מנות בקטגוריה הזו ליום הזה).\n\n3. **“הוסף מנה מהמאגר”** — מוצג גם כשהיום ריק, גם כשהקטגוריה ריקה, ובסוף הרשת כשיש מנות (כשההוספה מהמאגר מותרת לפי הכללים של היום/המקום).\n\n4. **עמוד היומי** (`app/admin/menu/daily/page.tsx`) — מעביר `onAddFromCatalog` כשהמקום פתוח לעריכה וכשאין חסימת “חלון הזמנה למחר”, כדי שהאריח יופיע גם בתצוגת רשת.\n\n**בדיקה:** `npx tsc --noEmit` הסתיים בהצלחה (קוד 0).\n\nאם תרצה התאמות נוספות (למשל להסתיר את שורת הקטגוריות כשהמקום סגור ליום מסוים), אפשר לעשות זאת בשלב הבא.\n\n[REDACTED]"}]}}

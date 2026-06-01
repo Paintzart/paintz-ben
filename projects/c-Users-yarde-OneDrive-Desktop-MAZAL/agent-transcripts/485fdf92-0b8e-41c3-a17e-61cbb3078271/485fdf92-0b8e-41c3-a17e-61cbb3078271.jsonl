@@ -1,0 +1,22 @@
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nהגדרות שהכניסה לא תיהיה ככה שתיהיה כמו כל העמודים בלי העברת עמודים בצד\nופשוט יהיה כתוב הגדרות | עסק וזמנים\nהגדרות | הודעות ותבניות\n\nבלי הגרדינט ומה שעשית שם\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"בודקים את מבנה עמוד ההגדרות והעמודים האחרים כדי להתאים את העיצוב.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מפשטים את `settings/layout.tsx` (ללא גרדיאנט וללא ניווט טאבים), ומסירים את סרגל הקפיצה לסעיפים משני עמודי ההגדרות.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן:\n\n### `app/admin/settings/layout.tsx`\n- הוסרו הגרדיאנט, תיבת ה־ring המיוחדת, הטקסט הארוך («שני מסכים…») והניווט בצד עם האייקונים והטאבים.\n- נשאר כותרת בסגנון שאר האדמין (מפריד תחתון + חמסה), עם **כותרת דינמית**:\n  - `/admin/settings` → **הגדרות | עסק וזמנים**\n  - `/admin/settings/messages` → **הגדרות | הודעות ותבניות**\n\n### `app/admin/settings/page.tsx` ו־`messages/page.tsx`\n- הוסר סרגל «במסך» עם הקפצות ל־`#` (העמודה הצדדית ב־XL).\n\nהמעבר בין שני המסכים נשאר דרך **תפריט הצד** (הגדרות → עסק וזמנים / הודעות ותבניות), בלי כפילות בראש העמוד.\n\nאם תרצה גם **בלי חמסה** בכותרת ההגדרות (רק טקסט), אפשר להסיר אותה בשורה אחת.\n\n[REDACTED]"}]}}

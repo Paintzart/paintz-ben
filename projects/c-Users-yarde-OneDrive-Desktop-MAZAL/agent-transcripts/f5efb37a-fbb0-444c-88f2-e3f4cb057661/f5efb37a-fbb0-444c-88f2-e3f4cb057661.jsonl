@@ -1,0 +1,17 @@
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nאם נשאר לי 0.5 מנות באזל במלאי אז שיתנהג כאילו יש 0 מנות כי 0.5 זה שום אופציה\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מחפש בקוד איפה נבדק מלאי/מנות כדי ש-0.5 ייחשב כ-0.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מטפלים בכך: יתרה של פחות ממנה אחת שניתן להזמין (למשל 0.5 יחידות כשהמינימום הוא 1) תוצג כאזל — כיום מוצג \"נשאר מעט\" למרות שלא ניתן להזמין. מוסיפים רצפת יתרה לפי גודל המנה המינימלי שניתן להזמין.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן:\n\n## מה הבעיה הייתה\nהיתרה חושבה ב־**יחידות מלאי** (רגיל = 1, שדרוג = 1.5, כפול = 2). כשנשארו למשל **0.5** יחידות, כבר לא היה אפשר להזמין אף גודל — אבל בכרטיס הופיע **\"נשאר מעט\"** במקום **אזל במלאי**.\n\n## מה עשינו\nב־`lib/customer-menu-stock.ts`:\n\n1. **`minOfferedPortionInventoryUnits`** — לוקח את המינימום מבין יחידות המלאי של כל גודל מנה שבאמת מוצע (מחיר &gt; 0).\n2. **`customerRemainingInventoryUnits`** — אם מועברת המנה (`MenuItem`), ויש יתרה חיובית שעדיין **קטנה מהמינימום הזה**, היתרה **מאופסת** (מתנהגת כמו 0).\n3. **`customerCardStockDisplay`** — מקבל את המנה כפרמטר חמישי ומעביר אותה לחישוב היתרה.\n\nבכל מקומות הלקוח עודכנו להעביר את `item`: תפריט, גיליון הזמנה, ו־checkout.\n\nכך **0.5** כשהמינימום להזמנה הוא **1** (או כל שארית שמתחת לגודל המנה הקטן ביותר הזמין) תוצג כ־**אזל במלאי**, בלי רמז \"נשאר מעט\", ותישאר עקבית עם חסימת ההזמנה שכבר הייתה בלוגיקה.\n\n[REDACTED]"}]}}

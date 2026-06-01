@@ -1,0 +1,98 @@
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nלוח יומי  המנות שיהיה את כולם גם אם לא הזמינו אותם\n\nהכסף לא מעניין אותי שלא יופיע במנות\n\nתמונה מהמאגר; מכירות לפי סוג מנה (רגיל / שדרוג / כפול). סיכומים ישנים ללא פירוט — מוצג סה״כ יחידות מלאי בלבד.\nאין צורך בזה\n\nשיהיה כתוב סהכ\n\nשיהיה את הכותרת אין צורך לכל הרווח הזה\n\nההכנבות הזמנות נאספו כל הפרמטרים שיהיו ממורכזים הכל באותה שורה ואותו גודל\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מחפשים בקוד את לוח היומי, תצוגת המנות והכותרות כדי ליישם את השינויים שביקשת.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מעדכנים את דף הלוח היומי (`/admin/reports`): מציגים את כל מנות תפריט היום (גם עם 0 מכירות), מסירים סכומי כסף מכרטיסי המנות, מצמצמים כותרות וריווח, מאחדים את שורת הסטטיסטיקות לשורה אחת ממורכזת באותו גודל.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן ב־[`app/admin/reports/page.tsx`](c:\\Users\\yarde\\OneDrive\\Desktop\\MAZAL\\app\\admin\\reports\\page.tsx):\n\n### מנות\n- **כל המנות מתפריט היום** לפי `dayMenus` לתאריך שנבחר, גם אם לא נמכרו (כמויות 0). מנות שמופיעות רק בהזמנות אבל לא ברשימת היום נוספות בסוף (מקרי קצה).\n- **הוסר סכום הכסף** מתחת לכל כרטיס מנה.\n\n### כותרת ומנות לפי סוג\n- הוסר הפסקה הארוכה על תמונה / סיכומים ישנים / יחידות מלאי.\n- כותרת **«מנות לפי סוג»** עם **פחות ריווח** (`CardHeader` צפוף יותר).\n\n### סה״כ\n- במקום «סה״כ יח׳ מלאי» מוצג רק **«סה״כ»** והמספר (במצב בלי פירוט לפי גודל מנה).\n\n### כותרת העמוד «סיכום יום»\n- **פחות ריווח** (`pb-2`, לוגו קצת יותר קטן, כותרת קצת יותר קומפקטית).\n\n### סטטיסטיקות (הזמנות, נאספו, לא נאספו, ביטולים, הכנסות)\n- **שורה אחת** (עם `flex-wrap` במסכים צרים), **הכל ממורכז**, **אותו גודל טקסט** לתווית ולמספר (`text-sm`).\n\nאם תרצה שהשורה תישאר **בלי מעטפת** גם במובייל (גלילה אופקית במקום שבירה לשורה שנייה), אפשר לכוון את זה בנפרד.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nשיוצג המנות שבתפריט של היום הזה אם יש מנות שלא נהחרו אין צורך שיוצגו\n\nוהחלק של השורת מידע שירא אחרת מרשים מובן יותר כל אחד בריבוע מלשלו\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מעדכן את דף הדוחות: מציג רק מנות שבתפריט היום ומסוננות כ\"בתפריט\" (לא מציג מנות שלא נבחרו/לא על התפריט), ומחזיר את שורת הסטטיסטיקות לכרטיסים נפרדים (ריבוע לכל מדד).\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מסננים רק מנות עם `onMenu !== false` מתפריט היום, מסירים מנות \"יתומות\" מההזמנות, ומחליפים את שורת הסטטיסטיקות בכרטיסים נפרדים.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן:\n\n### מנות\n- מוצגות **רק מנות מתפריט אותו יום** שנמצאות **בתפריט ללקוחות** — כלומר `onMenu !== false` (ברירת מחדל: מוצגת).\n- **מנות שלא נבחרו ליום** (`onMenu === false`, נשארות רק בקטלוג) **לא מוצגות**.\n- **הוסר** הלולאה שהוסיפה מנות שמופיעות בהזמנות אבל **לא** בתפריט היום.\n\n### שורת המידע (סטטיסטיקות)\n- כל מדד ב**כרטיס משלו** (`Card`): ריבוע עם מסגרת, צל קל, **כותרת למעלה** ו**מספר גדול** (`text-xl` / `sm:text-2xl`) במרכז.\n- רשת רספונסיבית: 2 עמודות במובייל, 3 ב־`sm`, 5 ב־`lg` (שורה אחת במסכים רחבים).\n\nאם אין תפריט יום לתאריך שנבחר, רשימת המנות תישאר ריקה והמסר «אין מנות ליום זה» יוצג — זה צפוי כשאין `dayMenus` לאותו תאריך.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nבמנות שיהיה את הפירוט של הסוג בהתאם למנה ושיהיה בסוף סהכ\n\nשיהיה פחות רווח במנות שיהיה פחות רווח בכותרת מנה ללמטה\n\nהיום אתמול שיהיה בגוובה של האייקון\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מוסיפים פירוט לפי גדלים המוצעים למנה (`offeredPortionSizes`), שורת סה״כ בסוף, מצמצמים ריווח בכרטיסי המנות, ומעצבים את כפתורי «היום»/«אתמול» כמו כפתור האייקון.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מתקן טעות: `catalog` הוא אובייקט, לא מערך — `catalog?.length` שגוי.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן ב־`app/admin/reports/page.tsx`:\n\n### פירוט סוג מנה + סה״כ\n- כשיש `portionsBySize`, מוצגים **רק הגדלים שהמנה מציעה במאגר** (אותה לוגיקה כמו בלקוח — `offeredPortionSizes`, מחיר &gt; 0).\n- **אחרי השורות** נוספה שורת **סה״כ** עם `row.qty`.\n- בסיכומים ישנים בלי פירוט נשאר רק בלוק **סה״כ** (כמו קודם).\n\n### פחות ריווח בכרטיסי מנות\n- רשת: `gap-3` → `gap-2`, כרטיסים `rounded-xl`.\n- אזור טקסט: `gap-1`, `px-2 pb-1.5 pt-1` (במקום `p-2.5 pt-2` ו־`gap-2`).\n- כותרת המנה: בלי `min-h-[2.5rem]`, `leading-tight`.\n- רשימת סוגים: `pt-1`, `space-y-0.5`, טקסט `text-[10px]`; תמונת placeholder קצת קטנה יותר.\n\n### היום / אתמול\n- גובה **`h-10`** כמו כפתור הלוח, **`rounded-xl`**, מסגרת וטקסט **`text-[#4a6f72]`**, **`shadow-sm`**, **`hover:bg-[#4a6f72]/10`** — תואם לסגנון כפתור האייקון.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nאם בית העסק סגור שפשוט יהיה  כתוב בית העסק סגור ביום זה\n\nהיום בלוח\nאפשר למחוק את המילים האלה שפשוט התאריך והיום יהיה ממורכז\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מעדכן את הטקסט ליום סגור ומסיר את «היום בלוח»; ממרכז את שורת התאריך.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מעדכן את הפריסה כך שהתאריך יהיה ממורכז בבירור — `flex-1` עלול לדחוף את התאריך לצד אחד.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"זה מה שעודכן:\n\n### יום סגור\n- מוצג רק המשפט **«בית העסק סגור ביום זה»** (בלי «לפי הגדרות הלוח»).\n- בלי מסגרת מקווקוות ורקע — רק פסקה ממורכזת.\n\n### תאריך\n- **הוסר** השורה **«היום בלוח»**.\n- שורת התאריך **ממורכזת**: במובייל בשורה מלאה (`basis-full` + `text-center`); במסכים רחבים התאריך והכפתורים נשארים יחד בקבוצה אחת ממורכזת (`justify-center` + `sm:basis-auto`).\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nאם בית העסק סגור שפשוט יהיה  כתוב בית העסק סגור ביום זה\n\nהיום בלוח\nאפשר למחוק את המילים האלה שפשוט התאריך והיום יהיה ממורכז בגובה אבל צמוד לימין\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מעדכן את הודעת הסגירה ואת אזור התאריך.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מצמצמים `flex-1` למסכים רחבים בלבד — במובייל זה לא ימתח את השורה.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"בוצע ב־`app/admin/reports/page.tsx`:\n\n1. **יום סגור** — ההודעה היא רק: **«בית העסק סגור ביום זה»** (בלי «לפי הגדרות הלוח»).\n\n2. **תאריך** — הוסר **«היום בלוח»**. נשארת רק שורת התאריך, עם **`items-center`** כדי שתהיה **באותו גובה** כמו כפתורי היום/אתמול והלוח, ו־**`text-start`** (ב־`dir=\"rtl\"` זה **יישור לימין**). ב־`sm` ומעלה נוסף **`sm:flex-1`** כדי שהתאריך יישב בצד הימני של השורה והכפתורים בצד השני.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nתגדיל במעט את השם של המנה\n\nמנות לפי סוג שיהיה טיפה פחות רווח למעלה ואולי להגדיל קצת\n\nתגדיל את ההזמנות נאספו לא נאספו דחיות ביטולים והכנסות אין צורך במילה ללא ביטולים\n\nבמסך קטן שזה יכנס גם בשורה אחת אולי\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מעדכן את דף הדוחות: גודל שם המנה, כותרת «מנות לפי סוג», כרטיסי סטטיסטיקה (כולל «הכנסות»), ורשת של 5 עמודות בשורה אחת גם במסכים קטנים.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מסירים `truncate` מערכי הסכומים כדי שלא ייחתך הסימן ₪.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"זה מה שעודכן:\n\n### שם המנה\n- מ־`text-xs` ל־**`text-sm`**.\n\n### «מנות לפי סוג»\n- פחות ריווח מלמעלה: **`pt-2 sm:pt-2.5`** (במקום `pt-3`).\n- כותרת גדולה יותר: **`text-lg sm:text-xl`**.\n\n### כרטיסי סטטיסטיקה\n- תווית **«הכנסות»** בלבד (בלי «ללא ביטולים»).\n- מספרים גדולים יותר: **`text-base` במובייל**, **`sm:text-2xl`**, **`lg:text-3xl`**.\n- תוויות: **`text-[10px]`** במסך צר, **`sm:text-xs`**, **`lg:text-sm`**.\n- **תמיד 5 עמודות בשורה אחת** (`grid-cols-5`) עם **`gap-1`** במובייל ו־**`sm:gap-2`**, **`lg:gap-3`** — ריווחים ופדינג קטנים יותר בטלפון כדי שייכנסו בשורה.\n- גובה כרטיס: **`min-h-[4.85rem]`** במובייל, **`sm:min-h-[6rem]`** במסכים רחבים יותר.\n\nאם במכשיר מאוד צר עדיין נדחף מחוץ למסך, אפשר בשלב הבא לעטוף את השורה ב־`overflow-x-auto` עם רוחב מינימלי — תגיד אם צריך.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nבית העסק סגור ביום זה אין צורך שיהיה לי את העמודות של הקטגוריות והמנות שלא יופיע כי גם ככה זה ריק\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מסתירים את שורת הסטטיסטיקות ואת כרטיס «מנות לפי סוג» כשהעסק סגור ביום הנבחר.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"כשהיום מסומן כסגור בלוח (`venueClosed`), מוצגת רק ההודעה **«בית העסק סגור ביום זה»**.\n\n**לא** מוצגים יותר:\n- שורת הכרטיסים (הזמנות, נאספו, לא נאספו, דחיות/ביטולים, הכנסות)\n- כרטיס **«מנות לפי סוג»** (כולל המצב «אין מנות ליום זה»)\n\nכשהעסק פתוח ביום הנבחר — הכל חוזר כרגיל.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nשיהיה כתוב רק ביטולים בלי דחיות וביטולים\n\nמנוות לפי סוג תוריד קצת את הרווח למעלה בכותרת\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"עודכן ב־`app/admin/reports/page.tsx`:\n\n1. **הכרטיס** — הטקסט הוא עכשיו **«ביטולים»** (במקום «דחיות / ביטולים»). המספר עדיין מבוסס על `stats.cancelled` כמו קודם.\n\n2. **«מנות לפי סוג»** — הורדתי ריווח עליון בכותרת: **`pt-1 sm:pt-1.5`** (במקום `pt-2 sm:pt-2.5`).\n\nאם תרצה את אותה ניסוח («ביטולים») גם בדף האנליטיקה (`/admin/reports/analytics`), אפשר ליישר גם שם.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nתגדיל קצת גם את הפירוט במנות בכתב\n\nבמסך גדול אולי תעשה אותם יותר צרים?\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מגדילים מעט את טקסט הפירוט (רגיל/שדרוג/כפול וסה״כ) ומוסיפים עמודות ברשת במסכים גדולים כדי שהכרטיסים יהיו צרים יותר.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"עודכן ב־`app/admin/reports/page.tsx`:\n\n### פירוט במנות (כתב)\n- שורות רגיל / שדרוג / כפול: מ־`10px` ל־**`text-xs`**, ומ־**`md` ומעלה** ל־**`text-sm`**.\n- שורת **סה״כ** (כשיש פירוט לפי גודל): אותו דבר — **`text-xs` → `md:text-sm`**.\n- מצב **ללא פירוט** (סיכום ישן): תווית סה״כ **`text-xs md:text-sm`**, המספר **`text-sm md:text-base`**.\n- טקסט **«אין תמונה»**: **`text-xs`**.\n\n### מסך גדול — כרטיסים צרים יותר\n- רשת המנות: **`lg:grid-cols-6`**, **`xl:grid-cols-7`**, **`2xl:grid-cols-8`** (במקום 5 ו־6), כך שבמסכים רחבים יש יותר עמודות וכל כרטיס צר יותר.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nשאין כלום במנות שזה 0 שזה עדיין יהיה בעיצוב של יש של מפורט לפי סוגים והסהכ\nבלוח שנה שיהיה אפשר ללחוץ על תאריכים אחורה שלא עבדו פה פשוט יופיע שלא היה עבודה באותו היום\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מיישמים שני שינויים:\n1. מנות — תמיד להציג פירוט לפי סוגים + סה״כ; כשאין `portionsBySize` (או הכל 0) להשתמש באפסים.\n2. לוח שנה — לא לחסום ימים סגורים; לעדכן את הטקסט ל־«לא היה עבודה באותו היום».\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מתקנים מקרה של סיכום ישן עם כמות > 0 בלי `portionsBySize` — לא להציג 0 בכל הסוגים כשהסה״כ > 0.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן ב־`app/admin/reports/page.tsx`:\n\n### מנות עם 0 / בלי פירוט שמור\n- כשיש **`portionsBySize`** — נשאר הפירוט הרגיל + **סה״כ**.\n- כש**אין** פירוט שמור ו־**הכמות 0** — מוצג **אותו מבנה**: שורות לפי הגדלים המוצעים למנה (כולם 0) + **סה״כ 0** (לא הבלוק הישן של «סה״כ» בלבד).\n- כש**אין** פירוט שמור אבל **יש מכירות** (סיכום ישן) — נשאר רק **סה״כ** עם המספר, כדי שלא יופיעו אפסים שלא תואמים לסה״כ.\n\n### לוח שנה\n- ימים **סגורים בלוח** (שבעבר לא הייתה עבודה) **ניתנים לבחירה** — נחסמים רק תאריכים **אחרי היום**.\n- אחרי בחירה ביום כזה מוצגת ההודעה: **«לא היה עבודה באותו היום»** (במקום «בית העסק סגור ביום זה»), בלי כרטיסי סטטיסטיקה ובלי מנות — כמו קודם ליום סגור.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nמנות לפי סוג תוכל לעשות קו מתחת \n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"בוצע: לכותרת **«מנות לפי סוג»** נוסף **קו תחתון** (`border-b border-[#4a6f72]/20`) על ה־`CardHeader`, עם קצת `pb-2` מתחת לטקסט. לתוכן הכרטיס נוסף **`pt-2`** כדי שיהיה מרווח נוח מתחת לקו.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nמנות לפי סוג תוכל לעשות קו מתחת  מעוצב לא על כל השורה והכיתוב\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מוסיפים קו דקורטיבי קצר מתחת לכותרת «מנות לפי סוג» בלבד, לא לאורך כל רוחב הכרטיס.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"עדכנתי את כותרת **«מנות לפי סוג»** כך שמתחתיה יש **קו קצר בלבד** (לא `border` על כל הרוחב):\n\n- עטיפה ב־`inline-flex flex-col items-center` — רוחב הכותרת לפי הטקסט בלבד.\n- קו **`h-0.5`**, **`w-11` / `sm:w-14`**, **`rounded-full`**, גרדיאנט בגוון המותג **`#4a6f72`**, וצל עדין.\n\nאם תרצה את הקו מיושר לימין (מתחת לתחילת הקריאה בעברית) במקום ממורכז — אפשר להחליף ל־`items-end`.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nשיהיה קו אחיד \n\nאפשר שיהיה קצת רווח בין הכותרת לפירוט\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מחליפים את הקו לגוון אחיד ומוסיפים ריווח בין כותרת «מנות לפי סוג» לתוכן.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"עודכן:\n\n1. **קו אחיד** — הגרדיאנט והצל הוסרו; הקו הוא עכשיו **`bg-[#4a6f72]`** מלא, עדיין `rounded-full` ו־`h-0.5`.\n\n2. **ריווח** — **`gap-2`** בין הכותרת לקו; **`pb-3 sm:pb-4`** מתחת לבלוק הכותרת; **`pt-2`** ב־`CardContent` לפני רשת המנות / הטקסט «אין מנות», כדי שיהיה מרווח ברור בין הכותרת לפירוט.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nשהפירוט יתחיל בכל המנות באותו השלב\nושהקו מתחת יהיה קצת יותר עבה\n\nתגדיל קצת את הכותרות בהזמנות, נאספו, לא נאספו, ביטולים וכו\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מתקנים יישור: אזור כותרת המנה עם `min-h` קבוע; מעבים את הקו מתחת ל«מנות לפי סוג»; מגדילים את תוויות כרטיסי הסטטיסטיקה.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nשהפירוט יתחיל בכל המנות באותו השלב\n\nתגדיל קצת את הכותרות בהזמנות, נאספו, לא נאספו, ביטולים וכו\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מתאימים גובה קבוע לאזור שם המנה כדי שפירוט הסוגים יתחיל באותה גובה בכל הכרטיסים; מגדילים מעט את תוויות כרטיסי הסטטיסטיקה.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן:\n\n### פירוט באותו גובה בכל המנות\n- שם המנה נמצא בתוך **`min-h-[2.875rem] sm:min-h-[3rem]`** עם **`items-center justify-center`** — שמור מקום ל־שתי שורות טקסט גם כשיש שורה אחת, כך שהקו (`border-t`) והפירוט לפי סוגים (או בלוק סה״כ בלי פירוט) **מתחילים באותה גובה** בכל הכרטיסים.\n\n### כותרות כרטיסי הסטטיסטיקה\n- **הזמנות, נאספו, לא נאספו, ביטולים, הכנסות**: מ־`text-[10px] sm:text-xs lg:text-sm` ל־**`text-xs sm:text-sm lg:text-base`**.\n\n[REDACTED]"}]}}

@@ -1,0 +1,17 @@
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nהתקנה אפליקציה ההתקנה המהירה שייהיה חצי חצי באישור התראות שאחד מהם יהיה לא בצבע והשני כו\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מחפשים בקוד את מסך ההתקנה/אישור ההתראות כדי לעדכן את העיצוב לחצי-חצי (אחד ללא צבע, השני עם צבע).\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מעדכן את מקטע «התקנה מהירה» בדיאלוג ואת שורות ההגדרות כך ששורת הכפתורים תהיה חצי-חצי: כפתור התקנה בצבע (טורקיז) וכפתור אישור התראות בסגנון outline (ללא מילוי).\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן:\n\n### דיאלוג «התקנה מהירה» (`install-app-dialog.tsx`)\n- במקום כפתור מלא ברוחב, יש עכשיו **שורה חצי-חצי**:\n  - **התקנה מהירה** – רקע טורקיז (`--teal-stone`) כמו קודם.\n  - **התראות** – `outline` עם מסגרת טורקיז ורקע שקוף (בלי מילוי צבע), עם אייקון הפעמון.\n- כשמופיעה התקנה מהירה, כפתור **«אישור התראות»** בתחתית הוסר כדי שלא יכפול את אותה פעולה; מצב ההרשאה עדיין מוצג מתחת כשיש טקסט סטטוס.\n\n### הגדרות PWA (`pwa-settings-install-section.tsx`)\n- בקבוצות **לקוחות** ו**ניהול**: כפתור ההתקנה (קישור ללקוחות / התקנה מהירה לניהול) נשאר **מלא בצבע**.\n- **אישור התראות** הוא כעת **משני** – מסגרת טורקיז ורקע שקוף (`SETTINGS_TEAL_OUTLINE_BUTTON`).\n\nאם תרצה להחליף מי מהשניים יהיה צבעוני ומי outline (למשל התראות בצבע והתקנה outline), אפשר להפוך בקלות.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nשזה יהיה הכי בסוף ורק הכפתורים בלי הרקע והכיתוב התקנה מהירה הדפדפן מאפשר להתקין בלחיצה אחת — הכי נוח כשזה מופיע.\n\nאלא רק 2 הכפתורים למטה\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מעבירים את שני כפתורי ההתקנה המהירה וההתראות לסוף הדיאלוג, ללא קופסה, כותרת או טקסט הסבר.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מסירים את בלוק «התקנה מהירה» עם הרקע והטקסט, ומצמידים את שני הכפתורים לתחתית הדיאלוג (מחוץ לאזור הגלילה).\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"זה מה שעודכן:\n\n### שינויים\n1. **הוסר** הבלוק עם הרקע (`rounded-xl`, `border`, `bg-primary/5`), הכותרת «התקנה מהירה» והפסקה «הדפדפן מאפשר להתקין…».\n2. **שני הכפתורים** (התקנה מהירה + התראות) נמצאים עכשיו ב־**footer** בתחתית הדיאלוג, **מחוץ** לאזור הגלילה — כך שהם נשארים למטה גם כשיש הרבה שלבים.\n3. כשאין התקנה מהירה (`beforeinstallprompt`), נשאר כמו קודם כפתור **אישור התראות** ברוחב מלא. שורת מצב ההרשאות (אם יש) עדיין מתחת לכפתורים.\n\nאם תרצה להסתיר גם את שורת «מאושר / חסום…» כשמוצגים שני הכפתורים (בדיוק רק כפתורים), אפשר לעדכן גם את זה.\n\n[REDACTED]"}]}}

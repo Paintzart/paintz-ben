@@ -1,0 +1,12 @@
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nבסיכום לפי טווח שלא יהיה אפשר לבחור תאריך אחרי מחר\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מחפשים איפה מוגדר בחירת טווח תאריכים ב\"סיכום לפי טווח\" כדי להגביל את הבחירה עד מחר.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מוסיפים הגבלה בלוח השנה בעמוד האנליטיקס: התאריך המקסימלי לבחירה הוא מחר (לפי ירושלים), ומשביתים ימים אחרי מחר.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן בעמוד **סיכום לפי טווח** (`app/admin/reports/analytics/page.tsx`):\n\n1. **`maxRangeYmd`** – התאריך האחרון שניתן לבחור הוא **מחר** בלוח ירושלים (`addCalendarDaysIso(ymdJerusalem(new Date()), 1)`).\n\n2. **שני לוחות השנה** (מתאריך / עד תאריך) – נוסף  \n   `disabled={(d) => ymdJerusalem(d) > maxRangeYmd}`  \n   כך שיום אחרי מחר ומעלה לא ניתן לבחור.\n\n3. **ב־`onSelect`** – אם בכל זאת נבחר תאריך מעבר למקסימום, הוא נחתך ל־`maxRangeYmd`.\n\n4. **הוסרה** הפונקציה המקומית `isoFromLocalDate`; לבחירת תאריך משתמשים ב־`ymdJerusalem(d)` כדי שזה יהיה מיושר עם שאר הדוחות (אותו בסיס כמו `today` בעמוד).\n\n[REDACTED]"}]}}

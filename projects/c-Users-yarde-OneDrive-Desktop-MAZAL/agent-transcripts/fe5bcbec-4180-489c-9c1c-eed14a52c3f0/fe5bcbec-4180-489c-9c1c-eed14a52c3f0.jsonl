@@ -1,0 +1,66 @@
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nמתאריך עד תאריך בסיכום לפי טווח הקוסאות של התאריכים קצת דפוקות למרות שבמחשב בתצוגת טלפון זה נראה כמו שצריך\n\nוהתאיריכם עצמם כתובים כ באפר 2026 5 גם לט טוב שיופיע תמיד ככה 04/05/2026 פה כי בטלפון זה אחרת זה רק בריבוע בחירה\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מחפשים בקוד איפה מוצג טווח תאריכים בסיכום ואיך מעצבים תאריכים.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מזהים את הבעיה: `formatDayShort` משתמש ב-`Intl.DateTimeFormat` עם `month: \"short\"` — בדפדפנים שונים זה יוצא טקסט מעורב (למשל \"Apr 2026\" עם יום במקום שגוי). נייצב תצוגה ל-DD/MM/YYYY ונבודד כיוון LTR לטווח כדי למנוע בעיות RTL.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מוסיפים פונקציות עזר לתאריכים בפורמט קבוע DD/MM/YYYY, מחליפים את `formatDayShort` (הגורם ל-Intl להחזיר \"Apr\" וכו'), ומבודדים כיוון LTR בתצוגת הטווח ובכרטיסי מינ׳/מקס׳.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מסירים את `xs:` — אין breakpoint כזה בפרויקט.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מתקן: מתחת לשדות נציג את הערכים `from` ו-`to` כפי שנבחרו, לא את הטווח הממוין.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן:\n\n### מה היה השבור\n- **`formatDayShort`** השתמש ב־`Intl` עם `month: \"short\"` — בדפדפנים שונים זה יוצא תצוגה לא עקבית (למשל שילוב אנגלית, או סדר מוזר כמו «אפר׳ 2026 5»).\n- **מסך RTL** גרם לטווח המספרי בכותרת ובכרטיסי מינ׳/מקס׳ להתנהג מוזר במחשב (בידידוד לוגי של המספרים).\n\n### מה שינינו\n1. ב־`lib/format-menu-date.ts` נוספו **`formatIsoDateDdMmYyyySlashes`** ו־**`formatIsoRangeDdMmYyyySlashes`** — תמיד בפורמט **`DD/MM/YYYY`** עם לוכסנים (למשל `05/04/2026`).\n2. בדף **סיכום לפי טווח** (`analytics/page.tsx`):\n   - ציר הגרף, סיכום מינ׳/מקס׳ והכותרת מעל הגרף משתמשים בפורמט המספרי הזה (בלי Intl).\n   - כותרת הטווח ותאריכי המשנה בכרטיסים עטופים ב־`dir=\"ltr\"` + `unicode-bidi:isolate` כדי שהמספרים לא «יתהפכו» בעברית.\n   - **מתחת לכל שדה תאריך** (`type=\"date\"`) מוצגת שורה קטנה עם אותו פורמט — כי **בתוך הריבוע הדפדפן קובע** את התצוגה, אבל כך תמיד רואים גם **`05/04/2026`** בצורה אחידה.\n\nהערה: שדה `input type=\"date\"` נשאר נייטיבי; אי־אפשר לאלץ בכל מערכות ההפעלה פורמט זהה **בתוך** השדה עצמו בלי קומפוננטת תאריך מותאמת. השורה מתחת נותנת את הפורמט שביקשת בכל מקום שאנחנו שולטים בו.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nלא טוב עשית שיהיה לי פכמיים תאריך ממש לא טוב\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מסירים את השורות הכפולות מתחת לשדות התאריך — נשאיר את הפורמט הקבוע רק בגרף, בכותרת הטווח ובכרטיסי הסיכום.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"סידרתי: הורדתי את שתי השורות המספריות מתחת ל־«מתאריך» ו־«עד תאריך», כך שנשאר רק שדה התאריך הנייטיבי בלי כפילות.\n\nהפורמט הקבוע **DD/MM/YYYY** נשאר רק איפה שאין כפילות עם הבורר: כותרת הטווח מעל הגרף, ציר הגרף, וכרטיסי מינ׳/מקס׳.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nשלוחצים על שבוע חודש שנה שידגיש את הבחירה (אלא אם משנים אחרכך את הטווח תאריכים ידני\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מוסיפים מצב לפריסטים (שבוע/חודש/שנה) ומסירים הדגשה כשמשנים ידנית את התאריכים.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מוסיפים state לפריסט נבחר, מעדכנים את `setPreset`, ומאפסים אותו בשינוי ידני של `from`/`to`.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שנוסף:\n\n- **`rangePreset`** יכול להיות `7` | `30` | `365` או **`null`** (טווח ידני).\n- **לחיצה על שבוע / חודש / שנה** מעדכנת את התאריכים ומסמנת את הכפתור (רקע ירוק כמו שאר הכפתורים המודגשים בעמוד), עם **`aria-pressed`**.\n- **שינוי של «מתאריך» או «עד תאריך»** מפעיל `setRangePreset(null)` — אף פריסט לא נשאר מודגש.\n- **בטעינה ראשונה** הטווח הוא כבר «שבוע», לכן **«שבוע»** מתחיל מסומן (מתאים ל־`from`/`to` ההתחלתיים).\n\nאם תרצה שגם כשמשנים ידנית תאריכים שבמקרה זהים בדיוק לפריסט — הפריסט יידלק שוב אוטומטית, אפשר להוסיף `useMemo` שמשווה ל־`today`; כרגע זה לא קורה (רק לפי מה שביקשת).\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"[Image]\n<image_files>\nThe following images were provdied by the user and saved to the workspace for future use:\n1. C:\\Users\\yarde\\.cursor\\projects\\c-Users-yarde-OneDrive-Desktop-MAZAL/assets/c__Users_yarde_AppData_Roaming_Cursor_User_workspaceStorage_af2d1dcb79e6f8c63e030ba190e0ce95_images_WhatsApp_Image_2026-04-11_at_15.24.47-ea417ca5-e3bb-4585-a3fd-b1cdcd3d0ab9.png\n\nThese images can be copied for use in other locations.\n</image_files>\n<user_query>\nלא תוקן המתאריך עד תאריך שולחת לך איך זה נראה בטלפון שלי\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"בודקים את הקומפוננטות הקיימות: שדות `type=\"date\"` מציגים בטלפון פורמט לפי המערכת (למשל \"באפר' 2026 5\"). נחליף בבורר תאריך עם תצוגה עקבית DD/MM/YYYY או נשפר את הפריסה.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מחליפים את `<input type=\"date\">` (מציג בטלפון פורמט מערכת כמו «באפר' 2026 5») ב־Popover + לוח שנה כמו בעמוד הדוחות היומי, עם כפתור שמציג תמיד `DD/MM/YYYY`.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"[Image]\n<image_files>\nThe following images were provdied by the user and saved to the workspace for future use:\n1. C:\\Users\\yarde\\.cursor\\projects\\c-Users-yarde-OneDrive-Desktop-MAZAL/assets/c__Users_yarde_AppData_Roaming_Cursor_User_workspaceStorage_af2d1dcb79e6f8c63e030ba190e0ce95_images_WhatsApp_Image_2026-04-11_at_15.24.47-ea417ca5-e3bb-4585-a3fd-b1cdcd3d0ab9.png\n\nThese images can be copied for use in other locations.\n</image_files>\n<user_query>\nלא תוקן המתאריך עד תאריך שולחת לך איך זה נראה בטלפון שלי\n\nרק פה זה לט טוב בשאר המקומות זה אמור להיות כמו שזה\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מתקנים רק את אזור «סיכום לפי טווח»: הסרת הכותרת הכפולה מעל הגרף והחלפת שדות התאריך הנייטיביים בתצוגה DD/MM/YYYY עקבית במובייל. בודקים אילו רכיבי תאריך קיימים בפרויקט.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מחליפים את `input type=\"date\"` (במובייל מציג לוקאל עברי) ב־Popover + לוח שנה כמו בעמוד הדוחות, מציגים תמיד `DD/MM/YYYY` על הכפתור, ומסירים את שורת הטווח הכפולה מעל הגרף.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן **רק בעמוד «סיכום לפי טווח»** (`analytics/page.tsx`):\n\n### 1. תאריך תמיד כ־**DD/MM/YYYY**\nהסרנו את `input type=\"date\"` (במובייל הוא מציג «5 באפר׳ 2026» לפי המערכת). במקום זה יש **כפתור** עם הטקסט הקבוע **`05/04/2026`** + אייקון, ולחיצה פותחת **לוח שנה בעברית** (`Calendar` + `Popover`) כמו בדוח היומי.\n\n### 2. בלי כפילות\nהוסרה השורה הגדולה **`05/04/2026 – 11/04/2026`** מעל הגרף — הטווח מופיע רק בבוררים למעלה.\n\n### 3. פריסה במובייל\nמתחת ל־`sm` השדות ב**עמודה אחת** (רוחב מלא לכל תאריך), מ־`sm` ומעלה שוב **שני עמודות** — פחות צפיפות.\n\n### 4. התנהגות\nאחרי בחירת יום בלוח, הבורר נסגר; שינוי תאריך עדיין מאפס את הדגשת שבוע/חודש/שנה.\n\nשאר האפליקציה לא שונתה.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nשעיצובית שזה יהיה כמו קודם כי שינת משהו הלוח שנה מושלם ככה\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"משחזרים מראה של שדות קלט רגילים (כמו `Input` הקודם) ומשאירים את הלוח וההתנהגות כפי שהם.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"משחזרים את מראה שדות ה-`Input` המקוריים (גובה, מסגרת `border-input`, `rounded-lg`, ריפוד כמו קודם) ומסירים את סגנון הכפתור והאייקון הבולט.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"עדכנתי כך:\n\n### מראה כמו שדות `Input` הקודמים\n- **גובה** `h-8`, **פינות** `rounded-lg`, **מסגרת** `border-input`, רקע שקוף / `dark:bg-input/30` — כמו ב־`components/ui/input.tsx`\n- **ריפוד** כמו פעם: `px-1.5` / `sm:px-2.5`, טקסט `text-xs` / `sm:text-sm`\n- **בלי** מסגרת טיל, בלי צל, בלי hover אפור — זה מה שנתן מראה «כפתור»\n- **בלי** אייקון לוח שנה בשדה — נראה כמו שורת תאריך רגילה\n\n### פריסה\n- חזרה ל־**שתי עמודות** (`grid-cols-2`) ו־`sm:max-w-md` כמו לפני שינוי הפריסה למובייל\n\n### מה נשאר כמו שביקשת\n- **הלוח** (`Popover` + `Calendar`) לא שונה — רק עיצוב הטריגר.\n\nנוספו `aria-label` לשדות לנגישות בלי האייקון.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nבסיכום לפי טווח החלק של דירוג מנות שמוופיע רק במסך גדול בצד שיהיה רק 5 מנות לא יותר כי כל המנות מופיעות בכפתור הצף\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מגבילים את רשימת הצד ל־5 מנות — כרגע `TOP_DISH_VISIBLE` הוא 10.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"עודכן: הקבוע `TOP_DISH_VISIBLE` היה `10` והוא עכשיו **`5`**, כך שבעמוד «סיכום לפי טווח» בפאנל «דירוג מנות» (מסך גדול) מוצגות **רק חמש** המנות המדורגות. רשימת כל המנות נשארת בכפתור הצף כמו קודם.\n\n[REDACTED]"}]}}

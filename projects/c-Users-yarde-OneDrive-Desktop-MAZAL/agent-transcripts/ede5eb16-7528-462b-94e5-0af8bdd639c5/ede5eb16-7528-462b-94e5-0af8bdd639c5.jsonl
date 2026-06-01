@@ -1,0 +1,38 @@
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nשלוחצים על בלוגו של החברה גם למעלה וגם למטה באתר לקוח שיחזיר לעמוד של התפריט היומי ללמעלה של התפריט\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מחפשים את רכיבי הלוגו והניווט באתר הלקוח כדי לקשר אותם לעמוד התפריט היומי וגלילה לראש.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מעדכנים את קישורי הלוגו מ-`/` ל-`/#menu` (כמו קישור \"תפריט יומי\") ומוסיפים גלילה אמינה כשכבר נמצאים בדף הבית — Next.js לפעמים לא גולל לאלמנט ה-hash בניווט באותו דף.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן:\n\n### התנהגות\n- **לחיצה על הלוגו** (בכותרת ובפוטר) מנווטת ל־`/#menu` — אותו יעד כמו הקישור **«תפריט יומי»** בניווט.\n- **כשכבר נמצאים בדף הבית** (`/`), Next לא תמיד גולל לאלמנט עם ה־hash, לכן נוסף טיפול שמבצע **גלילה חלקה לראש אזור התפריט**, עם אותה התחשבות בגובה הכותרת הדביקה כמו בקפיצה לקטגוריה בתפריט.\n- **תווית נגישות** עודכנה ל־«הקוסקוס של מזל — תפריט יומי».\n\n### קבצים\n- `lib/customer-menu-scroll.ts` — פונקציית `scrollCustomerMenuIntoView`.\n- `components/customer/customer-brand-logo-link.tsx` — קישור הלוגו המשותף.\n- `components/customer/site-header.tsx` ו־`customer-site-footer.tsx` — משתמשים ברכיב החדש במקום `Link` ל־`/` עם התמונה.\n\nאם תרצה, אפשר גם לאחד את לוגיקת הגלילה עם `scrollToCategory` ב־`customer-menu-view.tsx` כדי שיהיה מקור אחד לחישוב המרווח מתחת לכותרת.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nבטלפון למעלה שיהיה גם קווים נגיד\n051-232-1749\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מעדכנים את שדה הטלפון (בהגדרות ובטפסים) כך שיוצגו מקפים כמו `051-232-1749`, ומוסיפים פורמט תצוגה ל־`ClickablePhone` כדי שהמספר בפוטר יוצג עם מקפים גם כשהשמירה היא ספרות בלבד.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שנוסף:\n\n### פורמט תצוגה עם מקפים\n- קובץ חדש `lib/phone-display.ts` עם `formatIsraeliPhoneForDisplay` — נייד 10 ספרות (`05x`), רשת `07x`, וקווי 9 ספרות (`02`/`03` וכו'), כולל מספרים שנשמרו כ־`+972...`.\n- **`ClickablePhone`** מציג עכשיו את המספר בפורמט עם מקפים (למשל בפוטר), בלי לשנות את `tel:` — עדיין לפי ספרות בלבד.\n\n### דוגמה בשדות (כולל במובייל)\n- **הגדרות** — טלפון 1 ו־2: `placeholder` עודכן ל־`051-232-1749`.\n- **צ׳קאאוט** ו־**ההזמנה שלי** — אותו `placeholder` + `inputMode=\"tel\"`.\n- **סטטוס הזמנה** (`order/[token]`) — השורה עם השם והטלפון למעלה משתמשת באותו פורמט תצוגה.\n\nאם תרצה גם **הזנה אוטומטית** של מקפים תוך כדי הקלדה בשדות, אפשר להוסיף בנפרד.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nבטלפון למעלה שיהיה גם קווים נגיד\n051-2321749\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מחפש איפה מוצגים מספרי הטלפון באתר הלקוח ובמיוחד בכותרת/מובייל.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מוסיפים פורמט תצוגה עם מקפים (למשל 051-2321749) ומציגים את מספרי הקשר בכותרת במובייל — כרגע הם מופיעים רק בפוטר.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שבוצע:\n\n### 1. תצוגה עם מקף (למשל `051-2321749`)\nנוספה ב־`lib/phone-link.ts` הפונקציה `formatIsraeliPhoneDisplay`:\n- **נייד 10 ספרות** (05X…): `XXX-XXXXXXX` כמו בדוגמה שלך  \n- **קו 9 ספרות** (03, 02 וכו'): `XX-XXXXXXX`  \n- **972…** בינלאומי: מומר לשלוחה מקומית ואז מפורמט באותו אופן  \n\nרכיב `ClickablePhone` מציג עכשיו את המספר בפורמט הזה; קישור `tel:` נשאר **רק ספרות** (כמו קודם).\n\n### 2. טלפון למעלה במובייל\nב־`site-header.tsx` נוספה שורה **רק ב־`sm` ומטה** (`sm:hidden`): אייקון טלפון + מספרי `contactPhone` / `contactPhone2` מההגדרות (אם מוגדרים), כקישורי חיוג עם אותו פורמט.\n\nבפוטר המספרים יוצגו באותו פורמט אוטומטית דרך `ClickablePhone`.  \nבמסכים רחבים (`sm` ומעלה) השורה העליונה לא מופיעה — שם נשארים רק הפוטר והאדמין כרגיל. אם תרצה שתופיע גם בדסקטופ, אפשר להרחיב את זה.\n\n[REDACTED]"}]}}

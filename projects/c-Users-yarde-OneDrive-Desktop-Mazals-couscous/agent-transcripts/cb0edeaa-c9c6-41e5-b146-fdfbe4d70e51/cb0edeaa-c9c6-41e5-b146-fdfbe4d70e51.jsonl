@@ -1,0 +1,2 @@
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\n.\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"You only sent a single period, so there isn’t a specific task to act on.\n\nWhat would you like to work on in your **Mazals couscous** project (or anything else)? Describe the goal or paste an error, and we can go from there."}]}}

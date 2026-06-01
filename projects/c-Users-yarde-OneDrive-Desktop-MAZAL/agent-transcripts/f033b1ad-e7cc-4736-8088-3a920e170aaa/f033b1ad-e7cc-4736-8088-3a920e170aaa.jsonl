@@ -1,0 +1,18 @@
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nבו נמשיך לעצב ולסדר את ההגדרות\n\nפופ אפ לקוחות\nאין צורך בהודעה שכתבת (בכפתור)\n\nשיהיה לי אולי גם פס למעלה שאפשר לכתוב הודעות קבועות?\\\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מחפשים בקוד את הגדרות הפופאפ ללקוחות והודעות הכפתור.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מסירים את כפתור הוואטסאפ מהגדרות הפופאפ, ומוסיפים שדות ופס הודעה קבועה בראש האתר.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"משחזרים את הייבוא — `CustomerWhatsAppButton` עדיין בשימוש.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן:\n\n### פופ־אפ ללקוחות\n- הוסר **כפתור הוואטסאפ** מתחת לתוכן הפופ־אפ (לא ממלאים יותר את טקסט הפופ־אפ לכפתור).\n- סדר המקטע בהגדרות: קודם **פס ההודעה**, אחר כך **הפופ־אפ** — עם הסברים קצרים לכל אחד.\n\n### פס הודעה קבוע בראש האתר\n- נוספו שדות בהגדרות: **`customerBannerEnabled`** + **`customerBannerText`**.\n- באתר הלקוחות הפס מופיע **מתחת לפס הצבע הדק** ו**מעל הכותרת** (`SiteHeader`), ברקע עדין (`primary/10`), טקסט ממורכז, תומך **כמה שורות** (`whitespace-pre-wrap`).\n- כשהמתג כבוי או שהטקסט ריק — הפס לא מוצג.\n\n### תפריט הגדרות\n- הפריט נקרא עכשיו **«פופ־אפ ופס הודעה»** עם רמז: **«פס קבוע בראש + חלון בכניסה»**.\n\nקבצים עיקריים: `lib/types.ts`, `lib/mock/seed.ts`, `components/customer/customer-site-banner.tsx`, `components/customer/customer-layout-client.tsx`, `components/admin/settings/settings-messages-panel.tsx`, `app/admin/settings/page.tsx`.\n\nאם תרצה שהפס יהיה **דביק** בגלילה או בצבע/גודל אחר — אפשר לכוון בנפרד.\n\n[REDACTED]"}]}}

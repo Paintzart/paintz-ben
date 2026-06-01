@@ -1,0 +1,2 @@
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nשדרוג במלאי ובספירה נחשב 1.5\nמנה כפולה נחשב 2 מנות בספירה\nורגיל נחשב 1\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מחפשים בקוד איך מחושבים מלאי וספירה עבור מנות רגילות, כפולות ושדרוגים.\n\n[REDACTED]"}]}}

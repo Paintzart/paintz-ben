@@ -1,0 +1,2 @@
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\n...\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"Your last message was just `...`, so I’m not sure what you want to do next.\n\nWhat should we work on in the MAZAL project (bug, feature, refactor, or a question about the code)?\n\n[REDACTED]"}]}}

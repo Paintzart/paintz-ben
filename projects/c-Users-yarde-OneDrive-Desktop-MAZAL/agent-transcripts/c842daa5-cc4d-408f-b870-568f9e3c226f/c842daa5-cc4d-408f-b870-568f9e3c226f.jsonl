@@ -1,0 +1,9 @@
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nתמחק מההגדרות בהתקנת אפליריה את החלק ש הלקוחות\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מחפש בקוד את הגדרות ההתקנה של Applaria והחלק הקשור ללקוחות.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מצאנו את קטע \"לקוחות\" ב־`pwa-settings-install-section.tsx`. קורא את הקבצים הרלוונטיים כדי להסיר את החלק הזה בצורה נקייה.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מסירים את קבוצת \"לקוחות\" ממסך התקנת האפליקציה ומעדכנים את הרמז בהגדרות.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן:\n\n### 1. `components/pwa/pwa-settings-install-section.tsx`\n- הוסרה כולה קבוצת ההגדרות **\"לקוחות\"** (כפתור \"התקנה — לקוחות\" ואישור התראות שלה).\n- נשאר רק קטע **\"ניהול\"** (התקנה והתראות).\n- הוסר `import` של `Link` שלא בשימוש.\n\n### 2. `app/admin/settings/page.tsx`\n- הרמז של סעיף \"התקנת אפליקציה\" עודכן מ־**\"לקוחות וניהול בנפרד\"** ל־**\"התקנה והתראות לניהול\"**, כדי שיתאים למסך החדש.\n\nאם תרצה גם לשנות את כותרת הקבוצה מ־\"ניהול\" למשהו כמו \"התקנת האפליקציה\", אפשר לעשות את זה בשלב הבא.\n\n[REDACTED]"}]}}

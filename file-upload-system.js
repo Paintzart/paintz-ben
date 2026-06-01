@@ -239,7 +239,9 @@ class FileUploadSystem {
       const reader = new FileReader();
       reader.onload = (e) => {
         previewItem.innerHTML = `
-          <img src="${e.target.result}" alt="${file.name}" />
+          <div class="file-preview-media">
+            <img src="${e.target.result}" alt="${file.name}" />
+          </div>
           <div class="file-name">${file.name}</div>
           <div class="remove-file" data-name="${file.name}">×</div>
         `;

@@ -1,0 +1,6 @@
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nתמחק לי במסך ההתחברות של הסיסמא את ההתקנה למסך הבית מתוך ההגדרות\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מחפשים במסך ההתחברות (סיסמה) את האפשרות להתקנה למסך הבית ומסירים אותה.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מסיר את הקישור להתקנה למסך הבית מהגדרות ממסך כניסת העובדים (סיסמה).\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"בוצע.\n\nהסרתי ממסך **כניסת עובדים** (`app/admin/login/page.tsx`) את הקישור **«התקנה למסך הבית (ניהול) מתוך ההגדרות»** שכיוון ל־`/admin/settings?section=app-install`.\n\nנשארו שם רק שדה הסיסמה, «שכחתי סיסמה», כפתור ההתחברות ו־**חזרה לאתר הלקוחות**. אפשרות ההתקנה עדיין זמינה אחרי התחברות דרך **הגדרות** באדמין, אם היא מוגדרת שם.\n\n[REDACTED]"}]}}

@@ -1,0 +1,140 @@
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nאם ההזמנה בוטלה או המחקה אולי עדיף שיהיה כתוב ללקוח בהמזנות שלי?\n\nכזה איפה שהסטטוסהמצב הזמנה\n\nוההודעות שמהלקוח גם הודעות אישיות וגם הודעות גלובליות שיהיה שם אולי שיהיה תאריך שנשלח ההודעה אחד אחרי השני אם יש כמה\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"בודקים איך מוצגות ההזמנות, הסטטוס וההודעות בקוד כדי ליישם את השיפורים שביקשת.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מיישמים: (1) הודעה ברורה כשההזמנה לא קיימת — כולל זיהוי ביטול עצמי דרך localStorage; (2) היסטוריית הודעות מהעסק עם תאריך/שעה; (3) הצגת הודעות גלובליות (פס + פופ־אפ) עם מועד עדכון, במסך המעקב.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מממשים את הקבצים והשינויים.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שיושם:\n\n### 1. הזמנה בוטלה / לא קיימת (כולל אחרי ביטול עצמי)\n- **לפני ביטול** נשמר רמז ב־`localStorage` (`recordCustomerCancelledOrderHint`).\n- אם נכנסים ל־`/order/[token]` וההזמנה כבר לא קיימת, וזו **הביטול שלכם מהדפדפן הזה** — מוצגת כותרת **«ההזמנה בוטלה»**, הסבר עם **תאריך ושעה** (כשיש), וקישור **«להזמנות שלי»** + **«לתפריט»**.\n- אם אין רמז (למשל מחיקה מהניהול או מכשיר אחר) — נשאר **«הזמנה לא נמצאה»** עם ניסוח שמזכיר גם **הסרה על ידי בית העסק**.\n- בדף **«ההזמנה שלי»** (`/my-order`), כשאין התאמה — ה־toast מוסיף משפט שמסביר שאם ביטלתם, ההזמנה לא תופיע.\n\n### 2. הודעות אישיות מהעסק — עם תאריך, אחת אחרי השנייה\n- נוסף שדה **`businessCustomerMessages`**: מערך `{ text, sentAt }`.\n- בכל שליחת הודעה ללקוח מהניהול (וואטסאפ) — **נוספת רשומה** (לא דורסת את ההיסטוריה). עדיין נשמר גם **`businessMessageToCustomer`** כטקסט האחרון (תאימות).\n- במסך מעקב: כותרת **«הודעות מבית העסק»** כשיש יותר מפריט אחד; לכל הודעה מוצגים **תאריך ושעה** ואז הטקסט.\n- הזמנות ישנות עם רק מחרוזת אחת — מוצגת הודעה אחת עם תאריך מוערך מ־**`createdAt`**.\n\n### 3. הודעות גלובליות (פס + פופ־אפ) במסך המעקב\n- כרטיס **«עדכונים כלליים»** עם **פס הודעה** ו־**פופ־אפ** (רק אם מופעלים ויש תוכן), כל אחד עם **תווית**, **תאריך עדכון אחרון** (אם נשמר), ואז הטקסט.\n- מועדי עדכון נשמרים ב־**`customerBannerTextUpdatedAt`** / **`popupMessageUpdatedAt`** כשמשנים את הטקסט בהגדרות (גם במצב מקומי וגם ב־Firebase).\n\nקבצים עיקריים:  \n`lib/customer-order-removal-hint.ts`, `lib/order-customer-messages.ts`, עדכונים ב־`lib/types.ts`, `local-app-store`, `write-remote`, ו־`app/(customer)/order/[token]/page.tsx`.\n\n**הערה:** מחיקה או דחייה **מהניהול** לא נרשמת אצל הלקוח בדפדפן — לכן שם רק הניסוח הכללי. אם תרצו גם שם הודעה ממוקדת, צריך מקור נתונים בשרת (למשל רשומת «הוסרה» לפי טלפון) — אפשר לפתח בשלב הבא.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nהודעה ללקוחות של כולם והודעה במוכן לאיסוף שיהיה גם\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מחפשים בהגדרות ובקוד איפה מוגדרות הודעות לכל הלקוחות והודעת «מוכן לאיסוף».\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מוסיפים שדות הגדרות לשני הטקסטים (הודעה לכל הלקוחות + תזכורת מוכן לאיסוף), מציגים אותם במסך המעקב, ומחברים את לוח הניהול וההגדרות.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מוסיפים שדות הגדרות, מציגים אותם במסך המעקב, ומחברים את לוח הניהול.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שנוסף:\n\n### 1. הגדרות (הגדרות → **פס הודעה ופופ־אפ**)\n- **הודעה ללקוחות (שליחה מהלוח)** — טקסט ברירת מחדל לשדה השליחה המונית בלוח; נשמר ב־`customerBroadcastWhatsAppMessage` + מועד עדכון.\n- **תזכורת «מוכן לאיסוף»** — טקסט ברירת המחדל לכפתור התזכורת בעמודת «מוכן לאיסוף»; נשמר ב־`readyPickupReminderMessage` + מועד עדכון. אם השדה ריק במסד, עדיין משתמשים בטקסט המובנה מהמערכת (כמו קודם).\n\n### 2. לוח ניהול\n- שדה **שליחה ללקוחות** נטען אוטומטית מההגדרות כשהוא ריק.\n- דיאלוג **תזכורת לאיסוף** נפתח עם הטקסט מההגדרות (או ברירת המחדל).\n\n### 3. מסך מעקב הזמנה (לקוח)\n- ב־**עדכונים כלליים**: מופיעה גם **הודעה ללקוחות (שליחה מהלוח)** — רק אם יש טקסט שמור בהגדרות.\n- כרטיס **מוכן לאיסוף** — מוצג **רק כשההזמנה בעמודה «מוכן לאיסוף»**, עם הטקסט הרלוונטי ותאריך עדכון (אם נשמר).\n\nקבצים עיקריים: `lib/types.ts`, `lib/mock/seed.ts`, `lib/order-customer-messages.ts`, `lib/store/local-app-store.tsx`, `lib/firebase/write-remote.ts`, `components/admin/settings/settings-messages-panel.tsx`, `app/admin/page.tsx`, `app/(customer)/order/[token]/page.tsx`.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nבתוכן פה שיהיה במקום\nהזמנה לא נמצאה\nייתכן שהקישור פג תוקף, שההזמנה הוסרה על ידי בית העסק, או שהדמו אופס.\nשיהיה\nהזמנה לא נמצאה\nייתכן שהקישור פג תוקף, שההזמנה הוסרה על ידי בית העסק או שיש שגיאה באתר.\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"עודכן. במצב הרגיל (לא ביטול עצמי) מוצג עכשיו:\n\n**הזמנה לא נמצאה**  \nייתכן שהקישור פג תוקף, שההזמנה הוסרה על ידי בית העסק או שיש שגיאה באתר.\n\nהכותרת לא השתנתה — רק פסקת ההסבר, במקום האזכור לדמו.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nעדכונים כללים שיהיה כתוב למעלה במקום הודעה קופצת או פס הודעה באתר שיהיה פשוט גם את התאריך שליחה\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מעדכנים את כרטיס «עדכונים כלליים»: מסירים את התוויות «פס הודעה» / «הודעה קופצת» ומציגים למעלה «תאריך שליחה» עם התאריך. מעדכנים את כותרת הכרטיס ל«עדכונים כללים» כפי שביקשת.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה ששיניתי:\n\n1. **כותרת הכרטיס** — מ־«עדכונים כלליים» ל־**«עדכונים כללים»** (כמו שכתבת).\n\n2. **בכל פריט** — הוסרו התוויות «פס הודעה באתר», «הודעה קופצת», «הודעה ללקוחות…». במקומן, **בראש** (לפני הטקסט) מוצג רק: **תאריך שליחה:** ואז התאריך והשעה בעברית.\n\n3. אם אין `updatedAt` בהגדרות (הודעה ישנה שלא נשמר לה מועד), מוצג רק גוף ההודעה בלי שורת תאריך.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nשונה לי העיצוב של הסגירה של ההזמנות וואיך מופיע הלמעלה תחזיר לי למה שהיה בבקשה\n\nוגם אני פתאום לא רואה את העיצב של כל ההודעות שאין לי את כל האופציות של כל סוגי ההודעות והתאריך ושזה לא דורס\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מחפשים שינויים בעיצוב סגירת הזמנות ובמקטע ההודעות כדי להחזיר את המצב הקודם.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"משחזרים את עמוד התשלום (ללא כרטיס «לגבי ההזמנה» והפריסה הקודמת), משחזרים את תצוגת «עדכונים כלליים» עם סוג ההודעה + תאריך, ובודקים אם לשחזר את `customer-guards` ללוגיקת הסגירה הקודמת.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"משחזרים את `customer-guards`, מסירים את כרטיס «לגבי ההזמנה» מעמוד התשלום, משחזרים את תצוגת «עדכונים כלליים» עם סוג ההודעה והתאריך, ומתאימים את מתגי הכותרת בלוח היומי ל־`ordersClosedNow`.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שוחזר ועודכן:\n\n### סגירת הזמנות ותצוגה למעלה\n- **`lib/customer-guards.ts`** — חזרה ללוגיקה הקודמת: סגירה לפי **סגירה ידנית** + **ימים סגורים בלוח** בלבד (בלי חסימה אוטומטית בגלל «רווח שעות» בין חלונות). כך מסך הסגירה בדף התשלום והטקסטים מ־`closedTitle` / `closedMessage` מתנהגים שוב כמו קודם.\n- **דף התשלום** — הוסר כרטיס **«לגבי ההזמנה»**; הוחזרה הפריסה עם **עגלת sticky** ועמודה ימנית שמכילה רק את **שליחת ההזמנה**. שוחזר גם **`Label`** לצ’קבוקס עדכוני וואטסאפ.\n- **תפריט יומי (ניהול)** — מתגי «פתוח / סגור» בכותרת שוב משקפים **`ordersClosedNow`** (לא את מצב החסימה המורחב). הוחזרו **תגיות** «בית העסק סגור היום / מחר» מתחת לכפתורי היום־מחר.\n\n### הודעות בעמוד מעקב הזמנה\n- **«עדכונים כלליים»** — שוב **כותרת מלאה** («כלליים»), ובכל פריט: **סוג ההודעה** (פס / פופ־אפ / שליחה מהלוח), **מתחתיו תאריך** (אם קיים), ואז **הטקסט** — בלי דריסה בין סוגים.\n- **«מוכן לאיסוף»** — נשאר הכרטיס עם כותרת ברורה; תאריך עדכון ואז גוף ההודעה (כמו קודם).\n\nאם תרצה שגם **חלון רווח שעות** יסגור שוב הזמנות באתר (ההתנהגות החדשה), אפשר להחזיר רק את זה בנפרד בלי לשנות את שאר העיצוב.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nבעמוד ההזמנה שלי \nשונה לי משהו בעיצוב\n\nהחלק של ההזמנה עצמה זה אמור להיות נסגר אם יש לי כמה הזמנות\nשיהיה לי תאריך ההזמנה גם\nאמור להיות הכותרת של השם והטלפון והכל\nתסדר את זה לכמו שהיה\nכי זה ממש לא טוב עכשיו\n\n \n\nבנוסף בתחילת העמוד יש לי עכשיו בכל עמוד את החלק הזה\nסטטוס ההזמנה (לפי הניהול)\n\nאם אישרתי כבר שלא יופיע\nלקבל התראות על ההזמנה הזו ועל פתיחת התפריט?\n\nהחלק של ההזמנה אני רוצה\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"בודקים את עמוד מעקב ההזמנה והקומפוננטות הקשורות כדי לשחזר את העיצוב ולטפל בהתראות ובכותרות.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מתקנים: מסתירים את התראות ה-PUSH כשכבר ניתנה הרשאה או כשהמשתמש לחץ «לא עכשיו» (נשמר ב-localStorage); מסירים את שורת «סטטוס ההזמנה (לפי הניהול)» מכותרת הזמנה בודדת; משפרים את רשימת ההזמנות — אקורדיון (רק ההזמנה מהקישור נפתחת), כותרת בעיצוב כרטיס, ותאריך/שעת שליחה.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"משפרים את `CustomerPushPrompt`, מסירים את שורת הסטטוס המיותרת, ומשפרים את רשימת ההזמנות.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן:\n\n### 1. התראות (פס למעלה)\nב־`CustomerPushPrompt`:\n- **לא מוצג** אם כבר יש **הרשאת התראות** בדפדפן (`Notification.permission === \"granted\"`).\n- **לא מוצג** אם ההרשאה **נדחתה** (אין טעם לבקש שוב).\n- **«לא עכשיו»** נשמר ב־`localStorage` (`mazal:customerPushPromptDismissed`) ולא חוזר בביקורים הבאים.\n- לפני בדיקת ההרשאה אין רינדור של הפס (מניעת הבזק).\n\n### 2. כותרת הזמנה בודדת\n- הוסרה השורה **«סטטוס ההזמנה (לפי הניהול)»** (במובייל ובמסכים רחבים).\n- נשארים: מספר הזמנה, תג סטטוס, שם וטלפון.\n- נוספה שורה **«נשלחה: …»** עם תאריך ושעה (מ־`createdAt`).\n\n### 3. כמה הזמנות («ההזמנות שלך»)\n- **כותרת** בתוך אותו סגנון כרטיס כמו קודם: `rounded-lg border … bg-muted/30 p-4`, עם שם · טלפון וההערה על היום/מחר.\n- כל הזמנה ב־**אקורדיון**: **רק ההזמנה של הקישור הנוכחי פתוחה**; פותחים אחרת — הקודמת נסגרת.\n- בשורת הסיכום: תאריך עסקים, סטטוס, ובנוסף **«נשלחה: …»** עם מועד השליחה.\n\nאם תרצה שכל ההזמנות יהיו **סגורות** בהתחלה (גם זו של הקישור), אפשר לעדכן לזה במפורש.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nעדכונים כללים שיהיה בכל הזמנה כי העדכונים זה ליום  \nוגם זה לא באחרכך לכל הזמנה זה בהתאם לעמודה ובהתאם להזמנות שהיו שם באותו הזמן ושייה גם תאריך מעל\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מעבירים את כרטיס «עדכונים כללים» לתוך כל הזמנה (ברשימה מרובה), מוסיפים תאריך יום עסקים מעל העדכונים, ומסירים את הבלוק הכפול בסוף הרשימה.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מעבירים את כרטיס העדכונים לתוך כל הזמנה, מוסיפים שורת «יום ההזמנה» מעל העדכונים, ומסירים את הבלוק היחיד בסוף הרשימה.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן:\n\n### עדכונים כללים — בכל הזמנה\n- **רשימה עם כמה הזמנות:** כרטיס «עדכונים כללים» **עבר לתוך כל הזמנה** (בתוך ה־`details`), אחרי «מוכן לאיסוף» (כשיש) ולפני שורות המנות — **לא** נשאר בלוק אחד בסוף הרשימה.\n- **הזמנה בודדת:** נשאר אותו כרטיס, עם שורת יום מעליו (ראו למטה).\n\n### תאריך מעל העדכונים\n- לכל כרטיס מוצגת שורה עליונה: **«עדכונים ליום {תאריך עברי לפי יום העסקים של ההזמנה}»** (אותו פורמט כמו בשורת הסיכום ברשימה).\n- כך ברור שהעדכונים הגלובליים מקושרים **ליום ההזמנה** של אותו כרטיס.\n\n### הערה לגבי «עמודה»\n- **מצב ההזמנה** כבר משקף את העמודה: פס ההתקדמות, תג הסטטוס, ו־«מוכן לאיסוף» רק כשההזמנה ב־`ready`.\n- תוכן פס ההודעה / פופ־אפ / שליחה מהלוח נשאר **אותו תוכן מההגדרות** (עדכוני יום־אתר); הוא פשוט מוצג **בהקשר של יום העסקים** של אותה הזמנה, עם השורה «עדכונים ליום …» מעל.\n\nאם תרצה **לסנן** פריטים לפי עמודה (למשל להציג משהו רק ב־`ready`), צריך להגדיר בדיוק איזה סוג הודעה למי — אפשר לעשות זאת בשלב הבא.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nשלא יהיה כתוב לי מה התאריך של העדכונים כללים אלא מתי כל אח מהם נשלח כמו בהודעות מבית העסק ושוב זה לא אמור להופיע בכולם רק להזמנות שזה רלוונטי אליהם\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מסירים את שורת «עדכונים ליום…», משאירים תאריך שליחה לכל פריט (כמו בהודעות מהעסק), ומסננים את העדכונים הגלובליים כך שיוצגו רק כשהם רלוונטיים להזמנה.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"משנים את לוגיקת הסינון ב-`lib/order-customer-messages.ts`, מעדכנים את תצוגת הכרטיס, ומסירים את שורת «עדכונים ליום».\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן:\n\n### 1. בלי שורת «עדכונים ליום …»\nהוסרה הפסקה העליונה עם תאריך היום; אין כותרת־משנה כזו על הכרטיס.\n\n### 2. מועד לכל עדכון (כמו «הודעות מבית העסק»)\nלכל פריט מוצגת שורת זמן אחת **בלבד** (פורמט קצר + שעה), **בלי** הטקסט «תאריך שליחה:», באותו סגנון כמו בהודעות האישיות מהעסק.\n\n### 3. רק הזמנות רלוונטיות\nנוספה הפונקציה `globalCustomerAnnouncementsRelevantForOrder` ב־`lib/order-customer-messages.ts`:\n\n- נכללים **רק** פריטים שיש להם **`updatedAt`** (מועד עדכון אחרון שנשמר בהגדרות).\n- **יום העדכון** (לפי לוח **ירושלים**) חייב להיות **זהה ליום העסקים של ההזמנה** (`orderBusinessDate`).\n\nכך הזמנה ליום איסוף מסוים לא תקבל עדכונים גלובליים שעודכנו ביום אחר; והכרטיס **לא יוצג בכלל** אם אין אף פריט רלוונטי להזמנה הזו.\n\n**הערה:** אחרי שינוי טקסט פס / פופ־אפ / שליחה מהלוח בהגדרות נשמר `updatedAt` אוטומטית. אם עדיין לא נשמר מועד (נתונים ישנים), הפריט לא ייכנס לסינון — עד עדכון ההגדרות פעם אחת.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nבכותרת שלא יהיה את הרקע מסביב\n\nבהסמנה עצמם  לא אכפת לי מתי היא נשלחה בהזמנות שלך תמחק את זה\nוכל אחד מההזמנות אולי שהרקע יהיה לבן כזה ולא כמו שעשית\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מסירים את רקע הכותרת (הזמנה בודדת ו«ההזמנות שלך»), מוחקים את שורת «נשלחה» מסיכום כל הזמנה ברשימה, ומבהירים את רקע כרטיסי ההזמנות ללבן.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nבכותרת שלא יהיה את הרקע מסביב\n\nבהסמנה עצמם  לא אכפת לי מתי היא נשלחה בהזמנות שלך תמחק את זה\n\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מסירים את הרקע והמסגרת סביב אזור הכותרת (גם בהזמנה בודדת וגם ב«ההזמנות שלך»), ומסירים את שורת «נשלחה» מרשימת ההזמנות.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן:\n\n### כותרת בלי רקע\n- **הזמנה בודדת** — הוסרו מהכותרת `rounded-lg`, `border`, `bg-muted/30` ו־`p-4`; נשאר מעטפת `relative` בלבד.\n- **«ההזמנות שלך»** — אותו דבר: אין יותר מסגרת ורקע אפור, רק `relative w-full` סביב הכותרת והקישור חזרה.\n\n### רשימת «ההזמנות שלך»\n- הוסרה לחלוטין השורה **«נשלחה: …»** מתוך סיכום כל הזמנה (בשורה המקוצרת שלפני הפתיחה).\n- נשארים: מספר הזמנה, סטטוס, **תאריך יום העסקים**, וסכום.\n\nבמסך **הזמנה אחת** עדיין מוצגת «נשלחה» מתחת לשם ולטלפון — אם תרצה להסיר גם משם, אפשר לעשות זאת בשלב הבא.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nגם אם יש רק הזמנה אחת שזה יהיה ככה כמו בכמה הזמנות\n\nותוריד את הרווח בית המילה ההזמנות שלך לשם והטלפון של הלקוח\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מאחדים את התצוגה: תמיד נשתמש במבנה «ההזמנות שלך» + כרטיסי `details` (גם כשיש הזמנה אחת). מצמצמים את הרווח בין הכותרת לשם ולטלפון.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן:\n\n### מסך אחיד (גם הזמנה בודדת)\n- בוטלה תצוגת «הזמנה בודדת» הישנה (כותרת שונה, בלי כרטיס `details`).\n- **תמיד** מוצגים עכשיו: כותרת **«ההזמנות שלך»** → שם וטלפון → הערה על היום/מחר → **כרטיס `details` אחד או יותר** באותו עיצוב (פס טרקוטה, סטטוס, תאריך יום עסקים, סכום, חץ).\n\n### רווח בין הכותרת לשם\n- במקום `mt-3` / `sm:mt-4` — עכשיו **`mt-1`** ו־**`sm:mt-1.5`**, ו־**`space-y-0.5`** בין שם הלקוח לשורה «מוצגות הזמנות…».\n\n### ניקוי\n- הוסרו `formatOrderSentAtHe`, שורות «נשלחה» בכותרת הישנה, ו־ייבוא `Badge` שלא בשימוש.\n\n[REDACTED]"}]}}

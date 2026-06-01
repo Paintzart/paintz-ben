@@ -1,0 +1,800 @@
+
+> mazal-ui@0.1.0 lint
+> eslint
+
+
+C:\Users\yarde\OneDrive\Desktop\MAZAL\app\(customer)\my-order\page.tsx
+  31:5  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\yarde\OneDrive\Desktop\MAZAL\app\(customer)\my-order\page.tsx:31:5
+  29 |
+  30 |   useLayoutEffect(() => {
+> 31 |     setPhase(readLastOrderToken() ? "loading" : "form");
+     |     ^^^^^^^^ Avoid calling setState() directly within an effect
+  32 |   }, []);
+  33 |
+  34 |   useEffect(() => {  react-hooks/set-state-in-effect
+  39:7  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\yarde\OneDrive\Desktop\MAZAL\app\(customer)\my-order\page.tsx:39:7
+  37 |     const token = readLastOrderToken();
+  38 |     if (!token) {
+> 39 |       setPhase("form");
+     |       ^^^^^^^^ Avoid calling setState() directly within an effect
+  40 |       return;
+  41 |     }
+  42 |           react-hooks/set-state-in-effect
+
+C:\Users\yarde\OneDrive\Desktop\MAZAL\app\admin\menu\catalog\page.tsx
+  292:9  warning  The 'productLabelDefinitions' logical expression could make the dependencies of useMemo Hook (at line 295) change on every render. To fix this, wrap the initialization of 'productLabelDefinitions' in its own useMemo() Hook  react-hooks/exhaustive-deps
+
+C:\Users\yarde\OneDrive\Desktop\MAZAL\app\admin\menu\daily\page.tsx
+  390:5   warning  React Hook useMemo has an unnecessary dependency: 'clockTick'. Either exclude it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            react-hooks/exhaustive-deps
+  442:5   warning  React Hook useMemo has an unnecessary dependency: 'clockTick'. Either exclude it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            react-hooks/exhaustive-deps
+  476:9   warning  The 'userClosureTemplates' logical expression could make the dependencies of useMemo Hook (at line 489) change on every render. To fix this, wrap the initialization of 'userClosureTemplates' in its own useMemo() Hook                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   react-hooks/exhaustive-deps
+  476:9   warning  The 'userClosureTemplates' logical expression could make the dependencies of useMemo Hook (at line 493) change on every render. To fix this, wrap the initialization of 'userClosureTemplates' in its own useMemo() Hook                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   react-hooks/exhaustive-deps
+  497:24  error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\yarde\OneDrive\Desktop\MAZAL\app\admin\menu\daily\page.tsx:497:24
+  495 |
+  496 |   useEffect(() => {
+> 497 |     if (!editingToday) setTodayClosureEditOpen(false);
+      |                        ^^^^^^^^^^^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  498 |   }, [editingToday]);
+  499 |   useEffect(() => {
+  500 |     if (!editingTomorrow) setTomorrowClosureEditOpen(false);  react-hooks/set-state-in-effect
+  500:27  error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\yarde\OneDrive\Desktop\MAZAL\app\admin\menu\daily\page.tsx:500:27
+  498 |   }, [editingToday]);
+  499 |   useEffect(() => {
+> 500 |     if (!editingTomorrow) setTomorrowClosureEditOpen(false);
+      |                           ^^^^^^^^^^^^^^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  501 |   }, [editingTomorrow]);
+  502 |
+  503 |   useEffect(() => {                          react-hooks/set-state-in-effect
+  507:6   warning  React Hook useEffect has a missing dependency: 'state'. Either include it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   react-hooks/exhaustive-deps
+  521:7   error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\yarde\OneDrive\Desktop\MAZAL\app\admin\menu\daily\page.tsx:521:7
+  519 |   useEffect(() => {
+  520 |     if (isXlLayout) {
+> 521 |       setMobileDailyPanel(null);
+      |       ^^^^^^^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  522 |       setMobileDailyDockExpanded(false);
+  523 |     }
+  524 |   }, [isXlLayout]);                                                            react-hooks/set-state-in-effect
+
+C:\Users\yarde\OneDrive\Desktop\MAZAL\app\admin\menu\future\page.tsx
+  167:9  warning  The 'userClosureTemplates' logical expression could make the dependencies of useMemo Hook (at line 171) change on every render. To fix this, wrap the initialization of 'userClosureTemplates' in its own useMemo() Hook  react-hooks/exhaustive-deps
+
+C:\Users\yarde\OneDrive\Desktop\MAZAL\app\admin\page.tsx
+  236:5   error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\yarde\OneDrive\Desktop\MAZAL\app\admin\page.tsx:236:5
+  234 |   useEffect(() => {
+  235 |     const from = state.settings.customerBroadcastWhatsAppMessage?.trim() ?? "";
+> 236 |     setBulkText((prev) => (prev.trim() === "" ? from : prev));
+      |     ^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  237 |   }, [state.settings.customerBroadcastWhatsAppMessage]);
+  238 |   const [bulkCols, setBulkCols] = useState<Record<OrderColumn, boolean>>({
+  239 |     pendingApproval: false,  react-hooks/set-state-in-effect
+  269:65  warning  React Hook useMemo has an unnecessary dependency: 'clockTick'. Either exclude it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  react-hooks/exhaustive-deps
+  273:5   warning  React Hook useMemo has an unnecessary dependency: 'clockTick'. Either exclude it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  react-hooks/exhaustive-deps
+  291:9   warning  'scheduleGap' is assigned a value but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 @typescript-eslint/no-unused-vars
+  298:6   warning  React Hook useEffect has a missing dependency: 'state'. Either include it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         react-hooks/exhaustive-deps
+  426:5   error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\yarde\OneDrive\Desktop\MAZAL\app\admin\page.tsx:426:5
+  424 |     const first = COLUMN_ORDER.find((col) => (byColumn.get(col) ?? []).length > 0);
+  425 |     if (first === undefined) return;
+> 426 |     setOrdersBoardTab((cur) => (first !== cur ? first : cur));
+      |     ^^^^^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  427 |   }, [search, byColumn]);
+  428 |
+  429 |   const dateLine = useMemo(() => formatBusinessDateHe(viewDateIso), [viewDateIso]);                         react-hooks/set-state-in-effect
+  529:6   warning  React Hook useEffect has a missing dependency: 'setOrdersBoardFocus'. Either include it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           react-hooks/exhaustive-deps
+
+C:\Users\yarde\OneDrive\Desktop\MAZAL\app\admin\reports\page.tsx
+  69:60  warning  React Hook useMemo has an unnecessary dependency: 'clockTick'. Either exclude it or remove the dependency array  react-hooks/exhaustive-deps
+  75:5   warning  React Hook useMemo has an unnecessary dependency: 'clockTick'. Either exclude it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\yarde\OneDrive\Desktop\MAZAL\app\admin\tasks\page.tsx
+  77:60  warning  React Hook useMemo has an unnecessary dependency: 'dayClock'. Either exclude it or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\yarde\OneDrive\Desktop\MAZAL\app\api\admin\push\send\route.ts
+   5:3   warning  'collectTokensForBroadcast' is defined but never used  @typescript-eslint/no-unused-vars
+  20:10  warning  'orderDisplayNumber' is defined but never used         @typescript-eslint/no-unused-vars
+
+C:\Users\yarde\OneDrive\Desktop\MAZAL\components\admin\add-from-catalog-dialog.tsx
+  65:7  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\yarde\OneDrive\Desktop\MAZAL\components\admin\add-from-catalog-dialog.tsx:65:7
+  63 |   useEffect(() => {
+  64 |     if (!open) {
+> 65 |       setSearch("");
+     |       ^^^^^^^^^ Avoid calling setState() directly within an effect
+  66 |       setCategoryFilter("all");
+  67 |       setAddFlowItem(null);
+  68 |       setFlowMode("add");  react-hooks/set-state-in-effect
+
+C:\Users\yarde\OneDrive\Desktop\MAZAL\components\admin\admin-sidebar.tsx
+  308:24  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\yarde\OneDrive\Desktop\MAZAL\components\admin\admin-sidebar.tsx:308:24
+  306 |
+  307 |   useEffect(() => {
+> 308 |     if (inMenuSection) setMenuOpen(true);
+      |                        ^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  309 |   }, [inMenuSection]);
+  310 |
+  311 |   const [dash, ...rest] = otherLinks;  react-hooks/set-state-in-effect
+
+C:\Users\yarde\OneDrive\Desktop\MAZAL\components\admin\admin-whatsapp-message-dialog.tsx
+  123:5  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\yarde\OneDrive\Desktop\MAZAL\components\admin\admin-whatsapp-message-dialog.tsx:123:5
+  121 |   useEffect(() => {
+  122 |     if (!open) return;
+> 123 |     setMessage(initialMessage);
+      |     ^^^^^^^^^^ Avoid calling setState() directly within an effect
+  124 |     setPushTitle(initialPushTitle);
+  125 |     setManualPhone(
+  126 |       recipient && !digitsForWhatsApp(recipient.phone) && recipient.phone  react-hooks/set-state-in-effect
+
+C:\Users\yarde\OneDrive\Desktop\MAZAL\components\admin\closure-builtin-presets-settings.tsx
+    6:30  warning  'UserClosureTemplate' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    @typescript-eslint/no-unused-vars
+   72:10  warning  'commitClosurePresetOverride' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            @typescript-eslint/no-unused-vars
+   99:7   error    'next' is never reassigned. Use 'const' instead                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    prefer-const
+  150:5   error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\yarde\OneDrive\Desktop\MAZAL\components\admin\closure-builtin-presets-settings.tsx:150:5
+  148 |
+  149 |   useEffect(() => {
+> 150 |     setDraftTitle(effManual.title);
+      |     ^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  151 |     setDraftBody(effManual.body);
+  152 |   }, [effManual.title, effManual.body, id]);
+  153 |                                                                           react-hooks/set-state-in-effect
+  260:5   error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\yarde\OneDrive\Desktop\MAZAL\components\admin\closure-builtin-presets-settings.tsx:260:5
+  258 |
+  259 |   useEffect(() => {
+> 260 |     setDraftTitle(eff.title);
+      |     ^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  261 |     setDraftBody(eff.body);
+  262 |   }, [eff.title, eff.body, id]);
+  263 |                                                                                                   react-hooks/set-state-in-effect
+  401:7   error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\yarde\OneDrive\Desktop\MAZAL\components\admin\closure-builtin-presets-settings.tsx:401:7
+  399 |     if (pendingNewUser && selectedUserId === pendingNewUser.id) return;
+  400 |     if (userList.length === 0 && !pendingNewUser) {
+> 401 |       setSelectedUserId(null);
+      |       ^^^^^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  402 |       setUserAnchor(null);
+  403 |       return;
+  404 |     }  react-hooks/set-state-in-effect
+  417:7   error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\yarde\OneDrive\Desktop\MAZAL\components\admin\closure-builtin-presets-settings.tsx:417:7
+  415 |   useEffect(() => {
+  416 |     if (!selectedUserId) {
+> 417 |       setDraftLabel("");
+      |       ^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  418 |       setDraftTitle("");
+  419 |       setDraftBody("");
+  420 |       return;                                                                         react-hooks/set-state-in-effect
+  444:6   warning  React Hook useEffect has a missing dependency: 'pendingNewUser'. Either include it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  react-hooks/exhaustive-deps
+  747:14  error    Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+C:\Users\yarde\OneDrive\Desktop\MAZAL\components\admin\closure-builtin-presets-settings.tsx:747:14
+  745 |         <SettingsRow>
+  746 |           <div className="w-full space-y-3">
+> 747 |             <UserTemplatesStrip
+      |              ^^^^^^^^^^^^^^^^^^ This component is created during render
+  748 |               anchor="closed"
+  749 |               beforeChips={
+  750 |                 <>
+
+C:\Users\yarde\OneDrive\Desktop\MAZAL\components\admin\closure-builtin-presets-settings.tsx:607:3
+  605 |   };
+  606 |
+> 607 |   function UserTemplatesStrip({
+      |   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 608 |     anchor,
+      | ^^^^^^^^^^^
+> 609 |     beforeChips,
+      …
+      | ^^^^^^^^^^^
+> 730 |     );
+      | ^^^^^^^^^^^
+> 731 |   }
+      | ^^^^ The component is created during render here
+  732 |
+  733 |   return (
+  734 |     <div className="space-y-6">                                                                                       react-hooks/static-components
+  827:14  error    Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+C:\Users\yarde\OneDrive\Desktop\MAZAL\components\admin\closure-builtin-presets-settings.tsx:827:14
+  825 |         <SettingsRow>
+  826 |           <div className="w-full space-y-3">
+> 827 |             <UserTemplatesStrip
+      |              ^^^^^^^^^^^^^^^^^^ This component is created during render
+  828 |               anchor="orders"
+  829 |               beforeChips={
+  830 |                 <>
+
+C:\Users\yarde\OneDrive\Desktop\MAZAL\components\admin\closure-builtin-presets-settings.tsx:607:3
+  605 |   };
+  606 |
+> 607 |   function UserTemplatesStrip({
+      |   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 608 |     anchor,
+      | ^^^^^^^^^^^
+> 609 |     beforeChips,
+      …
+      | ^^^^^^^^^^^
+> 730 |     );
+      | ^^^^^^^^^^^
+> 731 |   }
+      | ^^^^ The component is created during render here
+  732 |
+  733 |   return (
+  734 |     <div className="space-y-6">                                                                                       react-hooks/static-components
+
+C:\Users\yarde\OneDrive\Desktop\MAZAL\components\admin\dashboard-day-menu-panel.tsx
+  19:10  warning  'mergeDayMenuEntries' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\yarde\OneDrive\Desktop\MAZAL\components\admin\day-menu-editor.tsx
+  257:5  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\yarde\OneDrive\Desktop\MAZAL\components\admin\day-menu-editor.tsx:257:5
+  255 |
+  256 |   useEffect(() => {
+> 257 |     setCategoryFilter("all");
+      |     ^^^^^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  258 |   }, [date]);
+  259 |
+  260 |   const day = state.dayMenus.find((d) => d.date === date);  react-hooks/set-state-in-effect
+
+C:\Users\yarde\OneDrive\Desktop\MAZAL\components\admin\orders-print-menu.tsx
+  26:3  warning  'dateLine' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\yarde\OneDrive\Desktop\MAZAL\components\admin\quick-hours-editor.tsx
+  102:3  error  Error: Cannot access refs during render
+
+React refs are values that are not needed for rendering. Refs should only be accessed outside of render, such as in event handlers or effects. Accessing a ref value (the `current` property) during render can cause your component not to update as expected (https://react.dev/reference/react/useRef).
+
+C:\Users\yarde\OneDrive\Desktop\MAZAL\components\admin\quick-hours-editor.tsx:102:3
+  100 |   const s = state.settings;
+  101 |   const sRef = useRef(s);
+> 102 |   sRef.current = s;
+      |   ^^^^^^^^^^^^ Cannot update ref during render
+  103 |   const [open, setOpen] = useState(false);
+  104 |   const [draftClose, setDraftClose] = useState("");
+  105 |   const [draftManual, setDraftManual] = useState("");  react-hooks/refs
+
+C:\Users\yarde\OneDrive\Desktop\MAZAL\components\admin\settings\settings-business-panel.tsx
+    81:19  error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\yarde\OneDrive\Desktop\MAZAL\components\admin\settings\settings-business-panel.tsx:81:19
+  79 |
+  80 |   useEffect(() => {
+> 81 |     if (!focused) setText(stable);
+     |                   ^^^^^^^ Avoid calling setState() directly within an effect
+  82 |   }, [stable, focused]);
+  83 |
+  84 |   return (                                                                                                                                                                                                     react-hooks/set-state-in-effect
+   137:3   warning  'field' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 @typescript-eslint/no-unused-vars
+   218:5   error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\yarde\OneDrive\Desktop\MAZAL\components\admin\settings\settings-business-panel.tsx:218:5
+  216 |
+  217 |   useEffect(() => {
+> 218 |     setText(category.name);
+      |     ^^^^^^^ Avoid calling setState() directly within an effect
+  219 |   }, [category.id, category.name]);
+  220 |
+  221 |   const commit = () => {                                                                                                                                                                                          react-hooks/set-state-in-effect
+   364:5   error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\yarde\OneDrive\Desktop\MAZAL\components\admin\settings\settings-business-panel.tsx:364:5
+  362 |
+  363 |   useEffect(() => {
+> 364 |     setText(definition.label);
+      |     ^^^^^^^ Avoid calling setState() directly within an effect
+  365 |   }, [definition.id, definition.label]);
+  366 |
+  367 |   useEffect(() => {                                                                                                                                                                                       react-hooks/set-state-in-effect
+   368:5   error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\yarde\OneDrive\Desktop\MAZAL\components\admin\settings\settings-business-panel.tsx:368:5
+  366 |
+  367 |   useEffect(() => {
+> 368 |     setColorDraft(normalizedProductLabelColor(definition.color));
+      |     ^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  369 |   }, [definition.id, definition.color]);
+  370 |
+  371 |   const commit = () => {                                                                                                                                         react-hooks/set-state-in-effect
+   575:5   error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\yarde\OneDrive\Desktop\MAZAL\components\admin\settings\settings-business-panel.tsx:575:5
+  573 |   useEffect(() => {
+  574 |     if (dirty) return;
+> 575 |     setLabel(portionDisplayLabel(size, s.portionSizeLabels));
+      |     ^^^^^^^^ Avoid calling setState() directly within an effect
+  576 |     setUnits(formatInventoryTally(portionInventoryUnits(size, s.portionSizeUnits)));
+  577 |   }, [size, s.portionSizeLabels, s.portionSizeUnits, dirty]);
+  578 |                                          react-hooks/set-state-in-effect
+   702:5   error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\yarde\OneDrive\Desktop\MAZAL\components\admin\settings\settings-business-panel.tsx:702:5
+  700 |     if (dirty) return;
+  701 |     const t = variant === "weekday" ? s : s.friday;
+> 702 |     setTimeDraft(hhmmForTimeInput(t[fieldKey]));
+      |     ^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  703 |     const scopes =
+  704 |       variant === "weekday" ? effectiveOrderTimeScopesForWeekday(s) : effectiveOrderTimeScopesForFriday(s);
+  705 |     setScopeDraft(scopes[fieldKey]);  react-hooks/set-state-in-effect
+   706:6   warning  React Hook useEffect has a missing dependency: 's'. Either include it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              react-hooks/exhaustive-deps
+   852:7   error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\yarde\OneDrive\Desktop\MAZAL\components\admin\settings\settings-business-panel.tsx:852:7
+  850 |   useEffect(() => {
+  851 |     if (!dirty) {
+> 852 |       setDraft(plannerNonWorkingWeekdayIndicesSun0(s));
+      |       ^^^^^^^^ Avoid calling setState() directly within an effect
+  853 |     }
+  854 |   }, [dirty, s.plannerNonWorkingWeekdayIndicesSun0]);
+  855 |                                                                                                                                          react-hooks/set-state-in-effect
+   854:6   warning  React Hook useEffect has a missing dependency: 's'. Either include it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              react-hooks/exhaustive-deps
+   933:11  warning  'state' is assigned a value but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        @typescript-eslint/no-unused-vars
+  1015:17  error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\yarde\OneDrive\Desktop\MAZAL\components\admin\settings\settings-business-panel.tsx:1015:17
+  1013 |
+  1014 |   useEffect(() => {
+> 1015 |     if (!dirty) setDraft(s.businessAddress ?? "");
+       |                 ^^^^^^^^ Avoid calling setState() directly within an effect
+  1016 |   }, [s.businessAddress, dirty]);
+  1017 |
+  1018 |   const unchanged = draft.trim() === (s.businessAddress ?? "").trim();                                                                                                 react-hooks/set-state-in-effect
+  1070:17  error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\yarde\OneDrive\Desktop\MAZAL\components\admin\settings\settings-business-panel.tsx:1070:17
+  1068 |
+  1069 |   useEffect(() => {
+> 1070 |     if (!dirty) setDraft(s.businessHoursDisplay ?? "");
+       |                 ^^^^^^^^ Avoid calling setState() directly within an effect
+  1071 |   }, [s.businessHoursDisplay, dirty]);
+  1072 |
+  1073 |   const unchanged = draft.trim() === (s.businessHoursDisplay ?? "").trim();                                                                                  react-hooks/set-state-in-effect
+  1126:17  error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\yarde\OneDrive\Desktop\MAZAL\components\admin\settings\settings-business-panel.tsx:1126:17
+  1124 |
+  1125 |   useEffect(() => {
+> 1126 |     if (!dirty) setDraft(s.contactPhone ?? "");
+       |                 ^^^^^^^^ Avoid calling setState() directly within an effect
+  1127 |   }, [s.contactPhone, dirty]);
+  1128 |
+  1129 |   const unchanged = draft.trim() === (s.contactPhone ?? "").trim();                                                                                                          react-hooks/set-state-in-effect
+  1185:17  error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\yarde\OneDrive\Desktop\MAZAL\components\admin\settings\settings-business-panel.tsx:1185:17
+  1183 |
+  1184 |   useEffect(() => {
+> 1185 |     if (!dirty) setDraft(s.contactPhone2 ?? "");
+       |                 ^^^^^^^^ Avoid calling setState() directly within an effect
+  1186 |   }, [s.contactPhone2, dirty]);
+  1187 |
+  1188 |   const unchanged = draft.trim() === (s.contactPhone2 ?? "").trim();                                                                                                       react-hooks/set-state-in-effect
+  1244:17  error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\yarde\OneDrive\Desktop\MAZAL\components\admin\settings\settings-business-panel.tsx:1244:17
+  1242 |
+  1243 |   useEffect(() => {
+> 1244 |     if (!dirty) setDraft(s.privacyPolicyText ?? "");
+       |                 ^^^^^^^^ Avoid calling setState() directly within an effect
+  1245 |   }, [s.privacyPolicyText, dirty]);
+  1246 |
+  1247 |   const unchanged = draft === (s.privacyPolicyText ?? "");                                                                                                         react-hooks/set-state-in-effect
+
+C:\Users\yarde\OneDrive\Desktop\MAZAL\components\admin\settings\settings-messages-panel.tsx
+  104:19  error    Error: Cannot access refs during render
+
+React refs are values that are not needed for rendering. Refs should only be accessed outside of render, such as in event handlers or effects. Accessing a ref value (the `current` property) during render can cause your component not to update as expected (https://react.dev/reference/react/useRef).
+
+C:\Users\yarde\OneDrive\Desktop\MAZAL\components\admin\settings\settings-messages-panel.tsx:104:19
+  102 |   const presets = useMemo(() => {
+  103 |     const base = whatsAppPresetsEditable(s.whatsappMessagePresetTemplates);
+> 104 |     const extra = pendingAddsRef.current.filter((p) => !base.some((t) => t.id === p.id));
+      |                   ^^^^^^^^^^^^^^^^^^^^^^ Passing a ref to a function may read its value during render
+  105 |     return extra.length > 0 ? [...base, ...extra] : base;
+  106 |   }, [s.whatsappMessagePresetTemplates, optimisticBump]);
+  107 |         react-hooks/refs
+  104:19  error    Error: Cannot access refs during render
+
+React refs are values that are not needed for rendering. Refs should only be accessed outside of render, such as in event handlers or effects. Accessing a ref value (the `current` property) during render can cause your component not to update as expected (https://react.dev/reference/react/useRef).
+
+C:\Users\yarde\OneDrive\Desktop\MAZAL\components\admin\settings\settings-messages-panel.tsx:104:19
+  102 |   const presets = useMemo(() => {
+  103 |     const base = whatsAppPresetsEditable(s.whatsappMessagePresetTemplates);
+> 104 |     const extra = pendingAddsRef.current.filter((p) => !base.some((t) => t.id === p.id));
+      |                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ Passing a ref to a function may read its value during render
+  105 |     return extra.length > 0 ? [...base, ...extra] : base;
+  106 |   }, [s.whatsappMessagePresetTemplates, optimisticBump]);
+  107 |  react-hooks/refs
+  106:6   warning  React Hook useMemo has an unnecessary dependency: 'optimisticBump'. Either exclude it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      react-hooks/exhaustive-deps
+  138:6   warning  React Hook useEffect has a missing dependency: 'selectedPreset'. Either include it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         react-hooks/exhaustive-deps
+
+C:\Users\yarde\OneDrive\Desktop\MAZAL\components\customer\customer-popup.tsx
+  60:5  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\yarde\OneDrive\Desktop\MAZAL\components\customer\customer-popup.tsx:60:5
+  58 |
+  59 |   useLayoutEffect(() => {
+> 60 |     setAllowOpen(shouldShowCustomerPopup(message));
+     |     ^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  61 |     setReady(true);
+  62 |   }, [message]);
+  63 |  react-hooks/set-state-in-effect
+
+C:\Users\yarde\OneDrive\Desktop\MAZAL\components\customer\dish-media.tsx
+  127:7  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\yarde\OneDrive\Desktop\MAZAL\components\customer\dish-media.tsx:127:7
+  125 |   useEffect(() => {
+  126 |     if (!open) {
+> 127 |       setPullOffset(0);
+      |       ^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  128 |       pullAmount.current = 0;
+  129 |     }
+  130 |   }, [open]);  react-hooks/set-state-in-effect
+
+C:\Users\yarde\OneDrive\Desktop\MAZAL\components\customer\dish-order-sheet.tsx
+   87:5  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\yarde\OneDrive\Desktop\MAZAL\components\customer\dish-order-sheet.tsx:87:5
+  85 |   /** לא לשמור «תמונה פתוחה» בין סגירת מגירה / החלפת מנה */
+  86 |   useEffect(() => {
+> 87 |     setLightboxOpen(false);
+     |     ^^^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  88 |   }, [open, item?.id]);
+  89 |
+  90 |   const portionUnits = state.settings.portionSizeUnits;                      react-hooks/set-state-in-effect
+  163:5  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\yarde\OneDrive\Desktop\MAZAL\components\customer\dish-order-sheet.tsx:163:5
+  161 |   useEffect(() => {
+  162 |     if (maxAddByStock < 1) return;
+> 163 |     setQtyByKey((m) => {
+      |     ^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  164 |       const cur = m[qtyKey] ?? 1;
+  165 |       if (cur <= maxAddByStock) return m;
+  166 |       return { ...m, [qtyKey]: maxAddByStock };  react-hooks/set-state-in-effect
+  243:7  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\yarde\OneDrive\Desktop\MAZAL\components\customer\dish-order-sheet.tsx:243:7
+  241 |   useEffect(() => {
+  242 |     if (!open) {
+> 243 |       setPull(0);
+      |       ^^^^^^^ Avoid calling setState() directly within an effect
+  244 |       dragActive.current = false;
+  245 |     }
+  246 |   }, [open, setPull]);                                                                                          react-hooks/set-state-in-effect
+
+C:\Users\yarde\OneDrive\Desktop\MAZAL\components\customer\order-edit-dialog.tsx
+  164:7  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\yarde\OneDrive\Desktop\MAZAL\components\customer\order-edit-dialog.tsx:164:7
+  162 |   useEffect(() => {
+  163 |     if (open) {
+> 164 |       setDraftCart(orderToDraftCart(order));
+      |       ^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  165 |       setSheetItem(null);
+  166 |       setAddPickerOpen(false);
+  167 |       setAddPickerCategoryId(null);  react-hooks/set-state-in-effect
+  177:7  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\yarde\OneDrive\Desktop\MAZAL\components\customer\order-edit-dialog.tsx:177:7
+  175 |     if (!addPickerOpen) return;
+  176 |     if (addableItems.length === 0) {
+> 177 |       setAddPickerCategoryId(null);
+      |       ^^^^^^^^^^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  178 |       return;
+  179 |     }
+  180 |     setAddPickerCategoryId((cur) => {   react-hooks/set-state-in-effect
+
+C:\Users\yarde\OneDrive\Desktop\MAZAL\components\fcm\customer-push-prompt.tsx
+  62:6  warning  React Hook useMemo has unnecessary dependencies: 'effectiveWatchOrderToken' and 'state.orders'. Either exclude them or remove the dependency array  react-hooks/exhaustive-deps
+
+C:\Users\yarde\OneDrive\Desktop\MAZAL\components\pwa\install-app-dialog.tsx
+   45:80  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    react/no-unescaped-entities
+   45:95  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    react/no-unescaped-entities
+   61:52  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    react/no-unescaped-entities
+   61:66  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    react/no-unescaped-entities
+   62:52  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    react/no-unescaped-entities
+   62:67  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    react/no-unescaped-entities
+   66:52  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    react/no-unescaped-entities
+   66:62  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    react/no-unescaped-entities
+   67:52  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    react/no-unescaped-entities
+   67:61  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    react/no-unescaped-entities
+   68:52  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    react/no-unescaped-entities
+   68:66  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    react/no-unescaped-entities
+   75:76  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    react/no-unescaped-entities
+   75:81  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    react/no-unescaped-entities
+   76:52  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    react/no-unescaped-entities
+   76:61  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    react/no-unescaped-entities
+  121:5   error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\yarde\OneDrive\Desktop\MAZAL\components\pwa\install-app-dialog.tsx:121:5
+  119 |   useEffect(() => {
+  120 |     const p = detectInstallPlatform();
+> 121 |     setTab(p);
+      |     ^^^^^^ Avoid calling setState() directly within an effect
+  122 |   }, []);
+  123 |
+  124 |   const canQuickInstall = Boolean(deferredPrompt) && !isInstalled;  react-hooks/set-state-in-effect
+
+C:\Users\yarde\OneDrive\Desktop\MAZAL\lib\customer-closure-templates.ts
+  98:47  warning  '_reason' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\yarde\OneDrive\Desktop\MAZAL\lib\customer-menu-stock.ts
+  107:3  warning  '_portionName' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\yarde\OneDrive\Desktop\MAZAL\lib\daily-stock.ts
+  12:26  warning  '_' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\yarde\OneDrive\Desktop\MAZAL\lib\firebase\seed-remote.ts
+  27:26  warning  '_omitStaffPw' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\yarde\OneDrive\Desktop\MAZAL\lib\firebase\write-remote.ts
+  427:36  warning  '_' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  442:36  warning  '_' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\yarde\OneDrive\Desktop\MAZAL\lib\planner-copy-pair-settings.ts
+  69:7  error  'closedNext' is never reassigned. Use 'const' instead   prefer-const
+  70:7  error  'weekendNext' is never reassigned. Use 'const' instead  prefer-const
+
+C:\Users\yarde\OneDrive\Desktop\MAZAL\lib\server\read-admin-settings.ts
+  11:26  warning  '_omit' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\yarde\OneDrive\Desktop\MAZAL\lib\store\local-app-store.tsx
+   10:8   warning  'MenuItem' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        @typescript-eslint/no-unused-vars
+  467:36  warning  '_' is assigned a value but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      @typescript-eslint/no-unused-vars
+  480:36  warning  '_' is assigned a value but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      @typescript-eslint/no-unused-vars
+  509:23  warning  '_dc' is assigned a value but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    @typescript-eslint/no-unused-vars
+  936:3   error    Error: Cannot access refs during render
+
+React refs are values that are not needed for rendering. Refs should only be accessed outside of render, such as in event handlers or effects. Accessing a ref value (the `current` property) during render can cause your component not to update as expected (https://react.dev/reference/react/useRef).
+
+C:\Users\yarde\OneDrive\Desktop\MAZAL\lib\store\local-app-store.tsx:936:3
+  934 |   const [state, rawDispatch] = useReducer(reducer, undefined, initialState);
+  935 |   const stateRef = useRef(state);
+> 936 |   stateRef.current = state;
+      |   ^^^^^^^^^^^^^^^^ Cannot update ref during render
+  937 |   const [scheduleTick, setScheduleTick] = useState(0);
+  938 |   const prevOrderingMenuDateRef = useRef<string | null>(null);
+  939 |  react-hooks/refs
+  947:5   warning  React Hook useMemo has an unnecessary dependency: 'scheduleTick'. Either exclude it or remove the dependency array                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          react-hooks/exhaustive-deps
+
+✖ 101 problems (60 errors, 41 warnings)
+  3 errors and 0 warnings potentially fixable with the `--fix` option.
+

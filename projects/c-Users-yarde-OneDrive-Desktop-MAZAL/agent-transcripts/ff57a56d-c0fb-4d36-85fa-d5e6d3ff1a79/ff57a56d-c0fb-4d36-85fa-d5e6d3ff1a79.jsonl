@@ -1,0 +1,22 @@
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nאני רוצה שכל עמודי הניהול שמורידים את זה כאפליקציה שיהיה את הלוגו השני ושהשם של האפליקציה יהיה\nניהול- הקוסקוס של מזל\n\nאבל ההתראות ביחד אותה אפליקציה גם ששולחים זה עם התמונה של האפליקציה הראשית ועם השם הקוסקוס של מזל\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"בודקים איך מוגדרים ה-manifest, האייקונים וההתראות בפרויקט כדי ליישם את הדרישות.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מעדכנים את שם אפליקציית הניהול ל־`ניהול- הקוסקוס של מזל` (לוגו משני כבר ב־`manifest-admin` וב־metadata). מוסיפים מיתוג אחיד להתראות: כותרת עם `הקוסקוס של מזל` ואייקון מוחלט (או יחסי) כדי שיוצג תמיד אייקון האפליקציה הראשית, גם כשמאשרים התראות ממסך הניהול.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן:\n\n### אפליקציית ניהול (התקנה / PWA)\n- ב־`public/manifest-admin.json`, ב־`app/admin/layout.tsx` וב־`app/admin/login/layout.tsx` השם הוא עכשיו **`ניהול- הקוסקוס של מזל`** (מקף צמוד ל־«ניהול», רווח אחריו), בדיוק כמו שביקשת.\n- **הלוגו השני** נשאר כמו שהיה: `mazal-admin-logo.svg` במניפסט וב־metadata של אזור `/admin`.\n\n### התראות (אותה אפליקציה – מיתוג לקוחות)\n- ב־`lib/server/fcm-send.ts` כל התראה נשלחת עם **אייקון האפליקציה הראשית** (`mazal-app-icon.svg`). אם מוגדר `NEXT_PUBLIC_SITE_URL`, נשלחים **כתובות מוחלטות** לאייקון (יותר אמין ב־FCM).\n- **כותרת ההתראה** תמיד כוללת את שם המסעדה: `הקוסקוס של מזל · ` לפני הטקסט (למשל אישור הזמנה), כדי שגם מי שאישר התראות ממסך ניהול יראה בבירור את שם העסק בשורת הכותרת.\n- ב־`public/firebase-messaging-sw.js` הרקע משתמש באותו **אייקון מוחלט** (`origin + /brand/...`) ומוסיף את המיתוג בכותרת רק אם השרת עדיין לא שלח אותו (תאימות לאחור).\n\nאם תרצה, אפשר גם לעדכן טקסטים כמו כפתור «התקנה — ניהול» בהגדרות כדי שיתאימו מילה במילה לשם החדש.\n\n[REDACTED]"}]}}

@@ -1,0 +1,26 @@
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nבימי שישי ההזמנות נפתחות יום לפני בשעה 14:30 ואפשר להזמין את השעה 22:00 בלילה של יום חמישי (יום לפני) בין השעה 21:00 ל22:00 זה הזמנות באישור בית העסק\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"בודקים איך מוגדרים לוח הזמנים, חלונות הזמנה ואישור הזמנות בקוד.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מיישמים: פתיחת הזמנות לשישי מיום חמישי בשעה שמוגדרת ב־`friday.orderOpenTime` (14:30), וחלון אישור ידני בחמישי בערב 21:00–22:00 להזמנות לשישי.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מממשים את הלוגיקה ב-`business-schedule.ts`, מעדכנים את ה-reducer, את `write-remote`, את הודעות החסימה ואת דף הצ'ק-אאוט.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שיושם בקוד:\n\n### 1. פתיחת הזמנות לשישי — יום לפני ב־14:30\nנוספה `orderOpenTimeStringForTransitionToTomorrow` ב־`lib/business-schedule.ts`: כש**מחר שישי** והיום פתוח בלוח, שעת הפתיחה להזמנות למחר נלקחת מ־**`settings.friday.orderOpenTime`** (בברירת הזרע כבר `14:30`), ולא משעת פתיחת החול של יום חמישי.\n\nהפונקציה `resolveOrderingMenuDate` עודכנה להשתמש בזה, כך שביום חמישי אחרי 14:30 הלקוחות מזמינים לתפריט **שישי** (אם שישי לא מסומן סגור).\n\n### 2. חלון 21:00–22:00 בחמישי — אישור ידני\nנוספה `orderRequiresManualApproval`:\n- **יום חמישי**, הזמנה שיום העסקים שלה הוא **שישי**: אם השעה בירושלים **מ־21:00 עד לפני 22:00** → ההזמנה יוצאת ל־`pendingApproval` / מצב ידני.\n- **ביום שישי עצמו** (הזמנה לאותו יום קלנדרי): אחרי `manualApprovalFrom` של לוח השישי — אישור ידני, כמו קודם לוגית.\n\n### 3. שאר המערכת\n- **`PLACE_ORDER`**: אין יותר `manualWindow` מהלקוח — מחושב ב־reducer וב־`write-remote` (Firebase) עם אותה פונקציה.\n- **צ'ק־אאוט**: הוסר צ'קבוקס הדמו; מוצגת הודעה כשההזמנה תידרש לאישור בית העסק.\n- **`isInMiddayOrderGap`** והודעות «אין הזמנות מ־… עד …» משתמשות בשעת הפתיחה הנכונה גם כשמחר שישי.\n\nברירת המחדל ב־`seed` לשישי נשארת `orderOpenTime: \"14:30\"`. אפשר לכוון את שעות הסגירה / `manualApprovalFrom` לשישי בהגדרות הניהול; חלון **חמישי 21:00–22:00** להזמנות לשישי מקודד כרגע לפי הדרישה (לא נשען על שדה נפרד בהגדרות). אם תרצה שזה יהיה ניתן לעריכה מהמסך Settings (שעות התחלה/סיום), אפשר להוסיף שדות בהגדרות בשלב הבא.\n\n[REDACTED]"}]}}

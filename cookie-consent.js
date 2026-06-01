@@ -1,4 +1,9 @@
 // מערכת ניהול הסכמה לקוקיז - Cookie Consent Management System
+if (window.__paintzCookieConsentScriptLoaded) {
+  // כבר נטען בעמוד זה — מונע שגיאת "already been declared"
+} else {
+window.__paintzCookieConsentScriptLoaded = true;
+
 class CookieConsent {
     constructor() {
         this.cookieName = 'paintz_cookie_consent';
@@ -562,16 +567,17 @@ document.head.appendChild(style);
 
 // הסרת כפתור הגדרות קבוע - לא נדרש יותר
 
-// אתחול המערכת
-document.addEventListener('DOMContentLoaded', () => {
-    window.cookieConsent = new CookieConsent();
-});
-
-// אם הדף כבר נטען
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => {
+function bootCookieConsent() {
+    if (!window.cookieConsent) {
         window.cookieConsent = new CookieConsent();
-    });
+    }
+}
+
+// אתחול המערכת
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', bootCookieConsent);
 } else {
-    window.cookieConsent = new CookieConsent();
+    bootCookieConsent();
+}
+
 }

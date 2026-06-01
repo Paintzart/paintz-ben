@@ -1,0 +1,558 @@
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nיאללה דף הבית תעשה בעיצוב הנכון כמו שעשינו בתפריטים הכל יפה מובן מסודר\n\nתשנה קצת עיצובים ודברים שיתאים יותר ויהיה נוח גם למשתמשים במחשב גם באייפד להכל ממש בעמוד הזהה זה העמוד של תוך כדי עבודה עושים אז הוא הכי קריטי להיות הכימובן והכי טוב\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"משפרים את דף הבית כך שיתאים לעיצוב של דפי התפריטים. בודקים את המבנה והעיצוב הקיימים.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"משדרגים את דף הניהול הראשי (`/admin`) כך שיתאים לפריסה, לכרטיסים ולכותרת של דפי התפריט — כולל גלילה אופקית ללוח הקנבן בטאבלט ומטרות מגע נוחות.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מתאימים את סדר העמודות לדף התפריט היומי: עמודה צרה משמאל (מלאי), תוכן ראשי מימין.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מסדרים את הפריסה כמו בדף התפריט (סרגל צד שמאל), מעבירים את ה־aside לפני התוכן הראשי, ומסירים ייבוא שלא בשימוש.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן ב־`app/admin/page.tsx` (דף הבית של הניהול):\n\n### עקביות עם דפי התפריט\n- **מיכל רחב** `max-w-[1600px]` ורווח תחתון `pb-24` כמו בתפריט היומי.\n- **כותרת** עם חמסה (`hamsa-detailed.svg`), תווית «ניהול יומי», `font-heading`, ותאריך עברי מלא לפי `businessDate`.\n- **כרטיסים** באותה שפה: `rounded-xl sm:rounded-2xl`, `border-border/80`, `ring-1 ring-black/[0.04]`, כותרות משנה עם אייקון בצבע `#4a6f72`.\n\n### פריסה (מחשב / אייפד)\n- **רשת כמו בתפריט**: עמודה צרה **משמאל** (ב־LTR) למלאי והערות — `17.5rem`, **sticky** ב־`xl`; התוכן הראשי **מימין**. במובייל: קודם לוח ההזמנות, אחריו צד המלאי (`order-1` / `order-2`).\n- **לוח קנבן**: מתחת ל־`xl` — **גלילה אופקית** עם `snap-x` לעמודות ברוחב קבוע (נוח לאייפד במצב portrait ולמסכים צרים); מ־`xl` ומעלה — **חמש עמודות ברשת** עם גובה אחיד.\n- **מלאי**: אזור גלילה פנימי עם גבול גובה כדי שלא יתפוס את כל המסך.\n\n### נוחות שימוש\n- חיפוש עם תווית «חיפוש מהיר», שדות **גבוהים יותר במגע** (`h-11` במובייל).\n- כפתור **איפוס יום** עם אייקון, מתג סגירת הזמנות עם `Label` מקושר לנגישות.\n- כרטיסי הזמנה עם מסגרת עדינה יותר; צ׳קבוקסים גדולים יותר בהודעת התפוצה.\n\nאם תרצה, אפשר להסיר את השורה הקטנה «גלילה אופקית בין עמודות…» אחרי שתתרגלו לזה במכשירים.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nגם פה אותו הדבר שיהיה היום ומחר \n\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"בודקים איך מוגדרים תאריך העסקים וההזמנות בקוד, ואיך דף התפריט היומי מטפל ב\"היום\" ו\"מחר\".\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מוסיפים מעבר «היום» / «מחר» כמו בדף התפריט היומי: סינון הזמנות לפי תאריך, מלאי לפי אותו יום, ומעבירים `date` בפעולות המלאי.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מיישמים: מוסיפים imports, לוגיקת תאריכים, מסננים הזמנות, ומעדכנים את הכותרת והמלאי.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מתקנים את לוגיקת ברירת המחדל: כשאין בחירה ידנית, נציג את `state.businessDate` (יום ההזמנות הפעיל) במקום להניח שזה תמיד «היום» בלוח.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שנוסף ב־`app/admin/page.tsx`:\n\n### היום / מחר (כמו בתפריט היומי)\n- שני כפתורים עם אותו סגנון (טרקוטה פעיל, קו תחתון ליום שהלקוחות רואים באתר לפי `orderingDate`).\n- **ברירת מחדל** (`dashDayTab === null`): התצוגה עוקבת אחרי **`state.businessDate`** — אחרי מעבר שעות זה אותו יום שההזמנות «שייכות אליו» במערכת (כמו באתר).\n- **בחירה ידנית**: «היום» = תאריך היום בירושלים, «מחר» = מחר — גם אם עדיין מוצגים הזמנות ליום אחר.\n\n### מה משתנה לפי הלשונית\n- **לוח ההזמנות**: רק הזמנות ש־`orderBusinessDate` שלהן מתאים לתאריך הנבחר.\n- **מלאי בצד**: `TOGGLE_OUT_OF_STOCK` ו־`SET_DAILY_STOCK_NOTE` עם `date: viewDateIso` — עריכה של המלאי **לאותו יום** (כמו ב־Firebase).\n\n### איפוס יום\n- **מושבת** כשהתצוגה לא על יום העסקים הפעיל (`viewDateIso !== state.businessDate`), עם הסבר ב־`title` ובשורת טקסט קצרה מתחת לכפתורים.\n\n### הערות\n- **«מוצרים שנשארו במלאי»** נשאר גלובלי בהגדרות (לא לפי יום) — כמו קודם.\n- **«סגירת הזמנות עכשיו»** נשאר גלובלי ללקוחות.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nאם בית העסק סגור שיהיה כתוב במקום לוח ההזמנות והכל שיהיה כתוב בית העסק סגור \n\nסגירת הזמנות עכשיו שיהיה רק להזמנות הפעיל\nבין שעותמסויימות אין הזמנות אז זה סגור ושזה פתוח זה או היום שפתוח ההזמנות או מחר ואם מחר בית העסק סגור זה רק בהיום ואם בשניהם סגור זה לא צריך להופיע\n\nכמו המידי בעמוד תפריט יומי\n\nאיפוס יום אין צורך בכפתור הזה\n\nמוצרים שנשארו במלאי  גם אין צורך במקום זה שים לי את הלוח שעות שבעמוד תפריט יומי שעשינו שם\n\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מיישמים את הלוגיקה כמו בעמוד התפריט היומי: בודקים איך מוצגים סגירת הזמנות, מתי בית העסק סגור, ואיך משתמשים ב-DayOrderHoursCallout.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מיישמים: מסירים איפוס והודעת איפוס, מחליפים את «מוצרים שנשארו» ב־`DayOrderHoursCallout`, מוסיפים לוגיקת כותרת כמו בתפריט היומי, ומציגים «בית העסק סגור» כשהיום הנצפה סגור בלוח.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מתקן מצבים שבהם נשאר כרטיס ריק (חלון הזמנות למחר עם scheduleGap, או היום פתוח בלוח אבל בחלק אמצע היום).\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן ב־`app/admin/page.tsx`:\n\n### בית העסק סגור (לפי היום הנצפה בלשונית)\nאם `isCalendarDayVenueClosed` ל־`viewDateIso` — במקום חיפוש, לוח עמודות והודעת תפוצה מוצגת רק כרטיס מרכזי עם **«בית העסק סגור»** ושורת התאריך. מלאי בצד ולוח השעות נשארים.\n\n### «סגירת הזמנות עכשיו» כמו בתפריט היומי\n- אותה היררכיה: חלון הזמנות למחר / היום, פתיחת בית עסק בלוח, או מתג פתוח/סגור להזמנות — לפי **היום** / **מחר** ולפי מה שהאתר מזמין אליו.\n- **במצב פער שעות** (`isInMiddayOrderGap`) — לא מוצג מתג הפעיל על `SET_ORDERS_CLOSED_NOW` (אין הזמנות באותו חלון).\n- **כשגם היום וגם מחר סגורים בלוח** — לא מוצגת כלל עמודת הפעולות בכותרת (בהתאם לבקשה).\n\n### כפתור איפוס יום\nהוסר לחלוטין, כולל דיאלוג האישור.\n\n### מוצרים שנשארו במלאי\nהוסר. במקום — **`DayOrderHoursCallout`** (אותו רכיב כמו בעמוד תפריט יומי), עם `calendarToday={calendarToday}`.\n\n### נוסף\n- `syncVenueClosedWhenMenuEmpty` ליום ולמחר (כמו בתפריט היומי).\n- תגיות **בית העסק סגור היום / מחר** מתחת ללשוניות כשהלוח סגור באחד הימים.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nתפריט יומי  אני לא רוצה ככה אני רוצה תמונה ממש בקטן שם המוצר וכמה במלאי כמה נמכר וכמה נשאר כמו שעשינו בתפריט היומי ואפשרות לסמן אם זה אזל או להחזיר למלאי בדיוק אותו הדבר\nוכמובן זה מופיע רק שבית העסק פתוח \n\nתפריט למחר גם אותו הדבר שיהיה בדיוק אותו הדבר יופיע רק ליום הבא לפי התפריט שלו\n\nשהכותרת תיהיה תפריט יומי | היום/מחר\n\nאני רוצה כפתור של הוספת הזמנה ידני ואז גם בית העסק יכול לסמן \n\nשיפתח דיאלוג מסודר של ההזמנה מה הוא בוחר לכתוב שם וטלפון כמובן\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"בודקים איך תצוגת המלאי בתפריט היומי מיושמת ואיך נוצרות הזמנות במערכת.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מיישמים: מוסיפים את הפעולה `ADMIN_PLACE_MANUAL_ORDER`, יוצרים רכיב `DashboardDayMenuPanel` התואם לכרטיסי התפריט היומי, ומעדכנים את דף הניהול.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שיושם:\n\n### תפריט יומי בצד (כמו בעמוד התפריט היומי)\nרכיב חדש `components/admin/dashboard-day-menu-panel.tsx`:\n- **כותרת:** `תפריט יומי | היום` או `תפריט יומי | מחר` לפי הלשונית.\n- **מוצג רק כש־`venueOpen`** — כלומר בית העסק **פתוח בלוח** ליום הנצפה (`!venueClosedForView`).\n- רק מנות **שמוצגות בתפריט** (`onMenu !== false`), ממוינות לפי קטגוריה ושם.\n- לכל מנה: **תמונה קטנה**, קטגוריה, שם, **מלאי / נמכרו / נשאר** (כמו בגריד של התפריט היומי), כפתורי **אזל / במלאי** ו־**עריכת מלאי** (דיאלוג תקרת מנות כמו שם).\n\n### הזמנה ידנית\n- פעולה חדשה **`ADMIN_PLACE_MANUAL_ORDER`** ב־`app-store-actions`, ב־`local-app-store` וב־`write-remote` (כולל Firestore ורשימת תפוצה כמו `PLACE_ORDER`).\n- דיאלוג `components/admin/admin-manual-order-dialog.tsx`: שם, טלפון, הערה, **אישור ידני (תור אישור)**, שורות מנה (מנה / גודל / כמות) + הוספת שורות.\n- מנות לבחירה לפי **תפריט יום העסקים הפעיל** (`state.businessDate`).\n- כפתור **«הוספת הזמנה ידנית»** בכותרת הדשבורד — רק כש־`canManualOrder`: **לא** ביום סגור בלוח **וגם** `viewDateIso === state.businessDate` (כדי שההזמנה תתאים ליום שהמערכת מזמינה אליו).\n\n### קבצים שעודכנו\n- `app/admin/page.tsx` — הוחלף רשימת המלאי הישנה ב־`DashboardDayMenuPanel`, נוסף כפתור + דיאלוג.\n- `lib/store/app-store-actions.ts`, `lib/store/local-app-store.tsx`, `lib/firebase/write-remote.ts` — הזמנה ידנית.\n\n`npx tsc --noEmit` עבר בהצלחה.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nהטאג הלבן למעלה שלא יהיה את הפתח סגור בית העסק\nרק לפתוח לסגור הזמנות בזמן אמת של היום או של מחר תלוי בשעה וביום אם 2 בתי העסק סגורים נגיד שלא יופיע\n\nרק החלק של המידי שיופיע\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מסירים את מתגי «פתח בית העסק» מהכותרת ומשאירים רק את מתג פתיחה/סגירת הזמנות בזמן אמת (מידי).\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מחליפים את בלוק הכותרת המורכב במתג יחיד של פתיחה/סגירת הזמנות — רק כשההקשר מאפשר (בלי מתגי פתיחת בית עסק).\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"עדכנתי את הכרטיס הלבן בכותרת כך:\n\n### מה הוסר\n- כל מתגי **«פתח בית העסק»** (היום / מחר) — לא מופיעים יותר בראש הדף.\n\n### מה נשאר (רק «מידי»)\nמתג **פתוח / סגור** אחד ל־`SET_ORDERS_CLOSED_NOW` — סגירה או פתיחה של קבלת הזמנות באתר **בזמן אמת**, עם שורת משנה:\n- **«הזמנות באתר להיום»** — בלשונית היום, כשההזמנות באתר להיום (לא חלון «מחר»), היום פתוח בלוח, ולא בתווך שבין סגירה לפתיחה (`!scheduleGap`).\n- **«הזמנות באתר למחר»** — כשההזמנות באתר למחר (מלשונית היום בחלון למחר, או מלשונית מחר כשהאתר כבר על מחר), **ומחר פתוח בלוח**, ולא ב־`scheduleGap`.\n\n### מתי לא מוצג כלום בכרטיס\n- **שני הימים סגורים בלוח** (`bothVenuesClosedOnCalendar`) — אין כרטיס בכלל.\n- **מצב שבו קודם הופיע רק מתג בית העסק** — עכשיו אין שם כלום (בלי מתג הזמנות, כי אין הזמנות פעילות באותו הקשר).\n- **במרווח שעות** (אין הזמנות באותו חלון) — אין מתג מידי.\n\nפתיחת/סגירת בית העסק בלוח נשארת רק **בעמוד תפריט יומי** (או בהגדרות), לא בדשבורד.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nעריכת מלאי שלא יהיה בכפתור זה לחיצה על הכפול יפתח את העריכת מלאי\n\nאם זה אזל במלאי שיהיה אפור ושיהיה כעיגול למעלה שיהיה כמה שפחות גובה כל הזמנה\n\nאם בית העסק סגור אין תפריט יומי אז שלא יופיע במקום אולי שיופיע ההודעה (רק שיופיע ההודעה בלי אופציה לעריכה)\n\nהטאג הלבן של פתוח סגור שיופיע הכי למעלה צמוד למין לפי החלקים בצד ולא איפה ששמת\nושההוספת הזמנה ידנית יהיה לידו מתחת אוו כעיגול למטה\n\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"קורא את המבנה הנוכחי ומיישם את השינויים.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מעדכנים את `DashboardDayMenuPanel` ואת מבנה הכותרת בדף הניהול.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן:\n\n### תפריט יומי (`dashboard-day-menu-panel.tsx`)\n- **עריכת מלאי**: הוסר כפתור «עריכת מלאי». **לחיצה על בלוק מלאי / נמכרו / נשאר** (השלושה) פותחת את דיאלוג עריכת המלאי.\n- **אזל במלאי**: כרטיס **אפור** (`opacity-80`, טקסט `muted`), **ריווח צפוף** (`gap-1`, `p-2`), תמונה **קטנה יותר** (`size-9`), ו־**נקודה עגולה קטנה** בפינה הימנית‑עליונה (`size-2 rounded-full`) כסימון «אזל». כפתור **אזל / במלאי** נשאר מתחת, עם עיצוב אפור כשהמנה מסומנת כאזלה.\n- **בית העסק סגור**: כשאין תפריט לעריכה מוצגת **רק הודעה** (כותרת מעומעמת + טקסט שאין תפריט לעריכה), **בלי** רשימת מנות ו**בלי** דיאלוגים.\n\n### כותרת דף הניהול (`page.tsx`)\n- **מתג פתוח/סגור** + **הוספת הזמנה ידנית** מועברים לעמודה ימנית **נפרדת** (`xl:flex-row`, `xl:items-start`): למעלה מיושרים **לצד הכרטיסים** (אותה שורת התחלה כמו עמודת הצד).\n- **הוספת הזמנה ידנית** מתחת למתג, עם **`rounded-full`**, ברוחב מלא במובייל וברוחב אוטומטי בדסקטופ (`min-w-[14rem]`).\n\nאם תרצה שהעמודה הימנית תופיע רק כשיש מתג או כפתור (בלי רווח ריק), אפשר לצמצם את זה בשלב הבא.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nהפתוח סגור שיהיה הרבה יותר צר ברוחב\nהאזל שיהיה בצד שמאל של הכותרת בעיגול ולחלופין המלאי\nוהקו מתחת לזה שזה מלאי יהיה צמוד יותר\nולא במלאי שיהיהגם קו\n\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מעדכן את רוחב כרטיס 'פתוח/סגור' ואת פריסת הכרטיסים בפאנל המלאי.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מצמצמים את כרטיס 'פתוח/סגור', מעבירים את סימון אזל/מלאי לעיגול משמאל לכותרת, ומצמצמים את הקו המקווקו.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nהפתוח סגור שיהיה הרבה יותר צר ברוחב\nהאזל שיהיה בצד שמאל של הכותרת בעיגול ולחלופין המלאי\nוהקו מתחת לזה שזה מלאי יהיה צמוד יותר\nולא במלאי שיהיהגם קו\n\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מצמצמים את כרטיס פתוח/סגור ומחדדים את הקו מתחת לשם המנה.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן:\n\n### כרטיס פתוח/סגור (`app/admin/page.tsx`)\n- רוחב מקסימלי ירד ל־**`9rem` / `9.5rem`** (במקום ~11.5–12rem), והעמודה ב־xl ל־**`9.5rem`**.\n- פחות ריפוד (`px-1.5 py-1.5`), פינות **`rounded-lg`**, רווחים קטנים יותר בין התווית למתג.\n- טקסט קצת קטן יותר והמתג ב־**`scale-[0.82]`** כדי שיישב בכרטיס הצר.\n\n### תפריט יומי בדשבורד (`dashboard-day-menu-panel.tsx`)\n- הקו מתחת לשם המנה **צמוד יותר** (`mt-0` במקום `mt-0.5`), קצר יותר (`w-8`), ובמצב **במלאי** נשאר קו ברור (`bg-primary/80`).\n- במצב **אזל** נשאר קו אפור — כך גם «במלאי» וגם «אזל» עם קו תחתון.\n\nהעיגול **אזל / מלאי** נשאר בצד **שמאלי** של שורת הכותרת (ב־RTL: הפריט השני בשורה).\n\nאם אחרי רענון הכרטיס עדיין נראה רחב מדי או שהטקסט נדחס — אפשר לכוון עוד את `max-w` או את גודל המתג.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nהוספת הזמנה ידנית שיהיה אחרת  בעיצוב של הדיאלוג הרגיל שלי שהכותרת עם רקע האיקס בצד השני\nאין צורך בנדרש אישור ידני\nוהמנות שיהיה אחרת יותר נוח\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"בודקים את דיאלוג ההזמנה הידנית ואת דפוס הדיאלוג הרגיל בפרויקט.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מיישמים את כותרת הדיאלוג עם רקע כמו בשאר הממשק, מסירים את אישור ידני (נשלח `manualWindow: false`), ומשפרים את פריסת המנות.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"עדכנתי את `components/admin/admin-manual-order-dialog.tsx` כך:\n\n### עיצוב כמו הדיאלוגים האחרים\n- **`DialogContent`**: `gap-0`, `p-0`, `overflow-hidden`, בלי כפתור סגירה ברירת מחדל.\n- **פס כותרת** `bg-[#4a6f72]`, טקסט לבן, מפריד תחתון.\n- **איקס** עם `DialogClose` ב־`absolute left-3` (כמו בעריכת מלאי), לא מימין.\n\n### ללא אישור ידני\n- הוסרו ה־**Checkbox** והטקסט «נדרש אישור ידני».\n- ההזמנה נשלחת תמיד עם **`manualWindow: false`** (נכנסת ישר לעבודה / אוטומטי, לא לתור אישור).\n\n### מנות נוחות יותר\n- כותרת **«מנות»** + כפתור **«הוספת מנה»** (`rounded-full`) בשורה אחת.\n- כל שורה ב**כרטיס** עם מספר **«מנה 1»** וכו', כפתור **הסרה** (כשיש יותר משורה אחת).\n- **בחירת מנה** בשורה מלאה, `SelectTrigger` גבוה יותר (`h-11`).\n- **גודל** ו**כמות** בשורה אחת במסכים רחבים; לכמות — **מינוס / שדה / פלוס** במקום רק input.\n- גוף הדיאלוג עם **גלילה** (`max-h`) והכפתורים בתחתית עם **מסגרת עליונה** ורקע כמו בדיאלוג המלאי.\n\nכפתור **שמירת הזמנה** בירוק המותג (`#4a6f72`) כמו בדיאלוג המלאי.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nאם בית העסק סגור במקום התפריט היומי שיהיה את ההועה שתוצג ללקוח\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מחפשים איך מוצגת הודעת «בית העסק סגור» ללקוח ואיך הדשבורד מטפל בתפריט היומי כשהעסק סגור.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מציגים את הכותרת והגוף מ־`customerPreviewForCalendarDate` — אותה לוגיקה כמו בתצוגת הלקוח ליום הסגירה בלוח.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן:\n\n### `components/admin/dashboard-day-menu-panel.tsx`\n- כש־**בית העסק סגור בלוח** ליום המוצג (`!venueOpen`), נטענת התצוגה עם **`customerPreviewForCalendarDate(state, viewDateIso)`** — אותה לוגיקה כמו בתצוגת הלקוח ליום זה (כותרת + טקסט מ־`effectiveCalendarClosureCopy`, כולל מחר מול היום כשצריך).\n- העיצוב דומה למסך הלקוח: **פס עליון ירוק** עם הכותרת שהלקוח רואה, מתחתיו **גוף ההודעה** עם `whitespace-pre-line` לשבירת שורות מהתבניות.\n- מתחת לכותרת הראשית נוספה שורה קטנה ומעומעמת: **«תפריט יומי | היום/מחר»** כדי שעדיין יהיה ברור איזו לשונית נבחרה.\n\nכך במקום הטקסט הכללי על «אין תפריט לעריכה» מוצג מה שהלקוח באמת יראה ביום הסגירה הזה.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nתפריט יומי שהעיגול אזל במלאי יהיה בגודל התמונה\nושהבמלאי ואזל יהיה אותו דבר\n\nשהעיגול יהיה הכפתור ששם במלאי או מסמן אזל ואז אין צורך בכפתור בנפרד ששמת\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מאחדים את גודל התמונה והעיגול, הופכים את העיגול לכפתור המחליף מצב, ומסירים את הכפתור התחתון.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nיע מתחת תפריט יומי | היום אין צורך בזה\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מסירים את השורה «תפריט יומי | היום/מחר» מתחת לכותרת בכרטיס כשבית העסק סגור.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"בוצע: הוסרה השורה הנוספת **«תפריט יומי | היום/מחר»** מתחת לכותרת הירוקה בכרטיס כשבית העסק סגור. נשארים רק כותרת ההודעה ללקוח והטקסט מתחתיה.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nבמלאי לא במלאי שיראה אותו הדבר\n\nבאזל שיהיה כתוב במלאי\nבמלאי גם שיהיה כתוב באזל\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מעדכנים את הכפתור העגול: טקסט משקף את הפעולה (כשאזל — «במלאי», כשבמלאי — «אזל»), ומאחדים את העיצוב לשני המצבים.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן בכפתור העגול בדשבורד:\n\n### טקסט (הפעולה הבאה, לא המצב הנוכחי)\n- **כשהמנה מסומנת כאזל** (`out`) — מוצג **«במלאי»** (בשתי שורות: במ / לאי), כלומר לחיצה תחזיר למלאי.\n- **כשהמנה במלאי** — מוצג **«אזל»**, כלומר לחיצה תסמן אזל.\n\n### מראה אחיד\n- אותו מסגרת, רקע וצבע טקסט בשני המצבים (`border-[#4a6f72]/30`, `bg-[#4a6f72]/10`, `text-[#4a6f72]`, אותו hover) — בלי הבדל אפור/ירוק לפי מצב.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nהטאב של הפתוח סגור שיהיה למעלה ולא מתחת לדברים\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מזיזים את כרטיס פתוח/סגור למעלה במסכים צרים: `flex-col-reverse` בכותרת כך שהעמודה עם המתג תוצג לפני בלוק הכותרת והלשוניות.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"עדכנתי את ה־`header` ל־`flex-col-reverse` (במקום `flex-col` בלבד).\n\n**במסך צר / מובייל:** הבלוק עם **פתוח/סגור** ו־**הוספת הזמנה ידנית** מופיע **מעל** בלוק הלוגו, הכותרת, תאריך, לשוניות **היום / מחר** והתגיות.\n\n**מ־`xl` ומעלה:** נשאר `flex-row` כמו קודם — משמאל לוגו וכותרות, מימין המתג והכפתור (בלי שינוי סדר לעומת לפני).\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nהכיתוב במלאי לא נכנס טוב בעיכול תסדר את זה\n\nהטאס של הפתוח סגור שיהיה במקבל לכותרת  לא מעל\n\nוהוספת הזמנה ידנית שיהיה מתחת כמו שהיה קודם\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מתקנים את הכיתוב «במלאי» בעיגול, מחזירים את המתג לשורה מקבילה לכותרת, ומציבים את «הוספת הזמנה ידנית» בשורה נפרדת מתחת.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן:\n\n### 1. כיתוב «במלאי» בעיגול (`dashboard-day-menu-panel.tsx`)\n- במקום שתי שורות («במ» / «לאי») — **«במלאי» בשורה אחת** עם `text-[6.5px] sm:text-[7.5px]`, `leading-none`, `tracking-tight` ו־`max-w-[2.65rem]` במסכים צרים כדי שלא יישבר מוזר.\n- «אזל» נשאר עם גדלים ברורים (`text-[8px] sm:text-[9px]`).\n\n### 2. מתג פתוח/סגור מקביל לכותרת (`page.tsx`)\n- הוסר `flex-col-reverse`; הכותרת בנויה כך:\n  - **שורה ראשונה:** `flex-row` — בלוק הלוגו + הכותרת + לשוניות + תגיות **בצד אחד**, וכרטיס **פתוח/סגור** **בצד השני**, באותה שורה (`items-start`).\n- כך המתג לא נמצא מעל הכותרת אלא **לידה**.\n\n### 3. «הוספת הזמנה ידנית» למטה\n- הכפתור הועבר ל־**שורה נפרדת** מתחת (`flex flex-col gap-4`), עם `justify-end` כדי ליישר אותו לימין כמו קודם.\n- עדיין `w-full` במובייל ו־`sm:w-auto sm:min-w-[14rem]` במסכים רחבים.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nשבאזל שזה יראה כמו במלאי כי יש רווח במלאי ובלא מלאי אין שזה יהיה בדיוק אותו הדבר\nלא בכיתוב אזל במלאי אלא ממש בכל כרטיס מוצר\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מאחדים את עיצוב כרטיס המוצר כך שייראה זהה במצב אזל ובמלאי — כולל ריווח, צבעים ולחצן העיגול.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן ב־`dashboard-day-menu-panel.tsx`:\n\n### כרטיס מוצר – אותו מראה תמיד\n- **מסגרת וריווח:** תמיד `gap-2`, `p-3` / `sm:p-3.5` — בלי `opacity`, בלי טבעות/צבעים מעומעמים כש־`out`.\n- **קטגוריה, שם, קו תחתון:** תמיד כמו «במלאי»: טקסט `#4a6f72` לקטגוריה, `text-foreground` לשם, קו `bg-primary/80`.\n- **בלוק מלאי / נמכרו / נשאר:** תמיד רקע `bg-[#b0cecd]/55`, טבעת ירוקה, אותם צבעי טקסט; **«אזל» בעמודת נשאר** (כש־0 נשאר) ב־`text-foreground` ולא באדום — כמו שאר המספרים.\n\n### כפתור העיגול\n- **אותו גודל טקסט** ל־«במלאי» ול־«אזל» (`text-[7px] sm:text-[8px]`).\n- **מיכל קבוע** עם `min-h` / `min-w` / `max-w` כדי ששתי המילים יתפסו אותה «חלונית» בעיגול בלי ריווח שונה.\n\nהלוגיקה (`out`) נשארת רק ל־`aria-pressed`, `title` ו־`aria-label` של הכפתור — לא לעיצוב.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nהצבע אבל באזל יהיה אפור ובמלאי בצבע זה השינוי היחידי חוץ מהכיתוב\n\nולדעתי במלאי שיהיה כתוב במלאי ולא אזל ולחלופין פחות מבלבל\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מתקנים את הכיתוב (מצב: «אזל» כשאזל, «במלאי» כשבמלאי) ומחילים אפור על מצב אזל וירוק על במלאי.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן:\n\n### כיתוב לפי **מצב נוכחי** (פחות מבלבל)\n- **במלאי** – כשהמנה לא מסומנת כאזל (`!out`).\n- **אזל** – כשהמנה אזל (`out`).\n\n(קודם הופיעו הפוכים – תוקן.)\n\n### צבע – **רק** בעיגול, לפי המצב\n- **אזל:** אפור (`border-muted…`, `bg-muted-foreground/12`, `text-muted-foreground`, hover מעומעם).\n- **במלאי:** ירוק המותג (`#4a6f72` כמו קודם).\n\n### נגישות\n- `title` / `aria-label` מתארים את **הפעולה** בלחיצה: כשאזל – «החזר למלאי», כשבמלאי – «סמן אזל».\n\nשאר הכרטיס נשאר ללא הבדלי צבע לפי מצב (רק העיגול משתנה).\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nשזה אזל הצבע של הכל יהיה אפור ולא צבעוני...\n\nגם מה שאזל אני רוצה שאוטומטית יהיה ראשון בתפריט היומי שישימו לב לזה\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מאפשרים עיצוב אפור לכל כרטיס כשהמנה באזל, וממיינים מנות באזל ראשונות בדשבורד ובעורך התפריט היומי.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מוסיפים מיון זהה בתפריט הלקוח — מנות באזל יופיעו ראשונות בכל קטגוריה.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"### 1. כרטיס אפור כש־**אזל** (`dashboard-day-menu-panel.tsx`)\n- **הכרטיס:** רקע `bg-muted/30`, מסגרת וטבעת אפורות.\n- **תמונה:** `grayscale` + `opacity-80`.\n- **קטגוריה, שם, קו תחתון:** טקסט וקו אפורים.\n- **בלוק מלאי / נמכרו / נשאר:** רקע אפור, טקסטים אפורים, אייקון אינסוף אפור.\n- **העיגול** נשאר כמו שסיכמנו (אפור כשאזל, ירוק כשבמלאי).\n\n### 2. מיון: **מנות באזל ראשונות**\nאותה לוגיקה: `effectiveDailyOutOfStock` + `soldMap` — קודם כל `out === true`, אחר כך קטגוריה, אחר כך שם.\n\n- **דשבורד** — `sortedRows`\n- **עמוד תפריט יומי (עורך)** — `sortedVisibleRows` ב־`day-menu-editor.tsx`\n- **תפריט לקוח** — בתוך כל קטגוריה ב־`page.tsx` (הלקוחות רואים אזל למעלה באותה קטגוריה)\n\nכך גם במנהל וגם אצל הלקוח מנות שאזל מופיעות לפני השאר (בתוך אותה קטגוריה אצל הלקוח).\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nהוספת הזמנה ידני במסך קטן שיהיה על כל הרוחב\n\nבמנות שבוחרים מנות הבחירנת מנה וגודל הוא באנגלית משום מה בתצוגה\n\nואולי לעשות את זה כשורה אחת ולא ככה כמה שיותר קטן ונוח\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מתקנים את תצוגת ה-Select (תווית בעברית), מצמצמים כל שורת מנה לשורה אחת קומפקטית, ומוודאים שכפתור «הוספת הזמנה ידנית» יהיה ברוחב מלא במסכים קטנים.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן:\n\n### 1. כפתור «הוספת הזמנה ידנית» — רוחב מלא במסך קטן\n- העוטף: `w-full sm:flex sm:justify-end` (בלי `justify-end` שדוחף לצד במובייל).\n- לכפתור נוספו `max-w-full` ו־`w-full` כדי שלא יצטמצם.\n\n### 2. תצוגה בעברית ב־Select (מנה + גודל)\n- ב־`SelectValue` משתמשים ב־**פונקציה** שמחזירה את **שם המנה** או **רגיל / שדרוג / כפול** דרך `portionLabel` — כך לא מוצגים הערכים באנגלית (`regular` וכו').\n- ב־`components/ui/select.tsx` הוחלף `text-left` ב־**`text-start`** כדי שתואם RTL.\n- ל־`SelectContent` נוסף `dir=\"rtl\"` ברשימות הדיאלוג.\n\n### 3. שורת מנה — קומפקטית בשורה אחת\n- **מספר שורה** (1, 2…) עמודה צרה.\n- **מנה** — `flex-1` עם `Select` בגובה `h-9`.\n- **גודל** — רוחב קבוע (~`5.25rem`).\n- **כמות** — פס `−` / שדה / `+` ברוחב `6.25rem`, גובה `h-9`.\n- **מחיקה** — אייקון בלבד (כשיש יותר משורה אחת).\n- בלי כותרות נפרדות «בחירת מנה / גודל / כמות» — רק שדות בשורה (עם `aria-label` לגודל).\n\nאם במסך צר השורה נשברת לשתי שורות, זה בגלל `flex-wrap`; אפשר אחר כך להקליק עוד את הרוחבים.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nהודעה ללקוח שיהיה גם בצד :)\n\nותוכל להוסיף לי נתוני דמה ללוח הזמנות בבקשה?\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מעבירים את כרטיס «הודעה ללקוחות» לעמודה הצדדית ומוסיפים הזמנות דמו נוספות ב-`seed.ts`.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"### 1. הודעה ללקוחות בצד\n- בלוק **«הודעה ללקוחות (דמו)»** הועבר לעמודה השמאלית (יחד עם תפריט יומי ולוח שעות).\n- ב־**מסכים רחבים** (`xl`) הוא נשאר **בצד** עם `sticky` כמו שאר העמודה.\n- עיצוב מותאם לרוחב צר: תיבות סימון בעמודה אחת, טקסט קטן יותר, כפתור ברוחב מלא.\n- `aria-label` של העמודה עודכן ל: «תפריט יומי, לוח שעות והודעה ללקוחות».\n\n### 2. נתוני דמה ללוח הזמנות (`lib/mock/seed.ts`)\nנוספו **9 הזמנות** (סה״כ **14** הזמנות ליום הדמו), עם פיזור בעמודות:\n\n| עמודה | דוגמאות נוספות |\n|--------|----------------|\n| ממתין לאישור | שרה גולן (o6) |\n| עבודה | רון שמעוני, תמר וייס |\n| בהכנה | אלון כץ, ליאור בן דוד |\n| מוכן | הילה מזרחי, גיא נחמני |\n| נאסף | רותם פרץ, עמית שחר |\n\nכל ההזמנות משתמשות במנות הקיימות במאגר (`m1`–`m6`) ובשמות/טלפונות דמו בעברית.\n\n**הערה:** נתוני ה־seed נטענים בהפעלה ראשונה (למשל מצב מקומי). אם כבר יש נתונים שמורים, צריך רענון/איפוס מצב כדי לראות את ההזמנות החדשות.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nהוספת מנות רק שהמספר יהיה באמצע ויהיה אפשר לשנוץ את זה רק בפלוס ובמינוס\n\nושוב שהכפתור הוספת הזמנה ידנית שיהיה על כל הרוחב מסך קטן \nבמסך גדול שיהיה מתחת לטאב של הסגור פתוח\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מסדרים את כפתור «הוספת הזמנה ידנית»: רוחב מלא במובייל; במסכים גדולים — מתחת למתג פתוח/סגור (עמודה ימנית). בדיאלוג: כמות רק עם +/- והמספר ממורכז.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הכותרת בעמוד כבר מסודרת בגריד. משפרים את כפתור המובייל (`min-w-0`) ומעדכנים את דיאלוג הכמות.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"### כמות מנות בדיאלוג «הוספת הזמנה ידנית»\n- הוסר שדה הקלדה מספרית — הכמות מוצגת **רק במרכז** בין מינוס לפלוס (`flex items-center justify-center`).\n- שינוי כמות **רק** עם כפתורי **−** / **+** (מינימום 1).\n- רקע עדין למרכז (`bg-muted/20`) כדי שייבדל כאזור תצוגה.\n\n### כפתור «הוספת הזמנה ידנית» בעמוד הניהול\nהפריסה כבר הייתה בגריד; חיזקתי:\n- **`min-w-0` על הגריד** ו־**`min-w-0 max-w-full` על הכפתור** בשורה התחתונה (`xl:hidden`) — כדי שלא ייחתך במסכים צרים ויישאר **ברוחב מלא** (`col-span-2`).\n\n**מסך גדול (`xl` ומעלה):** הכפתור נשאר **בעמודה הימנית**, **מתחת** לכרטיס פתוח/סגור (`hidden … xl:flex`).\n\n**מתחת ל־`xl`:** הכפתור בשורה נפרדת **על כל רוחב הכותרת** (`col-span-2 w-full`).\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nהודעה ללקוח שיהיה פחות רווח בין אופציה לאופציה\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"עודכן בלוח הצד: בין אופציות הסימון יש עכשיו **`gap-1`** (במקום `gap-2.5`), וכל שורה **`min-h-7`** עם **`py-0.5`** במקום `min-h-9` — הרווח האנכי בין «חדש — ממתין לאישור», «עבודה» וכו׳ צפוף יותר ונוח לגלילה.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nהוספת הזמנה ידנית במסך גדול שהרוחב יהיה ממש יבמעט יותר ארוך\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מרחיבים מעט את עמודת הכפתור במסכים גדולים (`xl`).\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מרחיבים מעט את עמודת `xl` (כבר 11rem) ל־12rem ומתאימים את רוחב כרטיס המתג.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"עדכנתי כך:\n\n- **עמודת המתג + כפתור הזמנה ידנית** ב־`xl`: `max-w` עלה מ־**11rem** ל־**12rem** — הכפתור «הוספת הזמנה ידנית» נהיה קצת יותר רחב.\n- **כרטיס פתוח/סגור**: הוסרו `max-w-[9rem]` / `sm:max-w-[9.5rem]` — הוא **מתפרס על כל רוחב העמודה**, כך שהמתג והכפתור מיושרים לאותו רוחב.\n\nבמסכים מתחת ל־`xl` אין שינוי (הכפתור הרחב נשאר בשורה נפרדת כמו קודם).\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nחיפוש שיהיה בכל הרוחב ואין צורך בכותרת חיפוש מההיר\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"עודכן ב־`app/admin/page.tsx`:\n\n- הוסרה הכותרת **«חיפוש מהיר»** וה־`Label`.\n- שדה החיפוש הוא **`w-full`** (במקום `max-w-2xl`).\n- נוסף **`aria-label=\"חיפוש בהזמנות\"`** לנגישות במקום התווית.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nהופת הזמנה ידנית במסך גדול שיהיה יותר רחב הכפתור\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"עדכנתי את רוחב העמודה במסכים גדולים (`xl`) מ־**12rem** ל־**15rem** — כך כפתור **«הוספת הזמנה ידנית»** (ורצועת המתג מעליו) נהיים רחבים יותר. הכפתור נשאר `w-full` בתוך העמודה, אז הוא נמתח לכל הרוחב החדש.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nלא הגדלת\nרק את הכפתור הוספת הזמנה ידנית תגדיל לא את הכפתור סגור ופתח\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מחזירים את כרטיס פתוח/סגור לרוחב המקורי (~9.5rem) ומגדילים רק את כפתור «הוספת הזמנה ידנית».\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן:\n\n### כרטיס פתוח/סגור\n- חזר לרוחב **צר** כמו קודם: `max-w-[9rem]` ו־`sm:max-w-[9.5rem]` (לא נמתח לרוחב העמודה).\n\n### כפתור «הוספת הזמנה ידנית» (רק ב־`xl`)\n- רוחב קבוע **`15rem`** עם `xl:w-[15rem] xl:min-w-[15rem]`.\n- הוסר הרוחב המשותף מהעטיפה — `xl:w-full xl:max-w-[15rem]` הוחלף ב־`xl:items-start` בלבד, כדי שהעמודה לא תרחיב את שני האלמנטים יחד.\n\nכך רק כפתור ההזמנה הידנית רחב; המתג נשאר ברוחב הקומפקטי.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nהכפתור סגור פתח תגדיל את הכתב קצת\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nשהסגור יהיה צמוד לשמאל לא לימין\nהכפתור לא התוכן בפנים\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"ב־RTL, `items-start` בעמודה אנכית מיישר את הילדים לימין. מחליפים ל־`items-end` כדי לצמד את כרטיס המתג והכפתור לשמאל (הקצה החיצוני).\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"בודקים: `self-end` על תא הגריד עלול להזיז את כל העמודה. משאירים רק יישור פנימי.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"עדכנתי את עמודת המתג והכפתור:\n\n- על המעטפת של **כרטיס פתוח/סגור + הוספת הזמנה ידנית** הוגדר **`items-end`** (במקום `xl:items-start`).\n- ב־**RTL** וב־`flex-col`, `items-start` מצמיד את הבלוקים ל־**ימין** של רוחב העמודה (ליד הכותרת); **`items-end`** מצמיד אותם ל־**שמאל** — לקצה החיצוני של העמודה.\n- **`self-start`** על תא הגריד נשאר כמו קודם, כדי לא להזיז את כל העמודה בטעות.\n\nכך כרטיס המתג (ה־«כפתור» החיצוני) והכפתור מתיישרים לשמאל, לא לימין, בלי לשנות את התוכן בתוך הכרטיס.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nלוח שעות למעלה אחרכך תפריט אחרכך הודעה ללקוחות ולדעתי שהתפריט והודעה ללקוחות שיהיה סגור ושיהיה אפשר לפתוח את זה\n\nובנוסף  אני רוצה להוסיף אולי  סהכ הזמנות וכסף \n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מסדרים את סרגל הצד: לוח שעות → סיכום הזמנות/כסף → תפריט (מתקפל) → הודעה ללקוחות (מתקפל). מוסיפים `details`/`summary` לברירת מחדל סגורה ומעדכנים את `DashboardDayMenuPanel` לתמיכה בעטיפה.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nלוח שעות למעלה אחרכך תפריט אחרכך הודעה ללקוחות ולדעתי שהתפריט והודעה ללקוחות שיהיה סגור ושיהיה אפשר לפתוח את זה\n\nובנוסף  אני רוצה להוסיף אולי  סהכ הזמנות וכסף \n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מיישמים את סדר הסרגל, כרטיס הסיכום והמקטעים המתקפלים ב-`page.tsx`.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שיושם:\n\n### סדר בסרגל (מלמעלה למטה)\n1. **לוח שעות** — `DayOrderHoursCallout`  \n2. **סיכום ליום המוצג** — מספר **הזמנות** ו־**סה״כ ₪** לפי `viewDateIso` (מ־`ordersForView` + `orderTotal`)  \n3. **תפריט יומי** — מתקפל, **סגור כברירת מחדל**  \n4. **הודעה ללקוחות (דמו)** — מתקפל, **סגור כברירת מחדל**\n\n### מתקפלים\nרכיב `SidebarFold` עם כפתור כותרת + `ChevronDown` (מסתובב כשהמקטע פתוח).  \n`aria-expanded` מוגדר על הכפתור.\n\n### `DashboardDayMenuPanel`\nנוספו `hideSectionTitle` ו־`rootClassName` כדי שלא תהיה כותרת כפולה ושהמסגרת החיצונית תהיה רק של המתקפל.\n\n### נגישות\n`aria-label` של עמודת הסרגל עודכן ל:  \n«לוח שעות, סיכום יום, תפריט יומי והודעה ללקוחות».\n\nאם תרצה שהמתקפלים ייפתחו אוטומטית כשמשנים לשונית היום/מחר, אפשר לחבר לזה `useEffect` — תגיד אם זה רלוונטי.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nבמסך קטן אני רוצה שכל מה שבצד שיהיה כנקודות צפות למטה או מאונח ואז שלוחצים זה פותח את המידע\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"בודקים את מבנה הדף והסרגל כדי להוסיף במסכים קטנים נקודות צפות שפותחות את אותם בלוקים.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מסתירים את עמודת הצד מתחת ל־`xl` ומוסיפים שורת כפתורים צפה ו־Sheet מתחתית המסך לפתיחת התוכן.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מונעים כפילות: עם `hidden xl:flex` הרכיבים עדיין נטענים ב-DOM. נרנדר את עמודת הצד רק כש־`min-width: 1280px` (מצב שולחן עבודה).\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שיושם:\n\n### מתחת ל־`xl` (1280px)\n- **אין עוד עמודת צד בתוך הזרימה** — התוכן (שעות, סיכום, תפריט, הודעה) **לא** מוצג ברשימה מתחת ללוח.\n- **שורה צפה למטה** — כפתורים עגולים בשורה (אייקון + נקודה קטנה למטה), עם הדגשה כשהחלון של אותו פריט פתוח.\n- **לחיצה** פותחת **Sheet מלמטה** עם אותו תוכן + כותרת וגלילה.\n- **לחיצה שוב על אותו כפתור** סוגרת את ה־Sheet.\n- **מעבר לרוחב שולחן עבודה** — הסגירה אוטומטית של ה־Sheet והחזרת עמודת הצד הרגילה (`useSyncExternalStore` + `useEffect` כשעוברים ל־`xl`).\n\n### מעל `xl`\n- הכל נשאר כמו קודם: עמודת צד עם אקורדיונים.\n\n### טכני\n- `useIsXlBreakpoint()` מונע **כפל רכיבים** (במיוחד `DashboardDayMenuPanel`) בין מובייל לדסקטופ — בכל רגע נטען רק אחד מהם.\n- ריפוד תחתון במובייל מותאם לשורה הצפה + safe area.\n\nאם תרצה שהנקודות יהיו **רק נקודות צבע** בלי אייקונים, או שהשורה תהיה **מימין/משמאל** במקום ממורכזת — אפשר לכוון את זה בנפרד.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nלוח הזמנות החלק המסובך באמת\nוהכי מורכב\n\nבמסך קטן שיהיה טאבים ולא גלילה אופקית\n\nשיהיה כתוב ממתים לאישור ולא חדש - ממתין לאישור\n\nשיהיה כתוב השם ובצד השני צמוד לשאל  את המספר של ההזמנות בלי המילה הזמנות \n\nומה ששמת לי למטה אני רוצה שהאיקס יהיה בצד השנ ושהכותרת הרקע שלה יהיה בצבע אחר \n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מחפשים את מימוש לוח ההזמנות, תוויות העמודות והגלילה האופקית.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מיישמים: מעדכנים את תווית העמודה ב-seed, מוסיפים טאבים ללוח במסכים מתחת ל-xl, מתקנים את כרטיס ההזמנה ואת כותרת ה-Sheet.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן:\n\n### לוח הזמנות — מסך צר (מתחת ל־`xl`)\n- **טאבים** במקום גלילה אופקית: רשת 2 עמודות (`sm`: 3), בכל טאב שם העמודה ומתחתיו **מספר בלבד** (בלי «הזמנה/הזמנות»).\n- הוסרה השורה «גלילה אופקית בין עמודות…».\n\n### שולחן עבודה (`xl` ומעלה)\n- נשאר **גריד של 5 עמודות** כמו קודם.\n- בשורת הספירה תחת כותרת העמודה מוצג עכשיו **רק המספר** (בלי מילה «הזמנות»).\n\n### תווית עמודה\n- ב־`lib/mock/seed.ts`: `pendingApproval` = **«ממתין לאישור»** (בלי «חדש —»).\n\n### כרטיס הזמנה\n- שורה אחת: **שם** מימין (RTL), משמאל **טלפון** ואז **מזהה ההזמנה** (מספר/מחרוזת) בלי תווית «הזמנות».\n- תג **ידני / אוטומטי** הוזז לשורה מתחת.\n\n### Sheet התחתון (המקלדת הצפה)\n- **כפתור סגירה (X)** הועבר לצד **שמאל** (`left-3`, `right-auto`), עם צבע לבן מעל הרקע.\n- **כותרת ה־Sheet**: רקע **ירוק-אפור כהה** (`#3d5e61`), טקסט לבן, ו־`ps-12` כדי שלא ייחתך ליד ה־X.\n\nאם תרצה שהמספר בכרטיס יהיה רק ספרות קצרות (ולא `order.id` המלא), אפשר להחליף לפורמט מקוצר.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nבמסך קטן שיהיה לי אופציה להגדלת לוח ההזמנות שיראו רק את החלק של לוח ההזמנות עם הטאבים והכפתורים למטה\nגם במסך גדול שיהיה אפשר להגדיל שיראו רק את החלק של ההזמנות בלי הצד תחשוב על איזה משהו\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"קוראים את מבנה הדף כדי להוסיף מצב מיקוד ללוח ההזמנות (מסך מלא / בלי צד).\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מוסיפים מצב מיקוד (`ordersBoardFocus`) עם סרגל עליון צר, מסתירים כותרת/חיפוש/צד, ומגדילים את לוח ההזמנות. בודקים את סוף הסקשן.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מיישמים: מוסיפים state, סרגל מיקוד, כפתורי הגדלה/מזעור, ומתאימים את גובה ה-flex.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שנוסף:\n\n### מצב **מיקוד לוח הזמנות** (`ordersBoardFocus`)\n- **כפתור «מיקוד»** (אייקון `Maximize2`) ליד כותרת «לוח הזמנות» — רק כשהעסק פתוח לתצוגה (לא כשהמסך הוא «בית העסק סגור»).\n- **במצב מיקוד** נשארים רק:\n  - **סרגל עליון דביק**: כותרת «לוח הזמנות», תאריך, **הזמנה ידנית** (אם מותר), וכפתור **«תצוגה רגילה»** (`Minimize2`).\n  - **לוח ההזמנות** (טאבים במובייל / חמש עמודות בדסקטופ) עם גלילה מתאימה לגובה המסך.\n- **מוסתרים במיקוד**: כותרת הדף המלאה (לוגו, לשוניות היום/מחר, מתג אתר וכו'), **שדה החיפוש**, ועמודת **הצד** (שעות, סיכום, תפריט, הודעה) ב־`xl` ומעלה.\n- **במובייל**: שורת הכפתורים הצפה למטה **נשארת** (אותו `z-index` כמו קודם).\n\n### מסך גדול\n- במיקוד הגריד הופך ל־**עמודה אחת** (בלי עמודת צד), והעמודות של הלוח מתפרסות על כל הרוחב עם גובה מקסימלי לפי `100dvh` פחות סרגל המיקוד.\n\n### נוחות\n- **Escape** יוצא ממצב מיקוד.\n- שרשרת `flex` + `min-h-0` מאפשרת ללוח למלא את הגובה במובייל ובדסקטופ במצב מיקוד.\n\nאם תרצה שגם **במצב מיקוד** יופיע שדה חיפוש קומפקטי בסרגל העליון, אפשר להוסיף בשלב הבא.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nלוח הזמנות המספר שיהיה בצד ימין באותה שורה של הכותרת\nבטאסים שכולם יהיו  באותה שורה ואז שבוחרים זה מציג אתאת מה שנבחר ורואים על מה אנחנו\nואולי הרקע של הכותרת גם במסך גדול וגם בקטן שיהיה בצבע\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מעדכנים: כותרות עמודות — מספר מימין באותה שורה; טאבים בשורה אחת עם אינדיקציה ברורה למצב הנוכחי; רקע צבעוני לכותרות (מובייל ודסקטופ).\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מעדכן את מבנה הכותרות והטאבים.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מתקן את סדר האלמנטים ב־RTL כך שהמספר יהיה בצד ימין.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן:\n\n### דסקטופ (רשת 5 עמודות)\n- **כותרת צבעונית**: רקע `#4a6f72`, טקסט לבן, גבול תחתון עדין.\n- **שורה אחת**: ב־RTL המספר מופיע **בצד ימין**, שם העמודה **משמאל** (`count` ראשון ב־DOM, אחריו הכותרת עם `text-start`).\n\n### מובייל (טאבים)\n- **כל הטאבים בשורה אחת** עם גלילה אופקית עדינה אם אין מקום (`flex-nowrap` + `overflow-x-auto`).\n- בכל טאב: **שם העמודה + (מספר)** באותה שורה; טאב פעיל עם רקע לבן וטקסט כהה.\n- **מתחת לטאבים**, על אותו רקע ירוק: שורה שמדגישה **איזה שלב נבחר** — שם העמודה + **המספר הגדול בצד ימין** (אותו סדר כמו בדסקטופ).\n\nכך תמיד רואים במובייל על איזו עמודה עומדים, גם אחרי גלילת הטאבים.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nבמסך גדול שיהיה גם כמו בקטן את ה4 תקיות למטה\n\nבמסך גדול שכל עמודה תיהיה עגולה הקצוות\n\nבמסך גדול שמגדילים שזה יהיה ממש את הקצוות העמוד ובלי החלק של התפריט שהתפרט יהיה למעלה נפתח כמו בקטן\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"קוראים את מבנה הדף הנוכחי כדי להוסיף את ה-dock בכל המסכים, לעגל עמודות, ולהתאים מצב מיקוד בדסקטופ (מסך מלא + גישה לצד כמו במובייל).\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מציגים את ה-dock וה-Sheet בכל רוחבי המסך, מסירים את איפוס הפאנל בעת מעבר ל-xl, מרחיבים את מצב המיקוד לקצוות המסך, ומעגלים את עמודות הדסקטופ.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שיושם:\n\n### ארבעת הכפתורים למטה גם ב־`xl`\n- ה־`Sheet` וה־`nav` הצפים **לא** מוגבלים יותר למובייל — אותה שורת 4 כפתורים (מעט גדולה יותר ב־`xl`: `size-12`) תמיד בתחתית.\n- הוסר ה־`useEffect` שאיפס את הפאנל בעת מעבר ל־`xl`.\n- לכל המסכים נוסף `pb-[calc(5.25rem+…)]` כדי שהתוכן לא ייחתך מתחת לדוק.\n\n### עמודות בדסקטופ — פינות עגולות\n- לכל עמודה בגריד: `rounded-2xl` + `overflow-hidden` (במקום `rounded-xl` בלבד), כדי שהכותרת והגלילה יישבו נקי בתוך המרובע.\n\n### מצב מיקוד (הגדלה) בדסקטופ\n- **רוחב**: `xl:max-w-none` + ריווח אופקי קל (`xl:px-3`, `2xl:px-5`) כדי שהלוח יתפרש כמעט על כל הרוחב, בלי עמודת הצד.\n- **בלי עמודת צד** במיקוד — נשאר כמו קודם (`isXlLayout && !ordersBoardFocus`).\n- **תוכן הצד (שעות / סיכום / תפריט / הודעה)**: במיקוד ב־`xl` ה־`Sheet` נפתח מ־**`side=\"top\"`** (מלמעלה), עם `rounded-b-2xl`, כדי שזה ירגיש כמו פאנל נפרד מעל הלוח ולא יסתיר את הדוק למטה.  \n  במצבים אחרים (או כשלא במיקוד) נשאר **`bottom`** כמו במובייל.\n\nאם תרצה שב־`xl` רגיל (בלי מיקוד) ה־Sheet ייפתח תמיד מלמעלה, אפשר לשנות את התנות ל־`isXlLayout` בלבד.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nבוא נתרכז במסך הקטן \nהטאבים שיהיו בנפפרד כמלבנים זהים בצבע של האדום בלי רקע רק שהריבוע יהיה בצבע עם עיגול קטן יותר\n\nמה שאנחנו עליו  שיהיה הכותרת של העמודה צמודה לחלק של המלבן הלבן של ההזמנות בצבע טורקיז הרקע של הכותרת\n\nשהטאסים והכותרת יהיו לא מחוברים אחד לשני\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"קורא את מבנה הטאבים במובייל ומעדכן לפי הבקשה.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מעצבים מחדש את מובייל: מלבנים נפרדים עם מסגרת בצבע המותג (טורקיז), עיגול קטן (`rounded-md`), ריווח ביניהם; שורת כותרת טורקיז נפרדת, צמודה לכרטיס ההזמנות הלבן; ללא עטיפה אחת לטאבים והכותרת.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מתקן את מבנה ה-HTML ומחבר את אזור ההזמנות הלבן לשורת הכותרת הטורקיז בלי מסגרת כפולה.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nבמסך גדול רק במיקוד שיהיה את הדברים למטה במסך שלא במיקום שלא יהיה עם הדברים למטה בבקשה\n\nהכמות שתיהיה צמודה לשמאל והכותרת שתיהיה צמוד לצד ימין :)\n\nבמיקום שלא יהיה גלגול למטה אלא שזה יהיה על כל המסך \n\nוהתפריט צד של הניהול שיהיה כשורה למעלה נפתח ממש כמו במסך קטן\n\nהחלק של הלמטהה הכפתורים הצפים שיהיה עם רווח בתחתית ושפותחים את זה שיפתח אחרת ולא צמוד ללמעלה\n\nמדובר פה רק על המיקוד!!!!\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"קוראים את הקוד הנוכחי ומיישמים את השינויים — רק במצב מיקוד בדסקטופ.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מיישמים: Dock תחתון רק ב־`!isXlLayout || ordersBoardFocus`; שורת 4 כפתורים למעלה ב־xl+מיקוד; Sheet ב־xl+מיקוד כבוטום עם שוליים ולא צמוד לקצוות; מיקוד xl — לוח במלוא הגובה; החלפת סדר כותרת/כמות.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nבמיקוד במסך גדול!\nהחלון הצף שהוא למטה שלא יהיה גם למעלה במקומו שים לי את השורת חיפוש\nושוב כמו שביקשתי במיקוד במסך גדול שהתפריט הצד יהיה למעלה כמו במסך קטן!!!\n\nהמספר צמוד לשמאל כמו עכשיו אבל השורת מידע שיהיה צמוד לצד ימין\n\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"קוראים את מבנה מצב המיקוד ב-xl ומעדכנים: שורת חיפוש למעלה, שורת קיצורים כמו במובייל, ויישור כותרת/מספר.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מסדרים מחדש את מצב המיקוד ב-xl: שורת חיפוש למעלה, מתחתיה שורת 4 הכפתורים (כמו במובייל), מסירים את הדוק התחתון ב-xl (נשאר רק במובייל), ומתקנים יישור כותרת/מספר.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן (**רק מיקוד ב־`xl`** בהתאם לבקשה):\n\n### חיפוש למעלה + תפריט צד כמו במובייל\n- **שורת חיפוש** מופיעה ישירות מתחת לסרגל «לוח הזמנות / תצוגה רגילה», **רק ב־`xl` + מיקוד** וכשהעסק לא סגור לתצוגה.\n- **מתחתיה** — אותה **שורת 4 כפתורים** כמו במסך קטן (פיל בצבע טורקיז), שפותחת את אותו **Sheet** מלמטה.\n- **הדוק הצף למטה הוסר ב־`xl` לחלוטין** — הכפתורים למטה מופיעים **רק במובייל** (`!isXlLayout`). בדסקטופ במיקוד אין כפל למעלה ולמטה; למטה רק ה־Sheet כשפותחים מהשורה העליונה.\n\n### Sheet צף\n- ב־מיקוד `xl` ה־Sheet ממוקם עם **ריווח מלמטה** (`bottom-4` / `sm:bottom-6`) ולא צמוד לקצה התחתון של המסך, עם `max-height` מתאים.\n\n### ריפוד עמוד\n- `padding-bottom` לדוק נשאר **רק כשיש דוק במובייל**.\n\n### כותרת עמודה — כמות משמאל, טקסט מימין\n- בכותרות הטורקיז (מובייל + דסקטופ): `flex` + `w-full` + `justify-between`, ב־RTL — **הכותרת** עם `text-end` (צמוד לימין), **המספר** עם `shrink-0` (צמוד לשמאל).\n\nאם תרצה שבמיקוד `xl` כשהמקום **סגור** עדיין תופיע שורת ה־4 כפתורים (בלי חיפוש), אפשר להוסיף זאת בנפרד.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nשהחלק של הצד שיהיה למטה צף בבקשה\n\nושוב כמו שביקשתי במיקוד שלא יהיה את התפריט הצד של הניהול בכלל תבטל שלא יהיה\n\nהכותרת שתיהיה טקסט מצד ימין כמות מצד שמאל\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מחזירים את דוק הצד הצף למטה במיקוד xl, מסירים את שורת ארבעת הכפתורים למעלה (ומשאירים חיפוש אם נדרש), ומוודאים יישור כותרת ימין / כמות שמאל.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מחזירים את הדוק הצף למטה במיקוד xl, מסירים את שורת ארבעת הכפתורים למעלה (משאירים רק חיפוש), מעדכנים ריפוד תחתון, ומתקנים יישור טקסט בכותרות (ימין/שמאל).\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן:\n\n### דוק צף למטה\n- **`showBottomDashDock`** = `!isXlLayout || ordersBoardFocus` — במובייל תמיד; ב־**xl רק במיקוד** (עם ריווח תחתון מעט גדול יותר ב־xl + מיקוד).\n- הדוק עם **`mb` גדול יותר** במיקוד xl כדי שיישב מעל ה-safe area בצורה ברורה.\n\n### בלי תפריט צד / שורת כפתורים למעלה במיקוד\n- **עמודת הצד** (שעות, סיכום, תפריט, הודעה) כבר מוצגת רק כש־`!ordersBoardFocus` — **במיקוד אין אותה בכלל**.\n- **הוסרה** שורת ארבעת הכפתורים שהייתה **מתחת לחיפוש** במיקוד xl. נשארו רק **סרגל המיקוד** + **שדה חיפוש** + **לוח הזמנות**; הגישה לשעות/סיכום/תפריט/הודעה רק מהדוק **הצף למטה**.\n\n### Sheet מעל הדוק\n- ב־**מיקוד xl** ה־Sheet ממוקם מעל גובה הדוק (`bottom` מחושב).\n\n### כותרת עמודה: טקסט ימין, כמות שמאל\n- ב־RTL: **כותרת** עם `text-start` (צמוד לימין), **מספר** עם `text-end` (צמוד לשמאל), בסדר DOM: קודם כותרת, אחר כך מספר — כך שב־`justify-between` הכותרת בצד ימין והמספר בצד שמאל.\n\nאם תרצה שבמיקוד xl כשהמקום **סגור** עדיין יופיע רק הדוק למטה (בלי חיפוש), אפשר להרחיב את התנאים.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nושוב אתה לא מקשיב החלק של הניהול התפריט צד של הניווט בין העמודים במיקוד שלא יופיע\nושהעודות יהיו עד סוף העמוד\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מחפשים את מעטפת הניהול והניווט בין העמודים — כדי להסתיר אותם במצב מיקוד ולהרחיב את לוח ההזמנות לגובה מלא.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"יוצרים הקשר גלובלי למצב מיקוד ומעדכנים את `AdminShell` כדי להסתיר את סרגל הניווט בין העמודים במיקוד, וממלאים את גובה הלוח.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מעדכנים את גריד ה-xl במיקוד ל־`flex-1`/`h-full` במקום `calc`, כדי שהעמודות ימלאו את הגובה שנותר מתחת ל-shell.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שיושם:\n\n### 1. הסתרת ניווט המערכת (סרגל צד + תפריט מובייל) במיקוד\n- נוסף **`AdminDashboardFocusProvider`** ב־`app/admin/layout.tsx` ומצב המיקוד עבר ל־**הקשר** (`useAdminDashboardFocus`).\n- ב־**`AdminShell`**: כש־`/admin` **ו**`ordersBoardFocus` — **לא** מרונדרים `AdminSidebar` ו־`AdminMobileNav**`, והתוכן מקבל **מסך מלא** (`h-dvh`, בלי `p-4` / `p-8`).\n- ביציאה מדף הבית (כל נתיב אחר) או מעבר לעמוד אחר — **מאפסים מיקוד** (`useEffect` ב־`AdminShell`).\n\n### 2. לוח הזמנות עד סוף המסך\n- שורש הדף במיקוד: `min-h-dvh` הוחלף ב־**`flex-1 min-h-0`** כדי שימלא את ה־shell.\n- אזור התוכן עטוף ב־**`div`** עם `flex-1` במיקוד; ה־**section** של הלוח עם `overflow-hidden` ו־**flex-1**.\n- **גריד ה־xl** במיקוד: בלי `calc(100dvh − …)` — **`flex-1 min-h-0`**; העמודות עם **`h-full min-h-0`** כדי למתוח עד גובה ה־viewport הפנימי.\n\nכך במיקוד נעלמים **גם** תפריט הניהול הגלובלי (דף ראשי / משימות / הגדרות…) **וגם** ריפוד המעטפת, וההזמנות אמורות למלא את הגובה הזמין מתחת לסרגל המיקוד, לחיפוש ב־xl ולדוק הצף.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nמהמם רק האורך של העמודות שיהיה עד הסוף\n</user_query>"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nמהמם רק האורך של העמודות שיהיה עד הסוף\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"בודקים את שרשרת ה-flex מהדף עד עמודות הגריד ב-xl כדי שכל עמודה תימתח לגובה מלא.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מתקנים את שרשרת הגובה: הגריד ב-xl צריך `h-full`/`minmax` כדי ששורת העמודות תימתח לגובה האזור הזמין.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מסירים את `xl:align-stretch` — לא קיים ב-Tailwind; `items-stretch` כבר מכסה.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן:\n\n### מה נעשה\n1. **`section` של הלוח** — במצב מיקוד נוסף `*:min-h-0` כדי שכל הילדים הישירים (כולל הגריד) יוכלו להתכווץ ולקבל גובה מהשרשרת flex.\n2. **גריד ה־xl (5 עמודות)** — במצב מיקוד:\n   - `flex-1` + `min-h-0` כדי שימלא את הגובה שנשאר מתחת לכותרות/חיפוש.\n   - `xl:grid-rows-1` + `xl:[grid-template-rows:minmax(0,1fr)]` — שורה אחת שמתמתחת לכל הגובה של הגריד (כך `1fr` באמת עובד).\n   - `xl:items-stretch` נשאר (היה כבר) כדי שהעמודות יימתחו לגובה השורה.\n3. **כל עמודה** — במצב מיקוד: `xl:h-full xl:max-h-none` בנוסף ל־`h-full min-h-0`, כדי שלא ייגבלו ל־`70vh` וימלאו את תא הגריד.\n\nאם משהו עדיין נראה קצר, השלב הבא הוא לבדוק את `admin-shell` / האב החיצוני — אבל עם השינויים האלה שרשרת הגובה אמורה להגיע עד תחתית המסך במיקוד.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nבמסך גדול בלי קשר שיהיה העמודות גם עד סוף העמוד ולא מעבר\nוהכפתור מיקוד שיהיה יותר קטן באורך או שיהיה רווח בלמעלה כי זה צמוד לחיפוש\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"בודקים את מבנה הלוח ב-xl (עמודות + חיפוש וכפתור מיקוד) כדי ליישם את שני השינויים.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מיישמים שרשרת flex ב-xl גם במצב רגיל, מעדכנים את `AdminShell` כדי שהאזור הראשי יקבל גובה מלא, ומתקנים את ריווח כפתור המיקוד.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מעדכנים את `AdminShell` לשרשרת גובה ב-xl, מתקנים את הגריד והעמודות (כולל סרגל צד עם גלילה פנימית), ומוסיפים ריווח/כפתור מיקוד קטן יותר.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן:\n\n### עמודות עד סוף המסך (xl, גם רגיל וגם מיקוד)\n- **`admin-shell.tsx`**: בדשבורד (`/admin`) כשלא במצב מיקוד, האזור הראשי הוא `flex flex-col` עם `min-h-0 flex-1`, וב־**xl** `overflow-hidden` במקום גלילה של כל העמוד — כך הגובה נשלט מה־viewport והעמודות נסמכות על `ScrollArea` פנימי.\n- **שורש הדף**: `xl:flex xl:min-h-0 xl:flex-1 xl:flex-col` כשלא במיקוד.\n- **גריד ראשי** (`17.5rem` + לוח): `xl:items-stretch`, `xl:[grid-template-rows:minmax(0,1fr)]`, ו־`xl:flex-1` / `xl:min-h-0` כשלא במיקוד — שורה אחת שממלאת את הגובה.\n- **עמודת צד**: `min-h-0`, `overflow-y-auto` (במקום sticky) כשהתוכן ארוך.\n- **עמודת הלוח**: `xl:flex … flex-1`, שרשרת עד ה־`section` ועד גריד ה־5 עמודות.\n- **כרטיסי עמודות**: מתחת ל־xl נשאר `min(70vh, 36rem)`; מ־**xl** ומעלה: `xl:h-full xl:max-h-none` — בלי לבצע גלילה מעבר לשטח הזמין.\n\n### כפתור «מיקוד» — פחות גובה + מרווח מהחיפוש\n- **`section`** (לוח הזמנות): `xl:mt-3` — ריווח ברור מתחת לשדה החיפוש.\n- **שורת הכותרת + כפתור**: `xl:mt-0` על השורה כדי שלא יצטבר ריווח כפול.\n- **כפתור**: `h-8` / `xl:h-7`, אייקון `size-3.5`, טקסט `text-xs` ב־`sm+`.\n\nאם משהו עדיין נראה חתוך ב־**רוחב בינוני** (למשל בין `lg` ל־`xl`), כדאי לבדוק במסך — השינוי מכוון ל־**xl ומעלה**.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nרק במסך גדול ממוקד שזה יהיה עד סוף העמוד בלי התחשבות בכפתורים הצפים \n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"בודקים איך מצב המיקוד והכפתורים הצפים משפיעים על הגובה וה-padding.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מסירים את ה-padding התחתון הגדול במצב xl+מיקוד — הלוח יימתח עד תחתית המסך; הדוק הצף יישאר `fixed` מעל התוכן.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"### מה השתנה\n\nב־**xl + מצב מיקוד** (`xlFocusChrome`) ביטלתי את ה־`padding-bottom` הגדול (`calc(6rem + safe-area)`) שהיה שמור לדוק הצף למטה.\n\nעכשיו בשורש הדף מוחל רק:\n\n`xl:pb-[env(safe-area-inset-bottom,0px)]`\n\nכלומר **רק safe-area** (למשל מכשיר עם home indicator), בלי ~5.5–6rem נוספים — הלוח נמתח **עד תחתית המסך**, והכפתורים הצפים נשארים **מעל** התוכן (`fixed`) בלי לקצר את גובה העמודות.\n\nבמובייל / מסכים צרים נשאר הריווח הרגיל לדוק (`pb-[calc(5.5rem+…)]`), כדי שהתוכן לא יוסתר מאחוריו.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nשיהיה טיפה רווח למטה\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"עודכן: במצב **xl + מיקוד** יש עכשיו `padding-bottom` של **0.75rem** בתוספת `safe-area-inset-bottom`, כדי שיהיה רווח קטן למטה בלי לחזור לריווח הגדול של הדוק.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nעכשיו במסך קטן הטאבים שיהיו באותב שורה אבל בלי גלגול  ובצבע חום אדמדם כמו בצבע של התפריט \n\nהחלק של העמודה שיהיה עד הסוף בלי התחשבות בחלק הצף עם רווח קצת\n\nהחלק הצף שיהיה באמצע של העמוד בלי להתחשב בחלק של התפריט צד\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"בודקים את מבנה הטאבים, צבעי התפריט והדוק הצף במובייל.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מיישמים: טאבים בשורה אחת ללא גלילה בצבע טרקוטה (primary), ריווח תחתון קטן במובייל, ומרכוז הדוק מעל אזור התוכן (לא מעל כל ה-viewport כשיש סרגל צד).\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מיישמים את כל השינויים.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מעדכנים את הטאבים, את שרשרת ה-flex למובייל, את `admin-shell` ואת נקודת הדוק.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן:\n\n### טאבים (מסך צר, מתחת ל־xl)\n- **`TabsList`**: `grid grid-cols-5 gap-1` — חמישה טאבים **בשורה אחת בלי גלילה אופקית**.\n- **צבעים**: שימוש ב־**`primary`** (טרקוטה `#9c5648` כמו בתפריט ב־`globals.css`) — מסגרת, רקע עדין, מצב פעיל, וכותרת העמודה עם `bg-primary` / `text-primary-foreground`.\n- **`TabsTrigger`**: `min-w-0`, טקסט `line-clamp-2`, `after:hidden` כדי לבטל קו תחתון של ה־variant line, גודל גופן קטן כדי שהכול ייכנס לרשת.\n\n### אזור העמודה עד הסוף + ריווח קטן\n- **`rootBottomPaddingClass`** כבר כולל `max-xl:pb-[calc(0.75rem+safe-area)]` — ריווח קטן למטה בלי לשמור מקום לדוק.\n- **שרשרת flex** למובייל: עטיפות עם `max-xl:flex … flex-1 min-h-0`, ה־`section` של הלוח, וה־`Tabs` עם `flex-1`; תוכן העמודה עם `max-xl:max-h-none max-xl:min-h-0` במקום הגבלות `vh` כשהטאבים מוצגים.\n- **`admin-shell`**: בדשבורד (לא במיקוד) — `overflow-hidden` על אזור התוכן כדי שהגובה ייחלק נכון לעמודה.\n\n### דוק צף במרכז אזור התוכן (לא מעל הסרגל)\n- **`nav`**: כשלא במיקוד — `md:inset-x-[unset] md:start-60 md:end-0` (רוחב `w-60` של הסרגל), כך שהדוק **ממורכז רק מעל עמודת התוכן**. במיקוד — `inset-x-0` על כל הרוחב.\n- נקודת מצב לא פעיל בדוק: `bg-primary/45` במקום טורקיז.\n\nאם תרצה שהכפתורים בדוק עצמם (לא רק הנקודה) יעברו גם לטרקוטה, אפשר לעדכן את `dashDockButtonClass` בנפרד.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nאוקיי הטאבים שיהיהי להם קצת רווח בלמטה בלמעלה ובקצוות כם על עמודה שיהיה קווח בקצוות במסך ממוקד\nהחלק של העמודהש יהיה הכותרת הרקע טורכיז  אבל הטאבים שישארו בצבע האדום חום\n\nהחק של החלון הצף שיפתח כמו שזה נפתח בחלון ממוקד במסך גדול טיפה באוויר ולא צמוד\n\nבמסך קטן חלון ממוקד שיהיה גם שורת חיפוש\nוהחיפוש יפתח את הטאב שזה נמצא גם במסך לא ממוקד ולא ישאר על מה שאני נמצאת עליו\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"בודקים את מבנה החיפוש, הטאבים ומצב המיקוד במובייל.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מיישמים: מרווחים לטאבים ובמצב מיקוד; כותרת עמודה בטורקיז; Sheet צף; שורת חיפוש במובייל במיקוד; סנכרון טאב לפי חיפוש.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מוסיפים את ה־`useEffect` לסנכרון הטאב, מעדכנים את ממשק החיפוש וה־Sheet, ומעדכנים את הסגנונות.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן:\n\n### טאבים — ריווח\n- עטיפת הטאבים (`xl:hidden`): `px-2.5 pt-2 pb-1 sm:px-3`, ובמיקוד מובייל: `max-xl:px-3 max-xl:pt-2.5 max-xl:pb-1.5`.\n- `TabsList`: `px-0.5 py-1`, `gap-1.5 sm:gap-2 sm:py-1.5`.\n- כרטיס העמודה: `mx-0.5 sm:mx-1` כדי שיהיה ריווח מהקצוות.\n\n### כותרת העמודה טורקיז, טאבים חום־אדום\n- כותרת הפעילה של העמודה: `bg-[#4a6f72]`, `text-white`, `border-b border-white/20`.\n- מסגרת הכרטיס: `border-[#4a6f72]/35`.\n- הטאבים נשארים עם **`text-primary`** / **`border-primary`** (טרקוטה).\n\n### חלון צף (Sheet)\n- תמיד: `!inset-x-3`, `rounded-2xl`, מסגרת וצל (לא צמוד לרוחב המלא).\n- גובה: `max-h` עם `xl:!max-h-[min(78vh,...)]` במסכים רחבים.\n- מיקום אנכי: מעל הדוק — `xlFocusChrome` עם `bottom` כמו קודם; במצב רגיל (מובייל): `!bottom-[calc(5.5rem+safe-area)]`.\n\n### מיקוד במובייל — חיפוש\n- שורת חיפוש מוצגת כש־`ordersBoardFocus && !venueClosedForView && (xlFocusChrome || !isXlLayout)` — כלומר גם **מיקוד במסך קטן** (לא רק xl).\n- שדות נפרדים: `dash-order-search-xl-focus` / `dash-order-search-mobile-focus`.\n\n### חיפוש פותח את הטאב הנכון\n- `useEffect`: אם יש טקסט בחיפוש, מעבר אוטומטי ל־**העמודה הראשונה ב־`COLUMN_ORDER` שיש בה תוצאות** (אותה לוגיקה כמו «איפה יש התאמות»), גם במיקוד וגם לא — בלי להישאר על טאב ריק כשיש התאמה בעמודה אחרת.\n\nאם תרצי שהחיפוש **לא** יזיז טאב כשאת כבר על עמודה שיש בה תוצאות, אפשר לצמצם את הלוגיקה (למשל לעבור רק כשלטאב הנוכחי אין אף הזמנה מתאימה).\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nרווח הטאבים למטה זה אחד על השני למעלה הגזמת עם הרווח\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מקטינים ריווח למעלה ומוסיפים הפרדה ברורה בין שורת הטאבים לכרטיס העמודה למטה.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"עדכנתי כך:\n\n### למעלה — פחות ריווח\n- העטיפה: `pt-2` → **`pt-1`**, ובמיקוד מובייל: **`max-xl:pt-1`** (במקום `pt-2.5`).\n- `TabsList`: **`py-0.5`** בלבד (בלי `sm:py-1.5` שהגזים בגובה).\n\n### למטה — לא צמוד לכרטיס\n- בין שורת הטאבים לכרטיס העמודה: **`gap-3` → `gap-4`**.\n- `pb` של העטיפה: **`pb-2`** (וגם במיקוד **`max-xl:pb-2`**).\n\n### בתוך כל טאב (שם + מספר)\n- **`gap-0.5` → `gap-1`** בין שורת הכותרת למספר.\n- **`py-1.5`**, וב־`sm`: **`py-2`** — כדי שהטקסט והמספר לא ייראו דבוקים אחד לשנייה.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nלמטה צריך עוד רווח למעלה צריך פחות\n\nגם בין החיפוש לכפתור הוספת הזמנה ידנית יש הרבה רווח\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מצמצמים את הריווח בין הכותרת לחיפוש, מקטינים ריווח למעלה בטאבים ומגדילים למטה.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן:\n\n### טאבים — למעלה פחות, למטה יותר\n- עטיפה: **`pt-0`**, **`pb-3.5`** (במיקוד מובייל: **`max-xl:pb-4`**).\n- רווח בין שורת הטאבים לכרטיס העמודה: **`gap-4` → `gap-5`**.\n\n### פחות רווח בין «הוספת הזמנה ידנית» לחיפוש\n- עמודת התוכן הראשית: **`max-xl:gap-5` → `max-xl:gap-2`** — המרווח בין **סוף הכותרת** (כולל כפתור ההזמנה הידנית בשורה התחתונה) לבין **שדה החיפוש** מתקצר.\n- **`header`**: **`pb-4` → `pb-2`** במובייל (**`max-xl:pb-2`**, ב־xl נשאר **`xl:pb-4`**), ו־**`gap-4` → `gap-3`** / **`max-xl:gap-2`**.\n- **גריד הכותרת**: **`gap-y-3` → `gap-y-2`** במובייל.\n- **`section`** של הלוח (מתחת לחיפוש): **`max-xl:mt-3` → `max-xl:mt-2`** — פחות ריווח בין החיפוש לשורת «לוח הזמנות».\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nלמטה צריך עוד קצת רווח\nולא במיקוד  צרחך בין הטאבים ללוח הזמנות להוריד קצת רווח\n\nאבל את העמודה עצמה שתיהיה עד סוף העמוד עם מעט רווח\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מוסיפים ריווח תחתון קל, מצמצמים את המרווח בין כותרת «לוח הזמנות» לטאבים (רק כשלא במיקוד) ובין שורת הטאבים לכרטיס העמודה, ומוודאים שהעמודה נמתחת עד סוף המסך עם ריווח מינימלי.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן:\n\n### למטה — עוד קצת רווח\n- עטיפת הטאבים: **`pb-3.5` → `pb-4.5`**, במיקוד מובייל: **`max-xl:pb-4` → `max-xl:pb-5`**\n- **שורש הדף** (מובייל, מעל הדוק הצף): **`0.75rem` → `1rem`** בתוספת safe-area — מרווח קטן מתחת לעמודה\n\n### לא במיקוד — פחות רווח בין «לוח הזמנות» לטאבים\n- שורת הכותרת: **`mb-3` → `mb-1.5`** במובייל (**`xl:mb-3`** נשאר בדסקטופ)\n\n### לא במיקוד — פחות רווח בין שורת הטאבים לכרטיס העמודה\n- רק כש־**לא** במיקוד: **`gap-5` → `gap-3`** בין `TabsList` לכרטיס; במיקוד נשאר **`gap-5`**\n\n### העמודה עד סוף המסך\n- תוכן הטאב: **`max-xl:flex-1`** + **`min-w-0`** כדי שהכרטיס יימתח בגובה עם **`max-xl:max-h-none`** (בלי קיבוע `vh`), בתוך שרשרת ה־flex הקיימת\n\nאם משהו עדיין נראה קצר מדי בגובה, כתבי באיזה מכשיר/מצב (מיקוד או רגיל).\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nצריך לא במיקוד רווח בין הטאב לעמודות הרבה רווח\nאת העמודה שתיהיה עם פחות רווח למטה\nוזהו\n\nבמיקוד תוסיף רווח בין הטאב ללמטה (מעט רווח)\nופחות רווח בין העמודה ללמטה של העמוד\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מעדכנים: במצב רגיל — ריווח גדול בין שורת הטאבים לעמודה, ופחות ריווח מתחת לעמודה. במצב מיקוד — מעט רווח מתחת לטאבים, ופחות ריווח מתחת לעמודה.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן:\n\n### לא במיקוד\n- **בין שורת הטאבים לעמודה**: `gap-3` → **`gap-12`** (ריווח גדול).\n- **מתחת לעמודה**: **`pb-2`** על עטיפת הטאבים (במקום `pb-4.5`).\n\n### במיקוד\n- **בין הטאבים לעמודה**: **`gap-5` → `gap-6`** (מעט יותר ריווח).\n- **מתחת לעמודה / לתחתית המסך**: עטיפת הטאבים **`pb-1.5`**; ב־**שורש הדף** במובייל במיקוד: **`max-xl:pb-[calc(0.45rem+safe-area)]`** (פחות מ־`1rem`).\n\n### שורש הדף\n- **לא במיקוד** במובייל: נשאר **`1rem` + safe-area**.\n- **במיקוד** במובייל: **`0.45rem` + safe-area** (פחות ריווח מתחת לעמודה).\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nבמיקוד זה מושלם \nלא במיקוד \nצריך פחות ווח בים הטבאבים לעמודה\nובפחות רווח בי הלמטה של העמודה לתחתית\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מצמצמים את המרווח בין הטאבים לעמודה ואת הריווח מתחת לעמודה (מצב לא במיקוד).\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"עדכנתי **רק במצב לא במיקוד** (מיקוד נשאר כמו שהוא):\n\n1. **בין הטאבים לעמודה**: `gap-12` → **`gap-5`** (פחות ריווח אנכי).\n2. **מתחת לעמודה**: **`pb-2` → `pb-1`** על עטיפת הטאבים.\n3. **לתחתית המסך** (שורש הדף במובייל): **`1rem` → `0.45rem` + safe-area** — כמו במיקוד, כדי שיהיה פחות ריווח בין תחתית העמודה לתחתית המסך.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nליד המיקוד שיהיה כפתור הדפסה שזה גם נותן לי אופציה להדפיס בונים לכל הזמנה שיש לנו ביחד כולם אחד אחרי השני\nוגם למדפסת רגילה דף A4 את כל הההזמנות\n\nבכל עמודה גם כפתור הדפסה לעמודה גם את 2 האופציות\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"בודקים את מבנה לוח ההזמנות וסוגי ההזמנות כדי להוסיף הדפסה.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"יוצרים את מודול ההדפסה ורכיב התפריט, ומחברים אותם לדף.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מעדכן את `page.tsx`: מוסיף ייבוא ואת כפתורי ההדפסה.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שנוסף:\n\n### קבצים חדשים\n- **`lib/admin-print-orders.ts`** — בניית HTML להדפסה:\n  - **בונים למטבח**: רוחב ~80מ״מ, הזמנות **אחת אחרי השנייה** עם קו מפריד, `page-break-inside: avoid` לכל הזמנה.\n  - **דף A4**: תצוגה מסודרת לדף A4 עם מסגרות, כותרת ותאריך.\n  - **`printOrdersHtml`** — פותח חלון, כותב HTML ומפעיל `print()`.\n- **`components/admin/orders-print-menu.tsx`** — כפתור עם תפריט נפתח (שתי אופציות), מצבים: `default` (ליד מיקוד), `toolbar` (שורת מיקוד), `onTeal` (כותרת עמודה טורקיז).\n\n### איפה ב־UI\n1. **ליד «מיקוד»** — `OrdersPrintMenu` עם **`filteredOrders`** (מה שמוצג אחרי חיפוש).\n2. **מצב מיקוד** — אותו דבר בשורת הכותרת (ליד «תצוגה רגילה»), `variant=\"toolbar\"`.\n3. **כותרת עמודה במובייל וב־xl** — אייקון הדפסה על הרקע הטורקיז, רק **ההזמנות של אותה עמודה**.\n\nבכל מקום: אם אין הזמנות — הכפתור מושבת.\n\n### תוכן ההדפסה\nלכל הזמנה: מספר, שם, טלפון, שורות (מנה, גודל, כמות, סכום שורה), סה״כ, הערה אם יש.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nלכל הזמנה גם אפשר להדפיס בון אישי שאפשר להדפיס אישית רק אותה\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מוסיפים כפתור הדפסה לכל כרטיס הזמנה, משתמשים בלוגיקת ההדפסה הקיימת עם מערך של הזמנה אחת.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מוסיפים וריאנט `card` ל־`OrdersPrintMenu`, מצב `scope=\"single\"` לתוויות, ומעבירים `dateLine` ל־`OrderCard`.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"### מה נוסף\n\n1. **`OrderCard`**  \n   - אחרי «עריכה» יש כפתור הדפסה קטן (אייקון מדפסת) עם תפריט של שתי אופציות **רק להזמנה הזו**:\n     - **בון אישי — מטבח** (רוחב בון / רצף כמו קודם, עם הזמנה אחת)\n     - **בון אישי — דף A4**\n\n2. **`OrdersPrintMenu`**  \n   - `scope=\"single\"` — משנה את טקסטי התפריט לבון אישי.  \n   - `variant=\"card\"` — כפתור קומפקטי (`size-7`) שמתאים לשורת הכפתורים בכרטיס.\n\n3. **`lib/admin-print-orders.ts`**  \n   - כשיש הזמנה אחת בלבד, בשורת המטא מופיע **«הזמנה אחת»** במקום «1 הזמנות».\n\nכותרת המסמך לבון אישי: שם לקוח ומזהה הזמנה (`title` ב־`OrdersPrintMenu`).\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nההדפסה לא עובד למה כאילו אני לוחצת על הדפסה בון או דף A4 וזה לא עושה כלום חוץ מלפתוח עמוד ריק\n\nובכרטיס הזמנה אישיתי ההדפסה זה רק בון אישי למטבח זה לא יהיה דף A4\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"בודקים את מימוש ההדפסה ומתקנים אותו; מצמצמים את בון ההזמנה הבודדת רק למטבח.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מתקנים את ההדפסה: `window.open` עם `document.write` ו־`print()` ב־`setTimeout` עלולים להיכשל (חלון ריק / איבוד user gesture). נשתמש ב־iframe נסתר עם הדפסה סינכרונית, עם גיבוי ל־Blob URL. בכרטיס הזמנה — רק כפתור בון מטבח (ללא A4).\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מתקנים: iframe בגודל 0×0 עלול להדפיס דף ריק בכרום — מגדירים ממדים לא-אפסיים (מחוץ למסך).\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"### למה זה היה חלון ריק\n- **`window.open('')` + `document.write` + `print()` ב־`setTimeout`** — בדפדפנים רבים זה **שובר את ה־user gesture**, ו־`print()` לא באמת רץ, ובמקרים מסוימים נשאר חלון בלי תוכן תקין.\n- **`noopener` על `window.open`** — עלול לשבש גישה ל־`document` בחלון החדש.\n\n### מה שיניתי\n1. **`printOrdersHtml`** (`lib/admin-print-orders.ts`):\n   - **ברירת מחדל**: iframe נסתר, **`document.write` → `print()` מיד** (בלי `setTimeout` לפני ההדפסה), כדי שההדפסה תישאר קשורה ללחיצה.\n   - **גודל iframe**: לא `0×0` — **רוחב `210mm` ומינימום גובה**, מחוץ למסך (`left: -9999px`), כי ב־**Chrome iframe בגודל 0 לפעמים מדפיס דף ריק**.\n   - **גיבוי**: אם iframe נכשל — **חלון מ־Blob URL** + `load` + `print()`.\n\n2. **בון אישי בכרטיס הזמנה** (`OrdersPrintMenu` עם `scope=\"single\"`):\n   - **רק כפתור אחד** — **בון למטבח** (אייקון מדפסת), **בלי תפריט וללא A4**.\n\nאם עדיין יש בעיה בהדפסה מהתפריט הראשי, כתבי באיזה דפדפן (Chrome/Edge/Safari) — אפשר אז לחבר גם `onSelect` לפריטי התפריט אם ה־Menu דורש זאת.\n\n[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nמספר הזמנה זה פשוט בסדר נגיד 1 2 3 4 5 ולא מספר רנדומלי וכל יום זה מתאפס\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<git_status>\nThis is the git status at the start of the conversation. Note that this status is a snapshot in time, and will not update during the conversation.\n\nGit repo: C:/Users/yarde/OneDrive/Desktop/MAZAL\n\n```\n## master\n M app/admin/menu/catalog/page.tsx\n M app/admin/menu/daily/page.tsx\n M app/admin/menu/future/page.tsx\n M app/admin/settings/page.tsx\n M components/admin/day-menu-editor.tsx\n M components/admin/quick-hours-editor.tsx\n M lib/customer-guards.ts\n M lib/customer-preview.ts\n M lib/firebase/write-remote.ts\n M lib/format-menu-date.ts\n M lib/mock/seed.ts\n M lib/store/app-store-actions.ts\n M lib/store/firebase-app-store.tsx\n M lib/store/local-app-store.tsx\n M lib/types.ts\n D public/brand/catalog-mark.svg\n D public/brand/hamsa-mark.svg\n D public/brand/picanti-pepper.svg\n?? lib/calendar-closure-copy.ts\n?? lib/planner-copy-pair-settings.ts\n?? lib/planner-reset-day.ts\n```\n</git_status>\n\n<agent_transcripts>\nAgent transcripts (past chats) live in C:\\Users\\yarde\\.cursor\\projects\\c-Users-yarde-OneDrive-Desktop-MAZAL/agent-transcripts. They have names like <uuid>.jsonl, cite them to the user as [<title for chat <=6 words>](<uuid excluding .jsonl>). NEVER cite subagent transcripts/IDs; you can only cite parent uuids. Don't discuss the folder structure.\n</agent_transcripts>\n\n<agent_skills>\nWhen users ask you to perform tasks, check if any of the available skills below can help complete the task more effectively. Skills provide specialized capabilities and domain knowledge. To use a skill, read the skill file at the provided absolute path using the Read tool, then follow the instructions within. When a skill is relevant, read and follow it IMMEDIATELY as your first action. NEVER just announce or mention a skill without actually reading and following it. Only use skills listed below.\n\n<available_skills description=\"Skills the agent can use. Use the Read tool with the provided absolute path to fetch full contents.\">\n<agent_skill fullPath=\"C:\\Users\\yarde\\.codex\\skills\\.system\\openai-docs\\SKILL.md\">Use when the user asks how to build with OpenAI products or APIs and needs up-to-date official documentation with citations, help choosing the latest model for a use case, or explicit GPT-5.4 upgrade and prompt-upgrade guidance; prioritize OpenAI docs MCP tools, use bundled references only as helper context, and restrict any fallback browsing to official OpenAI domains.</agent_skill>\n\n<agent_skill fullPath=\"C:\\Users\\yarde\\.codex\\skills\\.system\\skill-creator\\SKILL.md\">Guide for creating effective skills. This skill should be used when users want to create a new skill (or update an existing skill) that extends Codex's capabilities with specialized knowledge, workflows, or tool integrations.</agent_skill>\n\n<agent_skill fullPath=\"C:\\Users\\yarde\\.codex\\skills\\.system\\skill-installer\\SKILL.md\">Install Codex skills into $CODEX_HOME/skills from a curated list or a GitHub repo path. Use when a user asks to list installable skills, install a curated skill, or install a skill from another repo (including private repos).</agent_skill>\n\n<agent_skill fullPath=\"C:\\Users\\yarde\\.cursor\\skills-cursor\\babysit\\SKILL.md\">Keep a PR merge-ready by triaging comments, resolving clear conflicts, and fixing CI in a loop.</agent_skill>\n\n<agent_skill fullPath=\"C:\\Users\\yarde\\.cursor\\skills-cursor\\canvas\\SKILL.md\">You MUST use a Cursor Canvas for chats involving dashboards, charts, timelines, interactive explorations, repeatable tools, etc. Use when the topic is complex enough that a plain markdown response would be inadequate, or when the user asks for something reusable or interactive.</agent_skill>\n\n<agent_skill fullPath=\"C:\\Users\\yarde\\.cursor\\skills-cursor\\create-rule\\SKILL.md\">Create Cursor rules for persistent AI guidance. Use when you want to create a rule, add coding standards, set up project conventions, configure file-specific patterns, create RULE.md files, or asks about .cursor/rules/ or AGENTS.md.</agent_skill>\n\n<agent_skill fullPath=\"C:\\Users\\yarde\\.cursor\\skills-cursor\\create-skill\\SKILL.md\">Guides users through creating effective Agent Skills for Cursor. Use when you want to create, write, or author a new skill, or asks about skill structure, best practices, or SKILL.md format.</agent_skill>\n\n<agent_skill fullPath=\"C:\\Users\\yarde\\.cursor\\skills-cursor\\update-cursor-settings\\SKILL.md\">Modify Cursor/VSCode user settings in settings.json. Use when you want to change editor settings, preferences, configuration, themes, font size, tab size, format on save, auto save, keybindings, or any settings.json values.</agent_skill>\n</available_skills>\n</agent_skills>"}]}}
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nמספר הזמנה זה פשוט בסדר נגיד 1 2 3 4 5 ולא מספר רנדומלי וכל יום זה מתאפס\n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מיישמים מזהה מסמך בפורמט `YYYY-MM-DD-מספר` (ייחודי ב-Firestore) ומציגים רק את המספר היומי (1,2,3…).\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מעדכן את כל המקומות: `local-app-store`, `write-remote`, `seed`, תצוגה והדפסה.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שיושם:\n\n### התנהגות\n- **מזהה מסמך** (Firestore / `order.id`): `YYYY-MM-DD-N` — למשל `2026-04-04-1`, `2026-04-04-2`. כל יום עסקים (`businessDate`) המונה מתחיל מחדש מ־1.\n- **קישור ללקוח** נשאר **אקראי**: `token` עדיין הטוקן מה־checkout או טוקן אקראי בהזמנה ידנית — לא נחשף מספר סידורי ב־URL.\n- **תצוגה** (דשבורד, דף סטטוס לקוח, הדפסה): מוצג **`#N`** בלבד (1, 2, 3…) דרך `orderDisplayNumber()`.\n\n### קבצים עיקריים\n- `lib/order-document-id.ts` — `nextOrderDocumentId`, `orderDisplayNumber`\n- `lib/store/local-app-store.tsx` ו־`lib/firebase/write-remote.ts` — יצירת `id` לפי הסדר היומי; `PLACE_ORDER` משאיר `token` = `clientOrderToken`\n- `lib/mock/seed.ts` — דמו: `${date}-1` … `${date}-14`\n- `app/admin/page.tsx`, `app/(customer)/order/[token]/page.tsx`, `lib/admin-print-orders.ts` — תצוגה לפי המספר היומי\n\n`npx tsc --noEmit` עובר בהצלחה.\n\n**הערה:** אם שני לקוחות ישלחו הזמנה **באותו רגע** מול Firestore, עדיין אפשר התנגשות נדירה על אותו `id` — אם תרצה, אפשר לחזק את זה עם טרנזקציה או מונה ייעודי ב־Firestore.\n\n[REDACTED]"}]}}

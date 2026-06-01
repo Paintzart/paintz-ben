@@ -1,0 +1,6 @@
+{"role":"user","message":{"content":[{"type":"text","text":"<user_query>\nבמסך קטן בהגדרות בימים בלי עבודה שהעיגולים יהיו יותר קטן \n</user_query>"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מחפש את רכיב ההגדרות של ימים בלי עבודה כדי להקטין את העיגולים במסכים קטנים.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"מקטינים את העיגולים בברירת המחדל (מסכים קטנים): כרגע `size-[2.75rem]` (44px); נשנה ל-`size-9` (36px) ונתאים את גודל הטקסט.\n\n[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"[REDACTED]"}]}}
+{"role":"assistant","message":{"content":[{"type":"text","text":"הנה מה שעודכן ב־`SettingsSectionPlannerOffDays` ב־`settings-business-panel.tsx`:\n\n1. **עיגולים** — במסכים מתחת ל־`sm` עברנו מ־`2.75rem` (44px) ל־`size-9` (36px). מ־`sm` ומעלה נשאר `size-12` כמו קודם.\n\n2. **טקסט** — במובייל `text-sm` במקום `15px`, כדי שיתאים לעיגול הקטן יותר; מ־`sm` עדיין `text-base`.\n\n3. **ריווח** — `gap-2` במובייל (במקום `gap-2.5`) כדי שהשורה תיראה מאוזנת עם העיגולים הקטנים יותר.\n\nאם תרצה אפילו קטן יותר במובייל (למשל `size-8` / 32px), אפשר לכוון את זה בקלות.\n\n[REDACTED]"}]}}

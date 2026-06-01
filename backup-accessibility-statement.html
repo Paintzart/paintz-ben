@@ -1467,8 +1467,6 @@ document.addEventListener('DOMContentLoaded', function() {
         closeShopPopup();
       }
     });
-    
-    setSubmenuEvents();
     window.addEventListener('resize', setSubmenuEvents);
   }
   const cartBtn = document.querySelector('.cart');
@@ -1484,14 +1482,14 @@ document.addEventListener('DOMContentLoaded', function() {
     cartBtn.addEventListener('keydown', function(e) {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
-        openSideCart();
+        (window.PaintzSiteUI && window.PaintzSiteUI.openSideCart && window.PaintzSiteUI.openSideCart());
       }
     });
     
     // Add click event for cart button
     cartBtn.addEventListener('click', function(e) {
       e.preventDefault();
-      openSideCart();
+      (window.PaintzSiteUI && window.PaintzSiteUI.openSideCart && window.PaintzSiteUI.openSideCart());
     });
   }
   
@@ -1817,7 +1815,7 @@ function renderCart() {
   });
 }
 
-function openSideCart() {
+function (window.PaintzSiteUI && window.PaintzSiteUI.openSideCart && window.PaintzSiteUI.openSideCart()) {
   const sideCart = document.getElementById('sideCart');
   const cartOverlay = document.getElementById('cartOverlay');
   if (sideCart && cartOverlay) {
@@ -1862,5 +1860,13 @@ function showDeleteDialog(idx) {
 </script>
 <!-- מערכת ניהול הסכמה לעוגיות -->
 <script src="cookie-consent.js"></script>
+<script
+  src="https://paintz-computer.vercel.app/embed/paintz-credit.js"
+  data-align="center"
+  data-pad-body="false"
+  defer
+></script>
+<link rel="stylesheet" href="paintz-credit-static.css">
+<script src="paintz-credit-placement.js" defer></script>
 </body>
 </html>
