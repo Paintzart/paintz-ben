@@ -1,0 +1,217 @@
+/* Shared styles for policy / about / legal text pages — layout like homepage */
+
+.body-center:has(.policy-bg-box) {
+  min-height: auto;
+  height: auto;
+  justify-content: flex-start;
+  align-items: stretch;
+  width: 100%;
+}
+
+.body-center:has(.policy-bg-box) nav {
+  margin-bottom: 0;
+}
+
+@media (max-width: 700px) {
+  .body-center:has(.policy-bg-box) nav {
+    margin-bottom: 0 !important;
+  }
+}
+
+.body-center:has(.policy-bg-box) > main,
+.body-center:has(.policy-bg-box) > .policy-bg-box {
+  flex: 1;
+  width: 100%;
+  margin: 0;
+}
+
+.body-center:has(.policy-bg-box) > .policy-bg-box {
+  padding: 28px 24px;
+}
+
+.body-center:has(.policy-bg-box) > footer,
+.body-center:has(.policy-bg-box) > .copyright-section {
+  align-self: stretch;
+  width: 100%;
+  max-width: 100vw;
+}
+
+.mediniut-title {
+  color: #4C8467;
+  text-align: center;
+  font-size: 44px;
+  font-family: 'Oswald', 'Amatic SC', cursive;
+  letter-spacing: 2px;
+  line-height: 60px;
+  margin: 0;
+  border: none;
+  font-weight: 900;
+}
+
+.mediniut-text {
+  color: #000;
+  text-align: center;
+  font-size: 26px;
+  font-family: 'Amatic SC', cursive;
+  letter-spacing: 1px;
+  line-height: 36px;
+  margin-top: 10px;
+  width: 100%;
+  direction: rtl;
+  display: inline-block;
+  position: static;
+  padding: 0;
+  border: none;
+  font-weight: 900;
+  text-shadow: none;
+}
+
+.policy-inner {
+  width: 100%;
+  max-width: 800px;
+  color: #5C4638;
+  text-align: center;
+}
+
+.policy-inner a,
+.policy-content a {
+  color: #4C8467;
+  text-decoration: none;
+}
+
+.policy-inner a:hover,
+.policy-content a:hover,
+.policy-inner a:focus-visible,
+.policy-content a:focus-visible {
+  text-decoration: underline;
+}
+
+.policy-spacer {
+  margin: 48px 0;
+}
+
+.policy-content {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #424242;
+  text-align: right;
+  width: 100%;
+  max-width: 800px;
+  direction: rtl;
+}
+
+.policy-content h2 {
+  font-family: 'Amatica SC', cursive;
+  font-size: 28px;
+  font-weight: 700;
+  color: #4C8467;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+}
+
+.policy-content h3 {
+  font-family: 'Amatica SC', cursive;
+  font-size: 22px;
+  font-weight: 700;
+  color: #8B4513;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.policy-content p {
+  margin: 0 0 15px;
+}
+
+.policy-content ul,
+.policy-content ol {
+  margin: 0 20px 15px 0;
+  list-style: none;
+  padding-right: 0;
+}
+
+.policy-content li {
+  margin-bottom: 8px;
+  position: relative;
+  padding-right: 15px;
+}
+
+.policy-content li::before {
+  content: "-";
+  position: absolute;
+  right: 0;
+  color: #4C8467;
+  font-weight: bold;
+}
+
+.policy-box {
+  background: rgba(255, 249, 240, 0.94);
+  border-radius: 32px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+  padding: 30px 28px;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 3;
+  box-sizing: border-box;
+}
+
+.policy-bg-box {
+  width: 100%;
+  margin: 0;
+  padding: 28px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url('../IMG_8558.JPG') no-repeat center center;
+  background-size: cover;
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
+}
+
+.policy-bg-box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.55);
+  z-index: 2;
+  border-radius: inherit;
+}
+
+@media (max-width: 700px) {
+  .body-center:has(.policy-bg-box) > .policy-bg-box {
+    padding: 20px 16px;
+  }
+
+  .policy-bg-box {
+    padding: 20px 16px;
+  }
+
+  .policy-box {
+    padding: 18px 16px;
+    max-width: 100%;
+    border-radius: 20px;
+  }
+
+  .mediniut-title {
+    font-size: 32px;
+    line-height: 40px;
+    margin-bottom: 8px;
+  }
+
+  .mediniut-text {
+    font-size: 20px;
+    line-height: 28px;
+    margin-top: 8px;
+  }
+}

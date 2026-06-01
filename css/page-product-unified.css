@@ -1,0 +1,539 @@
+/* Unified product + custom design pages */
+
+:root {
+  --page-block-space: 4px;
+  --page-block-space-bottom: 8px;
+  --page-title-gap-bottom: 24px;
+}
+
+/* --- Title --- */
+.record-title,
+h2.record-title,
+.product-main .record-title,
+body .record-main h2.record-title {
+  font-family: 'Amatica SC', cursive !important;
+  font-size: 60px !important;
+  font-weight: 700 !important;
+  color: #8B6B47 !important;
+  text-align: center !important;
+  margin: var(--page-block-space) 0 var(--page-title-gap-bottom) 0 !important;
+  padding: 0 !important;
+  line-height: 1.1 !important;
+  width: 100% !important;
+  text-shadow: none !important;
+}
+
+/* --- Price / changes disclaimer --- */
+.record-main > .record-note,
+.product-main > .record-note {
+  font-family: 'Amatica SC', cursive !important;
+  font-size: 16px !important;
+  color: #000 !important;
+  opacity: 0.7 !important;
+  text-align: right !important;
+  line-height: 1.5 !important;
+  margin: var(--page-block-space-bottom) 0 var(--page-block-space) 0 !important;
+  padding: 0 10px 0 0 !important;
+  width: 100% !important;
+  max-width: 1200px !important;
+  box-sizing: border-box !important;
+  position: static !important;
+}
+
+.record-form .record-form-hint {
+  font-family: 'Amatica SC', cursive !important;
+  font-size: 18px !important;
+  color: #5C4638 !important;
+  opacity: 1 !important;
+  text-align: right !important;
+  line-height: 1.4 !important;
+  margin: 2px 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+}
+
+/* --- Product form (model page) --- */
+.product-details .notes-label,
+.product-details .quantity-label {
+  font-family: 'Amatica SC', cursive !important;
+  font-size: 32px !important;
+  color: #5C4638 !important;
+  margin-bottom: 8px !important;
+}
+
+.product-details .notes-textarea {
+  font-size: 22px !important;
+  padding: 12px 14px !important;
+  min-height: 120px !important;
+}
+
+.product-details .quantity-input {
+  font-size: 22px !important;
+  padding: 6px 8px !important;
+  width: 80px !important;
+}
+
+.price-amount {
+  font-family: 'Amatica SC', cursive !important;
+  font-size: 32px !important;
+  color: #5C4638 !important;
+  font-weight: bold !important;
+  text-align: left !important;
+  margin: 0 0 16px 0 !important;
+  margin-right: auto !important;
+  margin-left: 0 !important;
+}
+
+.price-container {
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+  margin-top: auto !important;
+  align-items: flex-start !important;
+}
+
+.product-details .add-to-cart-btn {
+  width: 220px !important;
+  height: 60px !important;
+  font-size: 36px !important;
+  margin: 0 auto !important;
+  display: block !important;
+}
+
+/* --- Layout shell --- */
+.product-main,
+.record-main {
+  width: 100% !important;
+  max-width: 1200px !important;
+  margin: 0 auto !important;
+  box-sizing: border-box !important;
+}
+
+.product-container,
+.record-container {
+  display: flex !important;
+  flex-direction: row-reverse !important;
+  gap: 40px !important;
+  width: 100% !important;
+  max-width: 1200px !important;
+  justify-content: center !important;
+  align-items: flex-start !important;
+  margin: 0 auto !important;
+  padding: 0 10px !important;
+  box-sizing: border-box !important;
+}
+
+.product-details,
+.record-form {
+  flex: 1 1 400px !important;
+  max-width: 520px !important;
+  min-width: 280px !important;
+}
+
+/* --- Gallery (desktop): thumbs beside main image --- */
+.product-gallery,
+.record-gallery {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex: 0 0 auto !important;
+  width: 350px !important;
+  min-width: 350px !important;
+  max-width: 350px !important;
+  min-height: auto !important;
+  height: auto !important;
+  gap: 18px !important;
+  padding: 4px 0 !important;
+  margin: 0 !important;
+}
+
+.record-gallery-row {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 18px !important;
+  width: 100% !important;
+  height: auto !important;
+}
+
+.thumbnail-container,
+.record-thumbs-col {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 10px !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex: 0 0 auto !important;
+  margin: 0 !important;
+  padding: 8px 4px !important;
+  overflow: visible !important;
+}
+
+.main-image {
+  width: 320px !important;
+  height: 320px !important;
+  min-width: 320px !important;
+  min-height: 320px !important;
+  max-width: 320px !important;
+  max-height: 320px !important;
+  aspect-ratio: 1 / 1 !important;
+  border-radius: 16px !important;
+  border: 3px solid #222 !important;
+  background: rgba(34, 34, 34, 0.13) !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-shrink: 0 !important;
+}
+
+.main-image img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+}
+
+.record-main-img {
+  width: 320px !important;
+  height: 320px !important;
+  min-width: 320px !important;
+  min-height: 320px !important;
+  max-width: 320px !important;
+  max-height: 320px !important;
+  aspect-ratio: 1 / 1 !important;
+  object-fit: contain !important;
+  border-radius: 16px !important;
+  border: 3px solid #222 !important;
+  background: rgba(34, 34, 34, 0.13) !important;
+  margin: 0 !important;
+  display: block !important;
+  flex-shrink: 0 !important;
+}
+
+.thumbnail,
+.record-thumb {
+  width: 48px !important;
+  height: 48px !important;
+  object-fit: cover !important;
+  border-radius: 8px !important;
+  border: 2px solid #222 !important;
+  cursor: pointer !important;
+  background: rgba(34, 34, 34, 0.13) !important;
+  flex-shrink: 0 !important;
+  transition: border 0.2s, box-shadow 0.2s, transform 0.2s !important;
+}
+
+/* מצב לא נבחר — איפוס מלא */
+.thumbnail:not([data-gallery-active="true"]),
+.record-thumb:not([data-gallery-active="true"]) {
+  border: 2px solid #222 !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+/* עמוד דגם — מסגרת חומה */
+.thumbnail.selected,
+.thumbnail[aria-selected="true"],
+.thumbnail[data-gallery-active="true"] {
+  border: 2px solid #8B6B47 !important;
+  box-shadow: none !important;
+  transform: none !important;
+  background: rgba(34, 34, 34, 0.13) !important;
+  z-index: 2 !important;
+  position: relative !important;
+}
+
+/* עיצוב אישי — מסגרת + זוהר + הגדלה קלה (כמו במקור) */
+.record-thumb.selected,
+.record-thumb[aria-selected="true"],
+.record-thumb[data-gallery-active="true"],
+img.record-thumb.selected,
+img.record-thumb[data-gallery-active="true"] {
+  border: 1px solid #f3b586 !important;
+  box-shadow: 0 0 8px rgba(255, 107, 107, 0.6) !important;
+  transform: scale(1.05) !important;
+  background: rgba(34, 34, 34, 0.13) !important;
+  z-index: 2 !important;
+  position: relative !important;
+}
+
+.record-thumb:focus:not(:focus-visible),
+.thumbnail:focus:not(:focus-visible) {
+  outline: none !important;
+}
+
+.record-thumb[data-gallery-active="true"]:focus-visible,
+.thumbnail[data-gallery-active="true"]:focus-visible {
+  outline: 2px solid #4c8467 !important;
+  outline-offset: 2px !important;
+}
+
+.thumbnail img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  border-radius: 6px !important;
+}
+
+/* --- Desktop (large screens) — same on all product/custom pages --- */
+@media (min-width: 901px) {
+  .product-main,
+  .record-main {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    width: 100% !important;
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    padding: var(--page-block-space) 5vw var(--page-block-space-bottom) !important;
+    min-height: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  body .record-main h2.record-title,
+  body .product-main h2.record-title,
+  .record-title,
+  h2.record-title {
+    font-size: 60px !important;
+    text-align: center !important;
+    margin: var(--page-block-space) 0 var(--page-title-gap-bottom) 0 !important;
+    padding: 0 !important;
+    line-height: 1.1 !important;
+  }
+
+  body .record-main > .record-note,
+  body .product-main > .record-note,
+  .record-main > .record-note,
+  .product-main > .record-note {
+    font-size: 16px !important;
+    text-align: right !important;
+    line-height: 1.5 !important;
+    margin: var(--page-block-space-bottom) auto var(--page-block-space) auto !important;
+    padding: 0 16px 0 0 !important;
+    width: 100% !important;
+    max-width: 1200px !important;
+    opacity: 0.7 !important;
+    color: #000 !important;
+  }
+
+  .product-container,
+  .record-container {
+    max-width: 1200px !important;
+    width: 100% !important;
+    gap: 40px !important;
+    align-items: flex-start !important;
+    margin: 0 auto !important;
+    padding: 0 10px !important;
+  }
+
+  .product-details,
+  .record-form {
+    padding: 24px !important;
+    border-radius: 16px !important;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06) !important;
+    background: #e2c9a6 !important;
+  }
+
+  .record-gallery {
+    flex-direction: row !important;
+    align-items: center !important;
+    width: 350px !important;
+    min-width: 350px !important;
+    max-width: 350px !important;
+    min-height: auto !important;
+    height: auto !important;
+    padding: 4px 0 !important;
+  }
+
+  .record-gallery-row {
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: auto !important;
+    min-height: 0 !important;
+    gap: 18px !important;
+  }
+
+  .main-image,
+  .record-main-img {
+    width: 320px !important;
+    height: 320px !important;
+    min-width: 320px !important;
+    min-height: 320px !important;
+    max-width: 320px !important;
+    max-height: 320px !important;
+    margin: 0 !important;
+    object-fit: contain !important;
+  }
+
+  .thumbnail,
+  .record-thumb {
+    width: 48px !important;
+    height: 48px !important;
+  }
+
+}
+
+/* --- Mobile --- */
+@media (max-width: 900px) {
+  .record-title,
+  h2.record-title,
+  .product-main .record-title,
+  body .record-main h2.record-title {
+    font-size: 38px !important;
+    text-align: center !important;
+    margin: var(--page-block-space) 0 var(--page-title-gap-bottom) 0 !important;
+    line-height: 1.15 !important;
+  }
+
+  .record-main > .record-note,
+  .product-main > .record-note {
+    font-size: 22px !important;
+    text-align: center !important;
+    line-height: 1.45 !important;
+    margin: var(--page-block-space-bottom) auto var(--page-block-space) auto !important;
+    padding: 0 16px !important;
+    max-width: 100% !important;
+    opacity: 0.85 !important;
+  }
+
+  .product-main,
+  .record-main {
+    padding: 0 16px var(--page-block-space) !important;
+  }
+
+  .product-container,
+  .record-container {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 12px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+
+  .product-gallery,
+  .record-gallery {
+    order: 1 !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    flex-direction: column !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .product-details,
+  .record-form {
+    order: 2 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    flex: 1 1 auto !important;
+  }
+
+  .record-gallery-row,
+  .product-gallery {
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 100% !important;
+    gap: 12px !important;
+  }
+
+  .thumbnail-container,
+  .record-thumbs-col {
+    order: -1 !important;
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 8px !important;
+    width: 100% !important;
+    margin: 0 0 4px 0 !important;
+    padding: 10px 6px !important;
+    overflow: visible !important;
+  }
+
+  .main-image,
+  .record-main-img {
+    order: 1 !important;
+    width: 300px !important;
+    height: 300px !important;
+    min-width: 300px !important;
+    min-height: 300px !important;
+    max-width: 300px !important;
+    max-height: 300px !important;
+    margin: 0 auto var(--page-block-space-bottom) auto !important;
+    object-fit: contain !important;
+  }
+
+  .thumbnail,
+  .record-thumb {
+    width: 44px !important;
+    height: 44px !important;
+  }
+
+  .product-details .notes-label,
+  .product-details .quantity-label {
+    font-size: 24px !important;
+  }
+
+  .product-details .notes-textarea {
+    font-size: 18px !important;
+    min-height: 100px !important;
+  }
+
+  .product-details .quantity-input {
+    font-size: 18px !important;
+  }
+
+  .price-container {
+    align-items: center !important;
+  }
+
+  .price-amount {
+    font-size: 36px !important;
+    text-align: center !important;
+    margin: 0 auto 12px auto !important;
+  }
+
+  .product-details .add-to-cart-btn {
+    width: 100% !important;
+    max-width: 250px !important;
+    height: 52px !important;
+    font-size: 28px !important;
+  }
+}
+
+/* Gallery active state — highest priority, identical on every selection */
+.record-thumbs-col .record-thumb[data-gallery-active="true"],
+.record-thumbs-col img.record-thumb.selected {
+  border: 1px solid #f3b586 !important;
+  box-shadow: 0 0 8px rgba(255, 107, 107, 0.6) !important;
+  transform: scale(1.05) !important;
+  z-index: 2 !important;
+}
+
+.record-thumbs-col .record-thumb:not([data-gallery-active="true"]) {
+  border: 2px solid #222 !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+.thumbnail-container .thumbnail[data-gallery-active="true"],
+.thumbnail-container .thumbnail.selected {
+  border: 2px solid #8b6b47 !important;
+  box-shadow: none !important;
+  transform: none !important;
+  z-index: 2 !important;
+}
+
+.thumbnail-container .thumbnail:not([data-gallery-active="true"]) {
+  border: 2px solid #222 !important;
+}

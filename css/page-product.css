@@ -1,0 +1,832 @@
+/* Product page — product.html */
+.product-main {
+  width: 100%;
+  max-width: 1200px;
+  padding: 24px 5vw 48px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 900px) {
+  .product-main {
+    padding: 0 16px 32px !important;
+  }
+}
+
+.record-title {
+      font-family: 'Amatica SC', cursive;
+      font-size: 60px;
+      font-weight: 700;
+      color: #8B6B47;
+      text-align: center;
+      margin-bottom: 10px;
+      margin-top: 2px;
+      width: 100%;
+    }
+    
+    /* Product Page Styles */
+    .product-container {
+      display: flex;
+      flex-direction: row-reverse;
+      gap: 40px;  /* הגדלת הרווח בין התמונה לריבוע ההזמנה */
+      width: 100%;
+      max-width: 1200px;
+      justify-content: center;
+      align-items: flex-start;
+      margin-bottom: 0px;
+      padding: 0 10px;
+    }
+    
+    .product-gallery {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      min-width: 350px;
+      width: 350px;
+      min-height: 500px;
+      height: 100%;
+      position: relative;
+      gap: 18px;
+      padding: 20px 0;  /* רווח מעל ומתחת לגלריה */
+    }
+    
+    .main-image {
+      width: 320px;
+      height: 320px;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      border-radius: 16px;
+      border: 3px solid #222;
+      background: #2222;
+      margin: 20px 0;  /* רווח מעל ומתחת לתמונה הגדולה */
+      overflow: hidden;
+      order: 2;
+      flex-shrink: 0;
+      min-width: 320px;
+      min-height: 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .main-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+    
+    .thumbnail-container {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      align-items: center;
+      justify-content: center;
+      order: 1;
+    }
+    
+    .thumbnail {
+      width: 48px;
+      height: 48px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 2px solid #222;
+      cursor: pointer;
+      background: #2222;
+      transition: border 0.2s;
+      flex-shrink: 0;
+    }
+
+    .thumbnail.selected {
+      border: 2px solid #8B6B47;
+    }
+
+    .thumbnail img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+    
+    .product-details {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      min-width: 0;
+      max-width: 100%;
+      background: #e2c9a6;
+      padding: 24px;
+      border-radius: 16px;
+      box-shadow: 0 2px 12px #0001;
+      position: relative;
+    }
+    
+    .product-title {
+      font-family: 'Amatica SC', cursive;
+      font-size: 36px;
+      color: #5C4638;
+      margin: 0 0 16px;
+    }
+    
+    .price-amount {
+      font-family: 'Amatica SC', cursive;
+      font-size: 32px;
+      color: #5C4638;
+      font-weight: bold;
+      text-align: left;
+      margin-bottom: 16px;
+      margin-right: auto;  /* מזיז את המחיר לצד שמאל */
+    }
+    
+    .price-container {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: auto;
+    }
+    
+    .price-note {
+      font-size: 16px;
+      color: #000;
+      opacity: 0.7;
+      margin-top: 4px;
+      font-family: 'Amatica SC', cursive;
+    }
+    
+    .quantity-section {
+      width: 100%;
+      margin-bottom: 16px;
+    }
+    
+    .quantity-label {
+      font-family: 'Amatica SC', cursive;
+      font-size: 32px;
+      color: #5C4638;
+      margin-bottom: 8px;
+      display: block;
+    }
+    
+    .quantity-input {
+      width: 80px;
+      font-size: 22px;
+      border: 2px solid #8B6B47;
+      border-radius: 6px;
+      padding: 6px 8px;
+      font-family: 'Amatica SC', cursive;
+      background: #f9f1dc;
+      text-align: center;
+    }
+    
+    .quantity-input::-webkit-inner-spin-button,
+    .quantity-input::-webkit-outer-spin-button {
+      opacity: 1;
+      margin-left: 8px;
+    }
+    
+    .notes-section {
+      width: 100%;
+      margin-bottom: 12px;
+      padding: 0 10px;
+      box-sizing: border-box;
+    }
+    
+    .notes-label {
+      font-family: 'Amatica SC', cursive;
+      font-size: 32px;
+      color: #5C4638;
+      margin-bottom: 8px;
+      display: block;
+    }
+    
+    .notes-textarea {
+      width: 100%;
+      min-width: 0;
+      max-width: 100%;
+      height: 120px;
+      border-radius: 8px;
+      border: 2px solid #8B6B47;
+      font-size: 22px;
+      padding: 12px 14px;
+      font-family: 'Amatica SC', cursive;
+      resize: vertical;
+      background: #f9f1dc;
+      box-sizing: border-box;
+      margin: 0;
+    }
+    
+    .add-to-cart-btn {
+      width: 220px;
+      height: 60px;
+      background: #7bb39b;
+      color: #fff;
+      font-family: 'Amatica SC', cursive;
+      font-size: 36px;
+      border: 3px solid #fff;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin: 0 auto;
+      display: block;
+    }
+    
+    .add-to-cart-btn:hover {
+      background: #5C4638;
+    }
+    
+    .record-note {
+      font-size: 16px;
+      color: #000;
+      opacity: 0.7;
+      text-align: right;
+      font-family: 'Amatica SC', cursive;
+      margin: 10px 0;
+      line-height: 1.5;
+      position: static;
+      width: 100%;
+      padding-right: 10px;
+    }
+
+    @media (max-width: 700px) {
+        /* Mobile Product Page */
+        main {
+        padding: 0 16px !important;
+        margin: 0;
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box;
+      }
+      /* Mobile Header */
+      header {
+        height: 70px;
+        padding: 6px 8px;
+      }
+      
+      .logo {
+        width: 140px;
+        height: 60px;
+      }
+      
+      .cart {
+        width: 28px;
+        height: 28px;
+        right: 8px;
+        top: 8px;
+      }
+      
+      .cart-icon {
+        width: 28px;
+        height: 28px;
+      }
+      
+      .cart-badge {
+        font-size: 14px;
+        bottom: 2px;
+      }
+      
+      /* Mobile Navigation */
+      nav {
+        height: 40px;
+        padding: 0 2vw;
+        gap: 15px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+        margin: 0 0 30px 0;  /* רווח מתחת לנאב, שזה מעל הכותרת */
+      }
+      
+      .nav-link {
+        font-size: 24px;
+        line-height: 40px;
+        height: 40px;
+        min-width: 50px;
+        margin: 0 1vw;
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+      
+      .shop-popup-btn {
+        font-size: 24px !important;
+        line-height: 40px !important;
+        height: 40px !important;
+      }
+      
+      .side-cart {
+        width: 98vw;
+        max-width: 98vw;
+      }
+      
+      /* Ensure the view cart button is always visible on mobile */
+      .side-cart-view-btn {
+        position: sticky;
+        bottom: 0;
+        width: calc(100% - 32px);
+        margin: 16px 16px 18px 16px;
+        height: 48px;
+        background: #4C8467;
+        color: #fff;
+        font-family: 'Amatica SC', cursive;
+        font-size: 20px;
+        font-weight: 700;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background 0.2s;
+        display: block;
+        z-index: 10;
+        box-shadow: 0 -2px 8px rgba(0,0,0,0.1);
+      }
+      
+      .side-cart-view-btn:hover {
+        background: #3D6B4A; /* שינוי לירוק כהה יותר שעומד בתנאי הנגישות */
+      }
+      
+      /* Adjust side-cart-list padding to prevent overlap */
+      .side-cart-list {
+        padding: 10px 0 80px 0;
+      }
+      
+      /* Mobile Shop Popup */
+      .shop-popup {
+        top: 100%;
+        right: 0;
+        left: auto;
+        min-width: 140px;
+        font-size: 18px;
+      }
+      
+      .shop-popup > ul > li {
+        padding: 0 8px;
+        margin-bottom: 0;
+      }
+      
+      .shop-popup a, .shop-popup .popup-main-btn {
+        font-size: 18px;
+        padding: 2px 0;
+        line-height: 1.2;
+        margin: 0;
+      }
+      
+      .popup-sub {
+        right: 100%;
+        min-width: 100px;
+        font-size: 16px;
+      }
+      
+      .popup-sub a {
+        font-size: 16px;
+        padding: 2px 0;
+      }
+
+      /* Mobile Footer */
+      footer {
+        height: auto;
+        min-height: 120px;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 15px 10px;
+      }
+      
+      .footer-nav {
+        position: static;
+        transform: none;
+        left: auto;
+        top: auto;
+        margin: 10px 0;
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+      
+      .footer-link {
+        font-size: 18px;
+        margin: 0;
+      }
+      
+      .footer-contact {
+        position: static;
+        align-items: center;
+        margin: 10px 0;
+      }
+      
+      .footer-contact-text {
+        font-size: 14px;
+      }
+      
+      .footer-logo {
+        width: 70px;
+        height: 70px;
+        margin: 10px 0;
+      }
+      
+      /* Additional mobile styles for very small screens */
+      @media (max-width: 480px) {
+        .side-cart-view-btn {
+          font-size: 18px;
+          height: 44px;
+          margin: 12px 12px 16px 12px;
+          width: calc(100% - 24px);
+        }
+      }
+    }
+
+    @media(max-width: 900px){
+      .record-title {
+        font-size: 58px;
+        margin: 0 0 35px 0;  /* הגדלת הרווח מתחת לכותרת */
+        padding: 0;
+        line-height: 1;
+        font-weight: bold;
+      }
+      
+      .product-container {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .product-gallery {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        min-width: 0 !important;
+        max-width: 100%;
+        min-height: auto;
+        align-items: center;
+      }
+
+      .thumbnail-container {
+        order: 1;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: nowrap;
+        width: 100%;
+        margin: 6px 0;
+        gap: 10px;
+        padding: 0;
+        overflow-x: auto;
+      }
+      
+      .thumbnail {
+        width: 35px !important;
+        height: 35px !important;
+        flex-shrink: 0;
+      }
+
+      .main-image {
+        order: 2;
+        width: 300px !important;
+        height: 300px !important;
+        min-width: 300px !important;
+        min-height: 300px !important;
+        max-width: 300px !important;
+        max-height: 300px !important;
+        margin: 4px auto 35px auto;  /* הגדלת הרווח מתחת לתמונה הגדולה */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      main {
+        padding: 0 16px !important;
+        box-sizing: border-box;
+      }
+
+      .product-container {
+        padding: 0;
+      }
+
+      .product-details {
+        order: 3;
+        padding: 18px 16px;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0 !important;
+        margin: 0 auto;
+        background: #e2c9a6;
+        border-radius: 16px;
+        position: static;
+        left: auto;
+        transform: none;
+        box-sizing: border-box;
+      }
+
+      .record-note {
+        order: 4;
+        font-size: 13px;
+        margin: 2px auto;
+        padding: 0 8px;
+        text-align: center;
+        line-height: 1.2;
+        max-width: 320px;
+      }
+      
+      .notes-section {
+        padding: 0;
+        margin-bottom: 16px;
+      }
+
+      .notes-label, .quantity-label {
+        font-size: 20px;
+        margin-bottom: 6px;
+      }
+      
+      .notes-textarea {
+        font-size: 16px;
+        padding: 12px 14px;
+        min-height: 80px;
+      }
+      
+      .quantity-input {
+        font-size: 18px;
+        padding: 4px 8px;
+        width: 80px;
+      }
+      
+      .price-container {
+        flex-direction: column;
+        gap: 8px;
+        align-items: center;
+        margin-top: 6px;
+      }
+      
+      .price-amount {
+        font-size: 32px;
+        margin: 0;
+        margin-right: auto;  /* מזיז את המחיר לצד שמאל גם במובייל */
+        margin-left: 0;
+      }
+      
+      .add-to-cart-btn {
+        font-size: 20px;
+        padding: 8px 20px;
+        width: 100%;
+        max-width: 250px;
+        margin: 0;
+      }
+      
+      .record-note {
+        font-size: 13px;
+        margin: 2px auto;
+        padding: 0 8px;
+        text-align: center;
+        line-height: 1.2;
+        max-width: 320px;
+      }      
+    }
+
+    .required {
+      color: red;
+      margin-right: 4px;
+    }
+
+    .error-message {
+      color: red;
+      font-family: 'Amatica SC', cursive;
+      font-size: 18px;
+      margin-top: 4px;
+      display: none;
+    }
+
+    .notes-textarea.error {
+      border-color: red;
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background-color: #7bb39b;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-family: 'Amatica SC', cursive;
+      font-size: 24px;
+      opacity: 0;
+      transition: all 0.3s ease-in-out;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+    
+    
+@media(max-width: 900px){
+      .record-title {
+        font-size: 58px;
+        margin: 0 0 35px 0;  /* הגדלת הרווח מתחת לכותרת */
+        padding: 0;
+        line-height: 1;
+        font-weight: bold;
+      }
+      
+      .product-container {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .product-gallery {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        min-width: 0 !important;
+        max-width: 100%;
+        min-height: auto;
+        align-items: center;
+      }
+
+      .thumbnail-container {
+        order: 1;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: nowrap;
+        width: 100%;
+        margin: 6px 0;
+        gap: 10px;
+        padding: 0;
+        overflow-x: auto;
+      }
+      
+      .thumbnail {
+        width: 35px !important;
+        height: 35px !important;
+        flex-shrink: 0;
+      }
+
+      .main-image {
+        order: 2;
+        width: 300px !important;
+        height: 300px !important;
+        min-width: 300px !important;
+        min-height: 300px !important;
+        max-width: 300px !important;
+        max-height: 300px !important;
+        margin: 4px auto 35px auto;  /* הגדלת הרווח מתחת לתמונה הגדולה */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      main {
+        padding: 0 16px !important;
+        box-sizing: border-box;
+      }
+
+      .product-container {
+        padding: 0;
+      }
+
+      .product-details {
+        order: 3;
+        padding: 18px 16px;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0 !important;
+        margin: 0 auto;
+        background: #e2c9a6;
+        border-radius: 16px;
+        position: static;
+        left: auto;
+        transform: none;
+        box-sizing: border-box;
+      }
+
+      .record-note {
+        order: 4;
+        font-size: 13px;
+        margin: 2px auto;
+        padding: 0 8px;
+        text-align: center;
+        line-height: 1.2;
+        max-width: 320px;
+      }
+      
+      .notes-section {
+        padding: 0;
+        margin-bottom: 16px;
+      }
+
+      .notes-label, .quantity-label {
+        font-size: 20px;
+        margin-bottom: 6px;
+      }
+      
+      .notes-textarea {
+        font-size: 16px;
+        padding: 12px 14px;
+        min-height: 80px;
+      }
+      
+      .quantity-input {
+        font-size: 18px;
+        padding: 4px 8px;
+        width: 80px;
+      }
+      
+      .price-container {
+        flex-direction: column;
+        gap: 8px;
+        align-items: center;
+        margin-top: 6px;
+      }
+      
+      .price-amount {
+        font-size: 32px;
+        margin: 0;
+        margin-right: auto;  /* מזיז את המחיר לצד שמאל גם במובייל */
+        margin-left: 0;
+      }
+      
+      .add-to-cart-btn {
+        font-size: 20px;
+        padding: 8px 20px;
+        width: 100%;
+        max-width: 250px;
+        margin: 0;
+      }
+      
+      .record-note {
+        font-size: 13px;
+        margin: 2px auto;
+        padding: 0 8px;
+        text-align: center;
+        line-height: 1.2;
+        max-width: 320px;
+      }      
+    }
+
+    
+.required {
+      color: red;
+      margin-right: 4px;
+    }
+
+    .error-message {
+      color: red;
+      font-family: 'Amatica SC', cursive;
+      font-size: 18px;
+      margin-top: 4px;
+      display: none;
+    }
+
+    .notes-textarea.error {
+      border-color: red;
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      background-color: #7bb39b;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-family: 'Amatica SC', cursive;
+      font-size: 24px;
+      opacity: 0;
+      transition: all 0.3s ease-in-out;
+      z-index: 1000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+    
+    /* נגישות - Focus States */
+    *:focus:not(:focus-visible) {
+      outline: none !important;
+      box-shadow: none !important;
+    }
+    
+    *:focus-visible {
+      outline: 2px solid #4C8467 !important;
+      outline-offset: 2px !important;
+    }
+    
+    

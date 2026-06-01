@@ -1,0 +1,24 @@
+/**
+ * PAINTZ — Font configuration
+ * =============================================
+ * To change fonts across the entire site, edit ONLY this file.
+ *
+ * Steps:
+ * 1. Change the Google Fonts @import URL below (or add a new font)
+ * 2. Update the --font-* variables to match your chosen families
+ * 3. Save — all pages pick up the change automatically via css/site.css
+ */
+@import url('https://fonts.googleapis.com/css2?family=Amatica+SC:wght@700&family=Amatic+SC:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700;900&display=swap');
+
+:root {
+  /* Navigation, footer, cart UI */
+  --font-nav: 'Amatica SC', cursive;
+  /* Body / display text on product pages */
+  --font-display: 'Amatic SC', cursive;
+  /* Headings (policy titles, section headers) */
+  --font-accent: 'Oswald', sans-serif;
+  /* Cart badge numbers */
+  --font-badge: 'Rubik', sans-serif;
+}

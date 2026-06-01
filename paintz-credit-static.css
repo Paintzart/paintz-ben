@@ -1,0 +1,31 @@
+/* PAINTZ credit — מתחת לתוכן, צמוד לשורת המדיניות */
+#paintz-credit-bar.paintz-credit,
+.paintz-credit {
+  position: static !important;
+  inset: auto !important;
+  z-index: auto !important;
+  box-shadow: none !important;
+  width: 100%;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding-top: 0 !important;
+  clear: both;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  #paintz-credit-bar.paintz-credit,
+  .paintz-credit {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+    line-height: 1;
+  }
+
+  .paintz-credit__inner {
+    padding-top: 2px !important;
+    padding-bottom: 2px !important;
+  }
+}
+html.paintz-credit--pad body {
+  padding-bottom: 0 !important;
+}
